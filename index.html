@@ -13,6 +13,7 @@
 <meta property="og:url" content="https://journeymanwebco.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
     html{scroll-behavior:smooth}
     body{margin:0}
@@ -46,9 +47,6 @@
     .wb-form .input{border-radius:0;min-height:44px;padding:10px 12px;font-size:16px}
     .wb-form textarea.input{min-height:96px}
     .wb-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-    /* No-JS fallback: the function redirects to #review-sent or #review-error */
-    #review-sent:target,#review-error:target{display:block}
-    #review-sent:target~form{display:none}
     @media (max-width:720px){.nav>a:not(.btn){display:none}}
   
 /* Hero fallback: wb-hero-3d appends a <canvas> only when WebGL is available.
@@ -501,7 +499,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
             <h3 style="font-size:26px;line-height:1.1;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 10px">Got it. Thanks<span data-sent-name></span>.</h3>
             <p style="font-size:15px;line-height:24px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">I'll look over your site and get back to you soon. If it can't wait, call me at <a href="tel:+12485059421">248-505-9421</a>.</p>
           </div>
-          <form id="review-form" class="wb-form" action="/api/review" method="post">
+          <form id="review-form" class="wb-form" data-endpoint="https://journeyman-contact.travisjterry.workers.dev">
             <div class="wb-form-grid" style="padding:24px">
               <div class="field wide">
                 <label for="rv-website">Current website <span class="opt">(leave blank if you don't have one)</span></label>
@@ -532,7 +530,9 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
                 <input id="rv-hp" name="bf_check" type="text" tabindex="-1" autocomplete="off">
               </div>
               <div class="wide">
-                <p id="review-error" role="alert" hidden style="margin:0 0 12px;padding:12px 14px;border:1px solid var(--color-accent);font-size:14px;line-height:21px">That didn't go through. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> and I'll take care of it.</p>
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAFAOsoaBgRf6Lcxi" data-theme="light" style="min-height:65px;margin:0 0 16px"></div>
+                <noscript><p style="margin:0 0 12px;font-size:14px;line-height:21px">This form needs JavaScript. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a>.</p></noscript>
+                <p id="review-error" role="alert" hidden style="margin:0 0 12px;padding:12px 14px;border:1px solid var(--color-accent);font-size:14px;line-height:21px"><span data-msg hidden></span><span data-fallback>That didn't go through. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> and I'll take care of it.</span></p>
                 <button class="btn btn-primary btn-block" type="submit" style="min-height:48px;font-size:16px;margin-top:4px">Send my review request</button>
                 <p style="margin:12px 0 0;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">Goes straight to me. I'll get back to you personally.</p>
               </div>
@@ -630,26 +630,44 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
     tio.observe(tl);
   });
 
-  // 4. free review form: post in place, fall back to phone/email on any failure
+  // 4. free review form: send to the journeyman-contact Worker (Turnstile + Resend)
   var rf = document.getElementById('review-form');
   if (rf) {
+    var btn = rf.querySelector('button[type="submit"]'), label = btn.textContent;
+    var err = document.getElementById('review-error'), sent = document.getElementById('review-sent');
+    var fail = function (msg) {
+      // Fixable problems show the Worker's message; anything else shows phone and email.
+      var m = err.querySelector('[data-msg]');
+      m.textContent = msg || ''; m.hidden = !msg;
+      err.querySelector('[data-fallback]').hidden = !!msg;
+      err.hidden = false;
+      if (window.turnstile) turnstile.reset();
+      btn.disabled = false; btn.textContent = label;
+    };
     rf.addEventListener('submit', function (e) {
       e.preventDefault();
-      var btn = rf.querySelector('button[type="submit"]'), label = btn.textContent;
-      var err = document.getElementById('review-error'), sent = document.getElementById('review-sent');
       err.hidden = true;
+      var f = rf.elements, v = function (n) { return (f.namedItem(n).value || '').trim(); };
+      var token = window.turnstile ? turnstile.getResponse() : '';
+      if (!token) { fail('Finish the quick bot check above the button, then send it again.'); return; }
       btn.disabled = true; btn.textContent = 'Sending...';
-      fetch(rf.action, { method: 'POST', body: new FormData(rf), headers: { Accept: 'application/json' } })
-        .then(function (r) { return r.json().then(function (d) { if (!r.ok || !d.ok) throw new Error(); }); })
-        .then(function () {
-          var first = (rf.elements.namedItem('name').value || '').trim().split(/\s+/)[0];
+      fetch(rf.getAttribute('data-endpoint'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          website: v('website'), name: v('name'), business: v('business'),
+          phone: v('phone'), email: v('email'), notes: v('notes'),
+          hp: f.namedItem('bf_check').value, turnstileToken: token
+        })
+      })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { r: r, d: d }; }); })
+        .then(function (x) {
+          if (!(x.r.ok && x.d.ok)) { fail(x.r.status < 500 ? x.d.error : ''); return; }
+          var first = v('name').split(/\s+/)[0];
           sent.querySelector('[data-sent-name]').textContent = first ? ', ' + first : '';
           rf.hidden = true; sent.hidden = false; sent.focus();
         })
-        .catch(function () {
-          err.hidden = false;
-          btn.disabled = false; btn.textContent = label;
-        });
+        .catch(function () { fail(''); });
     });
   }
 
