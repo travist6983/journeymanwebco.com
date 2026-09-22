@@ -17,3 +17,8 @@ Thumbs.db
 *.swp
 .vscode/
 .idea/
+
+# Wrangler local state
+.wrangler/
+node_modules/
+.dev.vars*
