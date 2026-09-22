@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /samples/
+Disallow:
 
 Sitemap: https://journeymanwebco.com/sitemap.xml
