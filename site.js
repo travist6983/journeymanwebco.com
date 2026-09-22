@@ -137,8 +137,6 @@
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { r: r, d: d }; }); })
         .then(function (x) {
           if (!(x.r.ok && x.d.ok)) { fail(x.r.status < 500 ? x.d.error : ''); return; }
-          var first = v('name').split(/\s+/)[0];
-          sent.querySelector('[data-sent-name]').textContent = first ? ', ' + first : '';
           rf.hidden = true; sent.hidden = false; sent.focus();
         })
         .catch(function () { fail(''); });
@@ -153,4 +151,17 @@
       if (pkg) pkg.value = a.getAttribute('data-package') + ', ' + (mode ? mode.value : 'monthly');
     });
   });
+
+  // 6. phones: sticky Call / Free review bar, tucked away while the form is on screen
+  var bar = document.getElementById('callbar'), formCard = document.querySelector('.wb-review-form');
+  if (bar && formCard && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      bar.classList.toggle('is-hidden', es[0].isIntersecting);
+    }).observe(formCard);
+  }
+
+  // 7. FAQ: answers open on wide screens, tap-to-open on phones
+  if (matchMedia('(min-width: 900px)').matches) {
+    document.querySelectorAll('.wb-qa').forEach(function (d) { d.open = true; });
+  }
 })();

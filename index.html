@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Journeyman Web Co. | Websites that make your phone ring</title>
 <meta name="description" content="Journeyman Web Co. helps contractors and local service businesses improve local visibility, strengthen service pages, and turn more search demand into calls and quote requests.">
 <meta name="theme-color" content="#5980a6">
@@ -100,6 +100,51 @@
     .wb-ba figcaption{margin-top:6px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)}
     [data-a1-quote]{margin:20px 0 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:1.35}
     [hidden]{display:none!important}
+    /* Tap targets and focus */
+    .btn{min-height:44px}
+    .seg-opt{min-height:44px}
+    .nav a:not(.btn){display:inline-flex;align-items:center;min-height:44px}
+    a.wb-tap{display:inline-block;padding:12px 0;margin:-12px 0}
+    .wb-form .input::placeholder{color:#666768}
+    /* FAQ accordions */
+    .wb-qa>summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;min-height:44px;padding:10px 0}
+    .wb-qa>summary::-webkit-details-marker{display:none}
+    .wb-qa>summary h3{margin:0;font-size:17px;line-height:24px}
+    .wb-qa>summary::after{content:"+";flex:none;width:24px;height:24px;display:grid;place-items:center;font:400 20px/1 var(--font-body);color:var(--color-accent-700);transition:transform .2s}
+    .wb-qa[open]>summary::after{transform:rotate(45deg)}
+    .wb-qa>p{margin:0 0 8px!important}
+    /* Sticky call bar on phones; hidden while the form is on screen */
+    .wb-callbar{display:none}
+    @media (max-width:640px){
+      .wb-callbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom, 0px));background:color-mix(in srgb, var(--color-bg) 94%, transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--color-divider);transition:transform .25s ease,visibility .25s}
+      .wb-callbar .btn{min-height:48px;font-size:16px;gap:8px}
+      .wb-callbar.is-hidden{transform:translateY(110%);visibility:hidden}
+      body{padding-bottom:calc(68px + env(safe-area-inset-bottom, 0px))}
+    }
+    @media (prefers-reduced-motion: reduce){.wb-callbar,.wb-qa>summary::after{transition:none}}
+    /* Phones: same content, less scrolling */
+    @media (max-width:640px){
+      main section:not([data-screen-label="Hero"]){padding-top:36px!important;padding-bottom:4px!important}
+      /* the sticky bar already offers Call on phones; the speed test is listed in the review section */
+      .wb-review-call,.wb-sheet-foot{display:none!important}
+      section[data-screen-label="Hero"]{padding:28px 0 36px!important;gap:28px!important}
+      .wb-hero-fig .wb-phone{--w:180px!important}
+      .wb-sample .wb-phone{--w:160px!important}
+      .wb-rule{margin-bottom:24px}
+      .wb-stat-num{font-size:72px!important}
+      .wb-clients{gap:14px}
+      .wb-clients>.blueprint{padding:18px!important;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:start}
+      .wb-clients>.blueprint>svg{grid-row:span 2;margin-top:2px}
+      .wb-clients>.blueprint>h3{margin:0 0 4px!important;font-size:18px!important}
+      /* pricing cards swipe sideways with the next one peeking in */
+      .wb-tiers{display:grid!important;grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:86%;gap:14px!important;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;margin:0 -20px;padding:6px 20px 12px;scroll-padding-inline:20px;scrollbar-width:thin}
+      .wb-tiers>.blueprint{scroll-snap-align:start;padding:22px 20px!important}
+      .wb-swipe-hint{display:block!important}
+      .wb-steps{gap:24px 0!important}
+      .wb-faq{gap:0!important}
+      .wb-qa{border-bottom:1px solid var(--color-divider)}
+      .wb-form-grid{gap:12px!important;padding:20px!important}
+    }
     .pre-reveal{opacity:0;transform:translateY(16px)}
     .revealed{transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
     @media (max-width:399px){#rv-turnstile{min-height:140px!important}}
@@ -145,7 +190,7 @@
     .wb-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px}
     .wb-form-grid .wide{grid-column:1/-1}
     .wb-form .field>label{font-size:12px;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
-    .wb-form .field>label .opt{text-transform:none;letter-spacing:0;font-weight:400;color:color-mix(in srgb, var(--color-text) 55%, transparent)}
+    .wb-form .field>label .opt{text-transform:none;letter-spacing:0;font-weight:400;color:color-mix(in srgb, var(--color-text) 70%, transparent)}
     .wb-form .input{border-radius:0;min-height:44px;padding:10px 12px;font-size:16px}
     .wb-form textarea.input{min-height:96px}
     .wb-form select.input{appearance:none;padding-right:40px;background:var(--color-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23416180' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center}
@@ -168,6 +213,7 @@
     </div>
   </nav>
 
+  <main>
   <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,4vw,56px);align-items:center;padding:clamp(40px,6vw,72px) 0 48px" data-screen-label="Hero">
       <div class="wb-hero-copy">
@@ -281,7 +327,7 @@
           <span style="padding:10px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;white-space:nowrap;align-self:stretch;display:flex;align-items:center">Same day</span>
           <span style="padding:10px 24px 10px 0;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent);align-self:stretch;display:flex;align-items:center">You talk to me, not a ticket queue</span>
         </div>
-        <p style="margin:0;padding:12px 24px;border-top:1px solid var(--color-divider);font-size:13px;line-height:24px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">The free review includes a mobile speed test of your current site.</p>
+        <p class="wb-sheet-foot" style="margin:0;padding:12px 24px;border-top:1px solid var(--color-divider);font-size:13px;line-height:24px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">The free review includes a mobile speed test of your current site.</p>
       </div>
     </section>
 
@@ -320,7 +366,7 @@
           <p style="margin:0;padding:12px 24px;border-bottom:1px solid var(--color-divider);font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Track record</p>
           <div style="position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 20px;padding:32px 24px 26px;border-bottom:1px solid var(--color-divider)">
             <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right, color-mix(in srgb, var(--color-accent) 16%, transparent) 1px, transparent 1px) 0 0/24px 24px, linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 16%, transparent) 1px, transparent 1px) 0 0/24px 24px;-webkit-mask-image:linear-gradient(to right, transparent, #000 20px, #000 45%, transparent 95%), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent, #000 20px, #000 45%, transparent 95%), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);mask-composite:intersect"></span>
-            <span style="position:relative;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(96px,11vw,148px);line-height:0.8;letter-spacing:-0.01em;color:var(--color-accent-700)">20</span>
+            <span class="wb-stat-num" style="position:relative;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(96px,11vw,148px);line-height:0.8;letter-spacing:-0.01em;color:var(--color-accent-700)">20</span>
             <span style="position:relative;display:flex;flex-direction:column;gap:6px;padding-bottom:2px">
               <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;line-height:1.05">years</span>
               <span style="font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Building websites since 2006</span>
@@ -348,7 +394,7 @@
             <span style="width:32px;height:1px;background:var(--color-accent);flex:none" aria-hidden="true"></span>
             <span style="display:flex;flex-direction:column;gap:2px">
               <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:22px;line-height:1.1">Travis Terry</span>
-              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a href="tel:+12485059421">248-505-9421</a></span>
+              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a class="wb-tap" href="tel:+12485059421">248-505-9421</a></span>
             </span>
           </div>
         </div>
@@ -400,10 +446,11 @@
         </div>
       </div>
       <p data-founding hidden style="margin:0 0 28px;padding:12px 16px;background:var(--color-accent-100);color:var(--color-accent-800);font-size:14px;line-height:22px"><strong>Founding client pricing:</strong> the first <span data-p="foundingOffer.spots"></span> businesses to sign by <span data-p="foundingOffer.endsOnLabel"></span> get <span data-p="foundingOffer.buildDiscountPct"></span>% off the build (<span data-p="$tiers.essentials.foundingBuild"></span> / <span data-p="$tiers.growth.foundingBuild"></span> / <span data-p="$tiers.industrial.foundingBuild"></span> upfront) or <span data-p="foundingOffer.monthlyFreeMonths"></span> months free on a monthly plan.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,3vw,40px);align-items:stretch">
+      <p class="wb-swipe-hint" style="display:none;margin:0 0 10px;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Swipe to compare all three packages.</p>
+      <div class="wb-tiers" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,3vw,40px);align-items:stretch">
         <div class="blueprint" data-reveal="0" style="padding:28px 24px;display:flex;flex-direction:column;gap:0">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Tier 1</span>
+          <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Tier 1</span>
           <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:8px 0 4px">Essentials</h3>
           <p style="font-size:13px;line-height:20px;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">For small and growing service businesses.</p>
           <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em"><span data-view="monthly"><span data-p="$tiers.essentials.monthly"></span>/mo</span><span data-view="upfront" hidden><span data-p="$tiers.essentials.upfront"></span></span></div>
@@ -422,7 +469,7 @@
         <div class="blueprint" data-reveal="120" style="padding:28px 24px;display:flex;flex-direction:column;border-color:var(--color-accent)">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Tier 2</span>
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Tier 2</span>
             <span class="tag tag-accent">Most popular</span>
           </div>
           <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:8px 0 4px">Growth</h3>
@@ -442,7 +489,7 @@
         </div>
         <div class="blueprint" data-reveal="240" style="padding:28px 24px;display:flex;flex-direction:column">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Tier 3</span>
+          <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Tier 3</span>
           <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:8px 0 4px">Industrial</h3>
           <p style="font-size:13px;line-height:20px;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">For manufacturers, fabricators, and B2B suppliers.</p>
           <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em"><span data-view="monthly"><span data-p="$tiers.industrial.monthly"></span>/mo</span><span data-view="upfront" hidden><span data-p="$tiers.industrial.upfront"></span></span></div>
@@ -583,33 +630,33 @@
           <p style="font-size:13px;line-height:20px;margin:0;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Updates, backups, security, and edits, every month, without asking.</p>
         </div>
       </div>
-      <p data-reveal="0" style="margin:24px 0 0;font-size:13px;line-height:20px;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Job complete. <span style="color:var(--color-accent-700)">Then I keep it that way, every month.</span></p>
+      <p data-reveal="0" style="margin:24px 0 0;font-size:13px;line-height:20px;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Job complete. <span style="color:var(--color-accent-700)">Then I keep it that way, every month.</span></p>
     </section>
 
     <section style="padding:56px 0 16px" data-screen-label="Straight answers">
       <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">07 · Straight answers</span>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 32px">
       <div class="wb-faq">
-        <div data-reveal="0">
-          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">How long does it take?</h4>
+        <details class="wb-qa" data-reveal="0">
+          <summary><h3>How long does it take?</h3></summary>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Most sites launch within 1 to 2 weeks of receiving your content. The biggest variable is how fast I get your photos and information.</p>
-        </div>
-        <div data-reveal="80">
-          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">Do I own my website?</h4>
+        </details>
+        <details class="wb-qa" data-reveal="80">
+          <summary><h3>Do I own my website?</h3></summary>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Yes. The site is yours once the build is paid for, on either plan. On a monthly plan that's after <span data-p="termMonths"></span> months, or sooner if you pay off the rest of the build.</p>
-        </div>
-        <div data-reveal="160">
-          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">Do you do SEO or ads?</h4>
+        </details>
+        <details class="wb-qa" data-reveal="160">
+          <summary><h3>Do you do SEO or ads?</h3></summary>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Every site gets search-friendly foundations and a Google Business Profile cleanup. I don't sell ranking guarantees. Be wary of anyone who does.</p>
-        </div>
-        <div data-reveal="240">
-          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">What if I have no photos or copy?</h4>
+        </details>
+        <details class="wb-qa" data-reveal="240">
+          <summary><h3>What if I have no photos or copy?</h3></summary>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">I can write your copy and coordinate a local photographer as add-ons. You do the work. I'll make it look like it.</p>
-        </div>
-        <div data-reveal="320">
-          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">Why do I need Hosting &amp; Care?</h4>
+        </details>
+        <details class="wb-qa" data-reveal="320">
+          <summary><h3>Why do I need Hosting &amp; Care?</h3></summary>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">A website needs somewhere to live, security updates, and backups. Hosting &amp; Care covers all of that plus small edits each month, so you never have to log in to anything. After the first <span data-p="careMinimumMonths"></span> months it's month to month, and if you leave I hand over every file.</p>
-        </div>
+        </details>
       </div>
     </section>
 
@@ -620,7 +667,7 @@
         <div class="wb-review-pitch" data-reveal="0">
           <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:0 0 16px;text-wrap:balance">Is your website costing you calls?</h2>
           <p style="font-size:15px;line-height:24px;max-width:52ch;margin:0 0 28px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Send me your site and I'll go through it the way your customers do: on a phone, in a hurry. You'll get a straight answer on what's working, what isn't, and what it would take to fix it. No pressure, no obligation.</p>
-          <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin:0 0 14px">What you get</span>
+          <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0 0 14px">What you get</span>
           <div style="display:flex;flex-direction:column;gap:14px;max-width:52ch;text-wrap:pretty">
             <div style="display:flex;gap:12px;font-size:15px;line-height:22px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span><strong>Your site on a phone.</strong> What customers actually see when they look you up.</span></div>
             <div style="display:flex;gap:12px;font-size:15px;line-height:22px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span><strong>A mobile speed test.</strong> How long your site keeps people waiting.</span></div>
@@ -628,16 +675,16 @@
           </div>
         </div>
         <div class="wb-review-call" data-reveal="0" style="padding-top:24px;border-top:1px solid var(--color-divider)">
-          <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin:0 0 6px">Rather just call?</span>
+          <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0 0 6px">Rather just call?</span>
           <a href="tel:+12485059421" style="display:inline-block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(32px,3.4vw,44px);line-height:1.1;letter-spacing:0.01em;color:var(--color-text);text-decoration:none">248-505-9421</a>
-          <p style="font-size:14px;line-height:22px;margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 70%, transparent)">or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></p>
+          <p style="font-size:14px;line-height:22px;margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 70%, transparent)">or email <a class="wb-tap" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></p>
         </div>
         <div class="blueprint wb-review-form" data-reveal="120">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <p class="wb-card-head">Free review request</p>
           <div id="review-sent" tabindex="-1" hidden style="padding:32px 24px">
-            <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:0 0 10px">Got it. Thanks<span data-sent-name></span>.</h3>
-            <p style="font-size:15px;line-height:24px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">I'll look over your site and get back to you soon. If it can't wait, call me at <a href="tel:+12485059421">248-505-9421</a>.</p>
+            <h3 style="font-size:26px;line-height:1.15;margin:0 0 20px">Got it. I'll call or email you by the end of the next business day.</h3>
+            <a class="btn btn-secondary" href="tel:+12485059421">Call now instead</a>
           </div>
           <form id="review-form" class="wb-form" data-endpoint="https://journeyman-contact.travisjterry.workers.dev">
             <div class="wb-form-grid" style="padding:24px">
@@ -686,7 +733,7 @@
                 <noscript><p style="margin:0 0 12px;font-size:14px;line-height:21px">This form needs JavaScript. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a>.</p></noscript>
                 <p id="review-error" role="alert" hidden style="margin:0 0 12px;padding:12px 14px;border:1px solid var(--color-accent);font-size:14px;line-height:21px"><span data-msg hidden></span><span data-fallback>That didn't go through. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> and I'll take care of it.</span></p>
                 <button class="btn btn-primary btn-block" type="submit" style="min-height:48px;font-size:16px;margin-top:4px">Send my review request</button>
-                <p style="margin:12px 0 0;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">Goes straight to me. I'll get back to you personally.</p>
+                <p style="margin:12px 0 0;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Goes straight to me. I'll get back to you personally.</p>
               </div>
             </div>
           </form>
@@ -694,11 +741,18 @@
       </div>
     </section>
 
+  </div>
+  </main>
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
     <footer style="padding:32px 0 48px;border-top:1px solid var(--color-divider);font-size:14px;line-height:24px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">
-      <p style="margin:0">Journeyman Web Co. · Sterling Heights, Michigan · <a href="tel:+12485059421">248-505-9421</a> · <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></p>
+      <p style="margin:0">Journeyman Web Co. · Sterling Heights, Michigan · <a class="wb-tap" href="tel:+12485059421">248-505-9421</a> · <a class="wb-tap" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></p>
     </footer>
   </div>
 </div>
+<nav class="wb-callbar" id="callbar" aria-label="Quick contact">
+  <a class="btn btn-secondary" href="tel:+12485059421" aria-label="Call 248-505-9421"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Call</a>
+  <a class="btn btn-primary" href="#review">Free review</a>
+</nav>
 <script src="config.js" defer></script>
 <script src="pricing.js" defer></script>
 <script src="site.js" defer></script>
