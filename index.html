@@ -31,10 +31,20 @@
     @media (max-width:1080px){.wb-faq{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media (max-width:540px){.wb-faq{grid-template-columns:minmax(0,1fr)}}
     .nav-brand,.nav .btn{white-space:nowrap}
-    /* Hero title sized to its column so each of its two lines fits on one line (line width is ~7.8em). */
+    .nav .btn-primary,.nav .btn-primary:hover{color:#fff}
+    h1,h2{text-wrap:balance}
+    /* Job sheet on phones: number, label, value on one line, the note full width under it */
+    @media (max-width:640px){
+      .wb-sheet-head>span+span{display:none}
+      .wb-sheet{grid-template-columns:max-content minmax(0,1fr) max-content!important;column-gap:16px!important}
+      .wb-sheet>span:nth-child(4n+2),.wb-sheet>span:nth-child(4n+3),.wb-sheet>span:nth-child(4n+4){border-bottom:0!important}
+      .wb-sheet>span:nth-child(4n+4){padding-right:24px!important}
+      .wb-sheet>span:nth-child(4n+5){grid-column:1/-1;padding:0 24px 12px!important}
+    }
+    /* Hero title sized to its column so each of its two lines fits on one line (Roboto Slab lines are ~9.6em). */
     .wb-hero-copy{container-type:inline-size}
-    .wb-hero-title{font-size:clamp(40px,5vw,60px)}
-    @supports (font-size:1cqi){.wb-hero-title{font-size:clamp(40px,12cqi,72px)}}
+    .wb-hero-title{font-size:clamp(36px,4vw,52px)}
+    @supports (font-size:1cqi){.wb-hero-title{font-size:clamp(36px,9.8cqi,72px)}}
     /* Free review: pitch, form, then call on phones; call tucks under the pitch on desktop */
     .wb-review{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
     .wb-review-call{order:1}
@@ -48,6 +58,8 @@
     .wb-form textarea.input{min-height:96px}
     .wb-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
     @media (max-width:720px){.nav>a:not(.btn){display:none}}
+    @media (max-width:400px){.nav-brand{font-size:15px}.nav{gap:10px}}
+    @media (max-width:350px){.nav-brand{font-size:13px}.nav .btn{padding-inline:8px;font-size:13px}}
   
 /* Hero fallback: wb-hero-3d appends a <canvas> only when WebGL is available.
    Without this the panel is empty on devices that block or lack WebGL. */
@@ -62,7 +74,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
 <div>
   <nav style="position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--color-bg) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--color-divider)">
     <div class="nav" style="max-width:1200px;margin:0 auto;padding:var(--space-3) clamp(20px,5vw,64px)">
-      <span class="nav-brand" style="text-transform:uppercase;letter-spacing:0.04em">Journeyman Web Co</span>
+      <span class="nav-brand">Journeyman Web Co</span>
       <a href="#work">Who I work with</a>
       <a href="#packages">Packages</a>
       <a href="#how">How it works</a>
@@ -73,7 +85,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
   <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,4vw,56px);align-items:center;padding:clamp(40px,6vw,72px) 0 48px" data-screen-label="Hero">
       <div class="wb-hero-copy">
-        <h1 class="wb-hero-title" style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);line-height:1.04;letter-spacing:0.01em;text-transform:uppercase;margin:0 0 0 -0.05em">
+        <h1 class="wb-hero-title" style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);line-height:1.04;letter-spacing:0.01em;margin:0 0 0 -0.05em">
           <span data-reveal="0" style="display:block">Websites that make</span>
           <span data-reveal="120" style="display:block">your phone ring.</span>
         </h1>
@@ -89,7 +101,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
           <wb-hero-3d mode="clay" anim="on" style="width:100%;height:100%;display:block"></wb-hero-3d>
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         </div>
-        <div style="display:flex;justify-content:space-between;gap:16px;margin-top:14px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;margin-top:14px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">
           <span>Fig. 01 · Your shop, built from the ground up.</span>
           <span style="color:var(--color-accent-700)">Raised while you watch</span>
         </div>
@@ -180,13 +192,13 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
     <section style="padding:72px 0 24px" data-screen-label="Job sheet">
       <div class="blueprint" data-reveal="0">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-        <header style="display:flex;flex-wrap:wrap;align-items:stretch;border-bottom:1px solid var(--color-divider)">
+        <header class="wb-sheet-head" style="display:flex;flex-wrap:wrap;align-items:stretch;border-bottom:1px solid var(--color-divider)">
           <span style="flex:1;min-width:16ch;padding:12px 24px;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Journeyman Web Co · Job sheet</span>
           <span style="padding:12px 24px;border-left:1px solid var(--color-divider);white-space:nowrap;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">WB-100</span>
           <span style="padding:12px 24px;border-left:1px solid var(--color-divider);white-space:nowrap;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Rev A</span>
           <span style="padding:12px 24px;border-left:1px solid var(--color-divider);white-space:nowrap;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Sheet 01 of 01</span>
         </header>
-        <div style="display:grid;grid-template-columns:max-content minmax(14ch,1.5fr) minmax(11ch,max-content) minmax(0,2fr);column-gap:24px;align-items:center;padding:6px 0">
+        <div class="wb-sheet" style="display:grid;grid-template-columns:max-content minmax(14ch,1.5fr) minmax(11ch,max-content) minmax(0,2fr);column-gap:24px;align-items:center;padding:6px 0">
           <span style="grid-column:1/-1;height:0"></span>
           <span style="padding:10px 0 10px 24px;font-size:13px;font-weight:600;letter-spacing:0.08em;color:var(--color-accent-700);border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center">01</span>
           <span style="padding:10px 0;font-size:15px;line-height:22px;border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center">Turnaround, content to launch</span>
@@ -212,30 +224,30 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
     <section id="work" style="padding:64px 0 16px" data-screen-label="Who I work with">
       <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">02 · Who I work with</span>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 8px">
-      <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;text-transform:uppercase;letter-spacing:0.01em;margin:20px 0 32px">If your work gets your hands dirty, you're my kind of client.</h2>
+      <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:20px 0 32px">If your work gets your hands dirty, you're my kind of client.</h2>
       <div class="wb-trades">
         <div class="blueprint" data-reveal="0" style="padding:24px;transition:border-color .25s,transform .25s" style-hover="border-color:var(--color-accent);transform:translateY(-3px)">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1Z"></path><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"></path><path d="M4 15v-3a6 6 0 0 1 6-6"></path><path d="M14 6a6 6 0 0 1 6 6v3"></path></svg>
-          <h3 style="font-size:20px;line-height:24px;text-transform:uppercase;letter-spacing:0.02em;margin:16px 0 8px">Home services</h3>
+          <h3 style="font-size:20px;line-height:24px;letter-spacing:0.02em;margin:16px 0 8px">Home services</h3>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Roofing, HVAC, plumbing, electrical, landscaping, concrete, fencing, remodeling.</p>
         </div>
         <div class="blueprint" data-reveal="100" style="padding:24px;transition:border-color .25s,transform .25s" style-hover="border-color:var(--color-accent);transform:translateY(-3px)">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-          <h3 style="font-size:20px;line-height:24px;text-transform:uppercase;letter-spacing:0.02em;margin:16px 0 8px">Automotive</h3>
+          <h3 style="font-size:20px;line-height:24px;letter-spacing:0.02em;margin:16px 0 8px">Automotive</h3>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Repair shops, body shops, towing, detailing.</p>
         </div>
         <div class="blueprint" data-reveal="200" style="padding:24px;transition:border-color .25s,transform .25s" style-hover="border-color:var(--color-accent);transform:translateY(-3px)">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M17 18h1"></path><path d="M12 18h1"></path><path d="M7 18h1"></path></svg>
-          <h3 style="font-size:20px;line-height:24px;text-transform:uppercase;letter-spacing:0.02em;margin:16px 0 8px">Manufacturing &amp; B2B</h3>
+          <h3 style="font-size:20px;line-height:24px;letter-spacing:0.02em;margin:16px 0 8px">Manufacturing &amp; B2B</h3>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Machine shops, fabricators, stamping, tool &amp; die, industrial suppliers.</p>
         </div>
         <div class="blueprint" data-reveal="300" style="padding:24px;transition:border-color .25s,transform .25s" style-hover="border-color:var(--color-accent);transform:translateY(-3px)">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-          <h3 style="font-size:20px;line-height:24px;text-transform:uppercase;letter-spacing:0.02em;margin:16px 0 8px">Local professionals</h3>
+          <h3 style="font-size:20px;line-height:24px;letter-spacing:0.02em;margin:16px 0 8px">Local professionals</h3>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Law firms, insurance agents, accountants, chiropractors.</p>
         </div>
       </div>
@@ -255,21 +267,21 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
             <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right, color-mix(in srgb, var(--color-accent) 16%, transparent) 1px, transparent 1px) 0 0/24px 24px, linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 16%, transparent) 1px, transparent 1px) 0 0/24px 24px;-webkit-mask-image:linear-gradient(to right, transparent, #000 20px, #000 45%, transparent 95%), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent, #000 20px, #000 45%, transparent 95%), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);mask-composite:intersect"></span>
             <span style="position:relative;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(96px,11vw,148px);line-height:0.8;letter-spacing:-0.01em;color:var(--color-accent-700)">10+</span>
             <span style="position:relative;display:flex;flex-direction:column;gap:6px;padding-bottom:2px">
-              <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;line-height:1.05;text-transform:uppercase;letter-spacing:0.02em">Years in<br>the trades</span>
+              <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;line-height:1.05;letter-spacing:0.02em">Years in<br>the trades</span>
               <span style="font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Before the first website.</span>
             </span>
           </div>
           <dl style="display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:0;margin:0;padding:6px 0">
             <dt style="padding:12px 24px;font-size:13px;line-height:24px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);border-bottom:1px solid var(--color-divider)">Now</dt>
-            <dd style="margin:0;padding:12px 24px 12px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:24px;text-transform:uppercase;letter-spacing:0.02em;border-bottom:1px solid var(--color-divider)">Websites for the trades</dd>
+            <dd style="margin:0;padding:12px 24px 12px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:24px;letter-spacing:0.02em;border-bottom:1px solid var(--color-divider)">Websites for the trades</dd>
             <dt style="padding:12px 24px;font-size:13px;line-height:24px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">The job</dt>
-            <dd style="margin:0;padding:12px 24px 12px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:24px;text-transform:uppercase;letter-spacing:0.02em">Getting good work seen</dd>
+            <dd style="margin:0;padding:12px 24px 12px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:24px;letter-spacing:0.02em">Getting good work seen</dd>
           </dl>
           <p style="margin:0;padding:12px 24px;border-top:1px solid var(--color-divider);font-size:13px;line-height:24px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Same rules. <span style="color:var(--color-accent-700);font-weight:600">New tools.</span></p>
         </div>
         <div data-reveal="120">
           <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin:0 0 12px">A note from Travis</span>
-          <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;text-transform:uppercase;letter-spacing:0.01em;margin:0 0 16px">I came from the trades.</h2>
+          <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:0 0 16px">I came from the trades.</h2>
           <p style="font-size:15px;line-height:24px;max-width:52ch;margin:0 0 16px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">I spent more than a decade in the trades. I know what it's like to run on referrals, live off the phone, and get burned by slick salespeople.</p>
           <p style="font-size:15px;line-height:24px;max-width:52ch;margin:0 0 24px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Now I build websites for tradesmen, because good work should be easy to find. Customers look you up before they call. If they can't find you, they call the next name on the list. You do the work. I make sure people see it, and I run every job the way a good contractor would:</p>
           <div style="display:flex;flex-direction:column;gap:14px;max-width:52ch;text-wrap:pretty">
@@ -280,7 +292,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
           <div style="display:flex;align-items:flex-start;gap:14px;margin-top:28px">
             <span style="width:32px;height:1px;margin-top:12px;background:var(--color-accent);flex:none"></span>
             <span style="display:flex;flex-direction:column;gap:2px">
-              <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:22px;line-height:1.1;text-transform:uppercase;letter-spacing:0.02em">Travis Terry</span>
+              <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:22px;line-height:1.1;letter-spacing:0.02em">Travis Terry</span>
               <span style="font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a href="tel:+12485059421">248-505-9421</a></span>
             </span>
           </div>
@@ -292,7 +304,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
       <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">04 · Packages</span>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 8px">
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin:20px 0 32px">
-        <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;text-transform:uppercase;letter-spacing:0.01em;margin:0">Straight prices. Two ways to pay.</h2>
+        <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:0">Straight prices. Two ways to pay.</h2>
         <div class="seg" role="radiogroup" aria-label="Billing">
           <label class="seg-opt"><input type="radio" name="wb-billing" value="monthly" checked style="position:absolute;opacity:0;pointer-events:none">Monthly subscription</label>
           <label class="seg-opt"><input type="radio" name="wb-billing" value="upfront" style="position:absolute;opacity:0;pointer-events:none">Pay upfront</label>
@@ -302,7 +314,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
         <div class="blueprint" data-reveal="0" style="padding:28px 24px;display:flex;flex-direction:column;gap:0">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Tier 1</span>
-          <h3 style="font-size:26px;line-height:1.1;text-transform:uppercase;letter-spacing:0.02em;margin:8px 0 4px">Essentials</h3>
+          <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:8px 0 4px">Essentials</h3>
           <p style="font-size:13px;line-height:20px;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">For small and growing service businesses.</p>
           <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em"><span data-bind="essPrice">$199/mo</span></div>
           <div style="font-size:13px;line-height:18px;margin:8px 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-bind="essSub">after a $500 setup fee</span></div>
@@ -323,7 +335,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
             <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Tier 2</span>
             <span class="tag tag-accent">Most popular</span>
           </div>
-          <h3 style="font-size:26px;line-height:1.1;text-transform:uppercase;letter-spacing:0.02em;margin:8px 0 4px">Growth</h3>
+          <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:8px 0 4px">Growth</h3>
           <p style="font-size:13px;line-height:20px;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">For established businesses that want more calls and quote requests.</p>
           <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em;color:var(--color-accent-700)"><span data-bind="groPrice">$299/mo</span></div>
           <div style="font-size:13px;line-height:18px;margin:8px 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-bind="groSub">after a $750 setup fee</span></div>
@@ -341,7 +353,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
         <div class="blueprint" data-reveal="240" style="padding:28px 24px;display:flex;flex-direction:column">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Tier 3</span>
-          <h3 style="font-size:26px;line-height:1.1;text-transform:uppercase;letter-spacing:0.02em;margin:8px 0 4px">Industrial</h3>
+          <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:8px 0 4px">Industrial</h3>
           <p style="font-size:13px;line-height:20px;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">For manufacturers, fabricators, and B2B suppliers.</p>
           <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em"><span data-bind="indPrice">$449/mo</span></div>
           <div style="font-size:13px;line-height:18px;margin:8px 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-bind="indSub">after a $1,000 setup fee</span></div>
@@ -373,7 +385,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
               <svg data-chk width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-bg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;inset:0;margin:auto;opacity:0;stroke-dasharray:26;stroke-dashoffset:26;transition:opacity .15s,stroke-dashoffset .35s ease .05s" aria-hidden="true"><path d="M4 12l5 5L20 7"></path></svg>
             </span>
           </div>
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 6px">Free website review</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 6px">Free website review</h4>
           <p style="font-size:13px;line-height:20px;margin:0;color:color-mix(in srgb, var(--color-text) 72%, transparent)">I show you exactly what your current site is costing you, mobile speed test included.</p>
         </div>
         <div data-step style="padding-right:28px">
@@ -385,7 +397,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
               <svg data-chk width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-bg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;inset:0;margin:auto;opacity:0;stroke-dasharray:26;stroke-dashoffset:26;transition:opacity .15s,stroke-dashoffset .35s ease .05s" aria-hidden="true"><path d="M4 12l5 5L20 7"></path></svg>
             </span>
           </div>
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 6px">Pick your package</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 6px">Pick your package</h4>
           <p style="font-size:13px;line-height:20px;margin:0;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Upfront or subscription. A deposit or setup fee gets you on the schedule.</p>
         </div>
         <div data-step style="padding-right:28px">
@@ -397,7 +409,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
               <svg data-chk width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-bg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;inset:0;margin:auto;opacity:0;stroke-dasharray:26;stroke-dashoffset:26;transition:opacity .15s,stroke-dashoffset .35s ease .05s" aria-hidden="true"><path d="M4 12l5 5L20 7"></path></svg>
             </span>
           </div>
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 6px">Send your content</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 6px">Send your content</h4>
           <p style="font-size:13px;line-height:20px;margin:0;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Logo, photos, services, service areas. I send a simple checklist.</p>
         </div>
         <div data-step style="padding-right:28px">
@@ -409,7 +421,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
               <svg data-chk width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-bg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;inset:0;margin:auto;opacity:0;stroke-dasharray:26;stroke-dashoffset:26;transition:opacity .15s,stroke-dashoffset .35s ease .05s" aria-hidden="true"><path d="M4 12l5 5L20 7"></path></svg>
             </span>
           </div>
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 6px">I build it</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 6px">I build it</h4>
           <p style="font-size:13px;line-height:20px;margin:0;color:color-mix(in srgb, var(--color-text) 72%, transparent)">You review a working preview and get two rounds of revisions.</p>
         </div>
         <div data-step style="padding-right:28px">
@@ -421,7 +433,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
               <svg data-chk width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-bg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;inset:0;margin:auto;opacity:0;stroke-dasharray:26;stroke-dashoffset:26;transition:opacity .15s,stroke-dashoffset .35s ease .05s" aria-hidden="true"><path d="M4 12l5 5L20 7"></path></svg>
             </span>
           </div>
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 6px">Launch</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 6px">Launch</h4>
           <p style="font-size:13px;line-height:20px;margin:0;color:color-mix(in srgb, var(--color-text) 72%, transparent)">I handle the domain, hosting, and go-live. You get more calls.</p>
         </div>
         <div data-step style="padding-right:28px">
@@ -433,7 +445,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
               <svg data-chk width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-bg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;inset:0;margin:auto;opacity:0;stroke-dasharray:26;stroke-dashoffset:26;transition:opacity .15s,stroke-dashoffset .35s ease .05s" aria-hidden="true"><path d="M4 12l5 5L20 7"></path></svg>
             </span>
           </div>
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 6px">I take care of it</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 6px">I take care of it</h4>
           <p style="font-size:13px;line-height:20px;margin:0;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Updates, backups, security, and edits, every month, without asking.</p>
         </div>
       </div>
@@ -452,19 +464,19 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 32px">
       <div class="wb-faq">
         <div data-reveal="0">
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 8px">How long does it take?</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">How long does it take?</h4>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Most sites launch within 1 to 2 weeks of receiving your content. The biggest variable is how fast I get your photos and information.</p>
         </div>
         <div data-reveal="80">
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 8px">Do I own my website?</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">Do I own my website?</h4>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Upfront builds: yes, once paid in full. Subscriptions: after the 24-month term, or anytime you buy out the remaining balance.</p>
         </div>
         <div data-reveal="160">
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 8px">Do you do SEO or ads?</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">Do you do SEO or ads?</h4>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Every site gets search-friendly foundations and a Google Business Profile cleanup. I don't sell ranking guarantees. Be wary of anyone who does.</p>
         </div>
         <div data-reveal="240">
-          <h4 style="font-size:17px;line-height:22px;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 8px">What if I have no photos or copy?</h4>
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">What if I have no photos or copy?</h4>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">I can write your copy and coordinate a local photographer as add-ons. You do the work. I'll make it look like it.</p>
         </div>
       </div>
@@ -475,7 +487,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 32px">
       <div class="wb-review">
         <div class="wb-review-pitch" data-reveal="0">
-          <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;text-transform:uppercase;letter-spacing:0.01em;margin:0 0 16px;text-wrap:balance">Is your website costing you calls?</h2>
+          <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:0 0 16px;text-wrap:balance">Is your website costing you calls?</h2>
           <p style="font-size:15px;line-height:24px;max-width:52ch;margin:0 0 28px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Send me your site and I'll go through it the way your customers do: on a phone, in a hurry. You'll get a straight answer on what's working, what isn't, and what it would take to fix it. No pressure, no obligation.</p>
           <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin:0 0 14px">What you get</span>
           <div style="display:flex;flex-direction:column;gap:14px;max-width:52ch;text-wrap:pretty">
@@ -496,7 +508,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
             <span style="padding:12px 24px;border-left:1px solid var(--color-divider);white-space:nowrap;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">WB-107</span>
           </header>
           <div id="review-sent" tabindex="-1" hidden style="padding:32px 24px">
-            <h3 style="font-size:26px;line-height:1.1;text-transform:uppercase;letter-spacing:0.02em;margin:0 0 10px">Got it. Thanks<span data-sent-name></span>.</h3>
+            <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:0 0 10px">Got it. Thanks<span data-sent-name></span>.</h3>
             <p style="font-size:15px;line-height:24px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">I'll look over your site and get back to you soon. If it can't wait, call me at <a href="tel:+12485059421">248-505-9421</a>.</p>
           </div>
           <form id="review-form" class="wb-form" data-endpoint="https://journeyman-contact.travisjterry.workers.dev">
@@ -531,6 +543,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
               </div>
               <div class="wide">
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAAFAOsoaBgRf6Lcxi" data-theme="light" style="min-height:65px;margin:0 0 16px"></div>
+                <script>if (innerWidth < 400) document.currentScript.previousElementSibling.setAttribute('data-size', 'compact');</script>
                 <noscript><p style="margin:0 0 12px;font-size:14px;line-height:21px">This form needs JavaScript. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a>.</p></noscript>
                 <p id="review-error" role="alert" hidden style="margin:0 0 12px;padding:12px 14px;border:1px solid var(--color-accent);font-size:14px;line-height:21px"><span data-msg hidden></span><span data-fallback>That didn't go through. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> and I'll take care of it.</span></p>
                 <button class="btn btn-primary btn-block" type="submit" style="min-height:48px;font-size:16px;margin-top:4px">Send my review request</button>
