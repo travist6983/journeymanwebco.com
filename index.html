@@ -12,6 +12,9 @@
 <meta property="og:description" content="Journeyman Web Co. helps contractors and local service businesses improve local visibility, strengthen service pages, and turn more search demand into calls and quote requests.">
 <meta property="og:url" content="https://journeymanwebco.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Work+Sans:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
@@ -52,7 +55,6 @@
   "priceRange": "$$"
 }
 </script>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
     html{scroll-behavior:smooth}
     body{margin:0}
@@ -96,6 +98,9 @@
     .wb-ba figcaption{margin-top:6px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)}
     [data-a1-quote]{margin:20px 0 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:1.35}
     [hidden]{display:none!important}
+    .pre-reveal{opacity:0;transform:translateY(16px)}
+    .revealed{transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+    @media (max-width:399px){#rv-turnstile{min-height:140px!important}}
     .wb-plus{display:flex;flex-direction:column;gap:12px;max-width:56ch;font-size:15px;line-height:22px;text-wrap:pretty}
     .wb-plus>div{position:relative;padding-left:22px}
     .wb-plus>div::before{content:"+";position:absolute;left:0;top:0;color:var(--color-accent-700);font-weight:700}
@@ -155,15 +160,15 @@
       <div class="wb-hero-copy">
         <p class="wb-label" style="margin:0 0 16px">Sterling Heights, MI · Serving Metro Detroit</p>
         <h1 class="wb-hero-title" style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);line-height:1.04;letter-spacing:0.01em;margin:0 0 0 -0.05em">
-          <span data-reveal="0" style="display:block">Websites that make</span>
-          <span data-reveal="120" style="display:block">your phone ring.</span>
+          <span style="display:block">Websites that make</span>
+          <span style="display:block">your phone ring.</span>
         </h1>
-        <p data-reveal="260" style="font-size:16px;line-height:24px;max-width:56ch;margin:28px 0 0">Your customers look you up before they call. If your site looks dead, they call the next guy. I build your site, host it, and make your changes, so you can get back to work.</p>
-        <div data-reveal="380" style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:28px">
+        <p style="font-size:16px;line-height:24px;max-width:56ch;margin:28px 0 0">Your customers look you up before they call. If your site looks dead, they call the next guy. I build your site, host it, and make your changes, so you can get back to work.</p>
+        <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:28px">
           <a class="btn btn-primary" href="#review">Get your free website review</a>
           <a class="btn btn-secondary" href="#packages">See packages</a>
         </div>
-        <p data-reveal="480" style="font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:20px 0 0">Free, no obligation. I'll show you your current site on a phone, the way your customers see it.</p>
+        <p style="font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:20px 0 0">Free, no obligation. I'll show you your current site on a phone, the way your customers see it.</p>
       </div>
       <figure class="wb-hero-fig">
         <div class="wb-phone" style="--w:clamp(210px,26vw,300px)"><div class="wb-phone-screen"><svg viewBox="0 0 390 844" role="img" aria-label="Placeholder for a phone screenshot of a sample site" preserveAspectRatio="xMidYMin slice"><rect width="390" height="844" fill="#fff"/><rect width="390" height="34" fill="#2c455d"/><rect x="24" y="58" width="120" height="14" rx="3" fill="#2c455d" opacity=".85"/><rect x="300" y="52" width="66" height="26" rx="4" fill="#416180"/><rect x="24" y="120" width="300" height="26" rx="4" fill="#1d1f20"/><rect x="24" y="156" width="250" height="26" rx="4" fill="#1d1f20"/><rect x="24" y="200" width="330" height="10" rx="3" fill="#b7b7ba"/><rect x="24" y="218" width="300" height="10" rx="3" fill="#b7b7ba"/><rect x="24" y="236" width="240" height="10" rx="3" fill="#b7b7ba"/><rect x="24" y="272" width="342" height="48" rx="4" fill="#416180"/><rect x="24" y="332" width="342" height="48" rx="4" fill="none" stroke="#416180" stroke-width="2"/><g stroke="#d6ebff" stroke-width="1"><line x1="0" y1="420" x2="390" y2="420"/><line x1="0" y1="450" x2="390" y2="450"/><line x1="0" y1="480" x2="390" y2="480"/><line x1="0" y1="510" x2="390" y2="510"/><line x1="0" y1="540" x2="390" y2="540"/><line x1="0" y1="570" x2="390" y2="570"/><line x1="0" y1="600" x2="390" y2="600"/><line x1="0" y1="630" x2="390" y2="630"/><line x1="0" y1="660" x2="390" y2="660"/><line x1="0" y1="690" x2="390" y2="690"/><line x1="0" y1="720" x2="390" y2="720"/><line x1="0" y1="750" x2="390" y2="750"/><line x1="0" y1="780" x2="390" y2="780"/><line x1="0" y1="810" x2="390" y2="810"/><line x1="0" y1="840" x2="390" y2="840"/><line x1="15" y1="410" x2="15" y2="844"/><line x1="45" y1="410" x2="45" y2="844"/><line x1="75" y1="410" x2="75" y2="844"/><line x1="105" y1="410" x2="105" y2="844"/><line x1="135" y1="410" x2="135" y2="844"/><line x1="165" y1="410" x2="165" y2="844"/><line x1="195" y1="410" x2="195" y2="844"/><line x1="225" y1="410" x2="225" y2="844"/><line x1="255" y1="410" x2="255" y2="844"/><line x1="285" y1="410" x2="285" y2="844"/><line x1="315" y1="410" x2="315" y2="844"/><line x1="345" y1="410" x2="345" y2="844"/><line x1="375" y1="410" x2="375" y2="844"/></g><rect x="24" y="440" width="160" height="120" rx="4" fill="#eef6ff" stroke="#94bce3"/><rect x="206" y="440" width="160" height="120" rx="4" fill="#eef6ff" stroke="#94bce3"/><rect x="24" y="580" width="160" height="120" rx="4" fill="#eef6ff" stroke="#94bce3"/><rect x="206" y="580" width="160" height="120" rx="4" fill="#eef6ff" stroke="#94bce3"/></svg></div><svg class="wb-phone-frame" viewBox="0 0 420 874" aria-hidden="true" focusable="false"><path fill-rule="evenodd" fill="#1d1f20" d="M54 0h312a54 54 0 0 1 54 54v766a54 54 0 0 1-54 54H54a54 54 0 0 1-54-54V54A54 54 0 0 1 54 0ZM53 15h314a38 38 0 0 1 38 38v768a38 38 0 0 1-38 38H53a38 38 0 0 1-38-38V53a38 38 0 0 1 38-38Z"/></svg></div>
@@ -650,8 +655,7 @@
                 <input id="rv-hp" name="bf_check" type="text" tabindex="-1" autocomplete="off">
               </div>
               <div class="wide">
-                <div class="cf-turnstile" data-sitekey="0x4AAAAAAFAOsoaBgRf6Lcxi" data-theme="light" style="min-height:65px;margin:0 0 16px"></div>
-                <script>if (innerWidth < 400) document.currentScript.previousElementSibling.setAttribute('data-size', 'compact');</script>
+                <div id="rv-turnstile" data-sitekey="0x4AAAAAAFAOsoaBgRf6Lcxi" style="min-height:65px;margin:0 0 16px"></div>
                 <noscript><p style="margin:0 0 12px;font-size:14px;line-height:21px">This form needs JavaScript. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a>.</p></noscript>
                 <p id="review-error" role="alert" hidden style="margin:0 0 12px;padding:12px 14px;border:1px solid var(--color-accent);font-size:14px;line-height:21px"><span data-msg hidden></span><span data-fallback>That didn't go through. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> and I'll take care of it.</span></p>
                 <button class="btn btn-primary btn-block" type="submit" style="min-height:48px;font-size:16px;margin-top:4px">Send my review request</button>
@@ -668,162 +672,8 @@
     </footer>
   </div>
 </div>
-<script src="config.js"></script>
-<script src="pricing.js"></script>
-<script>
-// Behaviours the design-canvas runtime used to provide, in plain JS.
-// Each one no-ops under prefers-reduced-motion, matching the original.
-(function () {
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // 1. billing toggle and every price: see pricing.js
-
-  // Recent work: the A-1 case study appears only when config.js turns it on,
-  // and its quote only if /assets/work/a1-quote.txt exists.
-  var cfg = window.JWC_CONFIG || {}, a1 = document.querySelector('[data-case="a1"]');
-  if (a1 && cfg.showA1CaseStudy) {
-    a1.hidden = false;
-    a1.parentNode.classList.add('has-a1');
-    fetch('/assets/work/a1-quote.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
-      var line = (t || '').trim().split('\n')[0];
-      if (!line) return;
-      var q = a1.querySelector('[data-a1-quote]');
-      q.textContent = '\u201c' + line.replace(/^["\u201c]|["\u201d]$/g, '') + '\u201d';
-      q.hidden = false;
-    }).catch(function () {});
-  }
-
-  // 2. scroll reveals
-  var reveals = document.querySelectorAll('[data-reveal]');
-  if (reduced) {
-    reveals.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'none'; });
-  } else {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.style.opacity = '1'; e.target.style.transform = 'none';
-        io.unobserve(e.target);
-      });
-    }, { threshold: 0.15 });
-    reveals.forEach(function (el) {
-      var d = el.getAttribute('data-reveal') || 0;
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(18px)';
-      el.style.transition = 'opacity .7s ease ' + d + 'ms, transform .8s cubic-bezier(.2,.7,.2,1) ' + d + 'ms';
-      io.observe(el);
-    });
-  }
-
-  // 3. process timeline
-  document.querySelectorAll('[data-timeline]').forEach(function (tl) {
-    var steps = [].slice.call(tl.querySelectorAll('[data-step]'));
-    function done(s, instant) {
-      var node = s.querySelector('[data-node]'), num = s.querySelector('[data-num]'), chk = s.querySelector('[data-chk]');
-      if (!node || !num || !chk) return;
-      node.style.background = 'var(--color-accent)';
-      node.style.borderColor = 'var(--color-accent)';
-      num.style.opacity = '0';
-      chk.style.opacity = '1';
-      chk.style.strokeDashoffset = '0';
-      if (!instant) {
-        node.style.transform = 'scale(1.15)';
-        setTimeout(function () { node.style.transform = 'scale(1)'; }, 200);
-      }
-    }
-    if (reduced) {
-      steps.forEach(function (s) {
-        var r = s.querySelector('[data-rail]');
-        if (r) { r.style.transition = 'none'; r.style.transform = 'scaleX(1)'; }
-        done(s, true);
-      });
-      return;
-    }
-    var tio = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        steps.forEach(function (s, i) {
-          var d = i * 520;
-          setTimeout(function () {
-            var r = s.querySelector('[data-rail]');
-            if (r) r.style.transform = 'scaleX(1)';
-          }, d);
-          setTimeout(function () { done(s, false); }, d + 440);
-        });
-        tio.unobserve(e.target);
-      });
-    }, { threshold: 0.3 });
-    tio.observe(tl);
-  });
-
-  // 4. free review form: send to the journeyman-contact Worker (Turnstile + Resend)
-  var rf = document.getElementById('review-form');
-  if (rf) {
-    var btn = rf.querySelector('button[type="submit"]'), label = btn.textContent;
-    var err = document.getElementById('review-error'), sent = document.getElementById('review-sent');
-    var fail = function (msg) {
-      // Fixable problems show the Worker's message; anything else shows phone and email.
-      var m = err.querySelector('[data-msg]');
-      m.textContent = msg || ''; m.hidden = !msg;
-      err.querySelector('[data-fallback]').hidden = !!msg;
-      err.hidden = false;
-      if (window.turnstile) turnstile.reset();
-      btn.disabled = false; btn.textContent = label;
-    };
-    rf.addEventListener('submit', function (e) {
-      e.preventDefault();
-      err.hidden = true;
-      var f = rf.elements, v = function (n) { return (f.namedItem(n).value || '').trim(); };
-      var token = window.turnstile ? turnstile.getResponse() : '';
-      if (!token) { fail('Finish the quick bot check above the button, then send it again.'); return; }
-      btn.disabled = true; btn.textContent = 'Sending...';
-      fetch(rf.getAttribute('data-endpoint'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          website: v('website'), name: v('name'), business: v('business'),
-          phone: v('phone'), email: v('email'), notes: v('notes'),
-          hp: f.namedItem('bf_check').value, turnstileToken: token
-        })
-      })
-        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { r: r, d: d }; }); })
-        .then(function (x) {
-          if (!(x.r.ok && x.d.ok)) { fail(x.r.status < 500 ? x.d.error : ''); return; }
-          var first = v('name').split(/\s+/)[0];
-          sent.querySelector('[data-sent-name]').textContent = first ? ', ' + first : '';
-          rf.hidden = true; sent.hidden = false; sent.focus();
-        })
-        .catch(function () { fail(''); });
-    });
-  }
-
-  // 5. count-ups
-  var counts = document.querySelectorAll('[data-count]');
-  function runCount(el) {
-    var target = +el.getAttribute('data-count');
-    var pre = el.getAttribute('data-pre') || '', suf = el.getAttribute('data-suf') || '';
-    var t0 = performance.now(), dur = 1300;
-    (function tick(now) {
-      var k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
-      el.textContent = pre + Math.round(target * e).toLocaleString() + suf;
-      if (k < 1) requestAnimationFrame(tick);
-    })(performance.now());
-  }
-  if (reduced) {
-    counts.forEach(function (el) {
-      el.textContent = (el.getAttribute('data-pre') || '') +
-        (+el.getAttribute('data-count')).toLocaleString() +
-        (el.getAttribute('data-suf') || '');
-    });
-  } else {
-    var cio = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        runCount(e.target); cio.unobserve(e.target);
-      });
-    }, { threshold: 0.4 });
-    counts.forEach(function (el) { cio.observe(el); });
-  }
-})();
-</script>
+<script src="config.js" defer></script>
+<script src="pricing.js" defer></script>
+<script src="site.js" defer></script>
 </body>
 </html>

@@ -1,5 +1,13 @@
 /* Industry — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+/* Fonts (Roboto Slab 700, Work Sans 400/600/700) are linked from each page's <head> with preconnects, not @imported here. */
+/* Metric-matched fallbacks: while the web fonts load (display=swap), text is set in
+   local fonts resized to the same widths, so the swap doesn't reflow the page. */
+@font-face { font-family: "Work Sans Fallback"; src: local("Arial"), local("ArialMT"), local("Helvetica"), local("Roboto");
+  font-weight: 400; size-adjust: 111.37%; ascent-override: 83.5%; descent-override: 21.55%; line-gap-override: 0%; }
+@font-face { font-family: "Work Sans Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Bold"), local("Roboto Bold");
+  font-weight: 600 700; size-adjust: 104.2%; ascent-override: 89.2%; descent-override: 23%; line-gap-override: 0%; }
+@font-face { font-family: "Roboto Slab Fallback"; src: local("Georgia Bold"), local("Georgia-Bold"), local("Noto Serif Bold");
+  font-weight: 700; size-adjust: 92.64%; ascent-override: 113.35%; descent-override: 29.15%; line-gap-override: 0%; }
 
 :root {
   --color-bg: #f2f2f3;
@@ -41,9 +49,9 @@
   --color-accent-2-800: #314457;
   --color-accent-2-900: #1f2d3a;
 
-  --font-heading: "Roboto Slab", Rockwell, Georgia, serif;
+  --font-heading: "Roboto Slab", "Roboto Slab Fallback", Georgia, serif;
   --font-heading-weight: 700;
-  --font-body: "Work Sans", system-ui, sans-serif;
+  --font-body: "Work Sans", "Work Sans Fallback", Arial, sans-serif;
 
   --space-1: 3.4px;
   --space-2: 6.8px;
