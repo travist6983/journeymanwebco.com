@@ -130,7 +130,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           website: v('website'), name: v('name'), business: v('business'),
-          phone: v('phone'), email: v('email'), notes: v('notes'),
+          phone: v('phone'), email: v('email'), notes: v('notes'), package: v('package'),
           hp: f.namedItem('bf_check').value, turnstileToken: token
         })
       })
@@ -144,4 +144,13 @@
         .catch(function () { fail(''); });
     });
   }
+
+  // 5. "Start with ..." buttons pick the package (and the monthly/upfront view) in the review form
+  var pkg = document.getElementById('rv-package');
+  document.querySelectorAll('[data-package]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var mode = document.querySelector('input[name="wb-billing"]:checked');
+      if (pkg) pkg.value = a.getAttribute('data-package') + ', ' + (mode ? mode.value : 'monthly');
+    });
+  });
 })();

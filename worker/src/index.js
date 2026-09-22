@@ -78,6 +78,7 @@ export default {
     const phone = String(data.phone || "").trim().slice(0, 40);
     const email = String(data.email || "").trim().slice(0, 200);
     const notes = String(data.notes || "").trim().slice(0, 3000);
+    const pkg = String(data.package || "").trim().slice(0, 60);
     const token = String(data.turnstileToken || "");
 
     if (!name || !business || !phone || !email) {
@@ -126,6 +127,7 @@ export default {
       ["Name", name],
       ["Phone", phone],
       ["Email", email],
+      ["Package", pkg || "Not sure yet"],
     ];
 
     const text =

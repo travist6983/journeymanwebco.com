@@ -57,6 +57,8 @@
 </script>
 <style>
     html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+    section[id]{scroll-margin-top:72px}
     body{margin:0}
     a{color:var(--color-accent-700)}
     a:hover{color:var(--color-accent-900)}
@@ -101,6 +103,16 @@
     .pre-reveal{opacity:0;transform:translateY(16px)}
     .revealed{transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
     @media (max-width:399px){#rv-turnstile{min-height:140px!important}}
+    .wb-note{font-size:14px;line-height:22px;margin:20px 0 0;max-width:80ch;color:color-mix(in srgb, var(--color-text) 70%, transparent)}
+    .wb-pricing-how{margin-top:56px}
+    .wb-acc{border-bottom:1px solid var(--color-divider)}
+    .wb-acc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:12px 0}
+    .wb-acc>summary::-webkit-details-marker{display:none}
+    .wb-acc>summary h3{margin:0;font-size:20px;line-height:26px}
+    .wb-acc>summary::after{content:"+";flex:none;width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--color-divider);font:400 22px/1 var(--font-body);color:var(--color-accent-700);transition:transform .2s}
+    .wb-acc[open]>summary::after{transform:rotate(45deg)}
+    .wb-acc-body{padding:4px 0 28px}
+    @media (prefers-reduced-motion: reduce){.wb-acc>summary::after{transition:none}}
     .wb-plus{display:flex;flex-direction:column;gap:12px;max-width:56ch;font-size:15px;line-height:22px;text-wrap:pretty}
     .wb-plus>div{position:relative;padding-left:22px}
     .wb-plus>div::before{content:"+";position:absolute;left:0;top:0;color:var(--color-accent-700);font-weight:700}
@@ -136,6 +148,7 @@
     .wb-form .field>label .opt{text-transform:none;letter-spacing:0;font-weight:400;color:color-mix(in srgb, var(--color-text) 55%, transparent)}
     .wb-form .input{border-radius:0;min-height:44px;padding:10px 12px;font-size:16px}
     .wb-form textarea.input{min-height:96px}
+    .wb-form select.input{appearance:none;padding-right:40px;background:var(--color-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23416180' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center}
     .wb-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
     @media (max-width:720px){.nav>a:not(.btn){display:none}}
     @media (max-width:400px){.nav-brand{font-size:15px}.nav{gap:10px}}
@@ -404,7 +417,7 @@
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Google Business Profile cleanup</span></div>
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Analytics setup</span></div>
           </div>
-          <a class="btn btn-secondary btn-block" href="#review" style="margin-top:24px">Start with Essentials</a>
+          <a class="btn btn-secondary btn-block" href="#review" data-package="Essentials" style="margin-top:24px">Start with Essentials</a>
         </div>
         <div class="blueprint" data-reveal="120" style="padding:28px 24px;display:flex;flex-direction:column;border-color:var(--color-accent)">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
@@ -425,7 +438,7 @@
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Quote request form</span></div>
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Copy editing and speed optimization</span></div>
           </div>
-          <a class="btn btn-primary btn-block" href="#review" style="margin-top:24px">Start with Growth</a>
+          <a class="btn btn-primary btn-block" href="#review" data-package="Growth" style="margin-top:24px">Start with Growth</a>
         </div>
         <div class="blueprint" data-reveal="240" style="padding:28px 24px;display:flex;flex-direction:column">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
@@ -444,50 +457,52 @@
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Project and parts gallery</span></div>
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Secure storage for RFQ drawings and uploads</span></div>
           </div>
-          <a class="btn btn-secondary btn-block" href="#review" style="margin-top:24px">Start with Industrial</a>
+          <a class="btn btn-secondary btn-block" href="#review" data-package="Industrial" style="margin-top:24px">Start with Industrial</a>
         </div>
       </div>
-      <p style="font-size:13px;line-height:20px;margin:20px 0 0;max-width:80ch;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-view="monthly">No money down. Your monthly price covers the build plus Hosting &amp; Care for <span data-p="termMonths"></span> months. After that it drops to the Hosting &amp; Care price and the site is yours. Want to pay it off sooner? Pay the rest of the build anytime and drop to Hosting &amp; Care right away.</span><span data-view="upfront" hidden>You own the site once it's paid for. Hosting &amp; Care is required for the first <span data-p="careMinimumMonths"></span> months, which covers launch fixes and keeps everything secure. After that it's month to month. Cancel with <span data-p="cancelNoticeDays"></span> days notice and I hand over every file so you can host it anywhere.</span> Every package includes SSL security, a contact form, click-to-call, search engine basics, Google Business Profile cleanup, and analytics.</p>
-      <div class="wb-pricing-how" style="margin-top:64px">
-        <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">How the pricing works</span>
-        <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 32px">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px clamp(40px,5vw,80px);align-items:start">
-          <div data-reveal="0">
-            <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:0 0 8px">Hosting &amp; Care</h3>
-            <p style="font-size:15px;line-height:24px;max-width:56ch;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 78%, transparent)"><strong style="color:var(--color-text)"><span data-p="$tiers.essentials.care"></span>/mo (<span data-p="$tiers.industrial.care"></span>/mo for Industrial).</strong> About what you'd pay for a DIY website builder, except someone makes the changes for you.</p>
-            <div class="wb-plus">
-              <div>Fast, secure hosting with an SSL certificate and daily backups</div>
-              <div>Security updates and uptime monitoring</div>
-              <div>Spam-protected contact form delivery</div>
-              <div>Domain and DNS management</div>
-              <div>Up to <span data-p="editMinutesIncluded"></span> minutes of small edits every month: text, photos, hours, prices. Unused time doesn't roll over.</div>
-              <div>Email support with a reply within 1 business day</div>
-              <div>Bigger changes at <span data-p="$extraWorkRate"></span>/hr, quoted before any work starts</div>
-              <div>Prepay a year and get <span data-p="tiers.essentials.annualMonthsFree"></span> months free (<span data-p="$tiers.essentials.careAnnual"></span>, or <span data-p="$tiers.industrial.careAnnual"></span> for Industrial)</div>
-              <div>Industrial adds secure storage and delivery for RFQ drawings and file uploads, which is why it costs more</div>
-            </div>
-          </div>
-          <div data-reveal="120">
-            <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:0 0 20px">Monthly plan terms</h3>
-            <div class="wb-plus">
-              <div><span data-p="termMonths"></span>-month term. Of each payment, the build portion is <span data-p="$tiers.essentials.buildPortion"></span> (Essentials), <span data-p="$tiers.growth.buildPortion"></span> (Growth), or <span data-p="$tiers.industrial.buildPortion"></span> (Industrial). The rest is Hosting &amp; Care.</div>
-              <div>Pay off early anytime by paying the build portion left on your term. Example: Essentials at month <span data-p="payoffExample.month"></span> is <span data-p="payoffExample.monthsLeft"></span> x <span data-p="$tiers.essentials.buildPortion"></span> = <span data-p="$payoffExample.amount"></span>, then <span data-p="$tiers.essentials.care"></span>/mo.</div>
-              <div>Canceling before <span data-p="termMonths"></span> months works the same as paying off early.</div>
-              <div>The site is yours once the build is paid, on either plan.</div>
-            </div>
-            <div style="overflow-x:auto;margin-top:28px">
-              <table class="wb-cost">
-                <caption>Paying monthly costs a bit more. Paying upfront costs less over time. Same site either way.</caption>
-                <thead><tr><th scope="col">Cost over <span data-p="termYears"></span> years</th><th scope="col">Pay upfront</th><th scope="col">Pay monthly</th></tr></thead>
-                <tbody>
-                  <tr><th scope="row">Essentials</th><td data-p="$tiers.essentials.totalUpfront"></td><td data-p="$tiers.essentials.totalMonthly"></td></tr>
-                  <tr><th scope="row">Growth</th><td data-p="$tiers.growth.totalUpfront"></td><td data-p="$tiers.growth.totalMonthly"></td></tr>
-                  <tr><th scope="row">Industrial</th><td data-p="$tiers.industrial.totalUpfront"></td><td data-p="$tiers.industrial.totalMonthly"></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <p class="wb-note"><span data-view="monthly">No money down. After <span data-p="termMonths"></span> months it drops to Hosting &amp; Care and the site is yours.</span><span data-view="upfront" hidden>You own it once it's paid for. Hosting &amp; Care is required for the first <span data-p="careMinimumMonths"></span> months, then month to month.</span></p>
+      <div class="wb-pricing-how">
+        <span class="wb-label">How the pricing works</span>
+        <hr class="wb-rule" style="margin-bottom:0">
+        <details class="wb-acc">
+          <summary><h3>What Hosting &amp; Care covers</h3></summary>
+          <div class="wb-acc-body">
+        <p style="font-size:15px;line-height:24px;max-width:56ch;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 78%, transparent)"><strong style="color:var(--color-text)"><span data-p="$tiers.essentials.care"></span>/mo (<span data-p="$tiers.industrial.care"></span>/mo for Industrial).</strong> About what you'd pay for a DIY website builder, except someone makes the changes for you.</p>
+        <div class="wb-plus">
+          <div>Fast, secure hosting with an SSL certificate and daily backups</div>
+          <div>Security updates and uptime monitoring</div>
+          <div>Spam-protected contact form delivery</div>
+          <div>Domain and DNS management</div>
+          <div>Up to <span data-p="editMinutesIncluded"></span> minutes of small edits every month: text, photos, hours, prices. Unused time doesn't roll over.</div>
+          <div>Email support with a reply within 1 business day</div>
+          <div>Bigger changes at <span data-p="$extraWorkRate"></span>/hr, quoted before any work starts</div>
+          <div>Prepay a year and get <span data-p="tiers.essentials.annualMonthsFree"></span> months free (<span data-p="$tiers.essentials.careAnnual"></span>, or <span data-p="$tiers.industrial.careAnnual"></span> for Industrial)</div>
+          <div>Industrial adds secure storage and delivery for RFQ drawings and file uploads, which is why it costs more</div>
         </div>
+          </div>
+        </details>
+        <details class="wb-acc">
+          <summary><h3>Monthly plan terms</h3></summary>
+          <div class="wb-acc-body">
+        <div class="wb-plus">
+          <div><span data-p="termMonths"></span>-month term. Of each payment, the build portion is <span data-p="$tiers.essentials.buildPortion"></span> (Essentials), <span data-p="$tiers.growth.buildPortion"></span> (Growth), or <span data-p="$tiers.industrial.buildPortion"></span> (Industrial). The rest is Hosting &amp; Care.</div>
+          <div>Pay off early anytime by paying the build portion left on your term. Example: Essentials at month <span data-p="payoffExample.month"></span> is <span data-p="payoffExample.monthsLeft"></span> x <span data-p="$tiers.essentials.buildPortion"></span> = <span data-p="$payoffExample.amount"></span>, then <span data-p="$tiers.essentials.care"></span>/mo.</div>
+          <div>Canceling before <span data-p="termMonths"></span> months works the same as paying off early.</div>
+          <div>The site is yours once the build is paid, on either plan.</div>
+        </div>
+        <div style="overflow-x:auto;margin-top:28px">
+          <table class="wb-cost">
+            <caption>Paying monthly costs a bit more. Paying upfront costs less over time. Same site either way.</caption>
+            <thead><tr><th scope="col">Cost over <span data-p="termYears"></span> years</th><th scope="col">Pay upfront</th><th scope="col">Pay monthly</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Essentials</th><td data-p="$tiers.essentials.totalUpfront"></td><td data-p="$tiers.essentials.totalMonthly"></td></tr>
+              <tr><th scope="row">Growth</th><td data-p="$tiers.growth.totalUpfront"></td><td data-p="$tiers.growth.totalMonthly"></td></tr>
+              <tr><th scope="row">Industrial</th><td data-p="$tiers.industrial.totalUpfront"></td><td data-p="$tiers.industrial.totalMonthly"></td></tr>
+            </tbody>
+          </table>
+        </div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -645,6 +660,18 @@
               <div class="field">
                 <label for="rv-email">Email</label>
                 <input class="input" id="rv-email" name="email" type="email" autocomplete="email" required maxlength="200">
+              </div>
+              <div class="field wide">
+                <label for="rv-package">Package I'm interested in <span class="opt">(optional)</span></label>
+                <select class="input" id="rv-package" name="package">
+                  <option>Not sure yet</option>
+                  <option>Essentials, monthly</option>
+                  <option>Essentials, upfront</option>
+                  <option>Growth, monthly</option>
+                  <option>Growth, upfront</option>
+                  <option>Industrial, monthly</option>
+                  <option>Industrial, upfront</option>
+                </select>
               </div>
               <div class="field wide">
                 <label for="rv-notes">Anything I should know? <span class="opt">(optional)</span></label>
