@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" fill="#5980a6"/>
-  <!-- gable shop + mast, echoing the hero scene -->
+  <!-- gable-roof shop with an antenna mast -->
   <path d="M6 20h20v7H6z" fill="#fafafa" opacity=".92"/>
   <path d="M4 20 16 11l12 9z" fill="#24272a" opacity=".75"/>
   <rect x="15.4" y="5" width="1.2" height="6" fill="#24272a" opacity=".75"/>
