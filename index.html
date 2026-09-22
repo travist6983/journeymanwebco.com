@@ -27,12 +27,25 @@
     .wb-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:36px 0}
     @media (max-width:860px){.wb-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media (max-width:460px){.wb-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    .wb-faq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(24px,3vw,40px)}
+    .wb-faq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,40px)}
     @media (max-width:1080px){.wb-faq{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media (max-width:540px){.wb-faq{grid-template-columns:minmax(0,1fr)}}
     .nav-brand,.nav .btn{white-space:nowrap}
     .nav .btn-primary,.nav .btn-primary:hover{color:#fff}
     h1,h2{text-wrap:balance}
+    [hidden]{display:none!important}
+    .wb-plus{display:flex;flex-direction:column;gap:12px;max-width:56ch;font-size:15px;line-height:22px;text-wrap:pretty}
+    .wb-plus>div{position:relative;padding-left:22px}
+    .wb-plus>div::before{content:"+";position:absolute;left:0;top:0;color:var(--color-accent-700);font-weight:700}
+    .wb-cost{width:100%;border-collapse:collapse;font-size:14px;line-height:20px;font-variant-numeric:tabular-nums}
+    .wb-cost caption{caption-side:bottom;text-align:left;padding-top:12px;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)}
+    .wb-cost th,.wb-cost td{padding:10px 12px;border-bottom:1px solid var(--color-divider);text-align:right;white-space:nowrap}
+    .wb-cost th:first-child{text-align:left;padding-left:0}
+    .wb-cost td:last-child,.wb-cost th:last-child{padding-right:0}
+    .wb-cost thead th{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent);border-bottom-color:color-mix(in srgb, var(--color-text) 35%, transparent)}
+    .wb-cost tbody th{font-weight:600}
+    .wb-cost thead th{white-space:normal;vertical-align:bottom}
+    @media (max-width:480px){.wb-cost th,.wb-cost td{padding-inline:8px}}
     /* Job sheet on phones: number, label, value on one line, the note full width under it */
     @media (max-width:640px){
       .wb-sheet-head>span+span{display:none}
@@ -209,8 +222,8 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
           <span data-count="100" data-suf="%" style="padding:10px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;white-space:nowrap;border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center">100%</span>
           <span style="padding:10px 24px 10px 0;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent);border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center">Designed on a phone screen before a desktop</span>
           <span style="padding:10px 0 10px 24px;font-size:13px;font-weight:600;letter-spacing:0.08em;color:var(--color-accent-700);border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center">03</span>
-          <span style="padding:10px 0;font-size:15px;line-height:22px;border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center">Care plans from</span>
-          <span data-count="149" data-pre="$" data-suf="/mo" style="padding:10px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;white-space:nowrap;border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center">$149/mo</span>
+          <span style="padding:10px 0;font-size:15px;line-height:22px;border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center">Hosting &amp; Care from</span>
+          <span data-p-count="minCare" data-pre="$" data-suf="/mo" style="padding:10px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;white-space:nowrap;border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center"></span>
           <span style="padding:10px 24px 10px 0;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent);border-bottom:1px solid var(--color-divider);align-self:stretch;display:flex;align-items:center">Hosting, backups, security, and monthly edits, all handled</span>
           <span style="padding:10px 0 10px 24px;font-size:13px;font-weight:600;letter-spacing:0.08em;color:var(--color-accent-700);align-self:stretch;display:flex;align-items:center">04</span>
           <span style="padding:10px 0;font-size:15px;line-height:22px">Ticket queues</span>
@@ -310,14 +323,15 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
           <label class="seg-opt"><input type="radio" name="wb-billing" value="upfront" style="position:absolute;opacity:0;pointer-events:none">Pay upfront</label>
         </div>
       </div>
+      <p data-founding hidden style="margin:0 0 28px;padding:12px 16px;background:var(--color-accent-100);color:var(--color-accent-800);font-size:14px;line-height:22px"><strong>Founding client pricing:</strong> the first <span data-p="foundingOffer.spots"></span> businesses to sign by <span data-p="foundingOffer.endsOnLabel"></span> get <span data-p="foundingOffer.buildDiscountPct"></span>% off the build (<span data-p="$tiers.essentials.foundingBuild"></span> / <span data-p="$tiers.growth.foundingBuild"></span> / <span data-p="$tiers.industrial.foundingBuild"></span> upfront) or <span data-p="foundingOffer.monthlyFreeMonths"></span> months free on a monthly plan.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,3vw,40px);align-items:stretch">
         <div class="blueprint" data-reveal="0" style="padding:28px 24px;display:flex;flex-direction:column;gap:0">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Tier 1</span>
           <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:8px 0 4px">Essentials</h3>
           <p style="font-size:13px;line-height:20px;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">For small and growing service businesses.</p>
-          <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em"><span data-bind="essPrice">$199/mo</span></div>
-          <div style="font-size:13px;line-height:18px;margin:8px 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-bind="essSub">after a $500 setup fee</span></div>
+          <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em"><span data-view="monthly"><span data-p="$tiers.essentials.monthly"></span>/mo</span><span data-view="upfront" hidden><span data-p="$tiers.essentials.upfront"></span></span></div>
+          <div style="font-size:13px;line-height:18px;margin:8px 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-view="monthly">$0 down. <span data-p="termMonths"></span> months, then <span data-p="$tiers.essentials.care"></span>/mo</span><span data-view="upfront" hidden>one time, plus Hosting &amp; Care at <span data-p="$tiers.essentials.care"></span>/mo</span></div>
           <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 20px">
           <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:21px;flex:1">
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Up to 5 pages</span></div>
@@ -337,8 +351,8 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
           </div>
           <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:8px 0 4px">Growth</h3>
           <p style="font-size:13px;line-height:20px;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">For established businesses that want more calls and quote requests.</p>
-          <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em;color:var(--color-accent-700)"><span data-bind="groPrice">$299/mo</span></div>
-          <div style="font-size:13px;line-height:18px;margin:8px 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-bind="groSub">after a $750 setup fee</span></div>
+          <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em;color:var(--color-accent-700)"><span data-view="monthly"><span data-p="$tiers.growth.monthly"></span>/mo</span><span data-view="upfront" hidden><span data-p="$tiers.growth.upfront"></span></span></div>
+          <div style="font-size:13px;line-height:18px;margin:8px 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-view="monthly">$0 down. <span data-p="termMonths"></span> months, then <span data-p="$tiers.growth.care"></span>/mo</span><span data-view="upfront" hidden>one time, plus Hosting &amp; Care at <span data-p="$tiers.growth.care"></span>/mo</span></div>
           <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 20px">
           <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:21px;flex:1">
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span><strong>Everything in Essentials</strong></span></div>
@@ -355,8 +369,8 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
           <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent)">Tier 3</span>
           <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:8px 0 4px">Industrial</h3>
           <p style="font-size:13px;line-height:20px;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">For manufacturers, fabricators, and B2B suppliers.</p>
-          <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em"><span data-bind="indPrice">$449/mo</span></div>
-          <div style="font-size:13px;line-height:18px;margin:8px 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-bind="indSub">after a $1,000 setup fee</span></div>
+          <div style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:42px;line-height:1;letter-spacing:0.01em"><span data-view="monthly"><span data-p="$tiers.industrial.monthly"></span>/mo</span><span data-view="upfront" hidden><span data-p="$tiers.industrial.upfront"></span></span></div>
+          <div style="font-size:13px;line-height:18px;margin:8px 0 20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-view="monthly">$0 down. <span data-p="termMonths"></span> months, then <span data-p="$tiers.industrial.care"></span>/mo</span><span data-view="upfront" hidden>one time, plus Hosting &amp; Care at <span data-p="$tiers.industrial.care"></span>/mo</span></div>
           <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 20px">
           <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:21px;flex:1">
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span><strong>Everything in Growth</strong></span></div>
@@ -365,11 +379,53 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Industries served</span></div>
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>RFQ form with drawing and file upload</span></div>
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Project and parts gallery</span></div>
+            <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Secure storage for RFQ drawings and uploads</span></div>
           </div>
           <a class="btn btn-secondary btn-block" href="#review" style="margin-top:24px">Start with Industrial</a>
         </div>
       </div>
-      <p style="font-size:13px;line-height:20px;margin:20px 0 0;max-width:80ch;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-bind="billNote">One monthly price covers the build, hosting, security, updates, and monthly edits. 24-month term, then month to month. Buy the site out anytime.</span> Every package includes SSL security, a contact form, click-to-call, search engine basics, Google Business Profile cleanup, and analytics.</p>
+      <p style="font-size:13px;line-height:20px;margin:20px 0 0;max-width:80ch;color:color-mix(in srgb, var(--color-text) 70%, transparent)"><span data-view="monthly">No money down. Your monthly price covers the build plus Hosting &amp; Care for <span data-p="termMonths"></span> months. After that it drops to the Hosting &amp; Care price and the site is yours. Want to pay it off sooner? Pay the rest of the build anytime and drop to Hosting &amp; Care right away.</span><span data-view="upfront" hidden>You own the site once it's paid for. Hosting &amp; Care is required for the first <span data-p="careMinimumMonths"></span> months, which covers launch fixes and keeps everything secure. After that it's month to month. Cancel with <span data-p="cancelNoticeDays"></span> days notice and I hand over every file so you can host it anywhere.</span> Every package includes SSL security, a contact form, click-to-call, search engine basics, Google Business Profile cleanup, and analytics.</p>
+      <div class="wb-pricing-how" style="margin-top:64px">
+        <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">How the pricing works</span>
+        <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 32px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px clamp(40px,5vw,80px);align-items:start">
+          <div data-reveal="0">
+            <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:0 0 8px">Hosting &amp; Care</h3>
+            <p style="font-size:15px;line-height:24px;max-width:56ch;margin:0 0 20px;color:color-mix(in srgb, var(--color-text) 78%, transparent)"><strong style="color:var(--color-text)"><span data-p="$tiers.essentials.care"></span>/mo (<span data-p="$tiers.industrial.care"></span>/mo for Industrial).</strong> About what you'd pay for a DIY website builder, except someone makes the changes for you.</p>
+            <div class="wb-plus">
+              <div>Fast, secure hosting with an SSL certificate and daily backups</div>
+              <div>Security updates and uptime monitoring</div>
+              <div>Spam-protected contact form delivery</div>
+              <div>Domain and DNS management</div>
+              <div>Up to <span data-p="editMinutesIncluded"></span> minutes of small edits every month: text, photos, hours, prices. Unused time doesn't roll over.</div>
+              <div>Email support with a reply within 1 business day</div>
+              <div>Bigger changes at <span data-p="$extraWorkRate"></span>/hr, quoted before any work starts</div>
+              <div>Prepay a year and get <span data-p="tiers.essentials.annualMonthsFree"></span> months free (<span data-p="$tiers.essentials.careAnnual"></span>, or <span data-p="$tiers.industrial.careAnnual"></span> for Industrial)</div>
+              <div>Industrial adds secure storage and delivery for RFQ drawings and file uploads, which is why it costs more</div>
+            </div>
+          </div>
+          <div data-reveal="120">
+            <h3 style="font-size:26px;line-height:1.1;letter-spacing:0.02em;margin:0 0 20px">Monthly plan terms</h3>
+            <div class="wb-plus">
+              <div><span data-p="termMonths"></span>-month term. Of each payment, the build portion is <span data-p="$tiers.essentials.buildPortion"></span> (Essentials), <span data-p="$tiers.growth.buildPortion"></span> (Growth), or <span data-p="$tiers.industrial.buildPortion"></span> (Industrial). The rest is Hosting &amp; Care.</div>
+              <div>Pay off early anytime by paying the build portion left on your term. Example: Essentials at month <span data-p="payoffExample.month"></span> is <span data-p="payoffExample.monthsLeft"></span> x <span data-p="$tiers.essentials.buildPortion"></span> = <span data-p="$payoffExample.amount"></span>, then <span data-p="$tiers.essentials.care"></span>/mo.</div>
+              <div>Canceling before <span data-p="termMonths"></span> months works the same as paying off early.</div>
+              <div>The site is yours once the build is paid, on either plan.</div>
+            </div>
+            <div style="overflow-x:auto;margin-top:28px">
+              <table class="wb-cost">
+                <caption>Paying monthly costs a bit more. Paying upfront costs less over time. Same site either way.</caption>
+                <thead><tr><th scope="col">Cost over <span data-p="termYears"></span> years</th><th scope="col">Pay upfront</th><th scope="col">Pay monthly</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Essentials</th><td data-p="$tiers.essentials.totalUpfront"></td><td data-p="$tiers.essentials.totalMonthly"></td></tr>
+                  <tr><th scope="row">Growth</th><td data-p="$tiers.growth.totalUpfront"></td><td data-p="$tiers.growth.totalMonthly"></td></tr>
+                  <tr><th scope="row">Industrial</th><td data-p="$tiers.industrial.totalUpfront"></td><td data-p="$tiers.industrial.totalMonthly"></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="how" style="padding:64px 0 16px" data-screen-label="How it works">
@@ -398,7 +454,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
             </span>
           </div>
           <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 6px">Pick your package</h4>
-          <p style="font-size:13px;line-height:20px;margin:0;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Upfront or subscription. A deposit or setup fee gets you on the schedule.</p>
+          <p style="font-size:13px;line-height:20px;margin:0;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Pay upfront, or pay monthly with no money down.</p>
         </div>
         <div data-step style="padding-right:28px">
           <div style="position:relative;height:34px;display:flex;align-items:center;margin-bottom:14px">
@@ -462,7 +518,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
         </div>
         <div data-reveal="80">
           <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">Do I own my website?</h4>
-          <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Upfront builds: yes, once paid in full. Subscriptions: after the 24-month term, or anytime you buy out the remaining balance.</p>
+          <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Yes. The site is yours once the build is paid for, on either plan. On a monthly plan that's after <span data-p="termMonths"></span> months, or sooner if you pay off the rest of the build.</p>
         </div>
         <div data-reveal="160">
           <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">Do you do SEO or ads?</h4>
@@ -471,6 +527,10 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
         <div data-reveal="240">
           <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">What if I have no photos or copy?</h4>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">I can write your copy and coordinate a local photographer as add-ons. You do the work. I'll make it look like it.</p>
+        </div>
+        <div data-reveal="320">
+          <h4 style="font-size:17px;line-height:22px;letter-spacing:0.02em;margin:0 0 8px">Why do I need Hosting &amp; Care?</h4>
+          <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">A website needs somewhere to live, security updates, and backups. Hosting &amp; Care covers all of that plus small edits each month, so you never have to log in to anything. After the first <span data-p="careMinimumMonths"></span> months it's month to month, and if you leave I hand over every file.</p>
         </div>
       </div>
     </section>
@@ -555,24 +615,14 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
   </div>
 </div>
 <script src="wb-hero-3d.js"></script>
+<script src="pricing.js"></script>
 <script>
 // Behaviours the design-canvas runtime used to provide, in plain JS.
 // Each one no-ops under prefers-reduced-motion, matching the original.
 (function () {
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // 1. billing toggle
-  var PRICES = {"monthly": {"essPrice": "$199/mo", "essSub": "after a $500 setup fee", "groPrice": "$299/mo", "groSub": "after a $750 setup fee", "indPrice": "$449/mo", "indSub": "after a $1,000 setup fee", "billNote": "One monthly price covers the build, hosting, security, updates, and monthly edits. 24-month term, then month to month. Buy the site out anytime."}, "upfront": {"essPrice": "$2,500", "essSub": "one time \u00b7 Care Plan required", "groPrice": "$4,500", "groSub": "one time \u00b7 Care Plan required", "indPrice": "$6,500", "indSub": "one time \u00b7 Care Plan required", "billNote": "Own the site outright once it\u2019s paid in full. A Care Plan (from $149/mo) keeps it hosted, secure, and up to date."}};
-  function applyBilling(mode) {
-    var vals = PRICES[mode];
-    document.querySelectorAll('[data-bind]').forEach(function (el) {
-      var v = vals[el.getAttribute('data-bind')];
-      if (v != null) el.textContent = v;
-    });
-  }
-  document.querySelectorAll('input[name="wb-billing"]').forEach(function (r) {
-    r.addEventListener('change', function () { if (r.checked) applyBilling(r.value); });
-  });
+  // 1. billing toggle and every price: see pricing.js
 
   // 2. scroll reveals
   var reveals = document.querySelectorAll('[data-reveal]');
