@@ -156,7 +156,9 @@
   var bar = document.getElementById('callbar'), formCard = document.querySelector('.wb-review-form');
   if (bar && formCard && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (es) {
-      bar.classList.toggle('is-hidden', es[0].isIntersecting);
+      var away = es[0].isIntersecting;
+      bar.classList.toggle('is-hidden', away);
+      bar.inert = away; // no tabbing onto links that are slid out of view
     }).observe(formCard);
   }
 
