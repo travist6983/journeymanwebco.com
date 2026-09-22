@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Journeyman Web Co.</title>
+<meta name="description" content="Journeyman Web Co. builds modern websites for local businesses.">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<style>
+:root{--bg:#1f2328;--fg:#f4f1ea;--muted:#c9c3b6;--accent:#d98e32;--card:#272c32;--line:#3a4149}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+.wrap{max-width:640px;margin:0 auto;padding:64px 24px}
+h1{font-size:clamp(2rem,6vw,3.25rem);margin:0 0 .5rem;letter-spacing:-.02em}
+.bar{width:64px;height:4px;background:var(--accent);margin:1.25rem 0}
+.lede{font-size:1.15rem;color:var(--muted);margin:0 0 .25rem}
+h2{font-size:1.5rem;margin:3rem 0 .5rem}
+form{margin-top:1.5rem;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
+label{display:block;font-size:.95rem;margin:16px 0 6px}
+label:first-of-type{margin-top:0}
+input,textarea{width:100%;padding:11px 12px;font:inherit;color:var(--fg);background:#1b1f24;border:1px solid var(--line);border-radius:8px}
+input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+textarea{min-height:140px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+button{margin-top:20px;width:100%;padding:13px 20px;font:inherit;font-weight:600;color:#1f2328;background:var(--accent);border:0;border-radius:8px;cursor:pointer}
+button:disabled{opacity:.6;cursor:not-allowed}
+#status{margin-top:14px;font-size:.95rem;min-height:1.4em}
+#status.err{color:#ff9d9d}
+#status.ok{color:#9ae6a5}
+.cf{margin-top:18px}
+footer{margin-top:40px;color:var(--muted);font-size:.9rem}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Journeyman Web Co.</h1>
+<div class="bar"></div>
+<p class="lede">Modern websites for local businesses.</p>
+<p class="lede">Built to load fast, work on phones, and bring in calls.</p>
+
+<h2>Get in touch</h2>
+<p class="lede">Tell me about your business and what you need. I answer every message myself.</p>
+
+<form id="contact" novalidate>
+<label for="name">Name</label>
+<input id="name" name="name" type="text" autocomplete="name" required>
+
+<label for="email">Email</label>
+<input id="email" name="email" type="email" autocomplete="email" required>
+
+<label for="phone">Phone (optional)</label>
+<input id="phone" name="phone" type="tel" autocomplete="tel">
+
+<label for="message">What do you need?</label>
+<textarea id="message" name="message" required></textarea>
+
+<div class="hp" aria-hidden="true">
+<label for="company">Company</label>
+<input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+</div>
+
+<div class="cf cf-turnstile" data-sitekey="0x4AAAAAAFAOsoaBgRf6Lcxi" data-theme="dark"></div>
+
+<button type="submit" id="send">Send message</button>
+<p id="status" role="status"></p>
+</form>
+
+<footer>Journeyman Web Co. &middot; <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></footer>
+</div>
+
+<script>
+const ENDPOINT = "https://journeyman-contact.travisjterry.workers.dev";
+const form = document.getElementById("contact");
+const btn = document.getElementById("send");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  status.className = "";
+  status.textContent = "";
+
+  const payload = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    phone: form.phone.value.trim(),
+    message: form.message.value.trim(),
+    company: form.company.value,
+    turnstileToken: (window.turnstile && turnstile.getResponse()) || "",
+  };
+
+  if (!payload.name || !payload.email || !payload.message) {
+    status.className = "err";
+    status.textContent = "Please fill in your name, email, and message.";
+    return;
+  }
+  if (!payload.turnstileToken) {
+    status.className = "err";
+    status.textContent = "Please complete the bot check above.";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+  try {
+    const res = await fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.ok && data.ok) {
+      form.reset();
+      if (window.turnstile) turnstile.reset();
+      status.className = "ok";
+      status.textContent = "Thanks. Your message is on its way, I'll be in touch shortly.";
+    } else {
+      if (window.turnstile) turnstile.reset();
+      status.className = "err";
+      status.textContent = data.error || "Something went wrong. Please try again.";
+    }
+  } catch {
+    status.className = "err";
+    status.textContent = "Network error. Please try again, or email travis@journeymanwebco.com.";
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Send message";
+  }
+});
+</script>
+</body>
+</html>
