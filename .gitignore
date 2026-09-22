@@ -1,0 +1,19 @@
+# Prospecting output — INTERNAL ONLY, never publish.
+# This repo is a PUBLIC GitHub Pages site (journeymanwebco.com). The files below
+# contain business contact details and blunt internal design critiques of named
+# local businesses; publishing them would expose prospect data and the commentary
+# that site-design-auditor explicitly marks as internal-only.
+prospects/
+design-review/
+*.leads.csv
+leads.csv
+scored*.json
+captures.jsonl
+verdicts.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
