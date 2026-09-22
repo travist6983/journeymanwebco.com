@@ -3,16 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Journeyman Web Co | Websites that make your phone ring</title>
-<meta name="description" content="Journeyman Web Co helps contractors and local service businesses improve local visibility, strengthen service pages, and turn more search demand into calls and quote requests.">
+<title>Journeyman Web Co. | Websites that make your phone ring</title>
+<meta name="description" content="Journeyman Web Co. helps contractors and local service businesses improve local visibility, strengthen service pages, and turn more search demand into calls and quote requests.">
 <meta name="theme-color" content="#5980a6">
 <link rel="canonical" href="https://journeymanwebco.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Journeyman Web Co | Websites that make your phone ring">
-<meta property="og:description" content="Journeyman Web Co helps contractors and local service businesses improve local visibility, strengthen service pages, and turn more search demand into calls and quote requests.">
+<meta property="og:title" content="Journeyman Web Co. | Websites that make your phone ring">
+<meta property="og:description" content="Journeyman Web Co. helps contractors and local service businesses improve local visibility, strengthen service pages, and turn more search demand into calls and quote requests.">
 <meta property="og:url" content="https://journeymanwebco.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Journeyman Web Co.",
+  "url": "https://journeymanwebco.com/",
+  "telephone": "+1-248-505-9421",
+  "email": "travis@journeymanwebco.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sterling Heights",
+    "addressRegion": "MI",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Macomb County, MI"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Oakland County, MI"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Wayne County, MI"
+    },
+    {
+      "@type": "State",
+      "name": "Michigan"
+    }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Travis Terry"
+  },
+  "priceRange": "$$"
+}
+</script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
     html{scroll-behavior:smooth}
@@ -21,9 +60,8 @@
     a:hover{color:var(--color-accent-900)}
     @keyframes wb-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     @media (prefers-reduced-motion: reduce){.wb-marquee-track{animation:none !important}}
-    .wb-trades{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,2.5vw,36px)}
-    @media (max-width:920px){.wb-trades{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media (max-width:480px){.wb-trades{grid-template-columns:minmax(0,1fr)}}
+    .wb-clients{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.5vw,36px)}
+    @media (max-width:760px){.wb-clients{grid-template-columns:minmax(0,1fr)}}
     .wb-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:36px 0}
     @media (max-width:860px){.wb-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media (max-width:460px){.wb-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -33,6 +71,28 @@
     .nav-brand,.nav .btn{white-space:nowrap}
     .nav .btn-primary,.nav .btn-primary:hover{color:#fff}
     h1,h2{text-wrap:balance}
+    .wb-label{display:block;font-size:13px;line-height:20px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px}
+    .wb-rule{height:1px;border:0;background:var(--color-divider);margin:0 0 32px}
+    .wb-h2{font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:0 0 16px}
+    .wb-body{font-size:15px;line-height:24px;max-width:52ch;margin:0 0 16px;color:color-mix(in srgb, var(--color-text) 78%, transparent)}
+    .wb-card-head{margin:0;padding:12px 24px;border-bottom:1px solid var(--color-divider);font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600}
+    .wb-card-tag{margin:0 0 10px;font-size:12px;line-height:18px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700)}
+    /* Phone mockup: inline SVG bezel over a 390x844 screen */
+    .wb-phone{position:relative;width:var(--w,260px);max-width:100%;aspect-ratio:420/874;margin-inline:auto;filter:drop-shadow(0 18px 30px color-mix(in srgb, #1d1f20 22%, transparent))}
+    .wb-phone-screen{position:absolute;left:3.571%;top:1.716%;width:92.857%;height:96.568%;border-radius:9.74%/4.5%;overflow:hidden;background:#fff}
+    .wb-phone-screen>*,.wb-phone-screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+    .wb-phone-frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+    /* Recent work */
+    .wb-work{display:grid;gap:clamp(24px,3vw,40px)}
+    @media (min-width:980px){.wb-work.has-a1{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    .wb-sample{container-type:inline-size}
+    .wb-sample-in{display:grid;gap:28px;padding:28px 24px;align-items:center}
+    @container (min-width:620px){.wb-sample-in{grid-template-columns:minmax(0,1fr) auto;padding:36px 48px;gap:48px}}
+    .wb-ba{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .wb-ba figure{margin:0}
+    .wb-ba img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border:1px solid var(--color-divider)}
+    .wb-ba figcaption{margin-top:6px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)}
+    [data-a1-quote]{margin:20px 0 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:1.35}
     [hidden]{display:none!important}
     .wb-plus{display:flex;flex-direction:column;gap:12px;max-width:56ch;font-size:15px;line-height:22px;text-wrap:pretty}
     .wb-plus>div{position:relative;padding-left:22px}
@@ -87,7 +147,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
 <div>
   <nav style="position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--color-bg) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--color-divider)">
     <div class="nav" style="max-width:1200px;margin:0 auto;padding:var(--space-3) clamp(20px,5vw,64px)">
-      <span class="nav-brand">Journeyman Web Co</span>
+      <span class="nav-brand">Journeyman Web Co.</span>
       <a href="#work">Who I work with</a>
       <a href="#packages">Packages</a>
       <a href="#how">How it works</a>
@@ -98,6 +158,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
   <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,4vw,56px);align-items:center;padding:clamp(40px,6vw,72px) 0 48px" data-screen-label="Hero">
       <div class="wb-hero-copy">
+        <p class="wb-label" style="margin:0 0 16px">Sterling Heights, MI · Serving Metro Detroit</p>
         <h1 class="wb-hero-title" style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);line-height:1.04;letter-spacing:0.01em;margin:0 0 0 -0.05em">
           <span data-reveal="0" style="display:block">Websites that make</span>
           <span data-reveal="120" style="display:block">your phone ring.</span>
@@ -155,12 +216,6 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
       
         <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Tool &amp; die<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
       
-        <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Law firms<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
-      
-        <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Insurance<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
-      
-        <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Accountants<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
-      
         <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Roofing<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
       
         <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">HVAC<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
@@ -191,12 +246,6 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
       
         <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Tool &amp; die<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
       
-        <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Law firms<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
-      
-        <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Insurance<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
-      
-        <span style="display:flex;align-items:center;gap:40px;white-space:nowrap;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 72%, transparent)">Accountants<span style="color:var(--color-accent);font-weight:400;font-family:var(--font-body)">+</span></span>
-      
     </div>
   </div>
 
@@ -206,7 +255,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
       <div class="blueprint" data-reveal="0">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <header class="wb-sheet-head" style="display:flex;flex-wrap:wrap;align-items:stretch;border-bottom:1px solid var(--color-divider)">
-          <span style="flex:1;min-width:16ch;padding:12px 24px;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Journeyman Web Co · Job sheet</span>
+          <span style="flex:1;min-width:16ch;padding:12px 24px;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Journeyman Web Co. · Job sheet</span>
           <span style="padding:12px 24px;border-left:1px solid var(--color-divider);white-space:nowrap;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">WB-100</span>
           <span style="padding:12px 24px;border-left:1px solid var(--color-divider);white-space:nowrap;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Rev A</span>
           <span style="padding:12px 24px;border-left:1px solid var(--color-divider);white-space:nowrap;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Sheet 01 of 01</span>
@@ -238,7 +287,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
       <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">02 · Who I work with</span>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 8px">
       <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:20px 0 32px">If your work gets your hands dirty, you're my kind of client.</h2>
-      <div class="wb-trades">
+      <div class="wb-clients">
         <div class="blueprint" data-reveal="0" style="padding:24px;transition:border-color .25s,transform .25s" style-hover="border-color:var(--color-accent);transform:translateY(-3px)">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1Z"></path><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"></path><path d="M4 15v-3a6 6 0 0 1 6-6"></path><path d="M14 6a6 6 0 0 1 6 6v3"></path></svg>
@@ -257,64 +306,89 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
           <h3 style="font-size:20px;line-height:24px;letter-spacing:0.02em;margin:16px 0 8px">Manufacturing &amp; B2B</h3>
           <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Machine shops, fabricators, stamping, tool &amp; die, industrial suppliers.</p>
         </div>
-        <div class="blueprint" data-reveal="300" style="padding:24px;transition:border-color .25s,transform .25s" style-hover="border-color:var(--color-accent);transform:translateY(-3px)">
+      </div>
+    </section>
+
+    <section id="about" style="padding:64px 0 16px" data-screen-label="Who you're hiring">
+      <span class="wb-label">03 · Who you're hiring</span>
+      <hr class="wb-rule">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,5vw,80px);align-items:center">
+        <div class="blueprint" data-reveal="0" style="width:100%;max-width:520px">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-          <h3 style="font-size:20px;line-height:24px;letter-spacing:0.02em;margin:16px 0 8px">Local professionals</h3>
-          <p style="font-size:14px;line-height:22px;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Law firms, insurance agents, accountants, chiropractors.</p>
+          <p style="margin:0;padding:12px 24px;border-bottom:1px solid var(--color-divider);font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Track record</p>
+          <div style="position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 20px;padding:32px 24px 26px;border-bottom:1px solid var(--color-divider)">
+            <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right, color-mix(in srgb, var(--color-accent) 16%, transparent) 1px, transparent 1px) 0 0/24px 24px, linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 16%, transparent) 1px, transparent 1px) 0 0/24px 24px;-webkit-mask-image:linear-gradient(to right, transparent, #000 20px, #000 45%, transparent 95%), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent, #000 20px, #000 45%, transparent 95%), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);mask-composite:intersect"></span>
+            <span style="position:relative;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(96px,11vw,148px);line-height:0.8;letter-spacing:-0.01em;color:var(--color-accent-700)">20</span>
+            <span style="position:relative;display:flex;flex-direction:column;gap:6px;padding-bottom:2px">
+              <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;line-height:1.05">years</span>
+              <span style="font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Building websites since 2006</span>
+            </span>
+          </div>
+          <dl style="display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:0;margin:0;padding:6px 0">
+            <dt style="padding:12px 24px;font-size:13px;line-height:24px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);border-bottom:1px solid var(--color-divider)">Longest client</dt>
+            <dd style="margin:0;padding:12px 24px 12px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:24px;border-bottom:1px solid var(--color-divider)">10 years</dd>
+            <dt style="padding:12px 24px;font-size:13px;line-height:24px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">Based in</dt>
+            <dd style="margin:0;padding:12px 24px 12px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:24px">Sterling Heights, MI</dd>
+          </dl>
+        </div>
+        <div data-reveal="120">
+          <h2 class="wb-h2">A web guy who answers his phone.</h2>
+          <p class="wb-body">I've been building websites since 2006. I've run web stores for manufacturers and suppliers with about 100,000 users combined, and I've kept one manufacturer's website running for 10 years.</p>
+          <p class="wb-body" style="margin-bottom:24px">Now I build sites for contractors, shops, and manufacturers here in Metro Detroit. You deal with me, the guy doing the work, from the first call to every edit after launch.</p>
+          <div class="wb-plus" style="gap:14px;max-width:52ch">
+            <div><strong>Talk to me, not a call center.</strong> I call back the same business day.</div>
+            <div><strong>Show up when I said I would.</strong> Straight timelines. Most sites go live within two weeks of getting your content.</div>
+            <div><strong>Stand behind the work.</strong> Hosting, security, backups, and edits stay handled long after launch day.</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;margin-top:28px">
+            <!-- TODO(photo): add /assets/travis.jpg (square, 160x160 or larger), then replace the accent line below with:
+                 <img src="/assets/travis.jpg" width="56" height="56" loading="lazy" decoding="async" alt="Travis Terry, Journeyman Web Co." style="width:56px;height:56px;object-fit:cover;flex:none"> -->
+            <span style="width:32px;height:1px;background:var(--color-accent);flex:none" aria-hidden="true"></span>
+            <span style="display:flex;flex-direction:column;gap:2px">
+              <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:22px;line-height:1.1">Travis Terry</span>
+              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a href="tel:+12485059421">248-505-9421</a></span>
+            </span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section style="padding:64px 0 16px" data-screen-label="Why hire me">
-      <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">03 · Why hire me</span>
-      <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 32px">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,5vw,80px);align-items:center">
-        <div class="blueprint" data-reveal="0" style="width:100%;max-width:520px">
+    <section id="recent-work" style="padding:64px 0 16px" data-screen-label="Recent work">
+      <span class="wb-label">04 · Recent work</span>
+      <hr class="wb-rule">
+      <h2 class="wb-h2" style="margin-bottom:28px">See the work before you hire me.</h2>
+      <div class="wb-work">
+        <!-- A-1 Bracket Group case study: shown only when showA1CaseStudy is true in config.js.
+             Before = a-1bracket.com today, after = the redesign preview. Optional quote: /assets/work/a1-quote.txt (one line). -->
+        <article class="blueprint wb-case" data-case="a1" hidden>
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
-          <header style="display:flex;flex-wrap:wrap;align-items:stretch;border-bottom:1px solid var(--color-divider)">
-            <span style="flex:1;min-width:14ch;padding:12px 24px;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Work record</span>
-            <span style="padding:12px 24px;border-left:1px solid var(--color-divider);white-space:nowrap;font-size:13px;line-height:24px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent)">WB-103</span>
-          </header>
-          <div style="position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 20px;padding:32px 24px 26px;border-bottom:1px solid var(--color-divider)">
-            <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right, color-mix(in srgb, var(--color-accent) 16%, transparent) 1px, transparent 1px) 0 0/24px 24px, linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 16%, transparent) 1px, transparent 1px) 0 0/24px 24px;-webkit-mask-image:linear-gradient(to right, transparent, #000 20px, #000 45%, transparent 95%), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right, transparent, #000 20px, #000 45%, transparent 95%), linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent);mask-composite:intersect"></span>
-            <span style="position:relative;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(96px,11vw,148px);line-height:0.8;letter-spacing:-0.01em;color:var(--color-accent-700)">10+</span>
-            <span style="position:relative;display:flex;flex-direction:column;gap:6px;padding-bottom:2px">
-              <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:24px;line-height:1.05;letter-spacing:0.02em">Years in<br>the trades</span>
-              <span style="font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Before the first website.</span>
-            </span>
+          <p class="wb-card-head">A-1 Bracket Group · Manufacturer · Client for 10 years</p>
+          <div style="padding:24px">
+            <div class="wb-ba">
+              <figure><img src="/assets/work/a1-before.jpg" width="960" height="600" loading="lazy" decoding="async" alt="The A-1 Bracket Group website before the rebuild"><figcaption>Before</figcaption></figure>
+              <figure><img src="/assets/work/a1-after.jpg" width="960" height="600" loading="lazy" decoding="async" alt="The A-1 Bracket Group website after the rebuild"><figcaption>After</figcaption></figure>
+            </div>
+            <blockquote data-a1-quote hidden></blockquote>
+            <a class="btn btn-secondary" href="https://a-1bracket.com" rel="noopener" style="margin-top:20px">Visit a-1bracket.com</a>
           </div>
-          <dl style="display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:0;margin:0;padding:6px 0">
-            <dt style="padding:12px 24px;font-size:13px;line-height:24px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);border-bottom:1px solid var(--color-divider)">Now</dt>
-            <dd style="margin:0;padding:12px 24px 12px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:24px;letter-spacing:0.02em;border-bottom:1px solid var(--color-divider)">Websites for the trades</dd>
-            <dt style="padding:12px 24px;font-size:13px;line-height:24px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">The job</dt>
-            <dd style="margin:0;padding:12px 24px 12px 0;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:20px;line-height:24px;letter-spacing:0.02em">Getting good work seen</dd>
-          </dl>
-          <p style="margin:0;padding:12px 24px;border-top:1px solid var(--color-divider);font-size:13px;line-height:24px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Same rules. <span style="color:var(--color-accent-700);font-weight:600">New tools.</span></p>
-        </div>
-        <div data-reveal="120">
-          <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin:0 0 12px">A note from Travis</span>
-          <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:0 0 16px">I came from the trades.</h2>
-          <p style="font-size:15px;line-height:24px;max-width:52ch;margin:0 0 16px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">I spent more than a decade in the trades. I know what it's like to run on referrals, live off the phone, and get burned by slick salespeople.</p>
-          <p style="font-size:15px;line-height:24px;max-width:52ch;margin:0 0 24px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Now I build websites for tradesmen, because good work should be easy to find. Customers look you up before they call. If they can't find you, they call the next name on the list. You do the work. I make sure people see it, and I run every job the way a good contractor would:</p>
-          <div style="display:flex;flex-direction:column;gap:14px;max-width:52ch;text-wrap:pretty">
-            <div style="display:flex;gap:12px;font-size:15px;line-height:22px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span><strong>Answer the phone.</strong> You talk to me, the guy building your site. No call center, no ticket queue.</span></div>
-            <div style="display:flex;gap:12px;font-size:15px;line-height:22px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span><strong>Show up when I said I would.</strong> Straight timelines. Most sites go live within two weeks of getting your content.</span></div>
-            <div style="display:flex;gap:12px;font-size:15px;line-height:22px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span><strong>Stand behind the work.</strong> Hosting, security, backups, and edits stay handled long after launch day.</span></div>
+        </article>
+        <article class="blueprint wb-sample" data-reveal="0">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <div class="wb-sample-in">
+            <div>
+              <p class="wb-card-tag">Sample build · fictional business</p>
+              <h3 style="font-size:28px;line-height:1.1;margin:0 0 12px">Sample Roofing Co.</h3>
+              <p class="wb-body" style="margin-bottom:24px">A complete one-page site on the Essentials package: click-to-call up top, services, service area, and an estimate form. This is the kind of site you get from me.</p>
+              <a class="btn btn-secondary" href="/samples/roofing/">See the sample site</a>
+            </div>
+            <div class="wb-phone" style="--w:220px"><div class="wb-phone-screen"><svg viewBox="0 0 390 844" role="img" aria-label="Placeholder for a phone screenshot of a sample site" preserveAspectRatio="xMidYMin slice"><rect width="390" height="844" fill="#fff"/><rect width="390" height="34" fill="#2c455d"/><rect x="24" y="58" width="120" height="14" rx="3" fill="#2c455d" opacity=".85"/><rect x="300" y="52" width="66" height="26" rx="4" fill="#416180"/><rect x="24" y="120" width="300" height="26" rx="4" fill="#1d1f20"/><rect x="24" y="156" width="250" height="26" rx="4" fill="#1d1f20"/><rect x="24" y="200" width="330" height="10" rx="3" fill="#b7b7ba"/><rect x="24" y="218" width="300" height="10" rx="3" fill="#b7b7ba"/><rect x="24" y="236" width="240" height="10" rx="3" fill="#b7b7ba"/><rect x="24" y="272" width="342" height="48" rx="4" fill="#416180"/><rect x="24" y="332" width="342" height="48" rx="4" fill="none" stroke="#416180" stroke-width="2"/><g stroke="#d6ebff" stroke-width="1"><line x1="0" y1="420" x2="390" y2="420"/><line x1="0" y1="450" x2="390" y2="450"/><line x1="0" y1="480" x2="390" y2="480"/><line x1="0" y1="510" x2="390" y2="510"/><line x1="0" y1="540" x2="390" y2="540"/><line x1="0" y1="570" x2="390" y2="570"/><line x1="0" y1="600" x2="390" y2="600"/><line x1="0" y1="630" x2="390" y2="630"/><line x1="0" y1="660" x2="390" y2="660"/><line x1="0" y1="690" x2="390" y2="690"/><line x1="0" y1="720" x2="390" y2="720"/><line x1="0" y1="750" x2="390" y2="750"/><line x1="0" y1="780" x2="390" y2="780"/><line x1="0" y1="810" x2="390" y2="810"/><line x1="0" y1="840" x2="390" y2="840"/><line x1="15" y1="410" x2="15" y2="844"/><line x1="45" y1="410" x2="45" y2="844"/><line x1="75" y1="410" x2="75" y2="844"/><line x1="105" y1="410" x2="105" y2="844"/><line x1="135" y1="410" x2="135" y2="844"/><line x1="165" y1="410" x2="165" y2="844"/><line x1="195" y1="410" x2="195" y2="844"/><line x1="225" y1="410" x2="225" y2="844"/><line x1="255" y1="410" x2="255" y2="844"/><line x1="285" y1="410" x2="285" y2="844"/><line x1="315" y1="410" x2="315" y2="844"/><line x1="345" y1="410" x2="345" y2="844"/><line x1="375" y1="410" x2="375" y2="844"/></g><rect x="24" y="440" width="160" height="120" rx="4" fill="#eef6ff" stroke="#94bce3"/><rect x="206" y="440" width="160" height="120" rx="4" fill="#eef6ff" stroke="#94bce3"/><rect x="24" y="580" width="160" height="120" rx="4" fill="#eef6ff" stroke="#94bce3"/><rect x="206" y="580" width="160" height="120" rx="4" fill="#eef6ff" stroke="#94bce3"/></svg></div><svg class="wb-phone-frame" viewBox="0 0 420 874" aria-hidden="true" focusable="false"><path fill-rule="evenodd" fill="#1d1f20" d="M54 0h312a54 54 0 0 1 54 54v766a54 54 0 0 1-54 54H54a54 54 0 0 1-54-54V54A54 54 0 0 1 54 0ZM53 15h314a38 38 0 0 1 38 38v768a38 38 0 0 1-38 38H53a38 38 0 0 1-38-38V53a38 38 0 0 1 38-38Z"/></svg></div>
           </div>
-          <div style="display:flex;align-items:flex-start;gap:14px;margin-top:28px">
-            <span style="width:32px;height:1px;margin-top:12px;background:var(--color-accent);flex:none"></span>
-            <span style="display:flex;flex-direction:column;gap:2px">
-              <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:22px;line-height:1.1;letter-spacing:0.02em">Travis Terry</span>
-              <span style="font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a href="tel:+12485059421">248-505-9421</a></span>
-            </span>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
 
     <section id="packages" style="padding:64px 0 16px" data-screen-label="Packages">
-      <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">04 · Packages</span>
+      <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">05 · Packages</span>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 8px">
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin:20px 0 32px">
         <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:0">Straight prices. Two ways to pay.</h2>
@@ -429,7 +503,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
     </section>
 
     <section id="how" style="padding:64px 0 16px" data-screen-label="How it works">
-      <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">05 · How it works</span>
+      <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">06 · How it works</span>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 32px">
       <div data-timeline class="wb-steps">
         <div data-step style="padding-right:28px">
@@ -509,7 +583,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
     </section>
 
     <section style="padding:56px 0 16px" data-screen-label="Straight answers">
-      <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">06 · Straight answers</span>
+      <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">07 · Straight answers</span>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 32px">
       <div class="wb-faq">
         <div data-reveal="0">
@@ -536,7 +610,7 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
     </section>
 
     <section id="review" style="padding:64px 0 40px" data-screen-label="Free review">
-      <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">07 · The free review</span>
+      <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--color-accent-700);margin:0 0 12px">08 · The free review</span>
       <hr style="height:1px;border:0;background:var(--color-divider);margin:0 0 32px">
       <div class="wb-review">
         <div class="wb-review-pitch" data-reveal="0">
@@ -608,13 +682,13 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
       </div>
     </section>
 
-    <footer style="padding:32px 0 48px;font-size:13px;line-height:24px;color:color-mix(in srgb, var(--color-text) 70%, transparent);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between">
-      <span style="text-transform:uppercase;letter-spacing:0.06em;font-weight:600">Journeyman Web Co</span>
-      <span>Built at the bench. Hosted with care. © 2026</span>
+    <footer style="padding:32px 0 48px;border-top:1px solid var(--color-divider);font-size:14px;line-height:24px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">
+      <p style="margin:0">Journeyman Web Co. · Sterling Heights, Michigan · <a href="tel:+12485059421">248-505-9421</a> · <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></p>
     </footer>
   </div>
 </div>
 <script src="wb-hero-3d.js"></script>
+<script src="config.js"></script>
 <script src="pricing.js"></script>
 <script>
 // Behaviours the design-canvas runtime used to provide, in plain JS.
@@ -623,6 +697,21 @@ wb-hero-3d:has(canvas)::before{display:none}</style>
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // 1. billing toggle and every price: see pricing.js
+
+  // Recent work: the A-1 case study appears only when config.js turns it on,
+  // and its quote only if /assets/work/a1-quote.txt exists.
+  var cfg = window.JWC_CONFIG || {}, a1 = document.querySelector('[data-case="a1"]');
+  if (a1 && cfg.showA1CaseStudy) {
+    a1.hidden = false;
+    a1.parentNode.classList.add('has-a1');
+    fetch('/assets/work/a1-quote.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
+      var line = (t || '').trim().split('\n')[0];
+      if (!line) return;
+      var q = a1.querySelector('[data-a1-quote]');
+      q.textContent = '\u201c' + line.replace(/^["\u201c]|["\u201d]$/g, '') + '\u201d';
+      q.hidden = false;
+    }).catch(function () {});
+  }
 
   // 2. scroll reveals
   var reveals = document.querySelectorAll('[data-reveal]');
