@@ -3,5 +3,6 @@
   "name": "journeyman-contact",
   "main": "src/index.js",
   "compatibility_date": "2026-08-31",
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  "preview_urls": false
 }
