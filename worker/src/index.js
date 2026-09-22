@@ -118,32 +118,38 @@ export default {
     }
     if (!verdict.success || !ALLOWED_HOSTNAMES.includes(verdict.hostname)) {
       if (verdict.success) console.warn("Turnstile token from unexpected hostname", verdict.hostname);
+      else console.warn("Turnstile rejected the token", JSON.stringify(verdict["error-codes"] || []));
       return json({ error: "Bot check failed. Please reload and try again." }, 403, origin);
     }
 
+    // Every field the form sends, labeled, in the order the form asks for them.
     const rows = [
       ["Website", website || "(none yet)"],
-      ["Business", business],
       ["Name", name],
+      ["Business", business],
       ["Phone", phone],
       ["Email", email],
       ["Package", pkg || "Not sure yet"],
+      ["Notes", notes || "(none)"],
     ];
 
     const text =
       `Free website review request\n\n` +
-      rows.map(([k, v]) => `${k}: ${v}`).join("\n") +
-      `\n\nNotes:\n${notes || "(none)"}\n`;
+      rows.map(([k, v]) => (k === "Notes" ? `\nNotes:\n${v}` : `${k}: ${v}`)).join("\n") +
+      `\n`;
 
+    const cell = "padding:6px 16px 6px 0;vertical-align:top;font-family:system-ui,sans-serif;font-size:15px;line-height:1.45";
     const html =
-      `<h2 style="font-family:system-ui,sans-serif">Free website review request</h2>` +
-      `<p style="font-family:system-ui,sans-serif">` +
-      rows.map(([k, v]) =>
-        k === "Email"
-          ? `<strong>${k}:</strong> <a href="mailto:${esc(v)}">${esc(v)}</a>`
-          : `<strong>${k}:</strong> ${esc(v)}`
-      ).join("<br>") +
-      `</p><pre style="font-family:system-ui,sans-serif;white-space:pre-wrap;font-size:15px">${esc(notes || "(no notes)")}</pre>`;
+      `<h2 style="font-family:system-ui,sans-serif;margin:0 0 12px">Free website review request</h2>` +
+      `<table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse">` +
+      rows.map(([k, v]) => {
+        const value = k === "Email" ? `<a href="mailto:${esc(v)}">${esc(v)}</a>`
+          : k === "Phone" ? `<a href="tel:${esc(v.replace(/[^\d+]/g, ""))}">${esc(v)}</a>`
+          : esc(v);
+        return `<tr><th align="left" style="${cell};font-weight:600;white-space:nowrap">${k}</th>` +
+          `<td style="${cell};white-space:pre-wrap">${value}</td></tr>`;
+      }).join("") +
+      `</table>`;
 
     const send = await fetch("https://api.resend.com/emails", {
       method: "POST",
