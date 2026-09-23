@@ -82,6 +82,8 @@
   });
 
   // 4. free review form: send to the journeyman-contact Worker (Turnstile + Resend)
+  // lead code from an outreach email link (set by track.js), so the email says who it is
+  var leadId = function () { try { return sessionStorage.getItem('jwc_r') || ''; } catch (e) { return ''; } };
   var rf = document.getElementById('review-form');
   var ts = document.getElementById('rv-turnstile'), tsLoading = false;
   function loadTurnstile() {
@@ -131,7 +133,7 @@
         body: JSON.stringify({
           website: v('website'), name: v('name'), business: v('business'),
           phone: v('phone'), email: v('email'), notes: v('notes'), package: v('package'),
-          hp: f.namedItem('bf_check').value, turnstileToken: token
+          hp: f.namedItem('bf_check').value, turnstileToken: token, leadId: leadId()
         })
       })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { r: r, d: d }; }); })

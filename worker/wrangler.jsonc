@@ -4,5 +4,18 @@
   "main": "src/index.js",
   "compatibility_date": "2026-08-31",
   "observability": { "enabled": true },
-  "preview_urls": false
+  "preview_urls": false,
+  // Lead click tracking. Create it once with `npx wrangler d1 create journeyman-tracking`
+  // and paste the database_id it prints here (see README.md).
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "journeyman-tracking",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // Daily digest at 7:30 AM Detroit time, written in UTC: 11:30 UTC during EDT,
+  // 12:30 UTC during EST. Both run; the worker only sends from the one in the 7 AM hour.
+  "triggers": { "crons": ["30 11 * * *", "30 12 * * *"] }
 }

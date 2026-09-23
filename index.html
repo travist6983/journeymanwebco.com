@@ -223,7 +223,7 @@
       <a href="#work">Who I work with</a>
       <a href="#packages">Packages</a>
       <a href="#how">How it works</a>
-      <a class="btn btn-primary" href="#review">Free website review</a>
+      <a class="btn btn-primary" href="#review" data-track="click_review_cta" data-track-detail="header">Free website review</a>
     </div>
   </nav>
 
@@ -238,7 +238,7 @@
         </h1>
         <p style="font-size:16px;line-height:24px;max-width:56ch;margin:28px 0 0">Your customers look you up before they call. If your site looks dead, they call the next guy. I build your site, host it, and make your changes, so you can get back to work.</p>
         <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:28px">
-          <a class="btn btn-primary" href="#review">Get your free website review</a>
+          <a class="btn btn-primary" href="#review" data-track="click_review_cta" data-track-detail="hero">Get your free website review</a>
           <a class="btn btn-secondary" href="#packages">See packages</a>
         </div>
         <p style="font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:20px 0 0">Free, no obligation. I'll show you your current site on a phone, the way your customers see it.</p>
@@ -408,7 +408,7 @@
             <span style="width:32px;height:1px;background:var(--color-accent);flex:none" aria-hidden="true"></span>
             <span style="display:flex;flex-direction:column;gap:2px">
               <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:22px;line-height:1.1">Travis Terry</span>
-              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a class="wb-tap" href="tel:+12485059421">248-505-9421</a></span>
+              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a data-track="click_call" data-track-detail="signature" class="wb-tap" href="tel:+12485059421">248-505-9421</a></span>
             </span>
           </div>
         </div>
@@ -431,7 +431,7 @@
               <figure><img src="/assets/work/a1-after.jpg" width="960" height="600" loading="lazy" decoding="async" alt="The A-1 Bracket Group website after the rebuild"><figcaption>After</figcaption></figure>
             </div>
             <blockquote data-a1-quote hidden></blockquote>
-            <a class="btn btn-secondary" href="https://a-1bracket.com" target="_blank" rel="noopener" style="margin-top:20px">Visit a-1bracket.com<span class="wb-sr"> (opens in a new tab)</span></a>
+            <a class="btn btn-secondary" href="https://a-1bracket.com" data-track="see_work" data-track-detail="a-1bracket.com" target="_blank" rel="noopener" style="margin-top:20px">Visit a-1bracket.com<span class="wb-sr"> (opens in a new tab)</span></a>
           </div>
         </article>
         <article class="blueprint wb-sample" data-reveal="0">
@@ -441,7 +441,7 @@
               <p class="wb-card-tag">Recent build · Masonry contractor</p>
               <h3 style="font-size:28px;line-height:1.1;margin:0 0 12px">A-1 Bracket Group</h3>
               <p class="wb-body" style="margin-bottom:24px">A new site for a brick, stucco, and stone masonry contractor in Pennsylvania and New Jersey: a free estimate button up top, their services laid out plainly, and a project gallery that lets the work speak.</p>
-              <a class="btn btn-secondary" href="https://travist6983.github.io/a-1bracket/index.html" data-config-href="a1SiteUrl" target="_blank" rel="noopener">See the site<span class="wb-sr"> (opens in a new tab)</span></a>
+              <a class="btn btn-secondary" href="https://travist6983.github.io/a-1bracket/index.html" data-config-href="a1SiteUrl" data-track="see_work" data-track-detail="A-1 redesign" target="_blank" rel="noopener">See the site<span class="wb-sr"> (opens in a new tab)</span></a>
             </div>
             <div class="wb-phone" style="--w:220px"><div class="wb-phone-screen"><picture><source type="image/webp" srcset="/assets/a1-redesign-projects.webp"><img src="/assets/a1-redesign-projects.png" width="390" height="844" loading="lazy" decoding="async" alt="Phone screenshot of the project gallery on the A-1 Bracket Group website."></picture></div><svg class="wb-phone-frame" viewBox="0 0 420 874" aria-hidden="true" focusable="false"><path fill-rule="evenodd" fill="#1d1f20" d="M54 0h312a54 54 0 0 1 54 54v766a54 54 0 0 1-54 54H54a54 54 0 0 1-54-54V54A54 54 0 0 1 54 0ZM53 15h314a38 38 0 0 1 38 38v768a38 38 0 0 1-38 38H53a38 38 0 0 1-38-38V53a38 38 0 0 1 38-38Z"/></svg></div>
           </div>
@@ -455,8 +455,8 @@
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin:20px 0 32px">
         <h2 style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(28px,3vw,40px);line-height:1.1;letter-spacing:0.01em;margin:0">Straight prices. Two ways to pay.</h2>
         <div class="seg" role="radiogroup" aria-label="Billing">
-          <label class="seg-opt"><input type="radio" name="wb-billing" value="monthly" checked style="position:absolute;opacity:0;pointer-events:none">Monthly subscription</label>
-          <label class="seg-opt"><input type="radio" name="wb-billing" value="upfront" style="position:absolute;opacity:0;pointer-events:none">Pay upfront</label>
+          <label class="seg-opt"><input data-track="toggle_pricing" data-track-detail="monthly" type="radio" name="wb-billing" value="monthly" checked style="position:absolute;opacity:0;pointer-events:none">Monthly subscription</label>
+          <label class="seg-opt"><input data-track="toggle_pricing" data-track-detail="upfront" type="radio" name="wb-billing" value="upfront" style="position:absolute;opacity:0;pointer-events:none">Pay upfront</label>
         </div>
       </div>
       <p data-founding hidden style="margin:0 0 28px;padding:12px 16px;background:var(--color-accent-100);color:var(--color-accent-800);font-size:14px;line-height:22px"><strong>Founding client pricing:</strong> the first <span data-p="foundingOffer.spots"></span> businesses to sign by <span data-p="foundingOffer.endsOnLabel"></span> get <span data-p="foundingOffer.buildDiscountPct"></span>% off the build (<span data-p="$tiers.essentials.foundingBuild"></span> / <span data-p="$tiers.growth.foundingBuild"></span> / <span data-p="$tiers.industrial.foundingBuild"></span> upfront) or <span data-p="foundingOffer.monthlyFreeMonths"></span> months free on a monthly plan.</p>
@@ -478,7 +478,7 @@
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Google Business Profile cleanup</span></div>
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Analytics setup</span></div>
           </div>
-          <a class="btn btn-secondary btn-block" href="#review" data-package="Essentials" style="margin-top:24px">Start with Essentials</a>
+          <a class="btn btn-secondary btn-block" href="#review" data-package="Essentials" data-track="click_package" data-track-detail="Essentials" style="margin-top:24px">Start with Essentials</a>
         </div>
         <div class="blueprint" data-reveal="120" style="padding:28px 24px;display:flex;flex-direction:column;border-color:var(--color-accent)">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
@@ -499,7 +499,7 @@
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Quote request form</span></div>
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Copy editing and speed optimization</span></div>
           </div>
-          <a class="btn btn-primary btn-block" href="#review" data-package="Growth" style="margin-top:24px">Start with Growth</a>
+          <a class="btn btn-primary btn-block" href="#review" data-package="Growth" data-track="click_package" data-track-detail="Growth" style="margin-top:24px">Start with Growth</a>
         </div>
         <div class="blueprint" data-reveal="240" style="padding:28px 24px;display:flex;flex-direction:column">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
@@ -518,7 +518,7 @@
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Project and parts gallery</span></div>
             <div style="display:flex;gap:10px"><span style="color:var(--color-accent-700);font-weight:700">+</span><span>Secure storage for RFQ drawings and uploads</span></div>
           </div>
-          <a class="btn btn-secondary btn-block" href="#review" data-package="Industrial" style="margin-top:24px">Start with Industrial</a>
+          <a class="btn btn-secondary btn-block" href="#review" data-package="Industrial" data-track="click_package" data-track-detail="Industrial" style="margin-top:24px">Start with Industrial</a>
         </div>
       </div>
       <p class="wb-note"><span data-view="monthly">No money down. After <span data-p="termMonths"></span> months it drops to Hosting &amp; Care and the site is yours.</span><span data-view="upfront" hidden>You own it once it's paid for. Hosting &amp; Care is required for the first <span data-p="careMinimumMonths"></span> months, then month to month.</span></p>
@@ -690,15 +690,15 @@
         </div>
         <div class="wb-review-call" data-reveal="0" style="padding-top:24px;border-top:1px solid var(--color-divider)">
           <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:color-mix(in srgb, var(--color-text) 70%, transparent);margin:0 0 6px">Rather just call?</span>
-          <a href="tel:+12485059421" style="display:inline-block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(32px,3.4vw,44px);line-height:1.1;letter-spacing:0.01em;color:var(--color-text);text-decoration:none">248-505-9421</a>
-          <p style="font-size:14px;line-height:22px;margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 70%, transparent)">or email <a class="wb-tap" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></p>
+          <a data-track="click_call" data-track-detail="call block" href="tel:+12485059421" style="display:inline-block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(32px,3.4vw,44px);line-height:1.1;letter-spacing:0.01em;color:var(--color-text);text-decoration:none">248-505-9421</a>
+          <p style="font-size:14px;line-height:22px;margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 70%, transparent)">or email <a data-track="click_email" data-track-detail="call block" class="wb-tap" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></p>
         </div>
         <div class="blueprint wb-review-form" data-reveal="120">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <p class="wb-card-head">Free review request</p>
           <div id="review-sent" tabindex="-1" hidden style="padding:32px 24px">
             <h3 style="font-size:26px;line-height:1.15;margin:0 0 20px">Got it. I'll call or email you by the end of the next business day.</h3>
-            <a class="btn btn-secondary" href="tel:+12485059421">Call now instead</a>
+            <a data-track="click_call" data-track-detail="after form" class="btn btn-secondary" href="tel:+12485059421">Call now instead</a>
           </div>
           <form id="review-form" class="wb-form" data-endpoint="https://journeyman-contact.travisjterry.workers.dev">
             <div class="wb-form-grid" style="padding:24px">
@@ -744,8 +744,8 @@
               </div>
               <div class="wide">
                 <div id="rv-turnstile" data-sitekey="0x4AAAAAAFAOsoaBgRf6Lcxi" style="min-height:65px;margin:0 0 16px"></div>
-                <noscript><p style="margin:0 0 12px;font-size:14px;line-height:21px">This form needs JavaScript. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a>.</p></noscript>
-                <p id="review-error" role="alert" hidden style="margin:0 0 12px;padding:12px 14px;border:1px solid var(--color-accent);font-size:14px;line-height:21px"><span data-msg hidden></span><span data-fallback>That didn't go through. Call me at <a href="tel:+12485059421">248-505-9421</a> or email <a href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> and I'll take care of it.</span></p>
+                <noscript><p style="margin:0 0 12px;font-size:14px;line-height:21px">This form needs JavaScript. Call me at <a data-track="click_call" data-track-detail="no script" href="tel:+12485059421">248-505-9421</a> or email <a data-track="click_email" data-track-detail="no script" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a>.</p></noscript>
+                <p id="review-error" role="alert" hidden style="margin:0 0 12px;padding:12px 14px;border:1px solid var(--color-accent);font-size:14px;line-height:21px"><span data-msg hidden></span><span data-fallback>That didn't go through. Call me at <a data-track="click_call" data-track-detail="form error" href="tel:+12485059421">248-505-9421</a> or email <a data-track="click_email" data-track-detail="form error" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> and I'll take care of it.</span></p>
                 <button class="btn btn-primary btn-block" type="submit" style="min-height:48px;font-size:16px;margin-top:4px">Send my review request</button>
                 <p style="margin:12px 0 0;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Goes straight to me, and I'll get back to you personally. <a href="/privacy/">How I handle your info</a>.</p>
               </div>
@@ -759,16 +759,17 @@
   </main>
   <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
     <footer style="padding:32px 0 48px;border-top:1px solid var(--color-divider);font-size:14px;line-height:24px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">
-      <p style="margin:0">Journeyman Web Co. · Sterling Heights, Michigan · <a class="wb-tap" href="tel:+12485059421">248-505-9421</a> · <a class="wb-tap" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> · <a class="wb-tap" href="/privacy/">Privacy</a></p>
+      <p style="margin:0">Journeyman Web Co. · Sterling Heights, Michigan · <a data-track="click_call" data-track-detail="footer" class="wb-tap" href="tel:+12485059421">248-505-9421</a> · <a data-track="click_email" data-track-detail="footer" class="wb-tap" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> · <a class="wb-tap" href="/privacy/">Privacy</a></p>
     </footer>
   </div>
 </div>
 <nav class="wb-callbar" id="callbar" aria-label="Quick contact">
-  <a class="btn btn-secondary" href="tel:+12485059421" aria-label="Call 248-505-9421"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Call</a>
-  <a class="btn btn-primary" href="#review">Free review</a>
+  <a data-track="click_call" data-track-detail="call bar" class="btn btn-secondary" href="tel:+12485059421" aria-label="Call 248-505-9421"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Call</a>
+  <a class="btn btn-primary" href="#review" data-track="click_review_cta" data-track-detail="call bar">Free review</a>
 </nav>
 <script src="config.js" defer></script>
 <script src="pricing.js" defer></script>
 <script src="site.js" defer></script>
+<script src="track.js" defer></script>
 </body>
 </html>
