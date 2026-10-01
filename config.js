@@ -19,7 +19,7 @@ window.JWC_CONFIG = {
   cfAnalyticsToken: '56f282fbce194f33ad8f498c74c3ded6'
 };
 
-// Cloudflare Web Analytics (no cookies): live site only, never localhost or previews.
+// Cloudflare Web Analytics (no cookies): live domain only (home page and /preview/ pages), never localhost.
 (function () {
   var token = window.JWC_CONFIG.cfAnalyticsToken;
   if (!token || location.hostname !== 'journeymanwebco.com') return;
