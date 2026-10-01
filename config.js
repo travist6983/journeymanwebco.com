@@ -9,6 +9,12 @@ window.JWC_CONFIG = {
   // Where the "Live site" buttons on the A-1 Recent work cards go.
   a1SiteUrl: 'https://a-1bracket.com',
 
+  // The offer line under the Packages heading:
+  //   'case-study'  three businesses this fall at case-study pricing (review + permission to show the site)
+  //   'launch'      fall launch pricing from launchOffer in pricing.js; hides itself after its last day
+  //   'none'        no offer line
+  OFFER_MODE: 'case-study',
+
   // Cloudflare Web Analytics site token. The beacon loads only on the live domain.
   cfAnalyticsToken: '56f282fbce194f33ad8f498c74c3ded6'
 };

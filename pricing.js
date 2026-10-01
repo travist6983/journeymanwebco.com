@@ -3,8 +3,8 @@
 // index.html holds the words and marks each number with data-p="path"
 // (a leading $ formats it as money, e.g. data-p="$tiers.growth.upfront").
 // This file fills them in, so changing a price here changes it everywhere.
-// Derived numbers (build portion, two-year totals, founding prices) are
-// computed below and never typed into the page.
+// Derived numbers (build portion, two-year totals) are computed below and
+// never typed into the page.
 (function () {
   var PRICING = {
     termMonths: 24,
@@ -17,17 +17,16 @@
       growth:     { upfront: 4000, monthly: 249, care: 49, careAnnual: 490 },
       industrial: { upfront: 6500, monthly: 399, care: 79, careAnnual: 790 }
     },
-    foundingOffer: {
-      enabled: true,
+    // Fall launch pricing, shown only when OFFER_MODE in config.js is 'launch'.
+    launchOffer: {
       endsOn: '2026-10-31', // last day, inclusive, in America/Detroit time
-      spots: 5,
       buildDiscountPct: 20,
       monthlyFreeMonths: 3
     }
   };
 
   // Everything the page can reference: the config plus derived values.
-  var P = PRICING, F = P.foundingOffer, V = { tiers: {} };
+  var P = PRICING, L = P.launchOffer, V = { tiers: {} };
   Object.keys(P).forEach(function (k) { if (k !== 'tiers') V[k] = P[k]; });
   Object.keys(P.tiers).forEach(function (k) {
     var t = P.tiers[k];
@@ -36,13 +35,12 @@
       buildPortion: t.monthly - t.care,
       totalUpfront: t.upfront + t.care * P.termMonths,
       totalMonthly: t.monthly * P.termMonths,
-      foundingBuild: Math.round(t.upfront * (100 - F.buildDiscountPct) / 100),
       annualMonthsFree: 12 - t.careAnnual / t.care
     };
   });
-  var ends = F.endsOn.split('-');
-  V.foundingOffer = {
-    spots: F.spots, buildDiscountPct: F.buildDiscountPct, monthlyFreeMonths: F.monthlyFreeMonths,
+  var ends = L.endsOn.split('-');
+  V.launchOffer = {
+    buildDiscountPct: L.buildDiscountPct, monthlyFreeMonths: L.monthlyFreeMonths,
     endsOnLabel: new Date(Date.UTC(+ends[0], ends[1] - 1, +ends[2]))
       .toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' })
   };
@@ -70,15 +68,17 @@
     el.textContent = (el.getAttribute('data-pre') || '') + v.toLocaleString('en-US') + (el.getAttribute('data-suf') || '');
   });
 
-  // Founding client banner: only while the offer is on and not past its last day.
+  // Offer line under the Packages heading: OFFER_MODE in config.js picks which one shows,
+  // and the launch line also hides itself after its last day.
   var today;
   try {
     today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Detroit', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
   } catch (e) {
     today = new Date().toISOString().slice(0, 10);
   }
-  var foundingOn = F.enabled && today <= F.endsOn;
-  document.querySelectorAll('[data-founding]').forEach(function (el) { el.hidden = !foundingOn; });
+  var offerMode = (window.JWC_CONFIG || {}).OFFER_MODE || 'case-study';
+  var offer = offerMode === 'launch' && today > L.endsOn ? 'none' : offerMode;
+  document.querySelectorAll('[data-offer]').forEach(function (el) { el.hidden = el.getAttribute('data-offer') !== offer; });
 
   // Monthly subscription / Pay upfront toggle.
   function show(mode) {
@@ -92,5 +92,5 @@
     if (r.checked) show(r.value);
   });
 
-  window.JWC_PRICING = { config: PRICING, values: V, foundingOn: foundingOn };
+  window.JWC_PRICING = { config: PRICING, values: V, offer: offer };
 })();
