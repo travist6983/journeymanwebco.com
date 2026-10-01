@@ -27,6 +27,11 @@ if (!file) {
   console.error('Usage: node scripts/import-leads.mjs leads.csv [--local]');
   process.exit(1);
 }
+// Cloudflare answers the placeholder database_id with a misleading "Authentication error".
+if (!local && /"database_id":\s*"0{8}-0{4}-0{4}-0{4}-0{12}"/.test(fs.readFileSync(path.join(WORKER_DIR, 'wrangler.jsonc'), 'utf8'))) {
+  console.error('worker/wrangler.jsonc still has the placeholder database_id. Do the one-time D1 setup in worker/README.md first.');
+  process.exit(1);
+}
 
 // RFC 4180 CSV: quoted fields, doubled quotes, commas and newlines inside quotes.
 function parseCsv(text) {
