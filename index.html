@@ -105,7 +105,7 @@
     @media (max-width:640px){.wb-gfix{padding-bottom:32px}.wb-gfix-in{padding:18px}}
     /* Recent work */
     .wb-work{display:grid;gap:clamp(24px,3vw,40px)}
-    @media (min-width:980px){.wb-work.has-a1{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (min-width:980px){.wb-work.has-a1{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}
     .wb-sample{container-type:inline-size}
     .wb-sample-in{display:grid;gap:28px;padding:28px 24px;align-items:center}
     @container (min-width:620px){.wb-sample-in{grid-template-columns:minmax(0,1fr) auto;padding:36px 48px;gap:48px}}
@@ -165,6 +165,7 @@
     .pre-reveal{opacity:0;transform:translateY(16px)}
     .revealed{transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
     @media (max-width:399px){#rv-turnstile{min-height:140px!important}}
+    #review-error a[href^="tel:"]{white-space:nowrap}
     .wb-offer{margin:0 0 28px;padding:12px 16px;background:var(--color-accent-100);color:var(--color-accent-800);font-size:14px;line-height:22px}
     .wb-note{font-size:14px;line-height:22px;margin:20px 0 0;max-width:80ch;color:color-mix(in srgb, var(--color-text) 70%, transparent)}
     .wb-pricing-how{margin-top:56px}
@@ -426,7 +427,7 @@
             <span data-photo-rule style="width:32px;height:1px;background:var(--color-accent);flex:none" aria-hidden="true"></span>
             <span style="display:flex;flex-direction:column;gap:2px">
               <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:22px;line-height:1.1">Travis Terry</span>
-              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a data-track="click_call" data-track-detail="signature" class="wb-tap" href="tel:+12485059421">248-505-9421</a> · <a data-track="click_text" data-track-detail="signature" class="wb-tap" href="sms:+12485059421">Text me</a></span>
+              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a data-track="click_call" data-track-detail="signature" class="wb-tap" href="tel:+12485059421">248-505-9421</a> <span style="white-space:nowrap">· <a data-track="click_text" data-track-detail="signature" class="wb-tap" href="sms:+12485059421">Text me</a></span></span>
             </span>
           </div>
         </div>
@@ -477,7 +478,7 @@
           <label class="seg-opt"><input data-track="toggle_pricing" data-track-detail="upfront" type="radio" name="wb-billing" value="upfront" style="position:absolute;opacity:0;pointer-events:none">Pay upfront</label>
         </div>
       </div>
-      <p class="wb-offer" data-offer="case-study" hidden>Taking three Metro Detroit businesses this fall at case-study pricing: a reduced build price in exchange for a Google review and permission to show your site. <a href="#review" data-track="click_review_cta" data-track-detail="case-study offer">Ask me about it</a>.</p>
+      <p class="wb-offer" data-offer="case-study" hidden>Taking three Metro Detroit businesses this fall at case-study pricing: a reduced build price in exchange for a Google review and permission to show your site. <a href="#review-request" data-track="click_review_cta" data-track-detail="case-study offer">Ask me about it</a>.</p>
       <p class="wb-offer" data-offer="launch" hidden><strong>Fall launch pricing through <span data-p="launchOffer.endsOnLabel"></span>:</strong> <span data-p="launchOffer.buildDiscountPct"></span>% off the build or <span data-p="launchOffer.monthlyFreeMonths"></span> months free on a monthly plan.</p>
       <p class="wb-swipe-hint" style="display:none;margin:0 0 10px;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Swipe to compare all three packages.</p>
       <div class="wb-tiers" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,3vw,40px);align-items:stretch">

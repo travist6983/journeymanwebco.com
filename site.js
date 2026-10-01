@@ -12,7 +12,7 @@
     a1.hidden = false;
     a1.parentNode.classList.add('has-a1');
     fetch('/assets/work/a1-quote.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
-      var line = (t || '').trim().split('\n')[0];
+      var line = (t || '').trim().split(/\r?\n/)[0].trim();
       if (!line) return;
       var q = a1.querySelector('[data-a1-quote]');
       q.textContent = '\u201c' + line.replace(/^["\u201c]|["\u201d]$/g, '') + '\u201d';
