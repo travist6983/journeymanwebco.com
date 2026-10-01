@@ -285,7 +285,8 @@ async function track(request, env, ctx) {
   // One email alert per lead per Detroit calendar day: on the first "engaged", or sooner on the
   // first "visit" to a concept preview, since a lead opening their preview is the news.
   const path = clip(body.path, 200);
-  const previewOpen = type === "visit" && path.startsWith("/preview/");
+  const onPreview = path.startsWith("/preview/");
+  const previewOpen = type === "visit" && onPreview;
   let alert = false;
   if (type === "engaged" || previewOpen) {
     const last = await env.DB.prepare(
@@ -298,7 +299,7 @@ async function track(request, env, ctx) {
   await env.DB.prepare("INSERT INTO events (lead_id, type, detail, path, ts, ua, country) VALUES (?, ?, ?, ?, ?, ?, ?)")
     .bind(r, type, clip(body.detail, 120), path, now.toISOString(), ua.slice(0, 160), country).run();
 
-  if (alert) ctx.waitUntil(sendAlert(env, lead, now, previewOpen ? path : "").catch((err) => console.error("Alert failed", err)));
+  if (alert) ctx.waitUntil(sendAlert(env, lead, now, onPreview ? path : "").catch((err) => console.error("Alert failed", err)));
   return done;
 }
 
@@ -312,7 +313,8 @@ function eventLine(e) {
   return `${detroitTime(new Date(e.ts))}  ${e.type}${e.detail ? `  (${e.detail})` : ""}${e.path && e.path !== "/" ? `  ${e.path}` : ""}`;
 }
 
-// previewPath is set when the alert is for a lead opening their concept preview.
+// previewPath is set when the alert came from a concept preview page (a visit, or a scroll or
+// tap there that beat the 5-second visit), so the email says the preview was opened.
 async function sendAlert(env, lead, now, previewPath) {
   // "This visit": what this lead did in the last two hours.
   const { results } = await env.DB.prepare("SELECT type, detail, path, ts FROM events WHERE lead_id = ? AND ts > ? ORDER BY ts")
