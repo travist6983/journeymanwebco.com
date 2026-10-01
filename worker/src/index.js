@@ -98,7 +98,7 @@ export default {
   async scheduled(controller, env, ctx) {
     const now = new Date(controller.scheduledTime);
     if (detroitHour(now) !== 7 && !env.DIGEST_ANY_HOUR) return;
-    ctx.waitUntil(sendDigest(env, now));
+    ctx.waitUntil(sendDigest(env, now).catch((err) => console.error("Digest failed", err)));
   },
 };
 
@@ -196,9 +196,10 @@ async function contact(request, env) {
   }
 
   // If they came in through one of my outreach emails, say which lead this is.
+  // Give D1 1.5s at most so a slow lookup never holds up the review request.
   let lead = null;
   try {
-    lead = await findLead(env, leadId);
+    lead = await Promise.race([findLead(env, leadId), new Promise((r) => setTimeout(() => r(null), 1500))]);
   } catch (err) {
     console.error("Lead lookup failed", err);
   }
