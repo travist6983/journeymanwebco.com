@@ -218,9 +218,10 @@
     .wb-form textarea.input{min-height:96px}
     .wb-form select.input{appearance:none;padding-right:40px;background:var(--color-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23416180' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center}
     .wb-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-    @media (max-width:720px){.nav>a:not(.btn){display:none}}
+    .nav-call{display:none}
+    @media (max-width:899px){.nav>a:not(.btn){display:none}.nav .nav-call{display:inline-flex}}
     @media (max-width:400px){.nav-brand{font-size:15px}.nav{gap:10px}}
-    @media (max-width:350px){.nav-brand{font-size:13px}.nav .btn{padding-inline:8px;font-size:13px}}
+    @media (max-width:350px){.nav-brand{font-size:13px}.nav .btn{padding-inline:8px;font-size:13px}.nav-call svg{display:none}}
   
 </style>
 </head>
@@ -232,6 +233,7 @@
       <a href="#work">Who I work with</a>
       <a href="#packages">Packages</a>
       <a href="#how">How it works</a>
+      <a class="btn btn-secondary nav-call" href="tel:+12485059421" data-track="click_call" data-track-detail="header" aria-label="Call 248-505-9421"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>248-505-9421</a>
       <a class="btn btn-primary" href="#review" data-track="click_review_cta" data-track-detail="header">Free website review</a>
     </div>
   </nav>
@@ -422,12 +424,13 @@
             <div><strong>Stand behind the work.</strong> Hosting, security, backups, and edits stay handled long after launch day.</div>
           </div>
           <div style="display:flex;align-items:center;gap:14px;margin-top:28px">
-            <!-- TODO(photo): add /assets/travis.jpg (square, 160x160 or larger), then replace the accent line below with:
-                 <img src="/assets/travis.jpg" width="56" height="56" loading="lazy" decoding="async" alt="Travis Terry, Journeyman Web Co." style="width:56px;height:56px;object-fit:cover;flex:none"> -->
-            <span style="width:32px;height:1px;background:var(--color-accent);flex:none" aria-hidden="true"></span>
+            <!-- Photo slot: drop a square /assets/travis.jpg (160x160 or larger) in place. site.js shows it,
+                 in place of the accent line, only once it loads, so a missing file never shows a broken image. -->
+            <img data-photo src="/assets/travis.jpg" width="56" height="56" decoding="async" alt="Travis Terry" hidden style="width:56px;height:56px;object-fit:cover;flex:none">
+            <span data-photo-rule style="width:32px;height:1px;background:var(--color-accent);flex:none" aria-hidden="true"></span>
             <span style="display:flex;flex-direction:column;gap:2px">
               <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:22px;line-height:1.1">Travis Terry</span>
-              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a data-track="click_call" data-track-detail="signature" class="wb-tap" href="tel:+12485059421">248-505-9421</a></span>
+              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a data-track="click_call" data-track-detail="signature" class="wb-tap" href="tel:+12485059421">248-505-9421</a> · <a data-track="click_text" data-track-detail="signature" class="wb-tap" href="sms:+12485059421">Text me</a></span>
             </span>
           </div>
         </div>

@@ -20,6 +20,19 @@
     }).catch(function () {});
   }
 
+  // Who you're hiring: the photo replaces the accent line once /assets/travis.jpg loads.
+  // A missing file leaves the slot hidden, so there's never a broken image.
+  var photo = document.querySelector('[data-photo]');
+  if (photo) {
+    var showPhoto = function () {
+      if (!photo.naturalWidth) return;
+      photo.hidden = false;
+      var rule = document.querySelector('[data-photo-rule]');
+      if (rule) rule.hidden = true;
+    };
+    if (photo.complete) showPhoto(); else photo.addEventListener('load', showPhoto);
+  }
+
   // 2. scroll reveals. Content is visible unless this script marks an element
   // that starts below the fold; no JS or reduced motion means no hiding at all.
   if (!reduced && 'IntersectionObserver' in window) {
