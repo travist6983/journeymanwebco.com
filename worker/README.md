@@ -84,7 +84,7 @@ Pages in `/preview/<slug>/` have no review form, so they name the Worker in
 
 ### Alerts
 
-One alert per lead per Detroit calendar day, emailed to travis@journeymanwebco.com from form@send.journeymanwebco.com. It goes out on the lead's first `visit` to a concept preview (subject `Preview opened: {business} ({city})`) or first `engaged` event (subject `Lead engaged: {business} ({city})`), whichever comes first that day. The body has the lead's business, contact, trade, city, when the outreach email went out, a mailto link, a tel link if a phone number appears in the lead's notes (there's no phone column), and everything that lead did in the last two hours. It's sent with `ctx.waitUntil`, so the page's request isn't held up.
+One alert per lead per Detroit calendar day, emailed to travis@journeymanwebco.com from form@send.journeymanwebco.com. It goes out on the lead's first `visit` to a concept preview or first `engaged` event, whichever comes first that day. The subject is `Preview opened: {business} ({city})` when that event came from a `/preview/` page and `Lead engaged: {business} ({city})` otherwise. The body has the lead's business, contact, trade, city, when the outreach email went out, a mailto link, a tel link if a phone number appears in the lead's notes (there's no phone column), and everything that lead did in the last two hours. It's sent with `ctx.waitUntil`, so the page's request isn't held up.
 
 ### Daily digest
 
