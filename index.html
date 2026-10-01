@@ -100,6 +100,13 @@
     .wb-phone-screen{position:absolute;left:3.571%;top:1.716%;width:92.857%;height:96.568%;border-radius:9.74%/4.5%;overflow:hidden;background:#fff}
     .wb-phone-screen>*,.wb-phone-screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
     .wb-phone-frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+    /* Free Google link fix band, under the hero */
+    .wb-gfix{padding:0 0 40px}
+    .wb-gfix-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:20px 24px}
+    .wb-gfix-in .wb-card-tag{margin:0 0 6px}
+    .wb-gfix-text{margin:0;max-width:62ch;font-size:15px;line-height:24px}
+    .wb-gfix .btn{flex:none}
+    @media (max-width:640px){.wb-gfix{padding-bottom:32px}.wb-gfix-in{padding:18px}}
     /* Recent work */
     .wb-work{display:grid;gap:clamp(24px,3vw,40px)}
     @media (min-width:980px){.wb-work.has-a1{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -200,6 +207,7 @@
     /* Free review: pitch, form, then call on phones; call tucks under the pitch on desktop */
     .wb-review{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
     .wb-review-call{order:1}
+    .wb-review-form{scroll-margin-top:88px}
     @media (min-width:900px){.wb-review{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto 1fr;grid-template-areas:"pitch form" "call form";column-gap:clamp(40px,5vw,80px);row-gap:36px;align-items:start}
       .wb-review-pitch{grid-area:pitch}.wb-review-call{grid-area:call}.wb-review-form{grid-area:form}}
     .wb-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px}
@@ -249,6 +257,16 @@
         <figcaption class="wb-fig">Fig. 01 · What your customers see first.</figcaption>
       </figure>
     </section>
+    <aside class="wb-gfix" aria-label="Free Google link fix">
+      <div class="blueprint wb-gfix-in">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div>
+          <p class="wb-card-tag">Free Google link fix</p>
+          <p class="wb-gfix-text">Does the Website button on your Google listing go to an error page, an old site or a directory? I'll point it at the right place for free.</p>
+        </div>
+        <a class="btn btn-primary" href="#review-request" data-package="Free Google link fix" data-track="click_google_fix" data-track-detail="band">Fix my Google link</a>
+      </div>
+    </aside>
   </div>
 
   <div style="overflow:hidden;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);padding:13px 0" aria-hidden="true">
@@ -695,7 +713,7 @@
           <a data-track="click_call" data-track-detail="call block" href="tel:+12485059421" style="display:inline-block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(32px,3.4vw,44px);line-height:1.1;letter-spacing:0.01em;color:var(--color-text);text-decoration:none">248-505-9421</a>
           <p style="font-size:14px;line-height:22px;margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 70%, transparent)">or email <a data-track="click_email" data-track-detail="call block" class="wb-tap" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></p>
         </div>
-        <div class="blueprint wb-review-form" data-reveal="120">
+        <div class="blueprint wb-review-form" id="review-request" data-reveal="120">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <p class="wb-card-head">Free review request</p>
           <div id="review-sent" tabindex="-1" hidden style="padding:32px 24px">
@@ -727,7 +745,8 @@
               <div class="field wide">
                 <label for="rv-package">Package I'm interested in <span class="opt">(optional)</span></label>
                 <select class="input" id="rv-package" name="package">
-                  <option>Not sure yet</option>
+                  <option>Free Google link fix</option>
+                  <option selected>Not sure yet</option>
                   <option>Essentials, monthly</option>
                   <option>Essentials, upfront</option>
                   <option>Growth, monthly</option>

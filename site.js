@@ -145,12 +145,15 @@
     });
   }
 
-  // 5. "Start with ..." buttons pick the package (and the monthly/upfront view) in the review form
+  // 5. "Start with ..." buttons pick the package (and the monthly/upfront view) in the review form.
+  // A data-package that is already an option as written (the Google link fix band) picks that option.
   var pkg = document.getElementById('rv-package');
   document.querySelectorAll('[data-package]').forEach(function (a) {
     a.addEventListener('click', function () {
-      var mode = document.querySelector('input[name="wb-billing"]:checked');
-      if (pkg) pkg.value = a.getAttribute('data-package') + ', ' + (mode ? mode.value : 'monthly');
+      if (!pkg) return;
+      var name = a.getAttribute('data-package'), mode = document.querySelector('input[name="wb-billing"]:checked');
+      var exact = [].some.call(pkg.options, function (o) { return o.value === name; });
+      pkg.value = exact ? name : name + ', ' + (mode ? mode.value : 'monthly');
     });
   });
 
