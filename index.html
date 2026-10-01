@@ -121,6 +121,8 @@
     .seg-opt{min-height:44px}
     .nav a:not(.btn){display:inline-flex;align-items:center;min-height:44px}
     a.wb-tap{display:inline-block;padding:12px 0;margin:-12px 0}
+    /* Footer on phones: lines as tall as the tap areas, so the phone, email and Privacy links don't cover each other */
+    @media (max-width:899px){footer p{line-height:48px}footer .wb-tap{line-height:24px}}
     .wb-form .input::placeholder{color:#666768}
     /* FAQ accordions */
     .wb-qa>summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;min-height:44px;padding:10px 0}
