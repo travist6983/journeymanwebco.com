@@ -1,4 +1,6 @@
 // Lead link tracking (?r=). No cookies; sessionStorage only.
+// Home page: posts to the review form's data-endpoint. Concept previews in /preview/
+// have no review form, so they name the endpoint in <meta name="jwc-endpoint" content="...">.
 (function () { try {
 var S = sessionStorage, u = new URL(location.href), q = u.searchParams.get('r');
 if (q && /^[a-z0-9]{6,8}$/.test(q)) S.setItem('jwc_r', q);
@@ -7,8 +9,10 @@ if (u.searchParams.has('r')) {
   history.replaceState(history.state, '', u.pathname + u.search + u.hash);
 }
 var r = S.getItem('jwc_r'), f = document.getElementById('review-form'), D = {}, t;
-if (!r || !f || navigator.webdriver) return;
-var api = f.getAttribute('data-endpoint') + '/t';
+var m = document.querySelector('meta[name="jwc-endpoint"]');
+var ep = (f && f.getAttribute('data-endpoint')) || (m && m.getAttribute('content'));
+if (!r || !ep || navigator.webdriver) return;
+var api = ep.replace(/\/+$/, '') + '/t';
 var send = function (type, d) { try {
   var b = JSON.stringify({ r: r, type: type, detail: String(d || '').trim().slice(0, 120), path: location.pathname + location.hash });
   navigator.sendBeacon && navigator.sendBeacon(api, new Blob([b], { type: 'text/plain' })) ||
@@ -33,6 +37,8 @@ document.addEventListener('click', function (e) {
   send(k, el.getAttribute('data-track-detail') || el.textContent);
   once('jwc_e', 'engaged', k);
 }, true);
-f.addEventListener('focusin', function () { once('jwc_fs', 'form_start'); });
-f.addEventListener('submit', function () { send('form_submit', f.elements.package.value); });
+if (f) {
+  f.addEventListener('focusin', function () { once('jwc_fs', 'form_start'); });
+  f.addEventListener('submit', function () { send('form_submit', f.elements.package.value); });
+}
 } catch (e) {} })();
