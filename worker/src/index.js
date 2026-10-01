@@ -18,8 +18,9 @@ const FALLBACK = "Call 248-505-9421 or email travis@journeymanwebco.com.";
 const TRACK_ORIGIN = "https://journeymanwebco.com";
 const LEAD_ID = /^[a-z0-9]{6,8}$/;
 const EVENT_TYPES = new Set([
-  "visit", "engaged", "click_call", "click_email", "click_review_cta",
-  "click_package", "toggle_pricing", "see_work", "form_start", "form_submit",
+  "visit", "engaged", "click_call", "click_text", "click_email", "click_review_cta",
+  "click_google_fix", "click_package", "toggle_pricing", "see_work", "form_start", "form_submit",
+  "preview_call", "preview_book", "preview_directions",
 ]);
 const MAX_EVENTS_PER_HOUR = 50;
 // Crawlers, link scanners, and automation. Their requests are dropped, not stored.
