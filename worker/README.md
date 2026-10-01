@@ -5,7 +5,7 @@ Cloudflare Worker behind journeymanwebco.com. It does three things:
 | Route | What it does |
 |---|---|
 | `POST /` | Free website review form. Checks Turnstile, then emails the request to travis@journeymanwebco.com through Resend. |
-| `POST /t` | Lead click tracking for outreach emails. Stores events in D1 and emails an alert when a lead engages. |
+| `POST /t` | Lead click tracking for outreach emails. Stores events in D1 and emails an alert when a lead engages or opens their concept preview. |
 | cron | Daily digest of yesterday's lead activity at 7:30 AM Detroit time. |
 
 Deployed at `https://journeyman-contact.travisjterry.workers.dev`. The site's review form points at it through `data-endpoint` on `#review-form`, and `track.js` posts to the same host at `/t`.
@@ -43,7 +43,7 @@ Email security scanners (Outlook Safe Links, Mimecast, Proofpoint) open links on
 - **visit** is sent only after the page has been on screen for 5 straight seconds.
 - **engaged** is sent only after scrolling past 30% of the page or clicking any tracked element (once per tab session).
 - Automated browsers (`navigator.webdriver`) never send, and the Worker drops bot, crawler, scanner, and headless user agents.
-- Alerts fire only on **engaged**.
+- Alerts fire on **engaged**, and on a **visit** to a concept preview in `/preview/` (the 5-second rule still applies).
 
 ### Event types
 
@@ -84,7 +84,7 @@ Pages in `/preview/<slug>/` have no review form, so they name the Worker in
 
 ### Alerts
 
-The first `engaged` event for a lead on a Detroit calendar day emails travis@journeymanwebco.com from form@send.journeymanwebco.com, subject `Lead engaged: {business} ({city})`. The body has the lead's business, contact, trade, city, when the outreach email went out, a mailto link, a tel link if a phone number appears in the lead's notes (there's no phone column), and everything that lead did in the last two hours. It's sent with `ctx.waitUntil`, so the page's request isn't held up.
+One alert per lead per Detroit calendar day, emailed to travis@journeymanwebco.com from form@send.journeymanwebco.com. It goes out on the lead's first `visit` to a concept preview (subject `Preview opened: {business} ({city})`) or first `engaged` event (subject `Lead engaged: {business} ({city})`), whichever comes first that day. The body has the lead's business, contact, trade, city, when the outreach email went out, a mailto link, a tel link if a phone number appears in the lead's notes (there's no phone column), and everything that lead did in the last two hours. It's sent with `ctx.waitUntil`, so the page's request isn't held up.
 
 ### Daily digest
 

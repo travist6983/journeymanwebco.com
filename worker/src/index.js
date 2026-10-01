@@ -282,19 +282,23 @@ async function track(request, env, ctx) {
     .bind(r, new Date(now.getTime() - 3600e3).toISOString()).first();
   if (recent.n >= MAX_EVENTS_PER_HOUR) return done;
 
-  // The first "engaged" of the Detroit calendar day gets an email alert.
+  // One email alert per lead per Detroit calendar day: on the first "engaged", or sooner on the
+  // first "visit" to a concept preview, since a lead opening their preview is the news.
+  const path = clip(body.path, 200);
+  const previewOpen = type === "visit" && path.startsWith("/preview/");
   let alert = false;
-  if (type === "engaged") {
-    const last = await env.DB.prepare("SELECT ts FROM events WHERE lead_id = ? AND type = 'engaged' ORDER BY ts DESC LIMIT 1")
-      .bind(r).first();
+  if (type === "engaged" || previewOpen) {
+    const last = await env.DB.prepare(
+      "SELECT ts FROM events WHERE lead_id = ? AND (type = 'engaged' OR (type = 'visit' AND path LIKE '/preview/%')) ORDER BY ts DESC LIMIT 1"
+    ).bind(r).first();
     alert = !last || detroitDate(new Date(last.ts)) !== detroitDate(now);
   }
 
   const country = request.headers.get("CF-IPCountry") || (request.cf && request.cf.country) || null;
   await env.DB.prepare("INSERT INTO events (lead_id, type, detail, path, ts, ua, country) VALUES (?, ?, ?, ?, ?, ?, ?)")
-    .bind(r, type, clip(body.detail, 120), clip(body.path, 200), now.toISOString(), ua.slice(0, 160), country).run();
+    .bind(r, type, clip(body.detail, 120), path, now.toISOString(), ua.slice(0, 160), country).run();
 
-  if (alert) ctx.waitUntil(sendAlert(env, lead, now).catch((err) => console.error("Alert failed", err)));
+  if (alert) ctx.waitUntil(sendAlert(env, lead, now, previewOpen ? path : "").catch((err) => console.error("Alert failed", err)));
   return done;
 }
 
@@ -308,7 +312,8 @@ function eventLine(e) {
   return `${detroitTime(new Date(e.ts))}  ${e.type}${e.detail ? `  (${e.detail})` : ""}${e.path && e.path !== "/" ? `  ${e.path}` : ""}`;
 }
 
-async function sendAlert(env, lead, now) {
+// previewPath is set when the alert is for a lead opening their concept preview.
+async function sendAlert(env, lead, now, previewPath) {
   // "This visit": what this lead did in the last two hours.
   const { results } = await env.DB.prepare("SELECT type, detail, path, ts FROM events WHERE lead_id = ? AND ts > ? ORDER BY ts")
     .bind(lead.id, new Date(now.getTime() - 2 * 3600e3).toISOString()).all();
@@ -324,16 +329,18 @@ async function sendAlert(env, lead, now) {
     ["Lead id", lead.id],
   ].filter(([, v]) => v);
 
-  const subject = `Lead engaged: ${lead.business || lead.id}${lead.city ? ` (${lead.city})` : ""}`;
+  const name = lead.business || lead.id;
+  const subject = `${previewPath ? "Preview opened" : "Lead engaged"}: ${name}${lead.city ? ` (${lead.city})` : ""}`;
+  const headline = previewPath ? `opened their concept preview (${previewPath}).` : "is looking at journeymanwebco.com.";
   const text =
-    `${lead.business || lead.id} is looking at journeymanwebco.com.\n\n` +
+    `${name} ${headline}\n\n` +
     facts.map(([k, v]) => `${k}: ${v}`).join("\n") +
     `\n\nThis visit:\n` + results.map((e) => `  ${eventLine(e)}`).join("\n") +
     (lead.notes ? `\n\nNotes:\n${lead.notes}` : "") + `\n`;
 
   const f = "font-family:system-ui,sans-serif;font-size:15px;line-height:1.5";
   const html =
-    `<p style="${f}"><strong>${esc(lead.business || lead.id)}</strong> is looking at journeymanwebco.com.</p>` +
+    `<p style="${f}"><strong>${esc(name)}</strong> ${esc(headline)}</p>` +
     `<p style="${f}">` + facts.map(([k, v]) => {
       const value = k === "Email" ? `<a href="mailto:${esc(v)}">${esc(v)}</a>`
         : k === "Phone" ? `<a href="tel:${esc(v.replace(/[^\d+]/g, ""))}">${esc(v)}</a>` : esc(v);
