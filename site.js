@@ -125,10 +125,11 @@
     var btn = rf.querySelector('button[type="submit"]'), label = btn.textContent;
     var err = document.getElementById('review-error'), sent = document.getElementById('review-sent');
     var fail = function (msg) {
-      // Fixable problems show the Worker's message; anything else shows phone and email.
+      // Fixable problems show the Worker's message plus the phone number; anything else shows phone and email.
       var m = err.querySelector('[data-msg]');
       m.textContent = msg || ''; m.hidden = !msg;
       err.querySelector('[data-fallback]').hidden = !!msg;
+      err.querySelector('[data-alt]').hidden = !msg;
       err.hidden = false;
       if (window.turnstile) turnstile.reset(window.jwcTurnstileId);
       btn.disabled = false; btn.textContent = label;
