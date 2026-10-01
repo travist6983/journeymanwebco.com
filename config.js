@@ -1,20 +1,25 @@
 // Site switches for journeymanwebco.com. Flip these here; the page reads them.
 // Prices and plan terms live in pricing.js.
 window.JWC_CONFIG = {
-  // TODO(A-1): set to true when you want the A-1 Bracket Group case study on the page.
-  // Before/after images are in /assets/work. The "after" is the redesign preview;
-  // a-1bracket.com, which the case study links to, still shows the old site.
-  // An optional one-line client quote goes in /assets/work/a1-quote.txt.
-  showA1CaseStudy: false,
+  // A-1 Bracket Group case study in Recent work. The rebuilt site is live at a-1bracket.com.
+  // Before/after images are in /assets/work. An optional one-line client quote goes in
+  // /assets/work/a1-quote.txt; it stays hidden while that file is missing or empty.
+  showA1CaseStudy: true,
 
-  // Where "See the site" on the A-1 Recent work card goes.
-  a1SiteUrl: 'https://travist6983.github.io/a-1bracket/index.html',
+  // Where the "Live site" buttons on the A-1 Recent work cards go.
+  a1SiteUrl: 'https://a-1bracket.com',
+
+  // The offer line under the Packages heading:
+  //   'case-study'  three businesses this fall at case-study pricing (review + permission to show the site)
+  //   'launch'      fall launch pricing from launchOffer in pricing.js; hides itself after its last day
+  //   'none'        no offer line
+  OFFER_MODE: 'case-study',
 
   // Cloudflare Web Analytics site token. The beacon loads only on the live domain.
   cfAnalyticsToken: '56f282fbce194f33ad8f498c74c3ded6'
 };
 
-// Cloudflare Web Analytics (no cookies): live site only, never localhost or previews.
+// Cloudflare Web Analytics (no cookies): live domain only (home page and /preview/ pages), never localhost.
 (function () {
   var token = window.JWC_CONFIG.cfAnalyticsToken;
   if (!token || location.hostname !== 'journeymanwebco.com') return;

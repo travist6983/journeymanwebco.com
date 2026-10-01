@@ -54,10 +54,6 @@
     {
       "@type": "AdministrativeArea",
       "name": "Wayne County, MI"
-    },
-    {
-      "@type": "State",
-      "name": "Michigan"
     }
   ],
   "founder": {
@@ -100,9 +96,16 @@
     .wb-phone-screen{position:absolute;left:3.571%;top:1.716%;width:92.857%;height:96.568%;border-radius:9.74%/4.5%;overflow:hidden;background:#fff}
     .wb-phone-screen>*,.wb-phone-screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
     .wb-phone-frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+    /* Free Google link fix band, under the hero */
+    .wb-gfix{padding:0 0 40px}
+    .wb-gfix-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:20px 24px}
+    .wb-gfix-in .wb-card-tag{margin:0 0 6px}
+    .wb-gfix-text{margin:0;max-width:62ch;font-size:15px;line-height:24px}
+    .wb-gfix .btn{flex:none}
+    @media (max-width:640px){.wb-gfix{padding-bottom:32px}.wb-gfix-in{padding:18px}}
     /* Recent work */
     .wb-work{display:grid;gap:clamp(24px,3vw,40px)}
-    @media (min-width:980px){.wb-work.has-a1{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (min-width:980px){.wb-work.has-a1{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}
     .wb-sample{container-type:inline-size}
     .wb-sample-in{display:grid;gap:28px;padding:28px 24px;align-items:center}
     @container (min-width:620px){.wb-sample-in{grid-template-columns:minmax(0,1fr) auto;padding:36px 48px;gap:48px}}
@@ -162,6 +165,8 @@
     .pre-reveal{opacity:0;transform:translateY(16px)}
     .revealed{transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
     @media (max-width:399px){#rv-turnstile{min-height:140px!important}}
+    #review-error a[href^="tel:"]{white-space:nowrap}
+    .wb-offer{margin:0 0 28px;padding:12px 16px;background:var(--color-accent-100);color:var(--color-accent-800);font-size:14px;line-height:22px}
     .wb-note{font-size:14px;line-height:22px;margin:20px 0 0;max-width:80ch;color:color-mix(in srgb, var(--color-text) 70%, transparent)}
     .wb-pricing-how{margin-top:56px}
     .wb-acc{border-bottom:1px solid var(--color-divider)}
@@ -199,6 +204,7 @@
     /* Free review: pitch, form, then call on phones; call tucks under the pitch on desktop */
     .wb-review{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
     .wb-review-call{order:1}
+    .wb-review-form{scroll-margin-top:88px}
     @media (min-width:900px){.wb-review{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto 1fr;grid-template-areas:"pitch form" "call form";column-gap:clamp(40px,5vw,80px);row-gap:36px;align-items:start}
       .wb-review-pitch{grid-area:pitch}.wb-review-call{grid-area:call}.wb-review-form{grid-area:form}}
     .wb-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px}
@@ -209,9 +215,10 @@
     .wb-form textarea.input{min-height:96px}
     .wb-form select.input{appearance:none;padding-right:40px;background:var(--color-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23416180' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center}
     .wb-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-    @media (max-width:720px){.nav>a:not(.btn){display:none}}
+    .nav-call{display:none}
+    @media (max-width:899px){.nav>a:not(.btn){display:none}.nav .nav-call{display:inline-flex}}
     @media (max-width:400px){.nav-brand{font-size:15px}.nav{gap:10px}}
-    @media (max-width:350px){.nav-brand{font-size:13px}.nav .btn{padding-inline:8px;font-size:13px}}
+    @media (max-width:350px){.nav-brand{font-size:13px}.nav .btn{padding-inline:8px;font-size:13px}.nav-call svg{display:none}}
   
 </style>
 </head>
@@ -223,6 +230,7 @@
       <a href="#work">Who I work with</a>
       <a href="#packages">Packages</a>
       <a href="#how">How it works</a>
+      <a class="btn btn-secondary nav-call" href="tel:+12485059421" data-track="click_call" data-track-detail="header" aria-label="Call 248-505-9421"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>248-505-9421</a>
       <a class="btn btn-primary" href="#review" data-track="click_review_cta" data-track-detail="header">Free website review</a>
     </div>
   </nav>
@@ -248,6 +256,16 @@
         <figcaption class="wb-fig">Fig. 01 · What your customers see first.</figcaption>
       </figure>
     </section>
+    <aside class="wb-gfix" aria-label="Free Google link fix">
+      <div class="blueprint wb-gfix-in">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div>
+          <p class="wb-card-tag">Free Google link fix</p>
+          <p class="wb-gfix-text">Does the Website button on your Google listing go to an error page, an old site or a directory? I'll point it at the right place for free.</p>
+        </div>
+        <a class="btn btn-primary" href="#review-request" data-package="Free Google link fix" data-track="click_google_fix" data-track-detail="band">Fix my Google link</a>
+      </div>
+    </aside>
   </div>
 
   <div style="overflow:hidden;border-top:1px solid var(--color-divider);border-bottom:1px solid var(--color-divider);padding:13px 0" aria-hidden="true">
@@ -403,12 +421,13 @@
             <div><strong>Stand behind the work.</strong> Hosting, security, backups, and edits stay handled long after launch day.</div>
           </div>
           <div style="display:flex;align-items:center;gap:14px;margin-top:28px">
-            <!-- TODO(photo): add /assets/travis.jpg (square, 160x160 or larger), then replace the accent line below with:
-                 <img src="/assets/travis.jpg" width="56" height="56" loading="lazy" decoding="async" alt="Travis Terry, Journeyman Web Co." style="width:56px;height:56px;object-fit:cover;flex:none"> -->
-            <span style="width:32px;height:1px;background:var(--color-accent);flex:none" aria-hidden="true"></span>
+            <!-- Photo slot: drop a square /assets/travis.jpg (160x160 or larger) in place. site.js shows it,
+                 in place of the accent line, only once it loads, so a missing file never shows a broken image. -->
+            <img data-photo src="/assets/travis.jpg" width="56" height="56" decoding="async" alt="Travis Terry" hidden style="width:56px;height:56px;object-fit:cover;flex:none">
+            <span data-photo-rule style="width:32px;height:1px;background:var(--color-accent);flex:none" aria-hidden="true"></span>
             <span style="display:flex;flex-direction:column;gap:2px">
               <span style="font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:22px;line-height:1.1">Travis Terry</span>
-              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a data-track="click_call" data-track-detail="signature" class="wb-tap" href="tel:+12485059421">248-505-9421</a></span>
+              <span style="font-size:14px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Direct line: <a data-track="click_call" data-track-detail="signature" class="wb-tap" href="tel:+12485059421">248-505-9421</a> <span style="white-space:nowrap">· <a data-track="click_text" data-track-detail="signature" class="wb-tap" href="sms:+12485059421">Text me</a></span></span>
             </span>
           </div>
         </div>
@@ -421,7 +440,7 @@
       <h2 class="wb-h2" style="margin-bottom:28px">See the work before you hire me.</h2>
       <div class="wb-work">
         <!-- A-1 Bracket Group case study: shown only when showA1CaseStudy is true in config.js.
-             Before = a-1bracket.com today, after = the redesign preview. Optional quote: /assets/work/a1-quote.txt (one line). -->
+             Before = the old a-1bracket.com, after = the rebuilt site now live there. Optional quote: /assets/work/a1-quote.txt (one line). -->
         <article class="blueprint wb-case" data-case="a1" hidden>
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <p class="wb-card-head">A-1 Bracket Group · Masonry contractor · Client for 10 years</p>
@@ -431,7 +450,7 @@
               <figure><img src="/assets/work/a1-after.jpg" width="960" height="600" loading="lazy" decoding="async" alt="The A-1 Bracket Group website after the rebuild"><figcaption>After</figcaption></figure>
             </div>
             <blockquote data-a1-quote hidden></blockquote>
-            <a class="btn btn-secondary" href="https://a-1bracket.com" data-track="see_work" data-track-detail="a-1bracket.com" target="_blank" rel="noopener" style="margin-top:20px">Visit a-1bracket.com<span class="wb-sr"> (opens in a new tab)</span></a>
+            <a class="btn btn-secondary" href="https://a-1bracket.com" data-config-href="a1SiteUrl" data-track="see_work" data-track-detail="a-1bracket.com" target="_blank" rel="noopener" style="margin-top:20px">Live site<span class="wb-sr"> (opens in a new tab)</span></a>
           </div>
         </article>
         <article class="blueprint wb-sample" data-reveal="0">
@@ -441,7 +460,7 @@
               <p class="wb-card-tag">Recent build · Masonry contractor</p>
               <h3 style="font-size:28px;line-height:1.1;margin:0 0 12px">A-1 Bracket Group</h3>
               <p class="wb-body" style="margin-bottom:24px">A new site for a brick, stucco, and stone masonry contractor in Pennsylvania and New Jersey: a free estimate button up top, their services laid out plainly, and a project gallery that lets the work speak.</p>
-              <a class="btn btn-secondary" href="https://travist6983.github.io/a-1bracket/index.html" data-config-href="a1SiteUrl" data-track="see_work" data-track-detail="A-1 redesign" target="_blank" rel="noopener">See the site<span class="wb-sr"> (opens in a new tab)</span></a>
+              <a class="btn btn-secondary" href="https://a-1bracket.com" data-config-href="a1SiteUrl" data-track="see_work" data-track-detail="A-1 redesign" target="_blank" rel="noopener">Live site<span class="wb-sr"> (opens in a new tab)</span></a>
             </div>
             <div class="wb-phone" style="--w:220px"><div class="wb-phone-screen"><picture><source type="image/webp" srcset="/assets/a1-redesign-projects.webp"><img src="/assets/a1-redesign-projects.png" width="390" height="844" loading="lazy" decoding="async" alt="Phone screenshot of the project gallery on the A-1 Bracket Group website."></picture></div><svg class="wb-phone-frame" viewBox="0 0 420 874" aria-hidden="true" focusable="false"><path fill-rule="evenodd" fill="#1d1f20" d="M54 0h312a54 54 0 0 1 54 54v766a54 54 0 0 1-54 54H54a54 54 0 0 1-54-54V54A54 54 0 0 1 54 0ZM53 15h314a38 38 0 0 1 38 38v768a38 38 0 0 1-38 38H53a38 38 0 0 1-38-38V53a38 38 0 0 1 38-38Z"/></svg></div>
           </div>
@@ -459,7 +478,8 @@
           <label class="seg-opt"><input data-track="toggle_pricing" data-track-detail="upfront" type="radio" name="wb-billing" value="upfront" style="position:absolute;opacity:0;pointer-events:none">Pay upfront</label>
         </div>
       </div>
-      <p data-founding hidden style="margin:0 0 28px;padding:12px 16px;background:var(--color-accent-100);color:var(--color-accent-800);font-size:14px;line-height:22px"><strong>Founding client pricing:</strong> the first <span data-p="foundingOffer.spots"></span> businesses to sign by <span data-p="foundingOffer.endsOnLabel"></span> get <span data-p="foundingOffer.buildDiscountPct"></span>% off the build (<span data-p="$tiers.essentials.foundingBuild"></span> / <span data-p="$tiers.growth.foundingBuild"></span> / <span data-p="$tiers.industrial.foundingBuild"></span> upfront) or <span data-p="foundingOffer.monthlyFreeMonths"></span> months free on a monthly plan.</p>
+      <p class="wb-offer" data-offer="case-study" hidden>Taking three Metro Detroit businesses this fall at case-study pricing: a reduced build price in exchange for a Google review and permission to show your site. <a href="#review-request" data-track="click_review_cta" data-track-detail="case-study offer">Ask me about it</a>.</p>
+      <p class="wb-offer" data-offer="launch" hidden><strong>Fall launch pricing through <span data-p="launchOffer.endsOnLabel"></span>:</strong> <span data-p="launchOffer.buildDiscountPct"></span>% off the build or <span data-p="launchOffer.monthlyFreeMonths"></span> months free on a monthly plan.</p>
       <p class="wb-swipe-hint" style="display:none;margin:0 0 10px;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Swipe to compare all three packages.</p>
       <div class="wb-tiers" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,3vw,40px);align-items:stretch">
         <div class="blueprint" data-reveal="0" style="padding:28px 24px;display:flex;flex-direction:column;gap:0">
@@ -693,7 +713,7 @@
           <a data-track="click_call" data-track-detail="call block" href="tel:+12485059421" style="display:inline-block;font-family:var(--font-heading);font-weight:var(--font-heading-weight);font-size:clamp(32px,3.4vw,44px);line-height:1.1;letter-spacing:0.01em;color:var(--color-text);text-decoration:none">248-505-9421</a>
           <p style="font-size:14px;line-height:22px;margin:4px 0 0;color:color-mix(in srgb, var(--color-text) 70%, transparent)">or email <a data-track="click_email" data-track-detail="call block" class="wb-tap" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a></p>
         </div>
-        <div class="blueprint wb-review-form" data-reveal="120">
+        <div class="blueprint wb-review-form" id="review-request" data-reveal="120">
           <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
           <p class="wb-card-head">Free review request</p>
           <div id="review-sent" tabindex="-1" hidden style="padding:32px 24px">
@@ -725,7 +745,8 @@
               <div class="field wide">
                 <label for="rv-package">Package I'm interested in <span class="opt">(optional)</span></label>
                 <select class="input" id="rv-package" name="package">
-                  <option>Not sure yet</option>
+                  <option>Free Google link fix</option>
+                  <option selected>Not sure yet</option>
                   <option>Essentials, monthly</option>
                   <option>Essentials, upfront</option>
                   <option>Growth, monthly</option>
@@ -745,7 +766,7 @@
               <div class="wide">
                 <div id="rv-turnstile" data-sitekey="0x4AAAAAAFAOsoaBgRf6Lcxi" style="min-height:65px;margin:0 0 16px"></div>
                 <noscript><p style="margin:0 0 12px;font-size:14px;line-height:21px">This form needs JavaScript. Call me at <a data-track="click_call" data-track-detail="no script" href="tel:+12485059421">248-505-9421</a> or email <a data-track="click_email" data-track-detail="no script" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a>.</p></noscript>
-                <p id="review-error" role="alert" hidden style="margin:0 0 12px;padding:12px 14px;border:1px solid var(--color-accent);font-size:14px;line-height:21px"><span data-msg hidden></span><span data-fallback>That didn't go through. Call me at <a data-track="click_call" data-track-detail="form error" href="tel:+12485059421">248-505-9421</a> or email <a data-track="click_email" data-track-detail="form error" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> and I'll take care of it.</span></p>
+                <p id="review-error" role="alert" hidden style="margin:0 0 12px;padding:12px 14px;border:1px solid var(--color-accent);font-size:14px;line-height:21px"><span data-msg hidden></span><span data-fallback>That didn't go through. Call me at <a data-track="click_call" data-track-detail="form error" href="tel:+12485059421">248-505-9421</a> or email <a data-track="click_email" data-track-detail="form error" href="mailto:travis@journeymanwebco.com">travis@journeymanwebco.com</a> and I'll take care of it.</span><span data-alt hidden> Still not working? Call me at <a data-track="click_call" data-track-detail="form error" href="tel:+12485059421">248-505-9421</a>.</span></p>
                 <button class="btn btn-primary btn-block" type="submit" style="min-height:48px;font-size:16px;margin-top:4px">Send my review request</button>
                 <p style="margin:12px 0 0;font-size:13px;line-height:20px;color:color-mix(in srgb, var(--color-text) 70%, transparent)">Goes straight to me, and I'll get back to you personally. <a href="/privacy/">How I handle your info</a>.</p>
               </div>

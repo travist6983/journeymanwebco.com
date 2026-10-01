@@ -12,12 +12,25 @@
     a1.hidden = false;
     a1.parentNode.classList.add('has-a1');
     fetch('/assets/work/a1-quote.txt').then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
-      var line = (t || '').trim().split('\n')[0];
+      var line = (t || '').trim().split(/\r?\n/)[0].trim();
       if (!line) return;
       var q = a1.querySelector('[data-a1-quote]');
       q.textContent = '\u201c' + line.replace(/^["\u201c]|["\u201d]$/g, '') + '\u201d';
       q.hidden = false;
     }).catch(function () {});
+  }
+
+  // Who you're hiring: the photo replaces the accent line once /assets/travis.jpg loads.
+  // A missing file leaves the slot hidden, so there's never a broken image.
+  var photo = document.querySelector('[data-photo]');
+  if (photo) {
+    var showPhoto = function () {
+      if (!photo.naturalWidth) return;
+      photo.hidden = false;
+      var rule = document.querySelector('[data-photo-rule]');
+      if (rule) rule.hidden = true;
+    };
+    if (photo.complete) showPhoto(); else photo.addEventListener('load', showPhoto);
   }
 
   // 2. scroll reveals. Content is visible unless this script marks an element
@@ -112,10 +125,11 @@
     var btn = rf.querySelector('button[type="submit"]'), label = btn.textContent;
     var err = document.getElementById('review-error'), sent = document.getElementById('review-sent');
     var fail = function (msg) {
-      // Fixable problems show the Worker's message; anything else shows phone and email.
+      // Fixable problems show the Worker's message plus the phone number; anything else shows phone and email.
       var m = err.querySelector('[data-msg]');
       m.textContent = msg || ''; m.hidden = !msg;
       err.querySelector('[data-fallback]').hidden = !!msg;
+      err.querySelector('[data-alt]').hidden = !msg;
       err.hidden = false;
       if (window.turnstile) turnstile.reset(window.jwcTurnstileId);
       btn.disabled = false; btn.textContent = label;
@@ -145,12 +159,15 @@
     });
   }
 
-  // 5. "Start with ..." buttons pick the package (and the monthly/upfront view) in the review form
+  // 5. "Start with ..." buttons pick the package (and the monthly/upfront view) in the review form.
+  // A data-package that is already an option as written (the Google link fix band) picks that option.
   var pkg = document.getElementById('rv-package');
   document.querySelectorAll('[data-package]').forEach(function (a) {
     a.addEventListener('click', function () {
-      var mode = document.querySelector('input[name="wb-billing"]:checked');
-      if (pkg) pkg.value = a.getAttribute('data-package') + ', ' + (mode ? mode.value : 'monthly');
+      if (!pkg) return;
+      var name = a.getAttribute('data-package'), mode = document.querySelector('input[name="wb-billing"]:checked');
+      var exact = [].some.call(pkg.options, function (o) { return o.value === name; });
+      pkg.value = exact ? name : name + ', ' + (mode ? mode.value : 'monthly');
     });
   });
 

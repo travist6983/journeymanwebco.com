@@ -35,7 +35,7 @@ Schema lives in `migrations/`. Add new files there (`0002_...sql`) and apply the
 ## How lead tracking works
 
 1. Each lead gets a random id: 6 to 8 lowercase letters and digits, never a name or email. Every outreach email links to `https://journeymanwebco.com/?r=<id>`.
-2. `track.js` (on the home page, about 2 KB) reads `?r=`, checks the format, keeps it in `sessionStorage` for that tab, and removes it from the address bar with `history.replaceState`. No cookies, no third-party scripts. Without an `r` code it does nothing.
+2. `track.js` (on the home page and the concept previews in `/preview/`, about 2 KB) reads `?r=`, checks the format, keeps it in `sessionStorage` for that tab, and removes it from the address bar with `history.replaceState`. No cookies, no third-party scripts. Without an `r` code it does nothing.
 3. Events go to `POST /t` with `navigator.sendBeacon` (falling back to `fetch` with `keepalive`). Nothing waits on them and nothing on the page depends on them.
 
 Email security scanners (Outlook Safe Links, Mimecast, Proofpoint) open links on their own, so:
@@ -51,16 +51,28 @@ Email security scanners (Outlook Safe Links, Mimecast, Proofpoint) open links on
 |---|---|
 | `visit` | 5 seconds on screen |
 | `engaged` | scrolled past 30%, or first tracked click |
-| `click_call` | any phone link (detail says where: call bar, signature, call block, footer, after form, form error) |
+| `click_call` | any phone link (detail says where: header, call bar, signature, call block, footer, after form, form error) |
+| `click_text` | the Text me link next to the direct line |
 | `click_email` | any email link |
-| `click_review_cta` | header, hero, or call bar "free review" buttons |
+| `click_review_cta` | header, hero, call bar, or case-study offer "free review" links |
+| `click_google_fix` | the Fix my Google link button in the band under the hero |
 | `click_package` | a "Start with ..." button (detail is the package) |
 | `toggle_pricing` | Monthly / Pay upfront toggle (detail is the view) |
 | `see_work` | the A-1 links |
 | `form_start` | first focus in the review form |
 | `form_submit` | the review form is submitted (detail is the package) |
+| `preview_call` | a phone link on a concept preview (the prospect's own number) |
+| `preview_book` | a Book, Estimate, or Send request button on a concept preview |
+| `preview_directions` | a Directions button on a concept preview |
 
-Tracked elements are marked in `index.html` with `data-track="<type>"` and optional `data-track-detail="..."`. To track something new, add the attribute and, if it's a new type, add it to `EVENT_TYPES` in `src/index.js`.
+Tracked elements are marked in `index.html` and the preview pages with `data-track="<type>"` and optional `data-track-detail="..."`. To track something new, add the attribute and, if it's a new type, add it to `EVENT_TYPES` in `src/index.js`.
+
+### Concept previews
+
+Pages in `/preview/<slug>/` have no review form, so they name the Worker in
+`<meta name="jwc-endpoint" content="https://journeyman-contact.travisjterry.workers.dev">` and load
+`/config.js` and `/track.js`. Send a lead their preview as
+`https://journeymanwebco.com/preview/<slug>/?r=<id>`; the events carry the preview's path.
 
 ### What the Worker checks on `/t`
 
