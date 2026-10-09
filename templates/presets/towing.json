@@ -1,0 +1,45 @@
+{
+  "_comment": "Towing and roadside. Call-first, 24/7 emphasis.",
+  "schemaType": "AutomotiveBusiness",
+  "brand": { "accent": "#F59E0B", "dark": "#111318", "logoIcon": "tow", "fontHeading": "Oswald", "fontBody": "Inter" },
+  "labels": { "book": "Request a tow", "bookShort": "Request", "servicesEyebrow": "Towing and roadside", "servicesHeading": "Stuck? We're on the way.", "servicesIntro": "Light, medium and heavy-duty towing plus roadside help, around the clock.", "reviewsHeading": "What drivers say", "contactHeading": "Need a tow right now? Call.", "contactIntro": "For anything that can wait, the form works too.", "visit": "Our yard", "processHeading": "What happens when you call" },
+  "content": {
+    "hero": { "eyebrow": "{{city}} · 24/7 dispatch", "heading": "Towing in {{city}}, 24 hours a day.", "sub": "Fast, fair and careful with your vehicle. Call and a truck is on the way." },
+    "trustBullets": ["24/7 dispatch, real person answers", "Flatbed and wheel-lift trucks", "Licensed and insured, DOT registered"],
+    "services": [
+      { "key": "light", "icon": "tow", "title": "Light-duty towing", "blurb": "Cars, SUVs and pickups on flatbeds and wheel-lifts.", "includes": ["Flatbed and wheel-lift", "Local and long distance", "Motorcycle towing"] },
+      { "key": "heavy", "icon": "truck", "title": "Medium and heavy-duty", "blurb": "Box trucks, buses and tractor-trailers.", "includes": ["Heavy wreckers", "Load shifts and transfers", "Equipment hauling"] },
+      { "key": "roadside", "icon": "battery", "title": "Roadside assistance", "blurb": "Jump starts, lockouts, tire changes and fuel delivery.", "includes": ["Jump starts", "Lockouts", "Tire changes and fuel delivery"] },
+      { "key": "recovery", "icon": "bolt", "title": "Accident recovery", "blurb": "Winch-outs, rollovers and accident scene clean-up.", "includes": ["Winching and recovery", "Accident clean-up", "Police and insurance tows"] },
+      { "key": "transport", "icon": "car", "title": "Vehicle transport", "blurb": "Dealer, auction and private vehicle moves.", "includes": ["Dealer and auction transport", "Classic and exotic cars", "Scheduled moves"] },
+      { "key": "storage", "icon": "key", "title": "Impound and storage", "blurb": "Secure, fenced storage with easy release.", "includes": ["Fenced and lit yard", "Private property impound", "Easy release hours"] }
+    ],
+    "about": { "eyebrow": "About us", "heading": "{{years}} years of showing up in {{city}}", "body": "{{name}} has towed {{city}} drivers since {{established}}. Trained operators, a well-kept fleet and dispatchers who tell you the real arrival time.", "checks": ["24/7 dispatch", "Licensed, insured and DOT registered", "Trained, background-checked drivers", "Clean, well-maintained fleet"] },
+    "process": [
+      { "title": "Call dispatch", "body": "A real person answers and gets your location and vehicle." },
+      { "title": "Truck is sent", "body": "You get a real arrival time and the driver's name." },
+      { "title": "Loaded carefully", "body": "Flatbed or wheel-lift, chosen to protect your vehicle." },
+      { "title": "Delivered", "body": "To your shop, your home or ours. Pay by card on the spot." }
+    ],
+    "cta": { "eyebrow": "Broken down?", "heading": "Call now. A truck is on the way.", "body": "{{phone}}, 24 hours a day." },
+    "form": { "title": "Request a tow or transport", "hint": "For a breakdown right now, call. For a scheduled move or a quote, use this.", "submit": "Send request", "fields": [
+      { "name": "name", "label": "Your name", "autocomplete": "name", "required": true },
+      { "name": "phone", "label": "Phone", "type": "tel", "autocomplete": "tel", "required": true },
+      { "name": "from", "label": "Pick-up location", "full": true },
+      { "name": "to", "label": "Drop-off location", "full": true },
+      { "name": "vehicle", "label": "Vehicle", "placeholder": "2015 Ford F-150, won't start" },
+      { "name": "when", "label": "When?", "type": "select", "options": ["Now", "Today", "Scheduled transport", "Quote only"] }
+    ] },
+    "faqs": [
+      { "q": "How long until a truck arrives?", "a": "Dispatch gives you a real estimate when you call, usually 30 to 45 minutes in our area." },
+      { "q": "Do you take cards?", "a": "Yes. Card, cash or insurance roadside billing." },
+      { "q": "Will a flatbed damage my car?", "a": "No. Flatbeds are the safest way to move most vehicles, including all-wheel drive and low cars." }
+    ],
+    "badges": [
+      { "icon": "clock", "title": "24/7 dispatch", "sub": "A real person answers" },
+      { "icon": "shield", "title": "Licensed and insured", "sub": "DOT registered" },
+      { "icon": "truck", "title": "Flatbed fleet", "sub": "Light to heavy duty" },
+      { "icon": "dollar", "title": "Cards accepted", "sub": "Pay on the spot" }
+    ]
+  }
+}

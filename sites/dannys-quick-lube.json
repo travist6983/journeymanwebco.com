@@ -1,0 +1,189 @@
+{
+  "slug": "dannys-quick-lube",
+  "preset": "auto-repair",
+  "concept": {
+    "currentSite": null,
+    "demoIntro": "Photos are stock images and the wording is generic placeholder copy.",
+    "demoNote": [
+      "real photos of the shop and team",
+      "Google review quotes",
+      "business hours",
+      "service descriptions written for what the shop actually offers",
+      "logo and brand colors"
+    ]
+  },
+  "business": {
+    "name": "Danny's Quick Lube",
+    "phone": "(734) 284-9183",
+    "address": {
+      "street": "14100 Eureka Rd",
+      "city": "Southgate",
+      "state": "MI",
+      "zip": "48195"
+    },
+    "placeId": "ChIJow-f7nU3O4gRnbSsrW4RATg",
+    "rating": 4.5,
+    "reviewCount": 209
+  },
+  "brand": {},
+  "content": {
+    "hero": {
+      "heading": "{{name}}",
+      "eyebrow": "{{city}}, Michigan",
+      "sub": "Call {{phone}} or stop by {{street}}. Rated {{rating}} stars across {{reviews}} Google reviews."
+    },
+    "trustBullets": [
+      "{{rating}} stars on Google",
+      "{{reviews}} Google reviews",
+      "Call {{phone}}"
+    ],
+    "services": [
+      {
+        "key": "diagnostics",
+        "icon": "engine",
+        "title": "Check engine light",
+        "blurb": "Call {{phone}} to ask about check engine light.",
+        "detail": "A code tells you where to start looking, not what's broken. We read it, test the circuit and show you the failed part before we quote the fix.",
+        "includes": [
+          "Full computer scan, all modules",
+          "Live data and road test when needed"
+        ]
+      },
+      {
+        "key": "brakes",
+        "icon": "brake",
+        "title": "Brakes",
+        "blurb": "Call {{phone}} to ask about brakes.",
+        "detail": "Grinding, squealing, a soft pedal or a pull to one side: we measure everything and replace only what's worn.",
+        "includes": [
+          "Pads, rotors, calipers, hoses and lines",
+          "Brake fluid flush",
+          "ABS diagnosis"
+        ]
+      },
+      {
+        "key": "oil",
+        "icon": "oil",
+        "title": "Oil changes and maintenance",
+        "blurb": "Call {{phone}} to ask about oil changes and maintenance.",
+        "detail": "Conventional, blend or full synthetic with a multi-point inspection every visit, so small problems get caught early.",
+        "includes": [
+          "Oil and filter",
+          "Multi-point inspection",
+          "Fluid top-off",
+          "Factory scheduled maintenance"
+        ]
+      },
+      {
+        "key": "engine",
+        "icon": "wrench",
+        "title": "Engine and transmission",
+        "blurb": "From a rough idle to a rebuild, diagnosed properly and fixed to last.",
+        "detail": "Timing, gaskets, misfires, leaks and transmission service.",
+        "includes": [
+          "Misfire and drivability diagnosis",
+          "Timing belts and chains",
+          "Gaskets and seals",
+          "Transmission fluid and filter service"
+        ]
+      },
+      {
+        "key": "suspension",
+        "icon": "gauge",
+        "title": "Suspension and steering",
+        "blurb": "Call {{phone}} to ask about suspension and steering.",
+        "detail": "We find the loose part and fix it.",
+        "includes": [
+          "Shocks and struts",
+          "Ball joints and tie rods",
+          "Control arms and bushings",
+          "Alignment check"
+        ]
+      },
+      {
+        "key": "ac",
+        "icon": "snow",
+        "title": "Heating and A/C",
+        "blurb": "Heat working before winter and A/C cold before summer.",
+        "detail": "Leak detection, compressor and condenser replacement, blend doors and blower motors, and a proper recharge.",
+        "includes": [
+          "A/C performance test",
+          "Leak detection and repair",
+          "Recharge to spec",
+          "Heater core and blower repair"
+        ]
+      },
+      {
+        "key": "electrical",
+        "icon": "battery",
+        "title": "Batteries and electrical",
+        "blurb": "No-starts, dead batteries, alternators and the gremlins other shops give up on.",
+        "detail": "Starting and charging system tests, parasitic draw diagnosis, wiring repair and module programming.",
+        "includes": [
+          "Battery and alternator testing",
+          "Starters and alternators",
+          "Wiring and connector repair",
+          "Parasitic draw diagnosis"
+        ]
+      },
+      {
+        "key": "tires",
+        "icon": "tire",
+        "title": "Tires and alignment",
+        "blurb": "New tires, rotations, repairs and alignments that make them last.",
+        "detail": "We mount and balance all major brands, fix repairable punctures and align to factory spec.",
+        "includes": [
+          "New tires, all major brands",
+          "Mount, balance and rotation",
+          "Flat repair",
+          "Four-wheel alignment"
+        ]
+      }
+    ],
+    "about": {
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is on {{street}} in {{city}}, Michigan. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "body2": "",
+      "checks": []
+    },
+    "badges": [
+      {
+        "icon": "star",
+        "title": "{{rating}} stars",
+        "sub": "{{reviews}} Google reviews"
+      },
+      {
+        "icon": "phone",
+        "title": "Call {{phone}}",
+        "sub": "Ask about your job"
+      },
+      {
+        "icon": "pin",
+        "title": "{{street}}",
+        "sub": "{{city}}, Michigan"
+      }
+    ],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}} or send a request through the form."
+    },
+    "form": {
+      "title": "Send a request",
+      "hint": "Tell us what you need and how to reach you.",
+      "submit": "Send request"
+    },
+    "reviews": []
+  },
+  "disableSections": [
+    "process",
+    "faq"
+  ],
+  "labels": {
+    "reviewsEmptyTitle": "Demo placeholder: your Google reviews",
+    "reviewsEmptyBody": "On the final approved version your best recent reviews show here and update on their own.",
+    "hoursFallback": "Hours added on the final version",
+    "servicesIntro": "Call {{phone}} to ask about any of these.",
+    "contactIntro": "Call or send a request. Directions are below."
+  }
+}

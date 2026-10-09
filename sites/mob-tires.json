@@ -1,0 +1,156 @@
+{
+  "slug": "mob-tires",
+  "preset": "towing",
+  "concept": {
+    "currentSite": null,
+    "demoIntro": "Photos are stock images and the wording is generic placeholder copy.",
+    "demoNote": [
+      "real photos of the shop and team",
+      "Google review quotes",
+      "business hours",
+      "service descriptions written for what the shop actually offers",
+      "logo and brand colors"
+    ]
+  },
+  "business": {
+    "name": "Mob Tires",
+    "phone": "(313) 442-2449",
+    "address": {
+      "street": "27315 Van Born Rd",
+      "city": "Taylor",
+      "state": "MI",
+      "zip": "48180"
+    },
+    "placeId": "ChIJ-Z6FQcVJO4gRsMn-g0biqIE",
+    "rating": 4.5,
+    "reviewCount": 217
+  },
+  "brand": {},
+  "content": {
+    "hero": {
+      "heading": "Towing in {{city}}.",
+      "eyebrow": "{{city}}, Michigan",
+      "sub": "Call {{phone}} or stop by {{street}}. Rated {{rating}} stars across {{reviews}} Google reviews."
+    },
+    "trustBullets": [
+      "{{rating}} stars on Google",
+      "{{reviews}} Google reviews",
+      "Call {{phone}}"
+    ],
+    "services": [
+      {
+        "key": "light",
+        "icon": "tow",
+        "title": "Light-duty towing",
+        "blurb": "Cars, SUVs and pickups on flatbeds and wheel-lifts.",
+        "includes": [
+          "Flatbed and wheel-lift",
+          "Local and long distance",
+          "Motorcycle towing"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "heavy",
+        "icon": "truck",
+        "title": "Medium and heavy-duty",
+        "blurb": "Box trucks, buses and tractor-trailers.",
+        "includes": [
+          "Heavy wreckers",
+          "Load shifts and transfers",
+          "Equipment hauling"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "roadside",
+        "icon": "battery",
+        "title": "Roadside assistance",
+        "blurb": "Jump starts, lockouts, tire changes and fuel delivery.",
+        "includes": [
+          "Jump starts",
+          "Lockouts",
+          "Tire changes and fuel delivery"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "recovery",
+        "icon": "bolt",
+        "title": "Accident recovery",
+        "blurb": "Call {{phone}} to ask about accident recovery.",
+        "includes": [
+          "Winching and recovery"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "transport",
+        "icon": "car",
+        "title": "Vehicle transport",
+        "blurb": "Call {{phone}} to ask about vehicle transport.",
+        "includes": [
+          "Classic and exotic cars",
+          "Scheduled moves"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "storage",
+        "icon": "key",
+        "title": "Impound and storage",
+        "blurb": "Call {{phone}} to ask about impound and storage.",
+        "includes": [
+          "Fenced and lit yard",
+          "Private property impound"
+        ],
+        "detail": ""
+      }
+    ],
+    "about": {
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is on {{street}} in {{city}}, Michigan. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "body2": "",
+      "checks": []
+    },
+    "badges": [
+      {
+        "icon": "star",
+        "title": "{{rating}} stars",
+        "sub": "{{reviews}} Google reviews"
+      },
+      {
+        "icon": "phone",
+        "title": "Call {{phone}}",
+        "sub": "Ask about your job"
+      },
+      {
+        "icon": "pin",
+        "title": "{{street}}",
+        "sub": "{{city}}, Michigan"
+      }
+    ],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}} or send a request through the form."
+    },
+    "form": {
+      "title": "Send a request",
+      "hint": "Tell us what you need and how to reach you.",
+      "submit": "Send request"
+    },
+    "reviews": []
+  },
+  "disableSections": [
+    "process",
+    "faq"
+  ],
+  "labels": {
+    "reviewsEmptyTitle": "Demo placeholder: your Google reviews",
+    "reviewsEmptyBody": "On the final approved version your best recent reviews show here and update on their own.",
+    "hoursFallback": "Hours added on the final version",
+    "servicesIntro": "Call {{phone}} to ask about any of these.",
+    "contactIntro": "Call or send a request. Directions are below."
+  }
+}

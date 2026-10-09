@@ -1,0 +1,74 @@
+{
+  "_comment": "Machine shops, tool and die, welding, fabrication, industrial suppliers. B2B tone, quote-driven.",
+  "schemaType": "LocalBusiness",
+  "brand": { "accent": "#B91C1C", "dark": "#161616", "logoIcon": "gear", "fontHeading": "Barlow Condensed", "fontBody": "Barlow" },
+  "labels": {
+    "book": "Request a quote", "bookShort": "Quote",
+    "servicesEyebrow": "Capabilities", "servicesHeading": "Capabilities",
+    "servicesIntro": "Send a print with material and quantity and get a quote back fast.",
+    "allServices": "All capabilities", "learnMore": "Details",
+    "processEyebrow": "From print to part", "processHeading": "How a job runs here", "processIntro": "",
+    "reviewsHeading": "What customers say",
+    "galleryEyebrow": "The floor", "galleryHeading": "Plant and equipment",
+    "faqHeading": "Common questions from buyers",
+    "faqIntro": "Need something not covered? Call. You'll reach someone who can quote.",
+    "badgesEyebrow": "Quality", "badgesHeading": "Certifications and standards",
+    "contactEyebrow": "Request a quote", "contactHeading": "Send a print, get a quote",
+    "contactIntro": "Attach drawings or a step file. Tell us the material, quantity and when you need it.",
+    "visit": "Visit the plant", "heroCardFallbackNum": "Est.", "heroCardFallbackSub": "Quality-focused manufacturing"
+  },
+  "photos": {
+    "hero": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+    "about": "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f",
+    "about2": "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7"
+  },
+  "content": {
+    "hero": { "eyebrow": "{{city}}, {{state}} · Since {{established}}", "heading": "Precision machining in {{city}} since {{established}}.", "sub": "Tooling, production machining and prototypes for automotive, defense and aerospace customers. Send a print and get a quote." },
+    "trustBullets": ["Quotes back within two business days", "Inspection reports with every shipment", "In-house tooling and fixtures"],
+    "services": [
+      { "key": "cnc", "icon": "gear", "title": "CNC machining", "blurb": "Milling and turning in steel, aluminum, stainless and exotics.", "includes": ["3, 4 and 5-axis milling", "CNC turning", "Prototype to production runs"] },
+      { "key": "tooling", "icon": "hammer", "title": "Tool and die", "blurb": "Dies, fixtures and gauges built and maintained in house.", "includes": ["Progressive and transfer dies", "Fixtures and gauges", "Die repair and maintenance"] },
+      { "key": "grinding", "icon": "ruler", "title": "Grinding", "blurb": "Surface, OD/ID and centerless grinding to tight tolerances.", "includes": ["Surface grinding", "Centerless grinding", "Jig grinding"] },
+      { "key": "welding", "icon": "flame", "title": "Welding and fabrication", "blurb": "Certified welding, weldments and light fabrication.", "includes": ["MIG and TIG", "Weldments and frames", "Laser and plasma cutting"] },
+      { "key": "quality", "icon": "shield", "title": "Inspection and quality", "blurb": "CMM inspection and documentation with every job.", "includes": ["CMM inspection", "First article and PPAP", "Material certs"] },
+      { "key": "engineering", "icon": "file", "title": "Engineering support", "blurb": "Design for manufacturability before the first chip.", "includes": ["DFM review", "CAD/CAM programming", "Reverse engineering"] }
+    ],
+    "about": { "eyebrow": "About the shop", "heading": "{{years}} years of making parts in {{city}}", "body": "{{name}} has run from {{city}} since {{established}}. Experienced machinists, modern equipment and a quality system that keeps repeat customers coming back.", "checks": ["Quotes within two business days", "Inspection documentation with every shipment", "Short runs and production volumes", "Secure handling of customer prints"] },
+    "process": [
+      { "title": "Send the print", "body": "Drawing or step file, material, quantity and due date." },
+      { "title": "Quote and review", "body": "Pricing, lead time and any DFM notes back within two business days." },
+      { "title": "Production", "body": "Programmed, machined and inspected in house." },
+      { "title": "Ship with documentation", "body": "Inspection report and certs with every order." }
+    ],
+    "cta": { "eyebrow": "Have a print?", "heading": "Get a quote on your next job.", "body": "Call {{phone}} or send the print. Quotes come back within two business days." },
+    "form": {
+      "title": "Request a quote", "hint": "Attach drawings, prints or step files. Tell us material, quantity and when you need it.", "submit": "Send for quote",
+      "fields": [
+        { "name": "name", "label": "Your name", "autocomplete": "name", "required": true },
+        { "name": "company", "label": "Company", "autocomplete": "organization" },
+        { "name": "email", "label": "Email", "type": "email", "autocomplete": "email", "required": true },
+        { "name": "phone", "label": "Phone", "type": "tel", "autocomplete": "tel" },
+        { "name": "notes", "label": "Part, material, quantity and due date", "type": "textarea", "full": true },
+        { "name": "files", "label": "Drawings, prints or step files", "type": "file", "multiple": true, "full": true }
+      ]
+    },
+    "faqs": [
+      { "q": "What quantities do you run?", "a": "Prototypes and one-offs through production runs. Tell us the expected annual volume and we'll quote accordingly." },
+      { "q": "What file formats do you accept?", "a": "PDF prints plus STEP, IGES, Parasolid or native SolidWorks files. If all you have is a sample part, we can reverse engineer it." },
+      { "q": "What's a typical lead time?", "a": "It depends on material availability and complexity. Quotes include a realistic lead time, and we'll tell you up front if a rush is possible." },
+      { "q": "Do you sign NDAs?", "a": "Yes. Send yours or ask for ours before you send prints." }
+    ],
+    "badges": [
+      { "icon": "shield", "title": "Quality system", "sub": "Documented processes and inspection" },
+      { "icon": "file", "title": "First article and PPAP", "sub": "On request for production parts" },
+      { "icon": "ruler", "title": "CMM inspection", "sub": "Reports with every shipment" },
+      { "icon": "key", "title": "Print security", "sub": "NDAs honored, prints kept confidential" }
+    ]
+  },
+  "pages": [
+    { "slug": "", "title": "Home", "sections": [ { "type": "trust" }, { "type": "services", "limit": 6 }, { "type": "about" }, { "type": "process" }, { "type": "badges" }, { "type": "gallery" }, { "type": "faq" }, { "type": "cta" }, { "type": "contact" } ] },
+    { "slug": "services", "title": "Capabilities", "hero": { "sub": "What we make, and what's included with every job." }, "sections": [ { "type": "serviceDetails" }, { "type": "cta" } ] },
+    { "slug": "about", "title": "About", "hero": { "sub": "The plant, the people and how we work." }, "sections": [ { "type": "about" }, { "type": "badges" }, { "type": "process" }, { "type": "gallery" }, { "type": "cta" } ] },
+    { "slug": "contact", "title": "Quote", "nav": "Request a quote", "hero": { "heading": "Request a quote", "sub": "Send a print. Directions and hours are below." }, "sections": [ { "type": "contact", "soft": false }, { "type": "serviceArea" } ] }
+  ]
+}

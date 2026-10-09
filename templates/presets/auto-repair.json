@@ -1,0 +1,99 @@
+{
+  "_comment": "Independent auto repair shops. Stock photos are Unsplash (free license); swap for the shop's own photos in the site JSON.",
+  "schemaType": "AutoRepair",
+  "brand": { "accent": "#1E40AF", "dark": "#0B1220", "logoIcon": "wrench", "fontHeading": "Bricolage Grotesque", "fontBody": "Inter" },
+  "labels": {
+    "book": "Request an appointment",
+    "bookShort": "Book",
+    "servicesEyebrow": "What we fix",
+    "servicesHeading": "Repairs and maintenance, done right",
+    "servicesIntro": "Tell us what's going on and we'll tell you what it needs, what it costs and how long it takes, before any work starts.",
+    "visit": "Visit the shop",
+    "galleryHeading": "Inside the shop",
+    "reviewsHeading": "What drivers in {{city}} say",
+    "contactHeading": "Get your car on the schedule",
+    "contactIntro": "Send the form or call the shop. Drop-offs welcome during business hours."
+  },
+  "photos": {
+    "hero": "https://images.unsplash.com/photo-1504222490345-c075b6008014",
+    "about": "https://images.unsplash.com/photo-1625047509168-a7026f36de04",
+    "about2": "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f",
+    "services": {
+      "diagnostics": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3",
+      "brakes": "https://images.unsplash.com/photo-1613214149922-f1809c99b414",
+      "oil": "https://images.unsplash.com/photo-1487754180451-c456f719a1fc",
+      "engine": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e",
+      "tires": "https://images.unsplash.com/photo-1613214149922-f1809c99b414",
+      "ac": "https://images.unsplash.com/photo-1625047509168-a7026f36de04",
+      "suspension": "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7",
+      "electrical": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3"
+    },
+    "gallery": [
+      { "src": "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f", "caption": "The right tool for every job" },
+      { "src": "https://images.unsplash.com/photo-1625047509168-a7026f36de04", "caption": "Service bays" },
+      { "src": "https://images.unsplash.com/photo-1504222490345-c075b6008014", "caption": "Techs who explain the work" },
+      { "src": "https://images.unsplash.com/photo-1487754180451-c456f719a1fc", "caption": "Oil changes while you wait" }
+    ]
+  },
+  "content": {
+    "hero": {
+      "eyebrow": "{{city}} · Since {{established}}",
+      "heading": "Auto repair in {{city}} you don't have to second-guess.",
+      "sub": "Diagnostics, brakes, engine work and maintenance from a shop that tells you the price before the work starts."
+    },
+    "trustBullets": ["Price explained before any work starts", "ASE-certified technicians", "Same-day service on most repairs"],
+    "services": [
+      { "key": "diagnostics", "icon": "engine", "title": "Check engine light", "blurb": "Codes read, the real cause found and the price explained before any work starts.", "detail": "A code tells you where to start looking, not what's broken. We read it, test the circuit and show you the failed part before we quote the fix.", "includes": ["Full computer scan, all modules", "Live data and road test when needed", "Written estimate before repairs"] },
+      { "key": "brakes", "icon": "brake", "title": "Brakes", "blurb": "Pads, rotors, calipers and lines, with a free look when something sounds off.", "detail": "Grinding, squealing, a soft pedal or a pull to one side: we measure everything and replace only what's worn.", "includes": ["Free brake inspection", "Pads, rotors, calipers, hoses and lines", "Brake fluid flush", "ABS diagnosis"] },
+      { "key": "oil", "icon": "oil", "title": "Oil changes and maintenance", "blurb": "Oil, filters, fluids and the scheduled service your owner's manual calls for.", "detail": "Conventional, blend or full synthetic with a multi-point inspection every visit, so small problems get caught early.", "includes": ["Oil and filter", "Multi-point inspection", "Fluid top-off", "Factory scheduled maintenance"] },
+      { "key": "engine", "icon": "wrench", "title": "Engine and transmission", "blurb": "From a rough idle to a rebuild, diagnosed properly and fixed to last.", "detail": "Timing, gaskets, misfires, leaks and transmission service. We'll tell you straight when a repair isn't worth it.", "includes": ["Misfire and drivability diagnosis", "Timing belts and chains", "Gaskets and seals", "Transmission fluid and filter service"] },
+      { "key": "suspension", "icon": "gauge", "title": "Suspension and steering", "blurb": "Shocks, struts, ball joints and tie rods for a car that rides and steers right.", "detail": "Clunks over bumps, wandering on the freeway or uneven tire wear usually mean worn suspension. We find the loose part and fix it.", "includes": ["Shocks and struts", "Ball joints and tie rods", "Control arms and bushings", "Alignment check"] },
+      { "key": "ac", "icon": "snow", "title": "Heating and A/C", "blurb": "Heat working before winter and A/C cold before summer.", "detail": "Leak detection, compressor and condenser replacement, blend doors and blower motors, and a proper recharge.", "includes": ["A/C performance test", "Leak detection and repair", "Recharge to spec", "Heater core and blower repair"] },
+      { "key": "electrical", "icon": "battery", "title": "Batteries and electrical", "blurb": "No-starts, dead batteries, alternators and the gremlins other shops give up on.", "detail": "Starting and charging system tests, parasitic draw diagnosis, wiring repair and module programming.", "includes": ["Battery and alternator testing", "Starters and alternators", "Wiring and connector repair", "Parasitic draw diagnosis"] },
+      { "key": "tires", "icon": "tire", "title": "Tires and alignment", "blurb": "New tires, rotations, repairs and alignments that make them last.", "detail": "We mount and balance all major brands, fix repairable punctures and align to factory spec.", "includes": ["New tires, all major brands", "Mount, balance and rotation", "Flat repair", "Four-wheel alignment"] }
+    ],
+    "about": {
+      "eyebrow": "About the shop",
+      "heading": "{{years}} years of fixing cars in {{city}}",
+      "body": "{{name}} has served {{city}} drivers since {{established}}. Same owner, same techs, and a habit of explaining the repair in plain English before anyone picks up a wrench.",
+      "checks": ["Written estimate before any work", "ASE-certified technicians", "Warranty on parts and labor", "Rides and loaners available"]
+    },
+    "process": [
+      { "title": "Book or drop off", "body": "Call, text or send the form. Early drop-off is fine." },
+      { "title": "We diagnose", "body": "A tech checks it out and we call you with what it needs and what it costs." },
+      { "title": "You approve", "body": "Nothing gets done until you say so. No surprise charges." },
+      { "title": "Pick it up", "body": "Fixed, test-driven and backed by our warranty." }
+    ],
+    "cta": {
+      "eyebrow": "Something not right?",
+      "heading": "Let's get your car back on the road.",
+      "body": "Call {{phone}} or request an appointment. Most repairs are done the same day."
+    },
+    "form": {
+      "title": "Request an appointment",
+      "hint": "Tell us what's going on and when you'd like to bring it in. We'll confirm by phone or text.",
+      "submit": "Send request",
+      "fields": [
+        { "name": "name", "label": "Your name", "autocomplete": "name", "required": true },
+        { "name": "phone", "label": "Phone", "type": "tel", "autocomplete": "tel", "required": true },
+        { "name": "vehicle", "label": "Year, make and model", "placeholder": "2017 Ford Escape", "full": true },
+        { "name": "notes", "label": "What's going on with it?", "type": "textarea", "placeholder": "Grinding when I brake, check engine light is on...", "full": true },
+        { "name": "day", "label": "Best day to bring it in", "type": "select", "options": ["As soon as possible", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] },
+        { "name": "wait", "label": "Will you wait or drop off?", "type": "select", "options": ["Drop off", "Wait at the shop", "Need a ride"] }
+      ]
+    },
+    "faqs": [
+      { "q": "Do I need an appointment?", "a": "Walk-ins and early drop-offs are welcome, but an appointment gets you in and out fastest. Call or use the form and we'll confirm a time." },
+      { "q": "How much is a diagnostic?", "a": "We quote the diagnostic up front and apply it toward the repair if you have us do the work. You'll get a written estimate before anything else is touched." },
+      { "q": "Do you work on my make?", "a": "Yes. Domestic, Asian and European cars and light trucks. If a job needs dealer-only equipment, we'll tell you before you spend a dime." },
+      { "q": "Is the work warrantied?", "a": "Parts and labor are covered. Ask for the terms on your specific repair when you approve the estimate." },
+      { "q": "Can I bring my own parts?", "a": "Call and ask. For some jobs it's fine; for others we can't warranty the work, and we'll explain why." }
+    ],
+    "badges": [
+      { "icon": "shield", "title": "ASE-certified technicians", "sub": "Tested and recertified on a schedule" },
+      { "icon": "file", "title": "Written estimates", "sub": "Before any work starts" },
+      { "icon": "award", "title": "Warranty on parts and labor", "sub": "Ask for terms on your repair" },
+      { "icon": "car", "title": "Rides and loaners", "sub": "So you're not stuck waiting" }
+    ]
+  }
+}

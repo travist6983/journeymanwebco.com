@@ -2,6 +2,8 @@
 # These stay in the repo but are not published to the site.
 # README patterns spell out both cases because Jekyll matches them case-sensitively.
 exclude:
+  - templates
+  - sites
   - worker
   - scripts
   - prospects

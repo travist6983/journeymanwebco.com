@@ -1,0 +1,38 @@
+{
+  "_comment": "Landscaping, lawn care, irrigation, hardscape.",
+  "schemaType": "LocalBusiness",
+  "brand": { "accent": "#4D7C0F", "dark": "#14201A", "logoIcon": "leaf", "fontHeading": "Fraunces", "fontBody": "DM Sans" },
+  "labels": { "book": "Get a free quote", "bookShort": "Free quote", "servicesEyebrow": "What we do", "servicesHeading": "Yards that look this good year-round", "servicesIntro": "Design, installation and maintenance from a crew that shows up on schedule.", "galleryHeading": "Recent projects", "reviewsHeading": "What homeowners in {{city}} say", "contactHeading": "Get a free quote", "contactIntro": "Tell us about the property and what you have in mind." },
+  "content": {
+    "hero": { "eyebrow": "{{city}} · Since {{established}}", "heading": "Landscaping in {{city}} that gets the neighbors asking.", "sub": "Design, installation, irrigation and weekly maintenance from a local crew that shows up when it says it will." },
+    "trustBullets": ["Free on-site quotes", "Licensed and insured", "Crews that show up on schedule"],
+    "services": [
+      { "key": "design", "icon": "leaf", "title": "Landscape design and install", "blurb": "Beds, plantings, trees and the plan that ties it together.", "includes": ["Design consultation", "Planting and bed installation", "Mulch and edging"] },
+      { "key": "hardscape", "icon": "box", "title": "Patios and hardscape", "blurb": "Pavers, retaining walls, walkways and fire pits built to last Michigan winters.", "includes": ["Paver patios and walks", "Retaining walls", "Fire pits and outdoor kitchens"] },
+      { "key": "irrigation", "icon": "drop", "title": "Irrigation", "blurb": "New systems, repairs, spring start-up and fall blow-out.", "includes": ["System design and install", "Repairs and head replacement", "Start-up and winterization"] },
+      { "key": "maintenance", "icon": "sun", "title": "Lawn maintenance", "blurb": "Weekly mowing, edging, trimming and seasonal clean-ups.", "includes": ["Weekly mowing and edging", "Spring and fall clean-up", "Fertilization and weed control"] },
+      { "key": "lighting", "icon": "bolt", "title": "Landscape lighting", "blurb": "Low-voltage LED lighting for paths, trees and the front of the house.", "includes": ["Path and accent lighting", "LED upgrades", "Timers and smart controls"] },
+      { "key": "snow", "icon": "snow", "title": "Snow removal", "blurb": "Plowing and salting for driveways and commercial lots.", "includes": ["Seasonal contracts", "Residential and commercial", "Salting and sidewalks"] }
+    ],
+    "about": { "eyebrow": "About us", "heading": "{{years}} years of yards in {{city}}", "body": "{{name}} has worked in {{city}} since {{established}}. Local crews, honest quotes and work that still looks good years later.", "checks": ["Free on-site quotes", "Licensed and insured", "Same crew every visit", "Warranty on plantings and hardscape"] },
+    "cta": { "eyebrow": "Thinking about the yard?", "heading": "Get a free quote this week.", "body": "Call {{phone}} or send a few details. We'll come take a look." },
+    "form": { "title": "Request a free quote", "hint": "Tell us about the property and what you'd like done.", "submit": "Request quote", "fields": [
+      { "name": "name", "label": "Your name", "autocomplete": "name", "required": true },
+      { "name": "phone", "label": "Phone", "type": "tel", "autocomplete": "tel", "required": true },
+      { "name": "address", "label": "Property address", "autocomplete": "street-address", "full": true },
+      { "name": "project", "label": "What are you thinking?", "type": "textarea", "full": true },
+      { "name": "type", "label": "Type of work", "type": "select", "options": ["Design and install", "Patio or hardscape", "Irrigation", "Weekly maintenance", "Lighting", "Other"] }
+    ] },
+    "faqs": [
+      { "q": "Do you charge for quotes?", "a": "No. We come out, walk the property with you and send a written quote." },
+      { "q": "When should I book for spring?", "a": "Early. Install schedules fill by March. Maintenance contracts can start any time." },
+      { "q": "Are you insured?", "a": "Yes, fully licensed and insured. Certificates available on request." }
+    ],
+    "badges": [
+      { "icon": "shield", "title": "Licensed and insured", "sub": "Certificates on request" },
+      { "icon": "award", "title": "Warranty on plantings", "sub": "Ask for terms on your project" },
+      { "icon": "users", "title": "Same crew every visit", "sub": "People who know your property" },
+      { "icon": "calendar", "title": "On-schedule guarantee", "sub": "We show up when we say" }
+    ]
+  }
+}

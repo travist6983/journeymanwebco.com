@@ -1,0 +1,69 @@
+{
+  "_comment": "Collision and body shops. Includes a before/after slider when content.beforeAfter has before and after photos.",
+  "schemaType": "AutoBodyShop",
+  "brand": { "accent": "#DC2626", "dark": "#121212", "logoIcon": "spray", "fontHeading": "Barlow Condensed", "fontBody": "Barlow" },
+  "labels": {
+    "book": "Get a free estimate", "bookShort": "Estimate",
+    "servicesEyebrow": "What we do", "servicesHeading": "Collision repair that looks like it never happened",
+    "servicesIntro": "From a scraped bumper to a full frame pull. We work with every insurer and handle the paperwork.",
+    "visit": "Visit the shop", "galleryHeading": "Recent work", "reviewsHeading": "What drivers in {{city}} say",
+    "contactHeading": "Start with a free estimate", "contactIntro": "Send photos of the damage or stop by. Estimates are free and take about 20 minutes."
+  },
+  "photos": {
+    "hero": "https://images.unsplash.com/photo-1625047509168-a7026f36de04",
+    "about": "https://images.unsplash.com/photo-1504222490345-c075b6008014",
+    "about2": "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f"
+  },
+  "content": {
+    "hero": { "eyebrow": "{{city}} · Since {{established}}", "heading": "Collision repair in {{city}}, back to factory finish.", "sub": "Free estimates, every insurance company accepted, and a lifetime warranty on the paint." },
+    "trustBullets": ["Free estimates, no appointment needed", "We work with every insurance company", "Lifetime warranty on paint and workmanship"],
+    "services": [
+      { "key": "collision", "icon": "car", "title": "Collision repair", "blurb": "Frame, structural and body repair to factory spec.", "includes": ["Computerized frame measuring", "Structural and unibody repair", "OEM procedures"] },
+      { "key": "paint", "icon": "spray", "title": "Paint and refinishing", "blurb": "Computer-matched color blended so the repair disappears.", "includes": ["Computerized color matching", "Blending into adjacent panels", "Lifetime paint warranty"] },
+      { "key": "dents", "icon": "hammer", "title": "Dents, dings and scratches", "blurb": "Paintless dent repair and bumper work for the small stuff.", "includes": ["Paintless dent repair", "Bumper repair and refinish", "Scratch and scuff removal"] },
+      { "key": "insurance", "icon": "file", "title": "Insurance claims", "blurb": "We deal with the adjuster and the paperwork. You pick the shop.", "includes": ["Direct billing with all major insurers", "Supplement handling", "Rental coordination"] },
+      { "key": "glass", "icon": "shield", "title": "Glass and calibration", "blurb": "Windshields, side glass and ADAS camera recalibration.", "includes": ["Windshield replacement", "ADAS recalibration", "Side and rear glass"] },
+      { "key": "detail", "icon": "sparkle", "title": "Detailing", "blurb": "Every car leaves washed and vacuumed. Full details available.", "includes": ["Exterior wash and wax", "Interior detail", "Headlight restoration"] }
+    ],
+    "about": { "eyebrow": "About the shop", "heading": "{{years}} years of straightening out bad days", "body": "{{name}} has repaired {{city}} cars since {{established}}. I-CAR trained techs, a downdraft paint booth and a habit of returning cars cleaner than they came in.", "checks": ["I-CAR trained technicians", "Lifetime warranty on paint", "Every insurer accepted", "Rental cars arranged"] },
+    "process": [
+      { "title": "Free estimate", "body": "Stop by or send photos. About 20 minutes." },
+      { "title": "We handle the claim", "body": "We talk to your insurer and arrange a rental if you need one." },
+      { "title": "Repair and refinish", "body": "Structural repair, paint, reassembly and quality check." },
+      { "title": "Pick up, like new", "body": "Washed, detailed and backed by a lifetime warranty." }
+    ],
+    "cta": { "eyebrow": "Been in an accident?", "heading": "Get a free estimate today.", "body": "Call {{phone}} or send photos of the damage. We'll take it from there." },
+    "form": {
+      "title": "Request a free estimate", "hint": "Photos help. Snap the damage from a few angles and attach them below.", "submit": "Send for estimate",
+      "fields": [
+        { "name": "name", "label": "Your name", "autocomplete": "name", "required": true },
+        { "name": "phone", "label": "Phone", "type": "tel", "autocomplete": "tel", "required": true },
+        { "name": "vehicle", "label": "Year, make and model", "placeholder": "2019 Chevy Equinox", "full": true },
+        { "name": "notes", "label": "What happened?", "type": "textarea", "placeholder": "Rear-ended at a light, bumper and trunk damage...", "full": true },
+        { "name": "insurance", "label": "Insurance claim?", "type": "select", "options": ["Yes, claim filed", "Yes, not filed yet", "No, paying myself", "Not sure"] },
+        { "name": "photos", "label": "Photos of the damage", "type": "file", "multiple": true }
+      ]
+    },
+    "faqs": [
+      { "q": "Do I have to use the shop my insurance recommends?", "a": "No. In Michigan you choose the repair shop. We work directly with every insurer and handle the paperwork either way." },
+      { "q": "How long will the repair take?", "a": "Small bumper jobs are often 2 to 3 days. Bigger structural work depends on parts. You'll get a realistic timeline with the estimate and updates along the way." },
+      { "q": "Will the paint match?", "a": "Yes. We computer-match the color and blend into neighboring panels so there's no visible line. Paint is warrantied for as long as you own the car." },
+      { "q": "Can you help with a rental?", "a": "Yes. We coordinate with your insurer's rental coverage and can have a car waiting when you drop off." }
+    ],
+    "badges": [
+      { "icon": "shield", "title": "I-CAR trained", "sub": "Current on OEM repair procedures" },
+      { "icon": "award", "title": "Lifetime paint warranty", "sub": "For as long as you own the car" },
+      { "icon": "file", "title": "All insurers accepted", "sub": "Direct billing and supplements handled" },
+      { "icon": "car", "title": "Rentals arranged", "sub": "Waiting for you at drop-off" }
+    ]
+  },
+  "pages": [
+    { "slug": "", "title": "Home", "sections": [
+      { "type": "trust" }, { "type": "services", "limit": 6 }, { "type": "beforeAfter" }, { "type": "about" }, { "type": "process" }, { "type": "reviews", "limit": 3 }, { "type": "gallery" }, { "type": "faq" }, { "type": "cta" }, { "type": "contact" }
+    ]},
+    { "slug": "services", "title": "Services", "hero": { "sub": "Everything we do, and what's included." }, "sections": [ { "type": "serviceDetails" }, { "type": "cta" } ] },
+    { "slug": "about", "title": "About", "hero": { "sub": "Who we are and how we work." }, "sections": [ { "type": "about" }, { "type": "badges" }, { "type": "process" }, { "type": "gallery" }, { "type": "cta" } ] },
+    { "slug": "reviews", "title": "Reviews", "hero": { "sub": "What customers say after the work is done." }, "sections": [ { "type": "reviews" }, { "type": "cta" } ] },
+    { "slug": "contact", "title": "Estimate", "nav": "Free estimate", "hero": { "heading": "Get a free estimate", "sub": "Send photos or stop by. Directions and hours are below." }, "sections": [ { "type": "contact", "soft": false }, { "type": "serviceArea" } ] }
+  ]
+}

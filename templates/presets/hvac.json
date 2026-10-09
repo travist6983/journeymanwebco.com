@@ -1,0 +1,49 @@
+{
+  "_comment": "Heating, cooling and refrigeration contractors.",
+  "schemaType": "HVACBusiness",
+  "brand": { "accent": "#EA580C", "dark": "#0F172A", "logoIcon": "fan", "fontHeading": "Plus Jakarta Sans", "fontBody": "Inter" },
+  "labels": {
+    "book": "Schedule service", "bookShort": "Schedule",
+    "servicesEyebrow": "Heating, cooling and air", "servicesHeading": "Comfortable in every season",
+    "servicesIntro": "Repair, replacement and maintenance for furnaces, A/C, heat pumps and more.",
+    "visit": "Our shop", "galleryHeading": "Recent installs", "reviewsHeading": "What homeowners in {{city}} say",
+    "contactHeading": "Schedule a visit", "contactIntro": "Tell us what's going on and we'll get a tech out fast."
+  },
+  "content": {
+    "hero": { "eyebrow": "{{city}} · Since {{established}}", "heading": "Heating and cooling in {{city}}, fixed fast and done right.", "sub": "Furnace and A/C repair, new systems and tune-ups from licensed techs who show up when they say they will." },
+    "trustBullets": ["Licensed and insured", "Upfront pricing before work starts", "Same-day service available"],
+    "services": [
+      { "key": "ac-repair", "icon": "snow", "title": "A/C repair", "blurb": "Not cooling, short-cycling, or leaking? Diagnosed and fixed, usually the same day.", "includes": ["Full system diagnostic", "Refrigerant leak repair", "Compressor and capacitor replacement"] },
+      { "key": "furnace", "icon": "flame", "title": "Furnace repair", "blurb": "No heat, strange noises or a pilot that won't stay lit.", "includes": ["Ignition and flame sensor repair", "Blower motor replacement", "Heat exchanger inspection"] },
+      { "key": "install", "icon": "home", "title": "New systems", "blurb": "Right-sized, high-efficiency furnaces, A/C and heat pumps with financing available.", "includes": ["Free in-home estimate", "Manual J load calculation", "Rebate paperwork handled"] },
+      { "key": "maintenance", "icon": "shield", "title": "Tune-ups and maintenance plans", "blurb": "Twice-a-year checks that keep your system efficient and warrantied.", "includes": ["Spring A/C and fall furnace tune-ups", "Priority scheduling", "Discounts on repairs"] },
+      { "key": "air", "icon": "fan", "title": "Indoor air quality", "blurb": "Humidifiers, filtration and duct cleaning for easier breathing.", "includes": ["Whole-home humidifiers", "Media and UV filtration", "Duct sealing and cleaning"] },
+      { "key": "water-heater", "icon": "thermo", "title": "Water heaters", "blurb": "Tank and tankless repair and replacement.", "includes": ["Same-day replacement", "Tankless conversions", "Annual flush service"] }
+    ],
+    "about": { "eyebrow": "About us", "heading": "{{years}} years keeping {{city}} comfortable", "body": "{{name}} has served {{city}} homes and businesses since {{established}}. Licensed techs, stocked trucks and a straight price before any work starts.", "checks": ["Licensed and insured", "Background-checked technicians", "Upfront, flat-rate pricing", "Financing on new systems"] },
+    "cta": { "eyebrow": "Too hot? Too cold?", "heading": "Let's get your system running right.", "body": "Call {{phone}} or schedule online. Same-day service is usually available." },
+    "form": {
+      "title": "Schedule service", "hint": "Tell us what's going on and the best time to come by.", "submit": "Request a visit",
+      "fields": [
+        { "name": "name", "label": "Your name", "autocomplete": "name", "required": true },
+        { "name": "phone", "label": "Phone", "type": "tel", "autocomplete": "tel", "required": true },
+        { "name": "address", "label": "Service address", "autocomplete": "street-address", "full": true },
+        { "name": "issue", "label": "What's going on?", "type": "textarea", "placeholder": "A/C running but not cooling...", "full": true },
+        { "name": "urgency", "label": "How soon?", "type": "select", "options": ["As soon as possible", "This week", "Scheduling a tune-up", "Quote on a new system"] },
+        { "name": "system", "label": "System type", "type": "select", "options": ["Central A/C", "Furnace", "Heat pump", "Boiler", "Not sure"] }
+      ]
+    },
+    "faqs": [
+      { "q": "Do you charge for an estimate?", "a": "Estimates on new systems are free. Service calls have a flat diagnostic fee that's applied to the repair if you have us do the work." },
+      { "q": "How fast can you get here?", "a": "Same-day service is usually available for no-heat and no-cool calls. Call and we'll give you a real window." },
+      { "q": "Should I repair or replace?", "a": "If the system is over 12 to 15 years old and the repair is a big one, replacement often pays for itself in efficiency. We'll give you both numbers and let you decide." },
+      { "q": "Do you offer financing?", "a": "Yes, on new systems, with approval in minutes." }
+    ],
+    "badges": [
+      { "icon": "shield", "title": "Licensed and insured", "sub": "State of Michigan mechanical license" },
+      { "icon": "award", "title": "Factory-trained techs", "sub": "On the brands we install" },
+      { "icon": "dollar", "title": "Flat-rate pricing", "sub": "Quoted before work starts" },
+      { "icon": "clock", "title": "Same-day service", "sub": "For most repair calls" }
+    ]
+  }
+}

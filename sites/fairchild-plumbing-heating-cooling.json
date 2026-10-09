@@ -1,0 +1,157 @@
+{
+  "slug": "fairchild-plumbing-heating-cooling",
+  "preset": "hvac",
+  "concept": {
+    "currentSite": null,
+    "demoIntro": "Photos are stock images and the wording is generic placeholder copy.",
+    "demoNote": [
+      "real photos of the shop and team",
+      "Google review quotes",
+      "business hours",
+      "service descriptions written for what the shop actually offers",
+      "logo and brand colors"
+    ]
+  },
+  "business": {
+    "name": "Fairchild Plumbing, Heating & Cooling",
+    "phone": "(734) 225-1270",
+    "address": {
+      "street": "17790 Telegraph Rd",
+      "city": "Brownstown Township",
+      "state": "MI",
+      "zip": "48174"
+    },
+    "placeId": "ChIJK80Q7bxHO4gRZvbRvI2MnrY",
+    "rating": 5,
+    "reviewCount": 392
+  },
+  "brand": {},
+  "content": {
+    "hero": {
+      "heading": "{{name}}",
+      "eyebrow": "{{city}}, Michigan",
+      "sub": "Call {{phone}} or stop by {{street}}. Rated {{rating}} stars across {{reviews}} Google reviews."
+    },
+    "trustBullets": [
+      "{{rating}} stars on Google",
+      "{{reviews}} Google reviews",
+      "Call {{phone}}"
+    ],
+    "services": [
+      {
+        "key": "ac-repair",
+        "icon": "snow",
+        "title": "A/C repair",
+        "blurb": "Not cooling, short-cycling, or leaking?",
+        "includes": [
+          "Full system diagnostic",
+          "Refrigerant leak repair",
+          "Compressor and capacitor replacement"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "furnace",
+        "icon": "flame",
+        "title": "Furnace repair",
+        "blurb": "No heat, strange noises or a pilot that won't stay lit.",
+        "includes": [
+          "Ignition and flame sensor repair",
+          "Blower motor replacement",
+          "Heat exchanger inspection"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "install",
+        "icon": "home",
+        "title": "New systems",
+        "blurb": "Right-sized, high-efficiency furnaces, A/C and heat pumps with financing available.",
+        "includes": [
+          "Manual J load calculation",
+          "Rebate paperwork handled"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "maintenance",
+        "icon": "shield",
+        "title": "Tune-ups and maintenance plans",
+        "blurb": "Call {{phone}} to ask about tune-ups and maintenance plans.",
+        "includes": [
+          "Spring A/C and fall furnace tune-ups",
+          "Priority scheduling",
+          "Discounts on repairs"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "air",
+        "icon": "fan",
+        "title": "Indoor air quality",
+        "blurb": "Call {{phone}} to ask about indoor air quality.",
+        "includes": [
+          "Whole-home humidifiers",
+          "Media and UV filtration"
+        ],
+        "detail": ""
+      },
+      {
+        "key": "water-heater",
+        "icon": "thermo",
+        "title": "Water heaters",
+        "blurb": "Tank and tankless repair and replacement.",
+        "includes": [
+          "Tankless conversions",
+          "Annual flush service"
+        ],
+        "detail": ""
+      }
+    ],
+    "about": {
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is on {{street}} in {{city}}, Michigan. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "body2": "",
+      "checks": []
+    },
+    "badges": [
+      {
+        "icon": "star",
+        "title": "{{rating}} stars",
+        "sub": "{{reviews}} Google reviews"
+      },
+      {
+        "icon": "phone",
+        "title": "Call {{phone}}",
+        "sub": "Ask about your job"
+      },
+      {
+        "icon": "pin",
+        "title": "{{street}}",
+        "sub": "{{city}}, Michigan"
+      }
+    ],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}} or send a request through the form."
+    },
+    "form": {
+      "title": "Send a request",
+      "hint": "Tell us what you need and how to reach you.",
+      "submit": "Send request"
+    },
+    "reviews": []
+  },
+  "disableSections": [
+    "process",
+    "faq"
+  ],
+  "labels": {
+    "reviewsEmptyTitle": "Demo placeholder: your Google reviews",
+    "reviewsEmptyBody": "On the final approved version your best recent reviews show here and update on their own.",
+    "hoursFallback": "Hours added on the final version",
+    "servicesIntro": "Call {{phone}} to ask about any of these.",
+    "contactIntro": "Call or send a request. Directions are below."
+  }
+}

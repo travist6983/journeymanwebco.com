@@ -1,0 +1,38 @@
+{
+  "_comment": "Plumbers.",
+  "schemaType": "Plumber",
+  "brand": { "accent": "#0369A1", "dark": "#0B1A2B", "logoIcon": "drop", "fontHeading": "Plus Jakarta Sans", "fontBody": "Inter" },
+  "labels": { "book": "Schedule service", "bookShort": "Schedule", "servicesEyebrow": "What we fix", "servicesHeading": "Plumbing done right the first time", "servicesIntro": "Repairs, replacements and emergencies, with the price explained before we start.", "reviewsHeading": "What homeowners in {{city}} say", "contactHeading": "Schedule a plumber", "contactIntro": "Tell us what's going on. Emergencies, call the number." },
+  "content": {
+    "hero": { "eyebrow": "{{city}} · Since {{established}}", "heading": "Plumbing in {{city}} without the runaround.", "sub": "Leaks, drains, water heaters and remodels from licensed plumbers who clean up after themselves." },
+    "trustBullets": ["Licensed master plumber", "Upfront pricing before work starts", "Emergency service available"],
+    "services": [
+      { "key": "drains", "icon": "hose", "title": "Drain cleaning", "blurb": "Slow or clogged drains cleared with the right tool, camera inspection available.", "includes": ["Snaking and hydro-jetting", "Camera inspection", "Main sewer line"] },
+      { "key": "water-heaters", "icon": "thermo", "title": "Water heaters", "blurb": "Tank and tankless repair and same-day replacement.", "includes": ["Same-day replacement", "Tankless installs", "Code-compliant venting"] },
+      { "key": "leaks", "icon": "drop", "title": "Leaks and pipe repair", "blurb": "Found fast and fixed for good, from a drippy faucet to a burst pipe.", "includes": ["Leak detection", "Pipe repair and repiping", "Frozen pipe thaw and repair"] },
+      { "key": "fixtures", "icon": "home", "title": "Fixtures and remodels", "blurb": "Toilets, faucets, sinks, showers and full bath and kitchen rough-ins.", "includes": ["Fixture installation", "Bath and kitchen rough-in", "Gas line work"] },
+      { "key": "sump", "icon": "shield", "title": "Sump pumps and backups", "blurb": "Keep the basement dry with a pump you can trust and a battery backup.", "includes": ["Sump pump replacement", "Battery backup systems", "Backflow prevention"] },
+      { "key": "emergency", "icon": "bolt", "title": "Emergency service", "blurb": "Burst pipe or sewage backup? Call. We answer.", "includes": ["After-hours response", "Water shutoff and cleanup guidance", "Insurance documentation"] }
+    ],
+    "about": { "eyebrow": "About us", "heading": "{{years}} years of plumbing in {{city}}", "body": "{{name}} has served {{city}} since {{established}}. Licensed plumbers, stocked trucks and a habit of leaving the house cleaner than we found it.", "checks": ["Licensed and insured", "Upfront pricing", "Background-checked plumbers", "Clean-up included"] },
+    "cta": { "eyebrow": "Leak, clog or no hot water?", "heading": "Let's get it fixed today.", "body": "Call {{phone}} or schedule online." },
+    "form": { "title": "Schedule service", "hint": "For emergencies, call. For everything else, this works.", "submit": "Request a visit", "fields": [
+      { "name": "name", "label": "Your name", "autocomplete": "name", "required": true },
+      { "name": "phone", "label": "Phone", "type": "tel", "autocomplete": "tel", "required": true },
+      { "name": "address", "label": "Service address", "autocomplete": "street-address", "full": true },
+      { "name": "issue", "label": "What's going on?", "type": "textarea", "full": true },
+      { "name": "urgency", "label": "How soon?", "type": "select", "options": ["As soon as possible", "This week", "Getting a quote"] }
+    ] },
+    "faqs": [
+      { "q": "Do you charge to come out?", "a": "There's a flat service fee that's applied to the repair if you have us do the work. You'll know the price before we start." },
+      { "q": "Are you licensed?", "a": "Yes. Licensed master plumber, fully insured, and the work is pulled under permit when the code calls for it." },
+      { "q": "Do you do emergencies?", "a": "Yes. Call the number; after hours it rings through to a plumber." }
+    ],
+    "badges": [
+      { "icon": "shield", "title": "Licensed master plumber", "sub": "State of Michigan" },
+      { "icon": "dollar", "title": "Upfront pricing", "sub": "Before any work starts" },
+      { "icon": "clock", "title": "Emergency service", "sub": "Call anytime" },
+      { "icon": "sparkle", "title": "Clean-up included", "sub": "Shoe covers and drop cloths" }
+    ]
+  }
+}

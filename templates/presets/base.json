@@ -1,0 +1,128 @@
+{
+  "_comment": "Defaults every site inherits. A vertical preset (auto-repair.json etc.) merges over this, then the site's own JSON merges over that.",
+  "schemaType": "LocalBusiness",
+  "agency": {
+    "name": "Journeyman Web Co.",
+    "firstName": "Travis",
+    "location": "Sterling Heights, MI",
+    "url": "https://journeymanwebco.com/",
+    "email": "travis@journeymanwebco.com",
+    "phoneDisplay": "248-505-9421",
+    "telHref": "tel:+12485059421",
+    "smsHref": "sms:+12485059421?&body=Hi%20Travis%2C%20I%20saw%20the%20concept%20site%20you%20built%20for%20us.",
+    "endpoint": "https://journeyman-contact.travisjterry.workers.dev"
+  },
+  "brand": {
+    "accent": "#1E40AF",
+    "dark": "#0B1220",
+    "fontHeading": "Bricolage Grotesque",
+    "fontBody": "Inter",
+    "logoIcon": null
+  },
+  "labels": {
+    "book": "Request an appointment",
+    "bookShort": "Book",
+    "servicesEyebrow": "What we do",
+    "servicesHeading": "Services",
+    "servicesIntro": "Tell us what's going on and we'll tell you what it needs, what it costs and how long it takes, before any work starts.",
+    "allServices": "All services",
+    "learnMore": "Learn more",
+    "processEyebrow": "How it works",
+    "processHeading": "Simple from the first call",
+    "processIntro": "No runaround. Here's what happens when you reach out.",
+    "reviewsHeading": "What customers in {{city}} say",
+    "readReviews": "Read all reviews on Google",
+    "reviewsEmptyTitle": "Your Google reviews, right here",
+    "reviewsEmptyBody": "On the live site your best recent reviews show in this spot and update on their own.",
+    "galleryEyebrow": "Around the shop",
+    "galleryHeading": "A look inside",
+    "galleryIntro": "",
+    "faqEyebrow": "Good to know",
+    "faqHeading": "Questions we hear a lot",
+    "faqIntro": "Don't see yours? Call and ask. A real person answers.",
+    "areaEyebrow": "Where we work",
+    "areaHeading": "Serving {{city}} and nearby",
+    "areaIntro": "",
+    "badgesEyebrow": "Credentials",
+    "badgesHeading": "Why people trust us",
+    "contactEyebrow": "Get in touch",
+    "contactHeading": "Let's get you on the schedule",
+    "contactIntro": "Send the form or call. Either way you'll hear back from a real person.",
+    "visit": "Visit us",
+    "hours": "Hours",
+    "hoursFallback": "Call for hours",
+    "formFine": "No spam, no obligation.",
+    "formPreviewNote": "This is a preview, so nothing was sent. On the live site this goes straight to your phone and email.",
+    "heroCardFallbackNum": "Local",
+    "heroCardFallbackSub": "Family owned and operated"
+  },
+  "content": {
+    "hero": {
+      "eyebrow": "{{city}}, {{state}}",
+      "heading": "{{name}}",
+      "sub": "Honest work, fair prices and a straight answer every time."
+    },
+    "trustBullets": ["Upfront pricing before any work starts", "Locally owned and operated", "Fast turnaround"],
+    "about": {
+      "eyebrow": "About us",
+      "heading": "{{years}} years in {{city}}",
+      "body": "{{name}} has served {{city}} since {{established}}. One site with your hours, services and a way to reach you settles which page customers should trust."
+    },
+    "process": [
+      { "title": "Reach out", "body": "Call, text or send the form. Tell us what's going on." },
+      { "title": "Get a straight answer", "body": "We tell you what it needs, what it costs and how long it takes." },
+      { "title": "We do the work", "body": "Done right the first time, by people who've done it for years." },
+      { "title": "You're taken care of", "body": "Questions after? Call. You'll talk to someone who knows the job." }
+    ],
+    "cta": {
+      "eyebrow": "Ready when you are",
+      "heading": "Let's get it taken care of.",
+      "body": "Call {{phone}} or send a request and we'll get right back to you."
+    },
+    "form": {
+      "title": "Send a request",
+      "hint": "Takes about a minute. We'll get back to you the same business day.",
+      "submit": "Send request",
+      "fields": [
+        { "name": "name", "label": "Your name", "autocomplete": "name", "required": true },
+        { "name": "phone", "label": "Phone", "type": "tel", "autocomplete": "tel", "required": true },
+        { "name": "notes", "label": "What do you need?", "type": "textarea", "full": true, "rows": 4 }
+      ]
+    },
+    "faqs": [],
+    "reviews": [],
+    "badges": []
+  },
+  "pages": [
+    { "slug": "", "title": "Home", "sections": [
+      { "type": "trust" },
+      { "type": "services", "limit": 6 },
+      { "type": "about" },
+      { "type": "process" },
+      { "type": "reviews", "limit": 3 },
+      { "type": "gallery" },
+      { "type": "faq" },
+      { "type": "cta" },
+      { "type": "contact" }
+    ]},
+    { "slug": "services", "title": "Services", "hero": { "sub": "Everything we do, and what's included." }, "sections": [
+      { "type": "serviceDetails" },
+      { "type": "cta" }
+    ]},
+    { "slug": "about", "title": "About", "hero": { "sub": "Who we are and how we work." }, "sections": [
+      { "type": "about" },
+      { "type": "badges" },
+      { "type": "process" },
+      { "type": "gallery" },
+      { "type": "cta" }
+    ]},
+    { "slug": "reviews", "title": "Reviews", "hero": { "sub": "What customers say after the work is done." }, "sections": [
+      { "type": "reviews" },
+      { "type": "cta" }
+    ]},
+    { "slug": "contact", "title": "Contact", "hero": { "sub": "Call, text or send the form. Directions and hours are below." }, "sections": [
+      { "type": "contact", "soft": false },
+      { "type": "serviceArea" }
+    ]}
+  ]
+}
