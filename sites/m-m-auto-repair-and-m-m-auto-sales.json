@@ -23,13 +23,14 @@
     },
     "placeId": "ChIJ6xf9DjlIO4gRGqpB2sFaEu4",
     "rating": 4.9,
-    "reviewCount": 349
+    "reviewCount": 349,
+    "established": 1987
   },
   "brand": {},
   "content": {
     "hero": {
       "heading": "{{name}}",
-      "eyebrow": "{{city}}, Michigan",
+      "eyebrow": "{{city}} \u00b7 Since {{established}}",
       "sub": "Call {{phone}} or stop by {{street}}. Rated {{rating}} stars across {{reviews}} Google reviews."
     },
     "trustBullets": [
@@ -142,7 +143,7 @@
     ],
     "about": {
       "heading": "{{name}} in {{city}}",
-      "body": "{{name}} is on {{street}} in {{city}}, Michigan. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "body": "{{name}} is on {{street}} in {{city}}, Michigan, serving drivers since {{established}}. Rated {{rating}} stars across {{reviews}} Google reviews.",
       "body2": "",
       "checks": []
     },

@@ -1,5 +1,5 @@
 {
-  "slug": "oil-change-center",
+  "slug": "r-r-auto-clinic",
   "preset": "auto-repair",
   "concept": {
     "currentSite": null,
@@ -13,17 +13,17 @@
     ]
   },
   "business": {
-    "name": "Oil Change Center",
-    "phone": "(313) 389-9999",
+    "name": "R & R Auto Clinic",
+    "phone": "(313) 383-2600",
     "address": {
-      "street": "15001 Southfield Rd",
-      "city": "Allen Park",
+      "street": "1306 Fort St",
+      "city": "Lincoln Park",
       "state": "MI",
-      "zip": "48101"
+      "zip": "48146"
     },
-    "placeId": "ChIJ0aAqvI42O4gR1kIlFuGjiuc",
-    "rating": 4.5,
-    "reviewCount": 341
+    "placeId": "ChIJTTPlDrE2O4gRHAEBdIDOhfw",
+    "rating": 4.7,
+    "reviewCount": 115
   },
   "brand": {},
   "content": {
