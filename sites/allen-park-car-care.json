@@ -1,0 +1,279 @@
+{
+  "slug": "allen-park-car-care",
+  "preset": "auto-repair",
+  "concept": {
+    "currentSite": null,
+    "demoIntro": "Photos are stock images and the wording is generic placeholder copy.",
+    "demoNote": [
+      "real photos of the business and team",
+      "Google review quotes",
+      "business hours",
+      "the list of services Allen Park Car Care actually offers, with descriptions",
+      "logo and brand colors"
+    ]
+  },
+  "business": {
+    "name": "Allen Park Car Care",
+    "phone": "(313) 724-6265",
+    "address": {
+      "street": "7141 Allen Rd",
+      "city": "Allen Park",
+      "state": "MI",
+      "zip": "48101"
+    },
+    "placeId": "ChIJ04JHr2Y2O4gRbglr_dG5Fq8",
+    "rating": 4.8,
+    "reviewCount": 240
+  },
+  "brand": {},
+  "content": {
+    "hero": {
+      "heading": "{{name}}",
+      "eyebrow": "{{city}}, Michigan",
+      "sub": "Call {{phone}} or stop by {{street}}. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "bullets": []
+    },
+    "trustBullets": [
+      "{{rating}} stars on Google",
+      "{{reviews}} Google reviews",
+      "Call {{phone}}"
+    ],
+    "services": [
+      {
+        "key": "alignments",
+        "icon": "wrench",
+        "title": "Alignments",
+        "blurb": "Call {{phone}} to ask about alignments."
+      },
+      {
+        "key": "transmission",
+        "icon": "wrench",
+        "title": "Transmission",
+        "blurb": "Call {{phone}} to ask about transmission."
+      },
+      {
+        "key": "diagnostics",
+        "icon": "wrench",
+        "title": "Diagnostics",
+        "blurb": "Call {{phone}} to ask about diagnostics."
+      },
+      {
+        "key": "brakes",
+        "icon": "wrench",
+        "title": "Brakes",
+        "blurb": "Call {{phone}} to ask about brakes."
+      },
+      {
+        "key": "electrical",
+        "icon": "wrench",
+        "title": "Electrical",
+        "blurb": "Call {{phone}} to ask about electrical."
+      },
+      {
+        "key": "steering",
+        "icon": "wrench",
+        "title": "Steering",
+        "blurb": "Call {{phone}} to ask about steering."
+      },
+      {
+        "key": "suspension",
+        "icon": "wrench",
+        "title": "Suspension",
+        "blurb": "Call {{phone}} to ask about suspension."
+      }
+    ],
+    "about": {
+      "eyebrow": "About",
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is on {{street}} in {{city}}, Michigan. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "body2": "",
+      "checks": [],
+      "stats": []
+    },
+    "badges": [
+      {
+        "icon": "star",
+        "title": "{{rating}} stars",
+        "sub": "{{reviews}} Google reviews"
+      },
+      {
+        "icon": "phone",
+        "title": "Call {{phone}}",
+        "sub": "Ask about your job"
+      },
+      {
+        "icon": "pin",
+        "title": "{{street}}",
+        "sub": "{{city}}, Michigan"
+      }
+    ],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}} or send a request through the form."
+    },
+    "form": {
+      "title": "Send a request",
+      "hint": "Tell us what you need and how to reach you.",
+      "submit": "Send request",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Your name",
+          "autocomplete": "name",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "label": "Phone",
+          "type": "tel",
+          "autocomplete": "tel",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "label": "What do you need?",
+          "type": "textarea",
+          "full": true,
+          "rows": 4
+        }
+      ]
+    },
+    "reviews": []
+  },
+  "pages": [
+    {
+      "slug": "",
+      "title": "Home",
+      "sections": [
+        {
+          "type": "trust"
+        },
+        {
+          "type": "services",
+          "limit": 6
+        },
+        {
+          "type": "about"
+        },
+        {
+          "type": "process"
+        },
+        {
+          "type": "reviews",
+          "limit": 3
+        },
+        {
+          "type": "gallery"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "cta"
+        },
+        {
+          "type": "contact"
+        }
+      ]
+    },
+    {
+      "slug": "services",
+      "title": "Services",
+      "hero": {
+        "sub": "Call to ask about any service."
+      },
+      "sections": [
+        {
+          "type": "serviceDetails"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "title": "About",
+      "hero": {
+        "sub": "Where to find us."
+      },
+      "sections": [
+        {
+          "type": "about"
+        },
+        {
+          "type": "badges"
+        },
+        {
+          "type": "process"
+        },
+        {
+          "type": "gallery"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "reviews",
+      "title": "Reviews",
+      "hero": {
+        "sub": "Google rating and reviews."
+      },
+      "sections": [
+        {
+          "type": "reviews"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "contact",
+      "title": "Contact",
+      "hero": {
+        "sub": "Call or send a request. Directions are below."
+      },
+      "sections": [
+        {
+          "type": "contact",
+          "soft": false
+        },
+        {
+          "type": "serviceArea"
+        }
+      ]
+    }
+  ],
+  "disableSections": [
+    "process",
+    "faq",
+    "gallery",
+    "beforeAfter",
+    "team",
+    "serviceArea"
+  ],
+  "labels": {
+    "servicesEyebrow": "Services",
+    "servicesHeading": "What the shop lists",
+    "servicesIntro": "Call {{phone}} to ask about any of these.",
+    "book": "Send a request",
+    "bookShort": "Request",
+    "reviewsEmptyTitle": "Demo placeholder: your Google reviews",
+    "reviewsEmptyBody": "On the final approved version your best recent reviews show here and update on their own.",
+    "hoursFallback": "Hours added on the final version",
+    "contactHeading": "Get in touch",
+    "contactIntro": "Call or send a request. Directions are below.",
+    "formFine": "",
+    "badgesEyebrow": "At a glance",
+    "badgesHeading": "The basics",
+    "heroCardFallbackSub": "",
+    "faqIntro": "",
+    "processIntro": "",
+    "galleryHeading": "",
+    "areaHeading": "Location"
+  }
+}

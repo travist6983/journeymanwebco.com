@@ -1,0 +1,65 @@
+{
+  "_comment": "Electrical contractors. Claim-free starter copy; site JSON supplies the facts.",
+  "schemaType": "Electrician",
+  "brand": {
+    "accent": "#CA8A04",
+    "dark": "#111827",
+    "logoIcon": "bolt",
+    "fontHeading": "Plus Jakarta Sans",
+    "fontBody": "Inter"
+  },
+  "labels": {
+    "book": "Request service",
+    "bookShort": "Request",
+    "servicesEyebrow": "Electrical work",
+    "servicesHeading": "Services",
+    "reviewsHeading": "What customers in {{city}} say",
+    "contactHeading": "Request service"
+  },
+  "content": {
+    "hero": {
+      "eyebrow": "{{city}}, Michigan",
+      "heading": "{{name}}",
+      "sub": "Call {{phone}}."
+    },
+    "trustBullets": [],
+    "services": [
+      {
+        "key": "wiring",
+        "icon": "bolt",
+        "title": "Wiring and repairs",
+        "blurb": "Call {{phone}} to ask about wiring and repairs."
+      },
+      {
+        "key": "panels",
+        "icon": "box",
+        "title": "Panels and service upgrades",
+        "blurb": "Call {{phone}} to ask about panels and service upgrades."
+      },
+      {
+        "key": "lighting",
+        "icon": "sun",
+        "title": "Lighting",
+        "blurb": "Call {{phone}} to ask about lighting."
+      },
+      {
+        "key": "commercial",
+        "icon": "home",
+        "title": "Commercial electrical",
+        "blurb": "Call {{phone}} to ask about commercial electrical."
+      }
+    ],
+    "about": {
+      "eyebrow": "About us",
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is in {{city}}, Michigan.",
+      "checks": []
+    },
+    "badges": [],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}}."
+    }
+  }
+}

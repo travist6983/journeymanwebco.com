@@ -1,0 +1,274 @@
+{
+  "slug": "winslow-heating-and-cooling",
+  "preset": "hvac",
+  "concept": {
+    "currentSite": "winslowheatingandcooling.com",
+    "demoIntro": "Photos are stock images and the wording is generic placeholder copy.",
+    "demoNote": [
+      "real photos of the business and team",
+      "Google review quotes",
+      "business hours",
+      "the list of services Winslow Heating and Cooling actually offers, with descriptions",
+      "logo and brand colors"
+    ],
+    "noteHtml": "A concept for a new site at winslowheatingandcooling.com. Your current site stays up until you approve a new one."
+  },
+  "business": {
+    "name": "Winslow Heating and Cooling",
+    "phone": "(313) 388-3722",
+    "address": {
+      "street": "3912 Fort St",
+      "city": "Lincoln Park",
+      "state": "MI",
+      "zip": "48146"
+    },
+    "placeId": "ChIJFx4rYjlKO4gRdpAZZ6zcq2A",
+    "rating": 4.3,
+    "reviewCount": 77
+  },
+  "brand": {},
+  "content": {
+    "hero": {
+      "heading": "{{name}}",
+      "eyebrow": "{{city}}, Michigan",
+      "sub": "Call {{phone}} or stop by {{street}}. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "bullets": []
+    },
+    "trustBullets": [
+      "{{rating}} stars on Google",
+      "{{reviews}} Google reviews",
+      "Call {{phone}}"
+    ],
+    "services": [
+      {
+        "key": "ac-repair",
+        "icon": "snow",
+        "title": "A/C repair",
+        "blurb": "Call {{phone}} to ask about a/c repair."
+      },
+      {
+        "key": "furnace",
+        "icon": "flame",
+        "title": "Furnace repair",
+        "blurb": "Call {{phone}} to ask about furnace repair."
+      },
+      {
+        "key": "install",
+        "icon": "home",
+        "title": "New systems",
+        "blurb": "Call {{phone}} to ask about new systems."
+      },
+      {
+        "key": "maintenance",
+        "icon": "shield",
+        "title": "Tune-ups and maintenance plans",
+        "blurb": "Call {{phone}} to ask about tune-ups and maintenance plans."
+      },
+      {
+        "key": "air",
+        "icon": "fan",
+        "title": "Indoor air quality",
+        "blurb": "Call {{phone}} to ask about indoor air quality."
+      },
+      {
+        "key": "water-heater",
+        "icon": "thermo",
+        "title": "Water heaters",
+        "blurb": "Call {{phone}} to ask about water heaters."
+      }
+    ],
+    "about": {
+      "eyebrow": "About",
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is on {{street}} in {{city}}, Michigan. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "body2": "",
+      "checks": [],
+      "stats": []
+    },
+    "badges": [
+      {
+        "icon": "star",
+        "title": "{{rating}} stars",
+        "sub": "{{reviews}} Google reviews"
+      },
+      {
+        "icon": "phone",
+        "title": "Call {{phone}}",
+        "sub": "Ask about your job"
+      },
+      {
+        "icon": "pin",
+        "title": "{{street}}",
+        "sub": "{{city}}, Michigan"
+      }
+    ],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}} or send a request through the form."
+    },
+    "form": {
+      "title": "Send a request",
+      "hint": "Tell us what you need and how to reach you.",
+      "submit": "Send request",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Your name",
+          "autocomplete": "name",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "label": "Phone",
+          "type": "tel",
+          "autocomplete": "tel",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "label": "What do you need?",
+          "type": "textarea",
+          "full": true,
+          "rows": 4
+        }
+      ]
+    },
+    "reviews": []
+  },
+  "pages": [
+    {
+      "slug": "",
+      "title": "Home",
+      "sections": [
+        {
+          "type": "trust"
+        },
+        {
+          "type": "services",
+          "limit": 6
+        },
+        {
+          "type": "about"
+        },
+        {
+          "type": "process"
+        },
+        {
+          "type": "reviews",
+          "limit": 3
+        },
+        {
+          "type": "gallery"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "cta"
+        },
+        {
+          "type": "contact"
+        }
+      ]
+    },
+    {
+      "slug": "services",
+      "title": "Services",
+      "hero": {
+        "sub": "Call to ask about any service."
+      },
+      "sections": [
+        {
+          "type": "serviceDetails"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "title": "About",
+      "hero": {
+        "sub": "Where to find us."
+      },
+      "sections": [
+        {
+          "type": "about"
+        },
+        {
+          "type": "badges"
+        },
+        {
+          "type": "process"
+        },
+        {
+          "type": "gallery"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "reviews",
+      "title": "Reviews",
+      "hero": {
+        "sub": "Google rating and reviews."
+      },
+      "sections": [
+        {
+          "type": "reviews"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "contact",
+      "title": "Contact",
+      "hero": {
+        "sub": "Call or send a request. Directions are below."
+      },
+      "sections": [
+        {
+          "type": "contact",
+          "soft": false
+        },
+        {
+          "type": "serviceArea"
+        }
+      ]
+    }
+  ],
+  "disableSections": [
+    "process",
+    "faq",
+    "gallery",
+    "beforeAfter",
+    "team",
+    "serviceArea"
+  ],
+  "labels": {
+    "servicesEyebrow": "Example services (placeholder)",
+    "servicesHeading": "Services",
+    "servicesIntro": "Placeholder list for the demo. The final version lists what {{name}} actually offers.",
+    "book": "Send a request",
+    "bookShort": "Request",
+    "reviewsEmptyTitle": "Demo placeholder: your Google reviews",
+    "reviewsEmptyBody": "On the final approved version your best recent reviews show here and update on their own.",
+    "hoursFallback": "Hours added on the final version",
+    "contactHeading": "Get in touch",
+    "contactIntro": "Call or send a request. Directions are below.",
+    "formFine": "",
+    "badgesEyebrow": "At a glance",
+    "badgesHeading": "The basics",
+    "heroCardFallbackSub": "",
+    "faqIntro": "",
+    "processIntro": "",
+    "galleryHeading": "",
+    "areaHeading": "Location"
+  }
+}

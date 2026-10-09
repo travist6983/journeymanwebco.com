@@ -1,0 +1,65 @@
+{
+  "_comment": "Gutter and roofing contractors. Claim-free starter copy; site JSON supplies the facts.",
+  "schemaType": "RoofingContractor",
+  "brand": {
+    "accent": "#0F766E",
+    "dark": "#0F172A",
+    "logoIcon": "home",
+    "fontHeading": "Plus Jakarta Sans",
+    "fontBody": "Inter"
+  },
+  "labels": {
+    "book": "Request a quote",
+    "bookShort": "Quote",
+    "servicesEyebrow": "Gutters and roofing",
+    "servicesHeading": "Services",
+    "reviewsHeading": "What homeowners in {{city}} say",
+    "contactHeading": "Request a quote"
+  },
+  "content": {
+    "hero": {
+      "eyebrow": "{{city}}, Michigan",
+      "heading": "{{name}}",
+      "sub": "Call {{phone}}."
+    },
+    "trustBullets": [],
+    "services": [
+      {
+        "key": "gutters",
+        "icon": "drop",
+        "title": "Gutters",
+        "blurb": "Call {{phone}} to ask about gutters."
+      },
+      {
+        "key": "guards",
+        "icon": "shield",
+        "title": "Gutter guards",
+        "blurb": "Call {{phone}} to ask about gutter guards."
+      },
+      {
+        "key": "downspouts",
+        "icon": "drop",
+        "title": "Downspouts",
+        "blurb": "Call {{phone}} to ask about downspouts."
+      },
+      {
+        "key": "repairs",
+        "icon": "hammer",
+        "title": "Repairs",
+        "blurb": "Call {{phone}} to ask about repairs."
+      }
+    ],
+    "about": {
+      "eyebrow": "About us",
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is in {{city}}, Michigan.",
+      "checks": []
+    },
+    "badges": [],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}}."
+    }
+  }
+}

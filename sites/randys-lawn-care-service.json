@@ -1,0 +1,274 @@
+{
+  "slug": "randys-lawn-care-service",
+  "preset": "landscaping",
+  "concept": {
+    "currentSite": "randyslawnservice.com",
+    "demoIntro": "Photos are stock images and the wording is generic placeholder copy.",
+    "demoNote": [
+      "real photos of the business and team",
+      "Google review quotes",
+      "business hours",
+      "the list of services Randy's Lawn Care Service actually offers, with descriptions",
+      "logo and brand colors"
+    ],
+    "noteHtml": "A concept for a new site at randyslawnservice.com. Your current site stays up until you approve a new one."
+  },
+  "business": {
+    "name": "Randy's Lawn Care Service",
+    "phone": "(313) 758-8518",
+    "address": {
+      "street": "4166 Drouillard St",
+      "city": "Lincoln Park",
+      "state": "MI",
+      "zip": "48146"
+    },
+    "placeId": "ChIJv1WyEiM3O4gRMGfDq6iPVo4",
+    "rating": 4.8,
+    "reviewCount": 25
+  },
+  "brand": {},
+  "content": {
+    "hero": {
+      "heading": "{{name}}",
+      "eyebrow": "{{city}}, Michigan",
+      "sub": "Call {{phone}} or stop by {{street}}. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "bullets": []
+    },
+    "trustBullets": [
+      "{{rating}} stars on Google",
+      "{{reviews}} Google reviews",
+      "Call {{phone}}"
+    ],
+    "services": [
+      {
+        "key": "design",
+        "icon": "leaf",
+        "title": "Landscape design and install",
+        "blurb": "Call {{phone}} to ask about landscape design and install."
+      },
+      {
+        "key": "hardscape",
+        "icon": "box",
+        "title": "Patios and hardscape",
+        "blurb": "Call {{phone}} to ask about patios and hardscape."
+      },
+      {
+        "key": "irrigation",
+        "icon": "drop",
+        "title": "Irrigation",
+        "blurb": "Call {{phone}} to ask about irrigation."
+      },
+      {
+        "key": "maintenance",
+        "icon": "sun",
+        "title": "Lawn maintenance",
+        "blurb": "Call {{phone}} to ask about lawn maintenance."
+      },
+      {
+        "key": "lighting",
+        "icon": "bolt",
+        "title": "Landscape lighting",
+        "blurb": "Call {{phone}} to ask about landscape lighting."
+      },
+      {
+        "key": "snow",
+        "icon": "snow",
+        "title": "Snow removal",
+        "blurb": "Call {{phone}} to ask about snow removal."
+      }
+    ],
+    "about": {
+      "eyebrow": "About",
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is on {{street}} in {{city}}, Michigan. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "body2": "",
+      "checks": [],
+      "stats": []
+    },
+    "badges": [
+      {
+        "icon": "star",
+        "title": "{{rating}} stars",
+        "sub": "{{reviews}} Google reviews"
+      },
+      {
+        "icon": "phone",
+        "title": "Call {{phone}}",
+        "sub": "Ask about your job"
+      },
+      {
+        "icon": "pin",
+        "title": "{{street}}",
+        "sub": "{{city}}, Michigan"
+      }
+    ],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}} or send a request through the form."
+    },
+    "form": {
+      "title": "Send a request",
+      "hint": "Tell us what you need and how to reach you.",
+      "submit": "Send request",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Your name",
+          "autocomplete": "name",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "label": "Phone",
+          "type": "tel",
+          "autocomplete": "tel",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "label": "What do you need?",
+          "type": "textarea",
+          "full": true,
+          "rows": 4
+        }
+      ]
+    },
+    "reviews": []
+  },
+  "pages": [
+    {
+      "slug": "",
+      "title": "Home",
+      "sections": [
+        {
+          "type": "trust"
+        },
+        {
+          "type": "services",
+          "limit": 6
+        },
+        {
+          "type": "about"
+        },
+        {
+          "type": "process"
+        },
+        {
+          "type": "reviews",
+          "limit": 3
+        },
+        {
+          "type": "gallery"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "cta"
+        },
+        {
+          "type": "contact"
+        }
+      ]
+    },
+    {
+      "slug": "services",
+      "title": "Services",
+      "hero": {
+        "sub": "Call to ask about any service."
+      },
+      "sections": [
+        {
+          "type": "serviceDetails"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "title": "About",
+      "hero": {
+        "sub": "Where to find us."
+      },
+      "sections": [
+        {
+          "type": "about"
+        },
+        {
+          "type": "badges"
+        },
+        {
+          "type": "process"
+        },
+        {
+          "type": "gallery"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "reviews",
+      "title": "Reviews",
+      "hero": {
+        "sub": "Google rating and reviews."
+      },
+      "sections": [
+        {
+          "type": "reviews"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "contact",
+      "title": "Contact",
+      "hero": {
+        "sub": "Call or send a request. Directions are below."
+      },
+      "sections": [
+        {
+          "type": "contact",
+          "soft": false
+        },
+        {
+          "type": "serviceArea"
+        }
+      ]
+    }
+  ],
+  "disableSections": [
+    "process",
+    "faq",
+    "gallery",
+    "beforeAfter",
+    "team",
+    "serviceArea"
+  ],
+  "labels": {
+    "servicesEyebrow": "Example services (placeholder)",
+    "servicesHeading": "Services",
+    "servicesIntro": "Placeholder list for the demo. The final version lists what {{name}} actually offers.",
+    "book": "Send a request",
+    "bookShort": "Request",
+    "reviewsEmptyTitle": "Demo placeholder: your Google reviews",
+    "reviewsEmptyBody": "On the final approved version your best recent reviews show here and update on their own.",
+    "hoursFallback": "Hours added on the final version",
+    "contactHeading": "Get in touch",
+    "contactIntro": "Call or send a request. Directions are below.",
+    "formFine": "",
+    "badgesEyebrow": "At a glance",
+    "badgesHeading": "The basics",
+    "heroCardFallbackSub": "",
+    "faqIntro": "",
+    "processIntro": "",
+    "galleryHeading": "",
+    "areaHeading": "Location"
+  }
+}

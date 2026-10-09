@@ -1,0 +1,287 @@
+{
+  "slug": "lovedays-quality-quick-oil-and-lube",
+  "preset": "auto-repair",
+  "concept": {
+    "currentSite": "oilchangesouthgate.com",
+    "demoIntro": "Photos are stock images and the wording is generic placeholder copy.",
+    "demoNote": [
+      "real photos of the business and team",
+      "Google review quotes",
+      "business hours",
+      "the list of services Lovedays Quality Quick Oil And Lube actually offers, with descriptions",
+      "logo and brand colors"
+    ],
+    "noteHtml": "A concept for a new site at oilchangesouthgate.com. Your current site stays up until you approve a new one."
+  },
+  "business": {
+    "name": "Lovedays Quality Quick Oil And Lube",
+    "phone": "(734) 374-0202",
+    "address": {
+      "street": "18700 Northline Rd",
+      "city": "Southgate",
+      "state": "MI",
+      "zip": "48195"
+    },
+    "placeId": "ChIJVQeZ-JU3O4gR8kGttPtsMBM",
+    "rating": 4.7,
+    "reviewCount": 206,
+    "established": 1986
+  },
+  "brand": {},
+  "content": {
+    "hero": {
+      "heading": "{{name}}",
+      "eyebrow": "{{city}} \u00b7 Since {{established}}",
+      "sub": "Call {{phone}} or stop by {{street}}. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "bullets": []
+    },
+    "trustBullets": [
+      "{{rating}} stars on Google",
+      "{{reviews}} Google reviews",
+      "Call {{phone}}"
+    ],
+    "services": [
+      {
+        "key": "diagnostics",
+        "icon": "engine",
+        "title": "Check engine light",
+        "blurb": "Call {{phone}} to ask about check engine light."
+      },
+      {
+        "key": "brakes",
+        "icon": "brake",
+        "title": "Brakes",
+        "blurb": "Call {{phone}} to ask about brakes."
+      },
+      {
+        "key": "oil",
+        "icon": "oil",
+        "title": "Oil changes and maintenance",
+        "blurb": "Call {{phone}} to ask about oil changes and maintenance."
+      },
+      {
+        "key": "engine",
+        "icon": "wrench",
+        "title": "Engine and transmission",
+        "blurb": "Call {{phone}} to ask about engine and transmission."
+      },
+      {
+        "key": "suspension",
+        "icon": "gauge",
+        "title": "Suspension and steering",
+        "blurb": "Call {{phone}} to ask about suspension and steering."
+      },
+      {
+        "key": "ac",
+        "icon": "snow",
+        "title": "Heating and A/C",
+        "blurb": "Call {{phone}} to ask about heating and a/c."
+      },
+      {
+        "key": "electrical",
+        "icon": "battery",
+        "title": "Batteries and electrical",
+        "blurb": "Call {{phone}} to ask about batteries and electrical."
+      },
+      {
+        "key": "tires",
+        "icon": "tire",
+        "title": "Tires and alignment",
+        "blurb": "Call {{phone}} to ask about tires and alignment."
+      }
+    ],
+    "about": {
+      "eyebrow": "About",
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is on {{street}} in {{city}}, Michigan, in business since {{established}}. Rated {{rating}} stars across {{reviews}} Google reviews.",
+      "body2": "",
+      "checks": [],
+      "stats": []
+    },
+    "badges": [
+      {
+        "icon": "star",
+        "title": "{{rating}} stars",
+        "sub": "{{reviews}} Google reviews"
+      },
+      {
+        "icon": "phone",
+        "title": "Call {{phone}}",
+        "sub": "Ask about your job"
+      },
+      {
+        "icon": "pin",
+        "title": "{{street}}",
+        "sub": "{{city}}, Michigan"
+      }
+    ],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}} or send a request through the form."
+    },
+    "form": {
+      "title": "Send a request",
+      "hint": "Tell us what you need and how to reach you.",
+      "submit": "Send request",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Your name",
+          "autocomplete": "name",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "label": "Phone",
+          "type": "tel",
+          "autocomplete": "tel",
+          "required": true
+        },
+        {
+          "name": "notes",
+          "label": "What do you need?",
+          "type": "textarea",
+          "full": true,
+          "rows": 4
+        }
+      ]
+    },
+    "reviews": []
+  },
+  "pages": [
+    {
+      "slug": "",
+      "title": "Home",
+      "sections": [
+        {
+          "type": "trust"
+        },
+        {
+          "type": "services",
+          "limit": 6
+        },
+        {
+          "type": "about"
+        },
+        {
+          "type": "process"
+        },
+        {
+          "type": "reviews",
+          "limit": 3
+        },
+        {
+          "type": "gallery"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "cta"
+        },
+        {
+          "type": "contact"
+        }
+      ]
+    },
+    {
+      "slug": "services",
+      "title": "Services",
+      "hero": {
+        "sub": "Call to ask about any service."
+      },
+      "sections": [
+        {
+          "type": "serviceDetails"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "title": "About",
+      "hero": {
+        "sub": "Where to find us."
+      },
+      "sections": [
+        {
+          "type": "about"
+        },
+        {
+          "type": "badges"
+        },
+        {
+          "type": "process"
+        },
+        {
+          "type": "gallery"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "reviews",
+      "title": "Reviews",
+      "hero": {
+        "sub": "Google rating and reviews."
+      },
+      "sections": [
+        {
+          "type": "reviews"
+        },
+        {
+          "type": "cta"
+        }
+      ]
+    },
+    {
+      "slug": "contact",
+      "title": "Contact",
+      "hero": {
+        "sub": "Call or send a request. Directions are below."
+      },
+      "sections": [
+        {
+          "type": "contact",
+          "soft": false
+        },
+        {
+          "type": "serviceArea"
+        }
+      ]
+    }
+  ],
+  "disableSections": [
+    "process",
+    "faq",
+    "gallery",
+    "beforeAfter",
+    "team",
+    "serviceArea"
+  ],
+  "labels": {
+    "servicesEyebrow": "Example services (placeholder)",
+    "servicesHeading": "Services",
+    "servicesIntro": "Placeholder list for the demo. The final version lists what {{name}} actually offers.",
+    "book": "Send a request",
+    "bookShort": "Request",
+    "reviewsEmptyTitle": "Demo placeholder: your Google reviews",
+    "reviewsEmptyBody": "On the final approved version your best recent reviews show here and update on their own.",
+    "hoursFallback": "Hours added on the final version",
+    "contactHeading": "Get in touch",
+    "contactIntro": "Call or send a request. Directions are below.",
+    "formFine": "",
+    "badgesEyebrow": "At a glance",
+    "badgesHeading": "The basics",
+    "heroCardFallbackSub": "",
+    "faqIntro": "",
+    "processIntro": "",
+    "galleryHeading": "",
+    "areaHeading": "Location"
+  }
+}

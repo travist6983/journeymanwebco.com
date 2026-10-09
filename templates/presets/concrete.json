@@ -1,0 +1,65 @@
+{
+  "_comment": "Concrete contractors. Claim-free starter copy; site JSON supplies the facts.",
+  "schemaType": "HomeAndConstructionBusiness",
+  "brand": {
+    "accent": "#57534E",
+    "dark": "#1C1917",
+    "logoIcon": "hammer",
+    "fontHeading": "Plus Jakarta Sans",
+    "fontBody": "Inter"
+  },
+  "labels": {
+    "book": "Request a quote",
+    "bookShort": "Quote",
+    "servicesEyebrow": "Concrete work",
+    "servicesHeading": "Services",
+    "reviewsHeading": "What customers in {{city}} say",
+    "contactHeading": "Request a quote"
+  },
+  "content": {
+    "hero": {
+      "eyebrow": "{{city}}, Michigan",
+      "heading": "{{name}}",
+      "sub": "Call {{phone}}."
+    },
+    "trustBullets": [],
+    "services": [
+      {
+        "key": "driveways",
+        "icon": "car",
+        "title": "Driveways",
+        "blurb": "Call {{phone}} to ask about driveways."
+      },
+      {
+        "key": "flatwork",
+        "icon": "ruler",
+        "title": "Patios and sidewalks",
+        "blurb": "Call {{phone}} to ask about patios and sidewalks."
+      },
+      {
+        "key": "foundations",
+        "icon": "box",
+        "title": "Foundations",
+        "blurb": "Call {{phone}} to ask about foundations."
+      },
+      {
+        "key": "repair",
+        "icon": "hammer",
+        "title": "Repair and replacement",
+        "blurb": "Call {{phone}} to ask about repair and replacement."
+      }
+    ],
+    "about": {
+      "eyebrow": "About us",
+      "heading": "{{name}} in {{city}}",
+      "body": "{{name}} is in {{city}}, Michigan.",
+      "checks": []
+    },
+    "badges": [],
+    "cta": {
+      "eyebrow": "Get in touch",
+      "heading": "Call or send a request.",
+      "body": "Call {{phone}}."
+    }
+  }
+}
