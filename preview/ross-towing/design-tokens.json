@@ -1,0 +1,29 @@
+{
+  "_note": "Proposed palette and type for Ross Towing. No logo or brand colors exist yet; swap these once Jennifer sends a logo. The same values are the CSS custom properties at the top of index.html.",
+  "color": {
+    "amber":        { "value": "#F5A300", "use": "Primary safety color: call buttons, light bar, route line, highlights. Text on amber uses ink." },
+    "amberDeep":    { "value": "#C98200", "use": "Amber hover and pressed state" },
+    "asphalt":      { "value": "#111316", "use": "Main dark background (night sections, header, footer)" },
+    "asphaltRaised":{ "value": "#1B1E22", "use": "Cards and panels on dark" },
+    "road":         { "value": "#2A2E34", "use": "Road surface on dark sections" },
+    "roadOnLight":  { "value": "#33373D", "use": "Road surface on light sections" },
+    "paint":        { "value": "#ECE7DB", "use": "Road paint, text on dark" },
+    "paper":        { "value": "#F2EFE8", "use": "Light section background (freight, trust, service area)" },
+    "ink":          { "value": "#15171A", "use": "Text on light and on amber" },
+    "mutedOnDark":  { "value": "#A9AEB5", "use": "Secondary text on asphalt (8.4:1)" },
+    "mutedOnLight": { "value": "#50565E", "use": "Secondary text on paper (7.0:1)" },
+    "highwayGreen": { "value": "#0E6B45", "use": "Freeway exit signs only (white text, 6.6:1)" },
+    "shieldBlue":   { "value": "#1D4F91", "use": "Interstate shield illustrations only" },
+    "shieldRed":    { "value": "#C8102E", "use": "Interstate shield illustrations only" },
+    "signalRed":    { "value": "#E0362C", "use": "Hazard and tail lights in illustrations; never body text" },
+    "placeholder":  { "value": "#FFE58A", "use": "Background of [PLACEHOLDER] tags so unconfirmed facts are impossible to miss" }
+  },
+  "type": {
+    "display": { "family": "Barlow Condensed", "weights": [700, 800], "use": "Headlines, phone number, signs. Based on highway signage lettering, so it stays legible at a glance." },
+    "body":    { "family": "Barlow", "weights": [400, 600], "use": "Body copy, forms, buttons" },
+    "files": "Self-hosted latin subsets in fonts/ (SIL Open Font License)",
+    "scale": { "h1": "clamp(2.6rem, 6.2vw, 5.4rem)", "h2": "clamp(2rem, 4vw, 3.4rem)", "h3": "1.35rem", "body": "1.0625rem", "small": "0.875rem" }
+  },
+  "radius": { "button": "10px", "card": "14px" },
+  "logo": { "placeholder": "Text wordmark ROSS TOWING in Barlow Condensed 800 with an amber bar. Replace with the real logo file." }
+}

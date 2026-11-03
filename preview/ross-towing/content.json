@@ -1,0 +1,112 @@
+{
+  "_note": "Every word on the page comes from the FACTS block in the brief (recon Nov 3 2026). Values in [BRACKETS] are unconfirmed placeholders; the 'placeholders' list at the bottom says what each one needs. No reviews, response times, prices or certifications are invented.",
+  "business": {
+    "name": "Ross Towing",
+    "legalName": "Larry Ross Garage Inc, dba Ross Towing",
+    "familyOwned": true,
+    "since": "[YEAR]",
+    "address": "[ADDRESS]",
+    "addressCandidates": ["21360 Telegraph Rd, Southfield, MI 48033 (Google)", "21340 Telegraph Rd, Southfield, MI 48034 (FMCSA, BBB)"],
+    "city": "Southfield, Michigan",
+    "dispatchPhone": "[DISPATCH PHONE]",
+    "dispatchHours": "24 hours a day, 7 days a week",
+    "officeHours": "[OFFICE HOURS]",
+    "domain": "[DOMAIN]",
+    "rating": { "value": 4.7, "label": "4.7 on Google", "todo": "Wire a live value from the Google Business Profile" },
+    "payment": { "value": ["Visa", "Mastercard", "American Express", "Discover"], "unconfirmed": true }
+  },
+  "nav": ["Towing", "Roadside", "Freight", "Service Area", "Vehicle Release", "Contact"],
+  "hero": {
+    "eyebrow": "Southfield, Michigan · 24/7 dispatch",
+    "heading": "24/7 towing and recovery in Southfield and Metro Detroit since [YEAR]",
+    "sub": "Family owned. Towing and roadside help around the clock, plus a licensed freight carrier for Michigan and Ohio.",
+    "paths": [
+      { "label": "Need a tow", "action": "Call [DISPATCH PHONE]", "href": "tel:[DISPATCH PHONE]" },
+      { "label": "Freight and heavy hauling", "action": "Request a freight quote", "href": "#freight-quote" }
+    ],
+    "proof": ["4.7 on Google", "Family owned", "USDOT 1196761"]
+  },
+  "towing": {
+    "heading": "Towing, day or night",
+    "body": "One call to dispatch, any hour. A Ross truck comes to you and moves your vehicle carefully.",
+    "services": [
+      { "title": "Light duty towing", "body": "Cars, SUVs and pickups." },
+      { "title": "Flatbed towing", "body": "For vehicles that need to ride on the bed." },
+      { "title": "Accident recovery", "body": "Help at the scene after a crash." },
+      { "title": "Police impound tows", "body": "Tows for police and impound calls." }
+    ]
+  },
+  "roadside": {
+    "heading": "Roadside help",
+    "body": "Not every call needs a tow.",
+    "services": ["Lockouts", "Jump starts", "Flat tires", "Fuel delivery", "Battery service"]
+  },
+  "heavy": {
+    "heading": "Heavy duty, recovery and lifting",
+    "body": "Trucks and big vehicles, vehicles off the road, and loads that need a crane.",
+    "services": [
+      { "title": "Heavy duty and truck towing", "body": "Trucks and large vehicles." },
+      { "title": "Winch outs", "body": "Pulling vehicles out of ditches, mud and snow." },
+      { "title": "Accident recovery", "body": "Clearing and recovering vehicles after a crash." },
+      { "title": "Crane and lifting service", "body": "Lifting for loads a tow truck can't handle alone." }
+    ]
+  },
+  "freight": {
+    "eyebrow": "Freight division",
+    "heading": "Also a licensed freight carrier",
+    "body": "The same family runs a for-hire trucking operation, hauling machinery, equipment and materials across Michigan and Ohio.",
+    "hauls": ["Large machinery and equipment", "Metal sheet", "Building materials", "Motor vehicles", "General freight"],
+    "lanes": ["Michigan", "Ohio"],
+    "fleet": "A fleet of [FLEET SIZE] trucks",
+    "credentials": { "usdot": "1196761", "mc": "621070", "authority": "Authorized for hire, interstate, active" },
+    "insurance": { "value": "[INSURANCE]", "note": "$1M liability on file; show only if Jennifer approves" },
+    "form": "Freight quote: company, contact, phone, email, pickup, delivery, what's being hauled, dimensions or weight, date"
+  },
+  "trust": {
+    "heading": "Family owned since [YEAR]",
+    "body": "Ross has served Southfield from Telegraph Rd for decades.",
+    "rating": "4.7 on Google",
+    "themes": ["Quick response", "Polite, knowledgeable drivers", "Careful with vehicles", "Helpful during accidents and impounds", "Fair prices"],
+    "reviews": ["[REAL GOOGLE REVIEW QUOTE]", "[REAL GOOGLE REVIEW QUOTE]", "[REAL GOOGLE REVIEW QUOTE]"],
+    "reviewsTodo": "Paste real Google reviews, with the reviewer's permission",
+    "photos": ["[TRUCK PHOTO]", "[YARD PHOTO]", "[TEAM PHOTO]"]
+  },
+  "serviceArea": {
+    "heading": "Where we tow",
+    "cities": ["Southfield", "Detroit", "Farmington Hills", "Dearborn", "Oak Park", "Lathrup Village", "Royal Oak"],
+    "roads": ["I-696", "I-75", "M-10 (Lodge)", "Telegraph Rd"]
+  },
+  "release": {
+    "heading": "Getting your vehicle back",
+    "body": "If your vehicle was towed to our yard, here's what to know before you come.",
+    "yard": "[ADDRESS]",
+    "hours": "[RELEASE HOURS]",
+    "bring": "[WHAT TO BRING]",
+    "payment": "[PAYMENT AT RELEASE]"
+  },
+  "footer": {
+    "phone": "[DISPATCH PHONE]",
+    "address": "[ADDRESS]",
+    "hours": "Dispatch 24/7 · Office [OFFICE HOURS]",
+    "credentials": "USDOT 1196761 · MC 621070"
+  },
+  "forms": {
+    "tow": { "fields": ["Name", "Phone", "Location", "Vehicle", "What happened"], "endpoint": "TODO", "recipient": "TODO" },
+    "freight": { "fields": ["Company", "Contact name", "Phone", "Email", "Pickup", "Delivery", "What's being hauled", "Dimensions or weight", "Date"], "endpoint": "TODO", "recipient": "TODO" }
+  },
+  "placeholders": {
+    "[YEAR]": "Founding year. Alignable and Google say 1962; other sources say 63 to 65 years.",
+    "[ADDRESS]": "21360 (Google) or 21340 (FMCSA, BBB) Telegraph Rd.",
+    "[DISPATCH PHONE]": "The one 24/7 number for the whole site. (248) 356-6011 appears on Google and BBB; confirm.",
+    "[OFFICE HOURS]": "Office hours for paperwork and releases.",
+    "[RELEASE HOURS]": "When impounded vehicles can be picked up.",
+    "[WHAT TO BRING]": "ID, registration, proof of insurance, anything else.",
+    "[PAYMENT AT RELEASE]": "Directory lists Visa, Mastercard, Amex, Discover; confirm and say if cash is taken.",
+    "[FLEET SIZE]": "Federal records show 16 to 18 power units.",
+    "[INSURANCE]": "$1M liability is on file; only if Jennifer approves showing it.",
+    "[DOMAIN]": "rosstowing.com is parked; confirm ownership.",
+    "[REAL GOOGLE REVIEW QUOTE]": "Real reviews, with permission.",
+    "[TRUCK PHOTO] [YARD PHOTO] [TEAM PHOTO]": "Real photos from Ross.",
+    "logo": "Text wordmark until a logo arrives."
+  }
+}
