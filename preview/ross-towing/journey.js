@@ -49,9 +49,32 @@ const f1 = (n) => Math.round(n * 10) / 10;
       if (!f.checkValidity()) { f.reportValidity(); return; }
       const st = f.querySelector('.form-status');
       st.hidden = false;
-      st.textContent = 'Thanks. This is a concept preview, so this form isn’t connected yet and nothing was sent. For a tow right now, call [DISPATCH PHONE].';
+      st.textContent = 'Thanks. This is a concept preview, so this form isn’t connected yet and nothing was sent. For a tow right now, call 248-356-6011.';
     });
   });
+})();
+
+// Next public auction: one editable file, data/auction.json ({ "date": "YYYY-MM-DD" or null, "showFromDaysBefore": 30 }).
+// The date shows from showFromDaysBefore days ahead through the auction day; otherwise the block says to call.
+// ?auction=YYYY-MM-DD previews a date without editing the file.
+(function auction() {
+  const box = D.getElementById('auction-next');
+  if (!box) return;
+  const show = (a) => {
+    const m = a && typeof a.date === 'string' && /^(\d{4})-(\d{2})-(\d{2})$/.exec(a.date);
+    if (!m) return;
+    const day = new Date(+m[1], +m[2] - 1, +m[3]), today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const lead = Number.isFinite(+a.showFromDaysBefore) ? +a.showFromDaysBefore : 30;
+    const diff = Math.round((day - today) / 864e5);
+    if (diff < 0 || diff > lead) return;
+    const when = day.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    box.classList.add('is-set');
+    box.querySelector('.an-date').textContent = diff === 0 ? 'Today, ' + when : when;
+  };
+  const q = new URLSearchParams(location.search).get('auction');
+  if (q) return show({ date: q, showFromDaysBefore: 3650 });
+  fetch('data/auction.json', { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).then(show).catch(() => {});
 })();
 
 // Mode changes (window dragged across the breakpoint, motion setting flipped): rebuild cleanly.
@@ -71,12 +94,12 @@ const UNIT = svgWrap(-132, -54, 290, 108, `
     <rect x="-123" y="-8" width="17" height="16" fill="#2B2F35"/>
     <rect x="-108" y="-20" width="68" height="40" rx="3" fill="#3B4047"/>
     <path d="M-102 -10h58M-102 0h58M-102 10h58" stroke="#4E555D" stroke-width="1" stroke-dasharray="2 3"/>
-    <rect x="-108" y="-20" width="68" height="3" fill="#F5A300"/><rect x="-108" y="17" width="68" height="3" fill="#F5A300"/>
+    <rect x="-108" y="-20" width="68" height="3" fill="#C70606"/><rect x="-108" y="17" width="68" height="3" fill="#C70606"/>
     <rect x="-108" y="-20" width="6" height="40" fill="url(#rt-chev)"/>
     ${TAILS(-109, -19, 13)}${REV(-109)}
     <g class="boom">
       <circle cx="-62" cy="0" r="11" fill="#23272C" stroke="#4E555D" stroke-width="1.5"/>
-      <rect x="-116" y="-5" width="56" height="10" rx="2" fill="#D18A00" stroke="#7A5200" stroke-width="1"/>
+      <rect x="-116" y="-5" width="56" height="10" rx="2" fill="#B30707" stroke="#4A0202" stroke-width="1"/>
       <rect x="-121" y="-4" width="6" height="8" rx="1" fill="#2B2F35"/>
       <circle cx="-62" cy="0" r="4" fill="#15171A"/>
     </g>
@@ -89,15 +112,15 @@ const UNIT = svgWrap(-132, -54, 290, 108, `
     <circle cx="-45" cy="-17" r="2.6" fill="#B8BDC3"/><circle cx="-45" cy="17" r="2.6" fill="#B8BDC3"/>
     ${TAILS(-79, -13, 7)}
   </g>
-  <rect x="-42" y="-21" width="42" height="42" rx="7" fill="#F5A300"/>
-  <rect x="-14" y="-19" width="13" height="38" rx="5" fill="#FFBA26"/>
+  <rect x="-42" y="-21" width="42" height="42" rx="7" fill="#C70606"/>
+  <rect x="-14" y="-19" width="13" height="38" rx="5" fill="#E2211F"/><rect x="-13" y="-19.5" width="3" height="39" rx="1" fill="#D9DEE2"/>
   <path d="M-23 -17.5 L-14 -19 L-14 19 L-23 17.5Z" fill="#1D2630"/>
-  <rect x="-40" y="-18" width="17" height="36" rx="3" fill="#E89B00"/>
+  <rect x="-40" y="-18" width="17" height="36" rx="3" fill="#A30606"/>
   <rect x="-34" y="-17" width="5" height="34" rx="2" fill="#2A2E34"/>
   <rect class="lb-a" x="-34" y="-17" width="5" height="9" rx="1.5" fill="#FFC23A"/>
   <rect class="lb-a" x="-34" y="8" width="5" height="9" rx="1.5" fill="#FFC23A"/>
   <rect class="lb-b" x="-34" y="-4.5" width="5" height="9" rx="1.5" fill="#FFC23A"/>
-  <rect x="-21" y="-25" width="4" height="4" rx="1" fill="#23272C"/><rect x="-21" y="21" width="4" height="4" rx="1" fill="#23272C"/>
+  <rect x="-21" y="-25" width="4" height="4" rx="1" fill="#C9CED3"/><rect x="-21" y="21" width="4" height="4" rx="1" fill="#C9CED3"/><circle cx="-43.5" cy="-18.5" r="2.4" fill="#D9DEE2" stroke="#7D868C" stroke-width=".8"/><circle cx="-43.5" cy="18.5" r="2.4" fill="#D9DEE2" stroke="#7D868C" stroke-width=".8"/>
   <rect x="-2.5" y="-17" width="2.5" height="6" rx="1" fill="#FFF6D5"/><rect x="-2.5" y="11" width="2.5" height="6" rx="1" fill="#FFF6D5"/>
   <circle class="lb-glow-a" cx="-31.5" cy="-13" r="24" fill="url(#rt-glow)"/>
   <circle class="lb-glow-a" cx="-31.5" cy="13" r="24" fill="url(#rt-glow)"/>
@@ -218,7 +241,7 @@ function yard(cx, cy, gate, scale) {
   s += `<circle cx="${f1(cx - 70 * scale)}" cy="${f1(top + 60)}" r="120" fill="url(#rt-pool)"/><circle cx="${f1(cx + 80 * scale)}" cy="${f1(top + h - 60)}" r="110" fill="url(#rt-pool)"/>`;
   s += `<rect x="${f1(bx)}" y="${f1(by)}" width="${f1(100 * scale)}" height="78" rx="3" fill="#262A30" stroke="#3D434B" stroke-width="1.5"/>`;
   s += `<rect x="${f1(bx + 10)}" y="${f1(by + 10)}" width="16" height="12" fill="#31363D"/><rect x="${f1(bx + 32)}" y="${f1(by + 10)}" width="16" height="12" fill="#31363D"/>`;
-  s += `<text x="${f1(bx + 50 * scale)}" y="${f1(by + 60)}" text-anchor="middle" fill="#F5A300" font-size="26" opacity=".92" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" letter-spacing="2">ROSS</text>`;
+  s += `<text x="${f1(bx + 50 * scale)}" y="${f1(by + 60)}" text-anchor="middle" fill="#E0201F" font-size="26" opacity=".95" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" letter-spacing="2">ROSS</text>`;
   const stallTop = gate === 'bottom' ? top + 28 : top + 70;
   s += `<path d="M${f1(cx - 52 * scale)} ${f1(stallTop)}v92M${f1(cx - 96 * scale)} ${f1(stallTop)}v92M${f1(cx - 140 * scale)} ${f1(stallTop)}v92M${f1(cx + 8)} ${f1(stallTop)}v92" stroke="#3A3F46" stroke-width="2"/>`;
   s += parkedCar(cx - 74 * scale, stallTop + 46, -90, '#4A525C') + parkedCar(cx - 118 * scale, stallTop + 46, -90, '#5A4F4A');
@@ -240,6 +263,34 @@ function overpass(cx, Y, hw, id, sign) {
 function fadeMask(id, cx, Y, hw) {
   return `<linearGradient id="${id}-g" x1="${f1(cx - hw)}" x2="${f1(cx + hw)}" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".16" stop-color="#fff"/><stop offset=".84" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
   <mask id="${id}" maskUnits="userSpaceOnUse" x="${f1(cx - hw)}" y="${f1(Y - 40)}" width="${f1(hw * 2)}" height="110"><rect x="${f1(cx - hw)}" y="${f1(Y - 40)}" width="${f1(hw * 2)}" height="110" fill="url(#${id}-g)"/></mask>`;
+}
+
+// A contained spill on the far shoulder: slick inside a containment boom, absorbent pads, cones and a spill trailer.
+function spillScene(cx, y, k) {
+  const sx = cx + 46 + 100 * k, sy = y, rx = 86 * k, ry = 70;
+  let s = '<g>';
+  const tx = cx + 52, ty = sy - ry - 190;
+  s += `<rect x="${f1(tx + 3)}" y="${f1(ty + 4)}" width="40" height="122" rx="4" fill="#000" opacity=".3"/>`;
+  s += `<rect x="${f1(tx - 4)}" y="${f1(ty + 70)}" width="5" height="17" rx="2" fill="#15171A"/><rect x="${f1(tx + 39)}" y="${f1(ty + 70)}" width="5" height="17" rx="2" fill="#15171A"/>`;
+  s += `<rect x="${f1(tx)}" y="${f1(ty)}" width="40" height="122" rx="4" fill="#E4E7EA" stroke="#9AA3A8" stroke-width="1.5"/>`;
+  s += `<rect x="${f1(tx)}" y="${f1(ty + 84)}" width="40" height="7" fill="#C70606"/>`;
+  s += `<path d="M${f1(tx + 11)} ${f1(ty + 122)}L${f1(tx + 20)} ${f1(ty + 142)}L${f1(tx + 29)} ${f1(ty + 122)}" fill="none" stroke="#5E666C" stroke-width="3" stroke-linejoin="round"/>`;
+  s += `<text x="${f1(tx + 20)}" y="${f1(ty + 44)}" text-anchor="middle" fill="#C70606" font-size="13" letter-spacing="1.5" ${FONT} transform="rotate(90 ${f1(tx + 20)} ${f1(ty + 44)})">SPILL</text>`;
+  const b = (dx, dy) => `${f1(sx + dx * rx)} ${f1(sy + dy * ry)}`;
+  s += `<path d="M${b(-0.95, -0.1)}C${b(-1, -0.8)} ${b(-0.25, -1)} ${b(0.2, -0.82)}C${b(0.75, -0.62)} ${b(1, -0.15)} ${b(0.88, 0.32)}C${b(0.74, 0.86)} ${b(0.05, 1)} ${b(-0.38, 0.84)}C${b(-0.8, 0.68)} ${b(-0.92, 0.36)} ${b(-0.95, -0.1)}Z" fill="url(#rt-oil)"/>`;
+  s += `<path d="M${b(0.3, 0.5)}c14 6 30 4 38 -6" fill="none" stroke="#3A3360" stroke-width="2" stroke-opacity=".7" stroke-linecap="round"/>`;
+  s += `<ellipse cx="${f1(sx)}" cy="${f1(sy)}" rx="${f1(rx + 16)}" ry="${f1(ry + 15)}" fill="none" stroke="#000" stroke-opacity=".3" stroke-width="10" transform="translate(2 3)"/>`;
+  s += `<ellipse cx="${f1(sx)}" cy="${f1(sy)}" rx="${f1(rx + 16)}" ry="${f1(ry + 15)}" fill="none" stroke="#F2B705" stroke-width="9"/>`;
+  s += `<ellipse cx="${f1(sx)}" cy="${f1(sy)}" rx="${f1(rx + 16)}" ry="${f1(ry + 15)}" fill="none" stroke="#2A2E34" stroke-width="10" stroke-dasharray="1.6 17"/>`;
+  [[-0.55, -0.55, 18], [0.4, -0.62, -12], [0.66, 0.28, 30], [-0.3, 0.58, -24]].forEach(([dx, dy, a]) => {
+    const px = sx + dx * rx, py = sy + dy * ry;
+    s += `<rect x="${f1(px - 8)}" y="${f1(py - 8)}" width="16" height="16" rx="1.5" fill="#EEF0F1" stroke="#B9C0C5" transform="rotate(${a} ${f1(px)} ${f1(py)})"/>`;
+  });
+  for (let i = 0; i < 5; i++) {
+    const yy = sy - 130 + i * 65;
+    s += `<circle cx="${f1(cx + 47)}" cy="${f1(yy)}" r="7" fill="#FF6A13"/><circle cx="${f1(cx + 47)}" cy="${f1(yy)}" r="3.6" fill="#fff"/><circle cx="${f1(cx + 47)}" cy="${f1(yy)}" r="1.8" fill="#FF6A13"/>`;
+  }
+  return s + '</g>';
 }
 
 // ---------- measuring the page ----------
@@ -395,7 +446,7 @@ function desktop(gsap, ST) {
     svg += `<defs><linearGradient id="rt-st-r"><stop offset="0" stop-color="#2A2E34"/><stop offset="1" stop-color="#2A2E34" stop-opacity="0"/></linearGradient><linearGradient id="rt-st-l" x1="1" x2="0"><stop offset="0" stop-color="#2A2E34"/><stop offset="1" stop-color="#2A2E34" stop-opacity="0"/></linearGradient></defs>`;
     const busy = [stop1 - 128, stop2 - 40];
     for (const st of M.stages) {
-      if (!['tow', 'heavy', 'release', 'contact'].includes(st.key)) continue;
+      if (!['tow', 'heavy', 'release', 'facility', 'contact'].includes(st.key)) continue;
       const inner = st.el.dataset.road === 'right' ? -1 : 1;
       const yA = Math.max(st.cTop + 60, R.gateA + 120), yB = Math.min(st.cBot - 40, R.gateB - 80);
       for (let yy = yA, i = 0; yy < yB; yy += 300, i++) {
@@ -417,6 +468,9 @@ function desktop(gsap, ST) {
     // hazard triangle behind the stranded car
     const c = scene.car;
     svg += `<path d="M${f1(c.x)} ${f1(c.y - 118)}l9 15h-18z" fill="none" stroke="#E0362C" stroke-width="3" stroke-linejoin="round"/>`;
+    // contained spill on the far shoulder of the spill response stretch
+    const Sp = M.by.spill;
+    if (Sp) svg += spillScene(Sp.cx, Sp.cTop + (Sp.cBot - Sp.cTop) * 0.42, k);
     // street sign at the yard gate
     svg += greenSign(s0.cx + 92, M.y0 + 64, 116, 26, ['TELEGRAPH RD'], 15);
     // roadside signs on the outer shoulder
@@ -434,13 +488,13 @@ function desktop(gsap, ST) {
     svg += '</svg>';
     roadHost.innerHTML = svg;
 
-    // Trail: the lane markings behind the truck turn amber. Revealed with a compositor-only clip.
+    // Trail: the lane markings behind the truck turn red. Revealed with a compositor-only clip.
     // clip-path insets are measured against the layer box, so the truck layers span the journey
     for (const L of [L0, L1]) if (L) { L.el.style.width = M.W + 'px'; L.el.style.height = M.H + 'px'; }
     trailOuter.hidden = REDUCE;
     trailOuter.style.width = trailInner.style.width = M.W + 'px';
     trailOuter.style.height = trailInner.style.height = M.H + 'px';
-    trailInner.innerHTML = `<svg ${sz} aria-hidden="true" focusable="false"><path d="${R.trail}" fill="none" stroke="#F5A300" stroke-opacity=".2" stroke-width="10"/><path d="${R.trail}" fill="none" stroke="#F5A300" stroke-width="3.5"/></svg>`;
+    trailInner.innerHTML = `<svg ${sz} aria-hidden="true" focusable="false"><path d="${R.trail}" fill="none" stroke="#E3262B" stroke-opacity=".22" stroke-width="10"/><path d="${R.trail}" fill="none" stroke="#E3262B" stroke-width="3.5"/></svg>`;
 
     // Over layer: the two overpasses (the truck changes underneath them)
     const hw1 = half(F), hw2 = half(Rl);
@@ -573,7 +627,7 @@ function desktop(gsap, ST) {
       const id = a.getAttribute('href').slice(1), target = id ? D.getElementById(id) : null;
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(id === 'top' ? 0 : target, { offset: -76, duration: 1.4, onComplete: () => focusTarget(target) });
+      lenis.scrollTo(id === 'top' ? 0 : target, { offset: -86, duration: 1.4, onComplete: () => focusTarget(target) });
       history.replaceState(null, '', '#' + id);
     });
   }
@@ -678,11 +732,12 @@ function content(gsap, ST) {
   const rev = [...D.querySelectorAll('.reveal')].filter(below);
   gsap.set(rev, { opacity: 0, y: 22 });
   ST.batch(rev, { start: 'top 90%', once: true, onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 0.6, stagger: 0.07, ease: 'power2.out', overwrite: true }) });
-  // 4.7 counts up the first time you see it
+  // 4.7 and the facility numbers count up the first time you see them
   D.querySelectorAll('[data-count]').forEach((el) => {
     if (!below(el)) return;
-    const to = parseFloat(el.dataset.count), o = { v: 0 };
-    ST.create({ trigger: el, start: 'top 85%', once: true, onEnter: () => gsap.to(o, { v: to, duration: 1.2, ease: 'power2.out', onUpdate: () => { el.textContent = o.v.toFixed(1); } }) });
+    const to = parseFloat(el.dataset.count), dec = el.dataset.dec ? +el.dataset.dec : 1, o = { v: 0 };
+    const fmt = (v) => (dec ? v.toFixed(dec) : Math.round(v).toLocaleString('en-US'));
+    ST.create({ trigger: el, start: 'top 85%', once: true, onEnter: () => gsap.to(o, { v: to, duration: 1.2, ease: 'power2.out', onUpdate: () => { el.textContent = fmt(o.v); } }) });
   });
   // Placeholders get a stamp, so they read as "fill me in", not as facts
   D.querySelectorAll('.ph-stamp').forEach((el) => {

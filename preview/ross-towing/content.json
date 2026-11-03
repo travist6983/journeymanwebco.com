@@ -1,112 +1,95 @@
 {
-  "_note": "Every word on the page comes from the FACTS block in the brief (recon Nov 3 2026). Values in [BRACKETS] are unconfirmed placeholders; the 'placeholders' list at the bottom says what each one needs. No reviews, response times, prices or certifications are invented.",
+  "_note": "Copy on the page, Nov 3 2026 update. Sources: Jennifer Gatt's email (email) and her three Word docs (docx: facility, spill, equipment). Where the two differ, the docx wording is used; see private/ross-towing/UPDATE_NOTES.md. Values in [BRACKETS] are still unconfirmed.",
   "business": {
     "name": "Ross Towing",
-    "legalName": "Larry Ross Garage Inc, dba Ross Towing",
-    "familyOwned": true,
-    "since": "[YEAR]",
-    "address": "[ADDRESS]",
-    "addressCandidates": ["21360 Telegraph Rd, Southfield, MI 48033 (Google)", "21340 Telegraph Rd, Southfield, MI 48034 (FMCSA, BBB)"],
-    "city": "Southfield, Michigan",
-    "dispatchPhone": "[DISPATCH PHONE]",
-    "dispatchHours": "24 hours a day, 7 days a week",
-    "officeHours": "[OFFICE HOURS]",
-    "domain": "[DOMAIN]",
-    "rating": { "value": 4.7, "label": "4.7 on Google", "todo": "Wire a live value from the Google Business Profile" },
-    "payment": { "value": ["Visa", "Mastercard", "American Express", "Discover"], "unconfirmed": true }
+    "legalName": "Larry Ross Garage, Inc. dba Ross Towing",
+    "since": 1962,
+    "address": "21360 Telegraph Rd, Southfield, MI 48033",
+    "phone": "248-356-6011",
+    "tel": "+12483566011",
+    "staffed": "24 hours a day, 365 days a year for towing and impound services (docx)",
+    "officeHours": "Monday to Friday 9am to 5pm, Saturday 9am to 1pm (docx)",
+    "usdot": "1196761",
+    "mc": "621070",
+    "spillLicense": "98000-105807-24-122024 (docx; email says 9800-105807-24-122024)",
+    "facebook": "https://facebook.com/accidentrecovery",
+    "rating": { "value": 4.7, "label": "4.7 on Google", "todo": "Wire a live value from the Google Business Profile" }
   },
-  "nav": ["Towing", "Roadside", "Freight", "Service Area", "Vehicle Release", "Contact"],
+  "nav": ["Towing", "Heavy Duty", "Spill Response", "Freight", "Vehicle Release", "Auctions", "Contact"],
   "hero": {
-    "eyebrow": "Southfield, Michigan · 24/7 dispatch",
-    "heading": "24/7 towing and recovery in Southfield and Metro Detroit since [YEAR]",
-    "sub": "Family owned. Towing and roadside help around the clock, plus a licensed freight carrier for Michigan and Ohio.",
-    "paths": [
-      { "label": "Need a tow", "action": "Call [DISPATCH PHONE]", "href": "tel:[DISPATCH PHONE]" },
-      { "label": "Freight and heavy hauling", "action": "Request a freight quote", "href": "#freight-quote" }
-    ],
-    "proof": ["4.7 on Google", "Family owned", "USDOT 1196761"]
+    "heading": "24/7 towing and recovery in Southfield and Metro Detroit since 1962",
+    "sub": "Family owned. Towing, heavy recovery and spill response around the clock, plus a licensed freight carrier for Michigan and Ohio.",
+    "paths": ["Need a tow: Call 248-356-6011", "Freight and heavy hauling: Request a freight quote"],
+    "strip": ["Since 1962", "Farmington Hills PD and Michigan State Police towing", "MDOT certified spill response", "USDOT 1196761"]
   },
   "towing": {
     "heading": "Towing, day or night",
-    "body": "One call to dispatch, any hour. A Ross truck comes to you and moves your vehicle carefully.",
-    "services": [
-      { "title": "Light duty towing", "body": "Cars, SUVs and pickups." },
-      { "title": "Flatbed towing", "body": "For vehicles that need to ride on the bed." },
-      { "title": "Accident recovery", "body": "Help at the scene after a crash." },
-      { "title": "Police impound tows", "body": "Tows for police and impound calls." }
-    ]
+    "lede": "We're staffed 24 hours a day, 365 days a year. One call and a Ross truck comes to you.",
+    "cards": ["Light duty towing", "Flatbed towing", "Police towing and impounds: contracted with the Michigan State Police and the Farmington Hills Police Department", "Dealership towing"]
   },
-  "roadside": {
-    "heading": "Roadside help",
-    "body": "Not every call needs a tow.",
-    "services": ["Lockouts", "Jump starts", "Flat tires", "Fuel delivery", "Battery service"]
-  },
+  "roadside": ["Lockouts", "Jump starts", "Flat tires", "Fuel delivery", "Battery service"],
   "heavy": {
     "heading": "Heavy duty, recovery and lifting",
-    "body": "Trucks and big vehicles, vehicles off the road, and loads that need a crane.",
-    "services": [
-      { "title": "Heavy duty and truck towing", "body": "Trucks and large vehicles." },
-      { "title": "Winch outs", "body": "Pulling vehicles out of ditches, mud and snow." },
-      { "title": "Accident recovery", "body": "Clearing and recovering vehicles after a crash." },
-      { "title": "Crane and lifting service", "body": "Lifting for loads a tow truck can't handle alone." }
+    "feature": "50 ton rotator: handles semi trucks, fire trucks, buses and similar heavy vehicles",
+    "cards": ["Heavy duty and truck towing", "Winch outs", "Accident recovery", "Crane and lifting service"],
+    "facebook": "See our recent recovery work"
+  },
+  "spill": {
+    "eyebrow": "Environmental spill response · MDOT certified",
+    "heading": "One of only two licensed towing companies permitted to respond anywhere in Michigan",
+    "lede": "Ross Towing is a licensed and permitted hazardous spill and material cleanup company. We specialize in diesel fuel and petroleum based oil containment and cleanup.",
+    "license": "# 98000-105807-24-122024",
+    "facts": ["HAZWOPER 40 certified technicians on staff", "An incident commander available for 24 hour response"],
+    "equipment": [
+      "Three spill trailers with diesel pump off stations, pump sprayers, absorbents, booms and pools",
+      "Biohazard friendly roadway degreaser that leaves only H2O and CO2, safe for storm water runoff",
+      "Two skid steers with power sweeper attachments, plus a self contained 10 yard street sweeper",
+      "A tri-axle dump trailer for hauling debris from scenes",
+      "Two EV fire blankets",
+      "An enclosed EV storage area with a three sided brick wall"
     ]
   },
   "freight": {
-    "eyebrow": "Freight division",
     "heading": "Also a licensed freight carrier",
-    "body": "The same family runs a for-hire trucking operation, hauling machinery, equipment and materials across Michigan and Ohio.",
-    "hauls": ["Large machinery and equipment", "Metal sheet", "Building materials", "Motor vehicles", "General freight"],
     "lanes": ["Michigan", "Ohio"],
-    "fleet": "A fleet of [FLEET SIZE] trucks",
-    "credentials": { "usdot": "1196761", "mc": "621070", "authority": "Authorized for hire, interstate, active" },
-    "insurance": { "value": "[INSURANCE]", "note": "$1M liability on file; show only if Jennifer approves" },
-    "form": "Freight quote: company, contact, phone, email, pickup, delivery, what's being hauled, dimensions or weight, date"
+    "trailerTypes": ["Flatbed", "Conestoga", "Step deck", "Landoll", "Lowboy"],
+    "machinery": "We work with companies like MacAllister CAT.",
+    "equipment": [
+      { "trailer": "Flatbed", "length": "48 ft", "scale": "48,000 lbs" },
+      { "trailer": "Flatbed", "length": "53 ft", "scale": "48,000 lbs" },
+      { "trailer": "Conestoga", "length": "48 ft", "scale": "46,500 lbs" },
+      { "trailer": "Conestoga", "length": "53 ft", "scale": "46,500 lbs" },
+      { "trailer": "Step deck", "length": "53 ft", "scale": "48,000 lbs" },
+      { "trailer": "Landoll", "length": "53 ft", "scale": "40,000 lbs" },
+      { "trailer": "Quad axle lowboy", "length": "53 ft", "scale": "100,000 lbs" }
+    ],
+    "towTrucks": ["50 ton rotator", "Flatbed tow truck", "Wrecker"],
+    "credentials": "USDOT 1196761 · MC 621070 · Authorized for hire · Interstate · Active"
   },
   "trust": {
-    "heading": "Family owned since [YEAR]",
-    "body": "Ross has served Southfield from Telegraph Rd for decades.",
-    "rating": "4.7 on Google",
-    "themes": ["Quick response", "Polite, knowledgeable drivers", "Careful with vehicles", "Helpful during accidents and impounds", "Fair prices"],
-    "reviews": ["[REAL GOOGLE REVIEW QUOTE]", "[REAL GOOGLE REVIEW QUOTE]", "[REAL GOOGLE REVIEW QUOTE]"],
-    "reviewsTodo": "Paste real Google reviews, with the reviewer's permission",
-    "photos": ["[TRUCK PHOTO]", "[YARD PHOTO]", "[TEAM PHOTO]"]
-  },
-  "serviceArea": {
-    "heading": "Where we tow",
-    "cities": ["Southfield", "Detroit", "Farmington Hills", "Dearborn", "Oak Park", "Lathrup Village", "Royal Oak"],
-    "roads": ["I-696", "I-75", "M-10 (Lodge)", "Telegraph Rd"]
+    "heading": "Family owned since 1962",
+    "police": "Trusted by the Farmington Hills Police and the Michigan State Police.",
+    "history": "We previously served the City of Southfield Police Department for over 50 years.",
+    "dealers": "We tow for car dealerships in the area, and we're looking to partner with more."
   },
   "release": {
-    "heading": "Getting your vehicle back",
-    "body": "If your vehicle was towed to our yard, here's what to know before you come.",
-    "yard": "[ADDRESS]",
-    "hours": "[RELEASE HOURS]",
-    "bring": "[WHAT TO BRING]",
-    "payment": "[PAYMENT AT RELEASE]"
+    "cashOnly": "Payment at release must be in cash.",
+    "bring": "The registered owner must present ID plus proof of ownership: registration, insurance, or title.",
+    "where": "21360 Telegraph Rd, Southfield, MI 48033",
+    "hours": "[RELEASE HOURS] Office hours are Monday to Friday 9am to 5pm and Saturday 9am to 1pm."
   },
-  "footer": {
-    "phone": "[DISPATCH PHONE]",
-    "address": "[ADDRESS]",
-    "hours": "Dispatch 24/7 · Office [OFFICE HOURS]",
-    "credentials": "USDOT 1196761 · MC 621070"
+  "auctions": {
+    "heading": "Public auctions about every two months",
+    "lede": "Open to the public. Parking for over 100 customers across from our lobby, with ADA spots right by the front door.",
+    "nextDate": "From data/auction.json; shows 'Call for the next auction date' when null"
   },
-  "forms": {
-    "tow": { "fields": ["Name", "Phone", "Location", "Vehicle", "What happened"], "endpoint": "TODO", "recipient": "TODO" },
-    "freight": { "fields": ["Company", "Contact name", "Phone", "Email", "Pickup", "Delivery", "What's being hauled", "Dimensions or weight", "Date"], "endpoint": "TODO", "recipient": "TODO" }
+  "facility": {
+    "heading": "Seven acres on Telegraph Rd",
+    "figures": ["24/365 staffed", "6+ acres of vehicle storage", "36 cameras", "2,800 sq ft heated shop", "8 vehicles stored indoors", "40 ft locking container"],
+    "training": "Police and fire departments in Oakland, Wayne and Macomb counties train here, including K-9 units."
   },
   "placeholders": {
-    "[YEAR]": "Founding year. Alignable and Google say 1962; other sources say 63 to 65 years.",
-    "[ADDRESS]": "21360 (Google) or 21340 (FMCSA, BBB) Telegraph Rd.",
-    "[DISPATCH PHONE]": "The one 24/7 number for the whole site. (248) 356-6011 appears on Google and BBB; confirm.",
-    "[OFFICE HOURS]": "Office hours for paperwork and releases.",
-    "[RELEASE HOURS]": "When impounded vehicles can be picked up.",
-    "[WHAT TO BRING]": "ID, registration, proof of insurance, anything else.",
-    "[PAYMENT AT RELEASE]": "Directory lists Visa, Mastercard, Amex, Discover; confirm and say if cash is taken.",
-    "[FLEET SIZE]": "Federal records show 16 to 18 power units.",
-    "[INSURANCE]": "$1M liability is on file; only if Jennifer approves showing it.",
-    "[DOMAIN]": "rosstowing.com is parked; confirm ownership.",
-    "[REAL GOOGLE REVIEW QUOTE]": "Real reviews, with permission.",
-    "[TRUCK PHOTO] [YARD PHOTO] [TEAM PHOTO]": "Real photos from Ross.",
-    "logo": "Text wordmark until a logo arrives."
+    "[RELEASE HOURS]": "When impounded vehicles can be picked up, if different from office hours",
+    "[REAL GOOGLE REVIEW QUOTE] x3, [NAME] x3": "Real Google reviews, with the reviewer's permission"
   }
 }

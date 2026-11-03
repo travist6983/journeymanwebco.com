@@ -1,29 +1,37 @@
 {
-  "_note": "Proposed palette and type for Ross Towing. No logo or brand colors exist yet; swap these once Jennifer sends a logo. The same values are the CSS custom properties at the top of index.html.",
+  "_note": "Ross Towing palette and type. Red, steel and black are sampled from the Ross Towing logo (sent by Jennifer Gatt, Nov 3 2026). The same values are the CSS custom properties at the top of index.html. Contrast ratios are against the background named in 'use'.",
   "color": {
-    "amber":        { "value": "#F5A300", "use": "Primary safety color: call buttons, light bar, route line, highlights. Text on amber uses ink." },
-    "amberDeep":    { "value": "#C98200", "use": "Amber hover and pressed state" },
-    "asphalt":      { "value": "#111316", "use": "Main dark background (night sections, header, footer)" },
+    "red":          { "value": "#C70606", "use": "Brand red from the logo truck and ROSS lettering. Call buttons, cash only banner, accents. White text on it is 6.1:1" },
+    "redDeep":      { "value": "#9E0505", "use": "Red hover and pressed state" },
+    "redText":      { "value": "#AE0707", "use": "Red text and icons on light sections (6.4:1 on paper)" },
+    "redOnDark":    { "value": "#F54444", "use": "Red text, eyebrows and icons on dark sections (5.1:1 on asphalt, 4.7:1 on the spill section)" },
+    "steel":        { "value": "#9AA5A8", "use": "Logo chrome and silver grey. Truck chrome in the illustrations" },
+    "steelDeep":    { "value": "#5F6E70", "use": "Darker steel for outlines in illustrations" },
+    "asphalt":      { "value": "#111316", "use": "Main dark background (night sections), matches the logo badge black" },
+    "asphaltDeep":  { "value": "#0C0D0F", "use": "Footer background" },
     "asphaltRaised":{ "value": "#1B1E22", "use": "Cards and panels on dark" },
-    "road":         { "value": "#2A2E34", "use": "Road surface on dark sections" },
-    "roadOnLight":  { "value": "#33373D", "use": "Road surface on light sections" },
-    "paint":        { "value": "#ECE7DB", "use": "Road paint, text on dark" },
-    "paper":        { "value": "#F2EFE8", "use": "Light section background (freight, trust, service area)" },
-    "ink":          { "value": "#15171A", "use": "Text on light and on amber" },
+    "road":         { "value": "#2A2E34", "use": "Road surface" },
+    "paint":        { "value": "#ECEEF0", "use": "Road paint, text on dark" },
+    "paper":        { "value": "#EEF0F1", "use": "Light section background (freight, trust)" },
+    "paper2":       { "value": "#E3E6E8", "use": "Second light background (service area, facility)" },
+    "ink":          { "value": "#15171A", "use": "Text on light" },
     "mutedOnDark":  { "value": "#A9AEB5", "use": "Secondary text on asphalt (8.4:1)" },
-    "mutedOnLight": { "value": "#50565E", "use": "Secondary text on paper (7.0:1)" },
+    "mutedOnLight": { "value": "#4F575E", "use": "Secondary text on paper (6.5:1)" },
+    "lineOnLight":  { "value": "#D3D8DC", "use": "Card borders on light sections" },
+    "signal":       { "value": "#F5A300", "use": "Amber warning light bar, hazards and rating stars only; never text" },
     "highwayGreen": { "value": "#0E6B45", "use": "Freeway exit signs only (white text, 6.6:1)" },
     "shieldBlue":   { "value": "#1D4F91", "use": "Interstate shield illustrations only" },
-    "shieldRed":    { "value": "#C8102E", "use": "Interstate shield illustrations only" },
-    "signalRed":    { "value": "#E0362C", "use": "Hazard and tail lights in illustrations; never body text" },
     "placeholder":  { "value": "#FFE58A", "use": "Background of [PLACEHOLDER] tags so unconfirmed facts are impossible to miss" }
   },
   "type": {
-    "display": { "family": "Barlow Condensed", "weights": [700, 800], "use": "Headlines, phone number, signs. Based on highway signage lettering, so it stays legible at a glance." },
+    "display": { "family": "Barlow Condensed", "weights": [700, 800], "use": "Headlines, phone number, signs, big figures" },
     "body":    { "family": "Barlow", "weights": [400, 600], "use": "Body copy, forms, buttons" },
     "files": "Self-hosted latin subsets in fonts/ (SIL Open Font License)",
-    "scale": { "h1": "clamp(2.6rem, 6.2vw, 5.4rem)", "h2": "clamp(2rem, 4vw, 3.4rem)", "h3": "1.35rem", "body": "1.0625rem", "small": "0.875rem" }
+    "scale": { "h1": "clamp(2.4rem, 5.6vw, 4.9rem)", "h2": "clamp(2.2rem, 4.6vw, 3.7rem)", "h3": "1.4rem", "body": "1.0625rem", "small": "0.875rem" }
   },
   "radius": { "button": "10px", "card": "14px" },
-  "logo": { "placeholder": "Text wordmark ROSS TOWING in Barlow Condensed 800 with an amber bar. Replace with the real logo file." }
+  "logo": {
+    "files": "img/logo-120|240|360 in AVIF, WebP and PNG (transparent, trimmed)",
+    "source": "Extracted from ROSS TOWING LOGO.docx (word/media/image1.png, 500x333). Raster illustration with gradients and chrome, so it is not traced to SVG; ask for the original vector file."
+  }
 }

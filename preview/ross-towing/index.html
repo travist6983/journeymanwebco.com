@@ -6,9 +6,9 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="jwc-endpoint" content="https://journeyman-contact.travisjterry.workers.dev">
 <title>Ross Towing | Concept preview</title>
-<meta name="description" content="Ross Towing, Southfield, Michigan: 24/7 towing, roadside help, heavy duty recovery, and a licensed Michigan and Ohio freight carrier.">
-<meta name="theme-color" content="#111316">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111316'/%3E%3Crect x='9' y='6' width='7' height='20' rx='1.5' fill='%23F5A300' transform='skewX(-12)'/%3E%3C/svg%3E">
+<meta name="description" content="Ross Towing, Southfield, Michigan, since 1962: 24/7 towing, heavy duty recovery with a 50 ton rotator, environmental spill response, freight hauling, impound release and public auctions.">
+<meta name="theme-color" content="#0E0F11">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230E0F11'/%3E%3Cpath d='M9 7h8.5c3.6 0 6 2 6 5.2 0 2.4-1.4 4.1-3.6 4.8L24 25h-5l-3.4-7.4H13.5V25H9z M13.5 10.8v3.4h3.6c1.2 0 1.9-.6 1.9-1.7s-.7-1.7-1.9-1.7z' fill='%23C70606'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/barlow-condensed-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -17,16 +17,17 @@
 @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/barlow-400.woff2) format('woff2'); }
 @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/barlow-600.woff2) format('woff2'); }
 
-/* Tokens: mirrored in design-tokens.json. Swap once Ross has a logo and colors. */
+/* Tokens: mirrored in design-tokens.json. Red, steel and black are sampled from the Ross Towing logo. */
 :root {
-  --amber: #F5A300; --amber-deep: #C98200; --amber-text: #7A4F00;
+  --red: #C70606; --red-deep: #9E0505; --red-text: #AE0707; --red-on-dark: #F54444;
+  --steel: #9AA5A8; --steel-2: #5F6E70; --signal: #F5A300;
   --asphalt: #111316; --asphalt-2: #0C0D0F; --raised: #1B1E22; --edge: #2C3036;
-  --road: #2A2E34; --paint: #ECE7DB; --paper: #F2EFE8; --paper-2: #E8E3D9;
-  --ink: #15171A; --muted-d: #A9AEB5; --muted-l: #50565E;
+  --road: #2A2E34; --paint: #ECEEF0; --paper: #EEF0F1; --paper-2: #E3E6E8;
+  --ink: #15171A; --muted-d: #A9AEB5; --muted-l: #4F575E; --line-l: #D3D8DC;
   --green: #0E6B45; --ph: #FFE58A; --focus: #3B8CFF;
   --display: 'Barlow Condensed', 'Arial Narrow', 'Roboto Condensed', sans-serif;
   --body: 'Barlow', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --header: 56px; --lane-m: 52px;
+  --header: 64px; --lane-m: 52px;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -35,40 +36,44 @@ h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 1.02; m
 p { margin: 0; }
 a { color: inherit; }
 img, svg { display: block; }
+img { max-width: 100%; height: auto; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
-.skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--amber); color: var(--ink); padding: 10px 14px; font-weight: 600; border-radius: 8px; text-decoration: none; }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--red); color: #fff; padding: 10px 14px; font-weight: 600; border-radius: 8px; text-decoration: none; }
 .skip:focus { top: 12px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Placeholders: every unconfirmed fact uses this, so nobody mistakes it for real */
 .ph { background: var(--ph); color: #15171A !important; border-radius: .18em; padding: 0 .22em; white-space: nowrap; outline: 1px dashed rgba(0,0,0,.4); outline-offset: -1px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-
 .ph-wrap { white-space: normal; }
 .concept { background: #FFF6CC; color: #4A3D00; font-size: 13px; line-height: 1.4; text-align: center; padding: 7px 16px; }
 .concept b { font-weight: 600; }
 
 /* Header */
-.site-header { position: sticky; top: 0; z-index: 50; background: rgba(17,19,22,.95); border-bottom: 1px solid var(--edge); }
-@supports (backdrop-filter: blur(8px)) { .site-header { background: rgba(17,19,22,.86); backdrop-filter: blur(8px); } }
-.site-header .bar { display: flex; align-items: center; gap: 16px; height: var(--header); max-width: 1240px; margin: 0 auto; padding: 0 16px; }
-.wordmark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 800 1.45rem/1 var(--display); letter-spacing: .05em; white-space: nowrap; }
-.wordmark i { width: 10px; height: 26px; background: var(--amber); border-radius: 2px; transform: skewX(-12deg); }
-.wordmark span { color: var(--amber); }
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(14,15,17,.96); border-bottom: 1px solid var(--edge); }
+@supports (backdrop-filter: blur(8px)) { .site-header { background: rgba(14,15,17,.86); backdrop-filter: blur(8px); } }
+.site-header .bar { display: flex; align-items: center; gap: 10px; height: var(--header); max-width: 1240px; margin: 0 auto; padding: 0 12px 0 10px; }
+.brand { display: block; flex: none; border-radius: 6px; }
+.brand img { height: 54px; width: auto; }
 .nav { margin-left: auto; }
-.nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 2px; }
 .nav a { display: block; padding: 8px 10px; text-decoration: none; color: var(--muted-d); font-weight: 600; font-size: .95rem; border-radius: 8px; }
 .nav a:hover, .nav a[aria-current="true"] { color: var(--paint); background: rgba(255,255,255,.06); }
-.menu-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; background: transparent; color: var(--paint); border: 1px solid var(--edge); border-radius: 10px; font: 600 1rem var(--body); cursor: pointer; }
+.nav a[aria-current="true"] { box-shadow: inset 0 -2px 0 var(--red-on-dark); }
+.menu-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; background: transparent; color: var(--paint); border: 1px solid var(--edge); border-radius: 10px; font: 600 1rem var(--body); cursor: pointer; }
+.fb { margin-left: auto; display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--edge); color: var(--paint); flex: none; }
+.fb:hover { background: rgba(255,255,255,.06); }
+.fb svg { width: 20px; height: 20px; fill: currentColor; }
 .btn.head-call { display: none; }
 
 /* Buttons */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 20px; border-radius: 10px; font: 600 1.05rem/1.2 var(--body); text-decoration: none; border: 2px solid transparent; cursor: pointer; }
 .btn svg { width: 20px; height: 20px; flex: none; }
-.btn-call { background: var(--amber); color: var(--ink); }
-.btn-call:hover { background: #FFB420; }
+.btn-call { background: var(--red); color: #fff; }
+.btn-call:hover { background: var(--red-deep); }
 .btn-line { border-color: currentColor; color: inherit; background: transparent; }
 .btn-line:hover { background: rgba(127,127,127,.12); }
 .btn .num { font: 800 1.25rem/1 var(--display); letter-spacing: .02em; }
+.btn-fb svg { fill: currentColor; stroke: none; }
 .ico { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Journey + stages */
@@ -78,16 +83,18 @@ img, svg { display: block; }
 .lane { display: none; }
 .tone-night { background: var(--asphalt); color: var(--paint); }
 .tone-deep { background: #0F1114; color: var(--paint); }
+.tone-steel { background: #181C20; color: var(--paint); }
 .tone-day { background: var(--paper); color: var(--ink); }
 .tone-day2 { background: var(--paper-2); color: var(--ink); }
 .tone-end { background: var(--asphalt-2); color: var(--paint); }
-[id] { scroll-margin-top: 72px; }
+[id] { scroll-margin-top: 80px; }
+.light { color: var(--ink); }
 
-.eyebrow { font: 700 .95rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--amber); margin-bottom: 14px; }
-.tone-day .eyebrow, .tone-day2 .eyebrow { color: var(--amber-text); }
-h2 { font-size: clamp(2.2rem, 4.6vw, 3.7rem); margin-bottom: 16px; }
+.eyebrow { font: 700 .95rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--red-on-dark); margin-bottom: 14px; }
+.tone-day .eyebrow, .tone-day2 .eyebrow { color: var(--red-text); }
+h2 { font-size: clamp(2.2rem, 4.6vw, 3.7rem); margin-bottom: 16px; text-wrap: balance; }
 h3 { font-size: 1.4rem; font-weight: 700; }
-.lede { font-size: 1.15rem; max-width: 40ch; color: var(--muted-d); }
+.lede { font-size: 1.15rem; max-width: 44ch; color: var(--muted-d); }
 .tone-day .lede, .tone-day2 .lede { color: var(--muted-l); }
 .muted { color: var(--muted-d); }
 .tone-day .muted, .tone-day2 .muted { color: var(--muted-l); }
@@ -95,70 +102,105 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 /* Hero */
 .hero { padding-top: 28px; }
 .hero h1 { font-size: clamp(2.4rem, 5.6vw, 4.9rem); max-width: 15.5ch; margin: 0 0 18px; }
-.hero .sub { font-size: 1.15rem; color: var(--muted-d); max-width: 42ch; margin-bottom: 22px; }
+.hero h1 .yr { color: var(--red-on-dark); }
+.hero .sub { font-size: 1.15rem; color: var(--muted-d); max-width: 44ch; margin-bottom: 22px; }
 .paths { display: grid; gap: 10px; max-width: 560px; }
 .path { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 12px; padding: 14px 18px; border-radius: 12px; text-decoration: none; min-height: 72px; }
 .path small { grid-column: 1; font: 700 .85rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .12em; }
 .path strong { grid-column: 1; font: 800 1.45rem/1.1 var(--display); }
 .path svg { grid-column: 2; grid-row: 1 / span 2; width: 26px; height: 26px; }
-.path-tow { background: var(--amber); color: var(--ink); }
-.path-tow:hover { background: #FFB420; }
-.path-freight { border: 2px solid rgba(236,231,219,.55); color: var(--paint); }
+.path-tow { background: var(--red); color: #fff; }
+.path-tow:hover { background: var(--red-deep); }
+.path-freight { border: 2px solid rgba(236,238,240,.55); color: var(--paint); }
 .path-freight:hover { border-color: var(--paint); background: rgba(255,255,255,.05); }
-.proof { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 20px 0 0; padding: 0; font-weight: 600; font-size: .98rem; color: var(--muted-d); }
-.proof li { display: inline-flex; align-items: center; gap: 7px; }
-.proof .star { width: 17px; height: 17px; fill: var(--amber); }
+.strip { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; max-width: 640px; }
+.strip li { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 7px 10px; border-radius: 8px; background: rgba(255,255,255,.05); border: 1px solid var(--edge); font-weight: 600; font-size: .94rem; line-height: 1.25; }
+.strip li::before { content: ''; width: 6px; height: 16px; flex: none; background: var(--red); border-radius: 1px; transform: skewX(-12deg); }
 
 /* Cards */
 .cards { display: grid; gap: 12px; margin-top: 26px; }
 .card { background: var(--raised); border: 1px solid var(--edge); border-radius: 14px; padding: 18px 18px 16px; }
-.card .ico { color: var(--amber); margin-bottom: 10px; width: 28px; height: 28px; }
+.card .ico { color: var(--red-on-dark); margin-bottom: 10px; width: 28px; height: 28px; }
 .card h3 { margin-bottom: 6px; }
 .card p { color: var(--muted-d); }
 .card a { color: var(--paint); }
-.tone-day .card, .tone-day2 .card { background: #fff; border-color: #DDD7CB; }
+.card.feature { border-color: rgba(242,58,58,.5); background: linear-gradient(180deg, rgba(199,6,6,.16), rgba(199,6,6,0) 70%), var(--raised); }
+.card.feature .tag { display: inline-block; font: 800 2.6rem/1 var(--display); color: #fff; margin-bottom: 4px; }
+.tone-day .card, .tone-day2 .card { background: #fff; border-color: var(--line-l); }
 .tone-day .card p, .tone-day2 .card p { color: var(--muted-l); }
-.tone-day .card .ico, .tone-day2 .card .ico { color: var(--amber-text); }
+.tone-day .card .ico, .tone-day2 .card .ico { color: var(--red-text); }
 .inline-call { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
 .inline-call p { font-weight: 600; }
 
 .chips { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .chips li { display: inline-flex; align-items: center; gap: 9px; padding: 10px 14px; border-radius: 999px; background: var(--raised); border: 1px solid var(--edge); font-weight: 600; }
-.chips .ico { width: 20px; height: 20px; color: var(--amber); }
-.tone-day .chips li, .tone-day2 .chips li { background: #fff; border-color: #DDD7CB; }
-.tone-day .chips .ico, .tone-day2 .chips .ico { color: var(--amber-text); }
+.chips .ico { width: 20px; height: 20px; color: var(--red-on-dark); }
+.tone-day .chips li, .tone-day2 .chips li { background: #fff; border-color: var(--line-l); }
+.tone-day .chips .ico, .tone-day2 .chips .ico { color: var(--red-text); }
 .sub-block { margin-top: 64px; }
+
+/* Photos */
+.shot { margin: 26px 0 0; border-radius: 14px; overflow: hidden; background: #1B1E22; }
+.shot img { width: 100%; }
+.shot figcaption { padding: 10px 14px; font-size: .92rem; color: var(--muted-d); background: var(--raised); }
+.tone-day .shot figcaption, .tone-day2 .shot figcaption { background: #fff; color: var(--muted-l); }
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.gallery.three { grid-template-columns: repeat(3, 1fr); }
+.gallery figure { margin: 0; border-radius: 12px; overflow: hidden; background: #1B1E22; }
+.gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.fb-line { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.fb-line .btn { min-height: 48px; }
+
+/* Spill response */
+.license { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 20px; padding: 12px 16px; border-radius: 12px; border: 2px solid var(--red-on-dark); background: rgba(199,6,6,.12); }
+.license small { font: 700 .8rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--muted-d); }
+.license strong { font: 800 1.45rem/1.1 var(--display); letter-spacing: .03em; }
+.facts { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 8px; }
+.facts li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; border-radius: 12px; background: var(--raised); border: 1px solid var(--edge); font-weight: 600; }
+.facts .ico { color: var(--red-on-dark); flex: none; }
 
 /* Freight */
 .lanes { display: flex; align-items: center; gap: 14px; margin: 26px 0 8px; font: 800 clamp(1.8rem, 3.4vw, 2.6rem)/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
 .lanes .route { flex: 1; max-width: 160px; height: 4px; background: repeating-linear-gradient(90deg, var(--ink) 0 14px, transparent 14px 22px); border-radius: 2px; position: relative; }
-.lanes .route::before, .lanes .route::after { content: ''; position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 50%; background: var(--amber); border: 3px solid var(--ink); transform: translateY(-50%); }
+.lanes .route::before, .lanes .route::after { content: ''; position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 50%; background: var(--red); border: 3px solid var(--ink); transform: translateY(-50%); }
 .lanes .route::before { left: -6px; } .lanes .route::after { right: -6px; }
 .hauls { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 8px; }
-.hauls li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid #DDD7CB; border-radius: 12px; font-weight: 600; }
-.hauls .ico { color: var(--amber-text); flex: none; }
+.hauls li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #fff; border: 1px solid var(--line-l); border-radius: 12px; font-weight: 600; }
+.hauls .ico { color: var(--red-text); flex: none; }
+.chips.trailers li, .tone-day .chips.trailers li { background: var(--ink); color: #fff; border-color: var(--ink); font: 700 1.1rem/1.2 var(--display); letter-spacing: .04em; text-transform: uppercase; }
+.machinery { margin-top: 22px; padding: 16px 18px; border-left: 4px solid var(--red); background: #fff; border-radius: 0 12px 12px 0; }
+.machinery h3 { margin-bottom: 4px; }
+.equip { margin-top: 26px; }
+.equip h3 { margin-bottom: 10px; }
+.equip table { width: 100%; border-collapse: collapse; background: #fff; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; font-size: .98rem; }
+.equip caption { text-align: left; font: 700 .82rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--muted-l); padding: 0 0 8px; }
+.equip th, .equip td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line-l); }
+.equip thead th { background: var(--ink); color: #fff; font: 700 .82rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .12em; }
+.equip tbody th { font-weight: 600; }
+.equip td { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.equip tr:last-child th, .equip tr:last-child td { border-bottom: 0; }
+.equip .num-col { text-align: right; }
+.tow-fleet { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.tow-fleet li { padding: 8px 12px; border-radius: 8px; background: #fff; border: 1px solid var(--line-l); font-weight: 600; }
+.tow-fleet li b { color: var(--red-text); }
 .stats { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 22px; }
 .creds { border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; background: #fff; }
-.creds .row { display: grid; grid-template-columns: repeat(2, 1fr); }
-.creds div > span { display: block; padding: 12px 16px; }
+.creds .row { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0; }
 .creds dt, .creds dd { margin: 0; }
 .creds .cell { padding: 12px 16px; border-right: 2px solid var(--ink); }
 .creds .cell:last-child { border-right: 0; }
 .creds dt { font: 700 .8rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--muted-l); }
 .creds dd { font: 800 1.7rem/1.1 var(--display); letter-spacing: .02em; }
 .creds .foot { border-top: 2px solid var(--ink); padding: 10px 16px; font-weight: 600; font-size: .98rem; }
-.fleet { padding: 12px 16px 14px; border-radius: 12px; background: var(--ink); color: var(--paint); display: flex; flex-direction: column; justify-content: center; gap: 6px; }
-.fleet small { font: 700 .8rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--muted-d); }
-.fleet strong { font: 800 1.7rem/1.15 var(--display); }
 .note { font-size: .92rem; color: var(--muted-l); margin-top: 10px; }
 
 /* Forms */
-.form { margin-top: 30px; padding: 22px 18px; border-radius: 16px; background: #fff; color: var(--ink); border: 1px solid #DDD7CB; }
+.form { margin-top: 30px; padding: 22px 18px; border-radius: 16px; background: #fff; color: var(--ink); border: 1px solid var(--line-l); }
 .form h3 { font-size: 1.7rem; font-weight: 800; margin-bottom: 4px; }
 .form .hint { color: var(--muted-l); margin-bottom: 16px; }
 .fields { display: grid; gap: 14px; }
 .field label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: 6px; }
-.field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 11px 12px; border-radius: 10px; border: 2px solid #C9C3B6; background: #FBFAF7; color: var(--ink); font: 400 1.05rem var(--body); }
+.field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 11px 12px; border-radius: 10px; border: 2px solid #C2C7CB; background: #F9FAFB; color: var(--ink); font: 400 1.05rem var(--body); }
 .field textarea { min-height: 96px; resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--ink); outline: 3px solid var(--focus); outline-offset: 1px; }
 .form .btn { width: 100%; margin-top: 18px; }
@@ -170,21 +212,26 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 .tone-night .field input:focus, .tone-night .field select:focus, .tone-night .field textarea:focus { border-color: var(--paint); }
 
 /* Trust */
-.rating { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+.police { margin-top: 24px; padding: 18px 20px; border-radius: 14px; background: var(--ink); color: #fff; }
+.police strong { display: block; font: 800 clamp(1.6rem, 2.8vw, 2.1rem)/1.1 var(--display); margin-bottom: 8px; }
+.police p { color: #C9CED3; }
+.rating { display: flex; align-items: center; gap: 16px; margin-top: 26px; }
 .rating .big { font: 800 4.6rem/0.9 var(--display); }
 .stars { display: flex; gap: 3px; }
-.stars svg { width: 22px; height: 22px; }
-.reviews { display: grid; gap: 12px; margin-top: 26px; }
-.review { margin: 0; padding: 18px; border-radius: 14px; background: #fff; border: 1px dashed #B9B2A3; }
+.stars svg { width: 22px; height: 22px; fill: var(--signal); }
+.reviews { display: grid; gap: 12px; margin-top: 22px; }
+.review { margin: 0; padding: 18px; border-radius: 14px; background: #fff; border: 1px dashed #AAB1B6; }
 .review blockquote { margin: 0 0 10px; font-size: 1.05rem; }
 .review figcaption { font-size: .92rem; color: var(--muted-l); }
-.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 22px; }
-.photo { aspect-ratio: 4 / 3; border-radius: 12px; display: grid; place-items: center; text-align: center; padding: 8px; background: repeating-linear-gradient(135deg, #E2DCCF 0 10px, #EAE5DA 10px 20px); border: 1px dashed #B9B2A3; font-size: .85rem; }
 .themes { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .themes li { padding: 7px 12px; border-radius: 999px; background: var(--ink); color: var(--paint); font-weight: 600; font-size: .95rem; }
+.dealer { margin-top: 30px; padding: 20px; border-radius: 16px; background: #fff; border: 2px solid var(--ink); }
+.dealer h3 { font-size: 1.7rem; font-weight: 800; margin-bottom: 6px; }
+.dealer p { color: var(--muted-l); }
+.dealer .btn { margin-top: 14px; }
 
 /* Service area */
-.map { margin-top: 24px; background: #F7F4EE; border: 1px solid #D5CEC0; border-radius: 16px; padding: 10px; }
+.map { margin-top: 24px; background: #F6F7F8; border: 1px solid #CDD2D6; border-radius: 16px; padding: 10px; }
 .map svg { width: 100%; height: auto; }
 .map text { font-family: var(--body); font-weight: 600; fill: var(--ink); }
 .map figcaption { font-size: .85rem; color: var(--muted-l); padding: 4px 6px 2px; }
@@ -192,19 +239,42 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 .roads li { padding: 7px 12px; border-radius: 8px; background: var(--green); color: #fff; font: 700 1.05rem/1.2 var(--display); letter-spacing: .03em; }
 
 /* Release */
-.release { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 10px; }
+.cash { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 24px; padding: 16px 18px; border-radius: 14px; background: var(--red); color: #fff; }
+.cash strong { font: 800 clamp(2rem, 4vw, 2.6rem)/1 var(--display); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.cash span { font-weight: 600; }
+.cash .ico { width: 34px; height: 34px; flex: none; }
+.release { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 10px; }
 .release li { display: grid; grid-template-columns: 28px 1fr; gap: 4px 14px; padding: 16px; border-radius: 14px; background: var(--raised); border: 1px solid var(--edge); }
-.release .ico { color: var(--amber); grid-row: 1 / span 2; }
+.release .ico { color: var(--red-on-dark); grid-row: 1 / span 2; }
 .release b { font-family: var(--display); font-weight: 700; font-size: 1.25rem; }
 .release span { color: var(--muted-d); }
 .release a { color: var(--paint); }
+.auction-next { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 6px 16px; margin-top: 20px; padding: 16px 18px; border-radius: 14px; border: 2px dashed #4A5058; background: var(--raised); }
+.auction-next small { font: 700 .82rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--muted-d); }
+.auction-next strong { grid-column: 1; font: 800 1.6rem/1.1 var(--display); }
+.auction-next .btn { grid-column: 2; grid-row: 1 / span 2; min-height: 48px; }
+.auction-next.is-set { border: 2px solid var(--red-on-dark); background: linear-gradient(90deg, rgba(199,6,6,.28), rgba(199,6,6,.08)); }
+.auction-next.is-set small { color: #FFB3B3; }
+
+/* Facility */
+.figs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 26px; }
+.fig { padding: 16px; border-radius: 14px; background: #fff; border: 1px solid var(--line-l); }
+.fig strong { display: block; font: 800 clamp(2rem, 3.4vw, 2.6rem)/1 var(--display); color: var(--red-text); margin-bottom: 6px; }
+.fig strong small { font-size: .62em; letter-spacing: .02em; }
+.fig > span { display: block; color: var(--muted-l); font-size: .98rem; line-height: 1.4; }
+.secure { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; }
+.secure li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--line-l); }
+.secure .ico { color: var(--red-text); flex: none; }
+.training { margin-top: 22px; padding: 16px 18px; border-left: 4px solid var(--red); background: #fff; border-radius: 0 12px 12px 0; }
 
 /* Contact + footer */
-.big-call { display: inline-flex; flex-direction: column; gap: 2px; margin-top: 18px; padding: 16px 22px; border-radius: 14px; background: var(--amber); color: var(--ink); text-decoration: none; }
+.big-call { display: inline-flex; flex-direction: column; gap: 2px; margin-top: 18px; padding: 16px 22px; border-radius: 14px; background: var(--red); color: #fff; text-decoration: none; }
+.big-call:hover { background: var(--red-deep); }
 .big-call small { font: 700 .9rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; }
 .big-call strong { font: 800 clamp(2rem, 5vw, 3rem)/1 var(--display); }
+.visit { margin-top: 16px; font-weight: 600; }
 .site-footer .grid { display: grid; gap: 22px; }
-.site-footer h2 { font-size: 1.6rem; margin: 0 0 6px; }
+.site-footer .f-logo img { height: 120px; width: auto; }
 .site-footer dl { margin: 0; display: grid; gap: 12px; }
 .site-footer dt { font: 700 .82rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--muted-d); }
 .site-footer dd { margin: 2px 0 0; font-weight: 600; }
@@ -214,11 +284,11 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 /* Mobile call bar: always visible below 900px */
 .callbar { position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); background: rgba(12,13,15,.97); border-top: 1px solid var(--edge); }
 .callbar a { min-height: 56px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; }
-.callbar .cb-call { background: var(--amber); color: var(--ink); }
+.callbar .cb-call { background: var(--red); color: #fff; }
 .callbar .cb-call span { display: flex; flex-direction: column; line-height: 1.05; }
 .callbar .cb-call small { font: 700 .78rem var(--display); text-transform: uppercase; letter-spacing: .12em; }
 .callbar .cb-call strong { font: 800 1.3rem var(--display); }
-.callbar .cb-quote { padding: 0 14px; border: 2px solid rgba(236,231,219,.5); color: var(--paint); font-weight: 600; font-size: .95rem; }
+.callbar .cb-quote { padding: 0 14px; border: 2px solid rgba(236,238,240,.5); color: var(--paint); font-weight: 600; font-size: .95rem; }
 
 /* Mobile nav drawer */
 .nav { display: none; }
@@ -237,15 +307,15 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 .part { position: absolute; left: 0; top: 0; width: 0; height: 0; transform-origin: 0 0; will-change: transform; }
 .part > svg { position: absolute; overflow: visible; }
 .truck-layer[hidden], .part[hidden] { display: none; }
-.lane-m { position: absolute; z-index: 1; left: 10px; width: 30px; background: var(--road); border-left: 2px solid #8E8A82; border-right: 2px solid #8E8A82; pointer-events: none; }
-.lane-m::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: repeating-linear-gradient(180deg, rgba(236,231,219,.8) 0 10px, transparent 10px 22px); }
+.lane-m { position: absolute; z-index: 1; left: 10px; width: 30px; background: var(--road); border-left: 2px solid #8E9296; border-right: 2px solid #8E9296; pointer-events: none; }
+.lane-m::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: repeating-linear-gradient(180deg, rgba(236,238,240,.8) 0 10px, transparent 10px 22px); }
 .lane-m .bridge { position: absolute; left: -10px; right: -10px; height: 22px; background: #9A9CA0; border-top: 3px solid #C4C6C9; border-bottom: 3px solid #6E7176; box-shadow: 0 8px 10px rgba(0,0,0,.25); }
 .lane-m .yard { position: absolute; left: -8px; right: -8px; height: 40px; border: 2px dashed #5A5F66; border-radius: 8px; background: #1A1D21; }
 .truck-fixed { position: fixed; z-index: 4; left: 27px; top: 0; width: 0; height: 0; pointer-events: none; }
 
 .journey { overflow-x: clip; }
 .st-rig .v-wrecker, .st-wrecker .v-rig { display: none; }
-.part.winch i { position: absolute; left: 0; top: -1.5px; width: 1px; height: 3px; background: #F5A300; box-shadow: 0 0 6px rgba(245,163,0,.6); }
+.part.winch i { position: absolute; left: 0; top: -1.5px; width: 1px; height: 3px; background: #E4E8EB; box-shadow: 0 0 6px rgba(228,232,235,.6); }
 .static .part { will-change: auto; }
 .tow-car { transition: opacity .3s; }
 
@@ -266,52 +336,71 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 /* Desktop: two columns, road in the open column */
 @media (min-width: 900px) and (hover: hover) and (pointer: fine) {
   body { padding-bottom: 0; }
-  :root { --header: 64px; }
+  :root { --header: 76px; }
   .callbar { display: none; }
   .menu-btn { display: none; }
   .nav { display: block; }
+  .fb { margin-left: 0; }
+  .brand img { height: 64px; }
   .btn.head-call { display: inline-flex; min-height: 44px; padding: 8px 16px; }
   .head-call small { font: 700 .8rem var(--display); text-transform: uppercase; letter-spacing: .12em; }
-  .site-header .bar { padding: 0 32px; gap: 20px; }
+  .site-header .bar { padding: 0 32px 0 26px; gap: 16px; }
   .stage { padding: 170px 0; }
   .stage > .wrap { display: grid; grid-template-columns: minmax(0, 54fr) minmax(0, 46fr); gap: 48px; padding: 0 32px; }
   .stage[data-road="left"] > .wrap { grid-template-columns: minmax(0, 46fr) minmax(0, 54fr); }
   .stage[data-road="left"] > .wrap > .copy { grid-column: 2; }
   .stage[data-road="left"] > .wrap > .lane { grid-column: 1; grid-row: 1; }
   .lane { display: block; min-height: 1px; }
-  .hero { padding-top: 56px; min-height: calc(100vh - 94px); }
+  .hero { padding-top: 56px; min-height: calc(100vh - 106px); }
   .hero .paths { grid-template-columns: 1fr 1fr; max-width: 640px; }
   .cards { grid-template-columns: 1fr 1fr; }
-  .stats { grid-template-columns: 1fr 1fr; }
+  .card.feature { grid-column: 1 / -1; }
+  .stats { grid-template-columns: 1fr; }
   .reviews { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
   .fields.two { grid-template-columns: 1fr 1fr; }
   .fields .full { grid-column: 1 / -1; }
   .form { padding: 28px; }
   .release { grid-template-columns: 1fr 1fr; }
+  .figs { grid-template-columns: repeat(3, 1fr); }
   .site-footer .grid { grid-template-columns: 1fr 1fr; }
   .stage.site-footer { padding-bottom: 120px; }
   .lane-m { display: none; }
 }
 .nav a, .btn .num { white-space: nowrap; }
 @media (min-width: 900px) and (max-width: 1199px) and (hover: hover) and (pointer: fine) {
-  .site-header .bar { padding: 0 20px; gap: 12px; }
-  .nav a { padding: 8px 6px; font-size: .9rem; }
+  .site-header .bar { padding: 0 16px 0 12px; gap: 8px; }
+  .brand img { height: 56px; }
+  .nav a { padding: 8px 6px; font-size: .88rem; }
   .head-call small { display: none; }
   .btn.head-call { padding: 8px 12px; }
   .hero h1 { font-size: 3.5rem; max-width: none; }
   .hero .paths { grid-template-columns: 1fr; max-width: 460px; }
   .path { min-height: 64px; padding: 10px 16px; }
+  .figs { grid-template-columns: 1fr 1fr; }
 }
 @media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
-  .nav a { padding: 8px 12px; }
+  .nav a { padding: 8px 11px; }
 }
 @media (max-width: 899px), (hover: none), (pointer: coarse) {
   .callbar { display: grid; }
 }
 @media (min-width: 560px) and (max-width: 899px) {
   .cards { grid-template-columns: 1fr 1fr; }
+  .card.feature { grid-column: 1 / -1; }
   .fields.two { grid-template-columns: 1fr 1fr; }
   .fields .full { grid-column: 1 / -1; }
+  .figs { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 559px) {
+  .auction-next { grid-template-columns: 1fr; }
+  .auction-next .btn { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 8px; }
+}
+@media (max-width: 420px) {
+  .equip th, .equip td { padding: 8px 8px; }
+  .equip table { font-size: .92rem; }
+  .gallery.three { grid-template-columns: 1fr 1fr; }
+  .gallery.three figure:last-child { grid-column: 1 / -1; }
+  .gallery.three figure:last-child img { aspect-ratio: 16 / 9; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -320,20 +409,28 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 .rm *, .rm *::before, .rm *::after { animation: none !important; transition: none !important; }
 .rm .lights .lb-a, .rm .lights .lb-glow-a, .rm .hazards .hz { opacity: 1; }
 </style>
-<!-- LocalBusiness JSON-LD. TODO: aggregateRating once a live Google value is wired; real address, phone and url once Jennifer confirms. -->
+<!-- LocalBusiness JSON-LD. TODO: aggregateRating once a live Google value is wired; url once the domain is settled. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Ross Towing",
-  "legalName": "Larry Ross Garage Inc",
-  "description": "Family-owned 24/7 towing, roadside assistance, heavy duty recovery and crane service in Southfield, Michigan, plus a licensed for-hire freight carrier (USDOT 1196761, MC 621070) serving Michigan and Ohio.",
-  "telephone": "[DISPATCH PHONE]",
-  "url": "[DOMAIN]",
-  "address": { "@type": "PostalAddress", "streetAddress": "[ADDRESS]", "addressLocality": "Southfield", "addressRegion": "MI", "addressCountry": "US" },
+  "legalName": "Larry Ross Garage, Inc.",
+  "description": "Family owned towing, recovery and storage in Southfield, Michigan since 1962. Staffed 24 hours a day, 365 days a year. 50 ton rotator for semi trucks, fire trucks and buses, licensed hazardous spill cleanup, impound release, public auctions, and a licensed for-hire freight carrier (USDOT 1196761, MC 621070).",
+  "image": "https://journeymanwebco.com/preview/ross-towing/img/logo-360.png",
+  "logo": "https://journeymanwebco.com/preview/ross-towing/img/logo-360.png",
+  "telephone": "+1-248-356-6011",
+  "foundingDate": "1962",
+  "address": { "@type": "PostalAddress", "streetAddress": "21360 Telegraph Rd", "addressLocality": "Southfield", "addressRegion": "MI", "postalCode": "48033", "addressCountry": "US" },
   "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "00:00", "closes": "23:59" }],
-  "areaServed": ["Southfield, MI","Detroit, MI","Farmington Hills, MI","Dearborn, MI","Oak Park, MI","Lathrup Village, MI","Royal Oak, MI"],
-  "knowsAbout": ["Light duty towing","Flatbed towing","Heavy duty towing","Winch outs","Accident recovery","Police impound tows","Crane and lifting service","Lockouts","Jump starts","Flat tires","Fuel delivery","Battery service","Freight hauling"]
+  "sameAs": ["https://facebook.com/accidentrecovery"],
+  "areaServed": [
+    { "@type": "City", "name": "Southfield, MI" }, { "@type": "City", "name": "Detroit, MI" }, { "@type": "City", "name": "Farmington Hills, MI" },
+    { "@type": "City", "name": "Dearborn, MI" }, { "@type": "City", "name": "Oak Park, MI" }, { "@type": "City", "name": "Lathrup Village, MI" },
+    { "@type": "City", "name": "Royal Oak, MI" }, { "@type": "AdministrativeArea", "name": "Oakland County, MI" }, { "@type": "AdministrativeArea", "name": "Wayne County, MI" },
+    { "@type": "AdministrativeArea", "name": "Macomb County, MI" }, { "@type": "State", "name": "Michigan" }
+  ],
+  "knowsAbout": ["Light duty towing","Flatbed towing","Police towing and impounds","Heavy duty towing","50 ton rotator recovery","Winch outs","Accident recovery","Crane and lifting service","Hazardous spill cleanup","Diesel and oil spill containment","Electric vehicle fire storage","Roadside assistance","Vehicle storage","Public vehicle auctions","Freight hauling","Machinery hauling"]
 }
 </script>
 <script src="/config.js" defer></script>
@@ -348,12 +445,13 @@ h3 { font-size: 1.4rem; font-weight: 700; }
     <linearGradient id="rt-beam" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#FFF1BF" stop-opacity=".42"/><stop offset="1" stop-color="#FFF1BF" stop-opacity="0"/></linearGradient>
     <radialGradient id="rt-glow"><stop offset="0" stop-color="#FFB81F" stop-opacity=".65"/><stop offset="1" stop-color="#FFB81F" stop-opacity="0"/></radialGradient>
     <radialGradient id="rt-pool"><stop offset="0" stop-color="#FFE9B0" stop-opacity=".16"/><stop offset="1" stop-color="#FFE9B0" stop-opacity="0"/></radialGradient>
-    <pattern id="rt-chev" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="8" fill="#F5A300"/><rect x="4" width="4" height="8" fill="#15171A"/></pattern>
+    <radialGradient id="rt-oil" cx=".45" cy=".45" r=".6"><stop offset="0" stop-color="#08090B"/><stop offset=".55" stop-color="#121418"/><stop offset=".76" stop-color="#2A2342"/><stop offset=".88" stop-color="#1D3B3C"/><stop offset="1" stop-color="#15171A"/></radialGradient>
+    <pattern id="rt-chev" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="8" fill="#C70606"/><rect x="4" width="4" height="8" fill="#F2F2F2"/></pattern>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
     <symbol id="i-hook" viewBox="0 0 24 24"><path d="M8 2h8"/><path d="M12 2v10"/><path d="M12 12a4 4 0 1 1-4 4"/></symbol>
     <symbol id="i-flatbed" viewBox="0 0 24 24"><path d="M1 15h14V6"/><path d="M15 9h4l3 3v3h-7"/><path d="M3 11l9-3"/><circle cx="5" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M12 8l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></symbol>
     <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 5h13v11H1z"/><path d="M14 9h4l4 4v3h-8"/><circle cx="5" cy="18" r="2"/><circle cx="10" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
     <symbol id="i-winch" viewBox="0 0 24 24"><circle cx="7" cy="12" r="5"/><circle cx="7" cy="12" r="1.5"/><path d="M12 12h10"/><path d="M19 9l3 3-3 3"/></symbol>
     <symbol id="i-crash" viewBox="0 0 24 24"><path d="M12 2l2 5.5 5.5-1.8-3 4.8 5 3-5.8.8.8 5.7-4.5-3.7-4.5 3.7.8-5.7L2.5 13.5l5-3-3-4.8L10 7.5z"/></symbol>
@@ -371,8 +469,21 @@ h3 { font-size: 1.4rem; font-weight: 700; }
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v4h4M9 12h6M9 16h6"/></symbol>
-    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+    <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.8"/><path d="M6 9.5v5M18 9.5v5"/></symbol>
     <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.5S5.5 10 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10 12 2.5 12 2.5z"/><path d="M9 15a3 3 0 0 0 3 3"/></symbol>
+    <symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M3 18h18"/><path d="M4.5 18v-3a7.5 7.5 0 0 1 15 0v3"/><path d="M10 7.8V5h4v2.8"/></symbol>
+    <symbol id="i-radio" viewBox="0 0 24 24"><rect x="6" y="8" width="12" height="14" rx="2"/><path d="M9 8l-2-6"/><path d="M9 13h6M9 17h6"/></symbol>
+    <symbol id="i-trailer" viewBox="0 0 24 24"><rect x="2" y="6" width="16" height="10" rx="1"/><path d="M18 13h4"/><circle cx="7" cy="18" r="2"/><circle cx="12" cy="18" r="2"/></symbol>
+    <symbol id="i-spray" viewBox="0 0 24 24"><path d="M8 9h6v13H8z"/><path d="M9 9V5h4v4"/><path d="M13 5h3"/><path d="M18 3v.01M20 5v.01M18 7v.01M21 2v.01"/></symbol>
+    <symbol id="i-sweep" viewBox="0 0 24 24"><path d="M3 17h11l3-6h4"/><circle cx="6" cy="19" r="2"/><circle cx="13" cy="19" r="2"/><path d="M3 21h18"/><path d="M5 11h7v6"/></symbol>
+    <symbol id="i-dump" viewBox="0 0 24 24"><path d="M2 14l3-7h13l2 7z"/><path d="M2 14h18"/><circle cx="6" cy="17" r="2"/><circle cx="11" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-2 2-5 5-5 8a7 7 0 0 0 7 7z"/></symbol>
+    <symbol id="i-wall" viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M3 21h18"/><path d="M8 21v-7h8v7"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 8l12-4 2 5-12 4z"/><path d="M8 12l1 4H4"/><path d="M17 7l4 1"/></symbol>
+    <symbol id="i-gate" viewBox="0 0 24 24"><path d="M3 21V4M21 21V4"/><path d="M3 8h18M3 16h18"/><path d="M7 8v8M11 8v8M15 8v8M19 8v8"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 22v-8.1h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4v3.2h2.8V22z"/></symbol>
   </defs>
 </svg>
 
@@ -381,19 +492,21 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 
 <header class="site-header">
   <div class="bar">
-    <a class="wordmark" href="#top" aria-label="Ross Towing, back to top"><i aria-hidden="true"></i>ROSS <span>TOWING</span></a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <a class="brand" href="#top" aria-label="Ross Towing, back to top"><picture><source type="image/avif" srcset="img/logo-120.avif 120w, img/logo-240.avif 240w, img/logo-360.avif 360w" sizes="(min-width: 900px) 97px, 82px"><source type="image/webp" srcset="img/logo-120.webp 120w, img/logo-240.webp 240w, img/logo-360.webp 360w" sizes="(min-width: 900px) 97px, 82px"><img src="img/logo-240.png" srcset="img/logo-120.png 120w, img/logo-240.png 240w, img/logo-360.png 360w" sizes="(min-width: 900px) 97px, 82px" width="411" height="272" alt="" loading="eager" decoding="async"></picture></a>
     <nav class="nav" id="site-nav" aria-label="Main">
       <ul>
         <li><a href="#towing">Towing</a></li>
-        <li><a href="#roadside">Roadside</a></li>
+        <li><a href="#heavy">Heavy Duty</a></li>
+        <li><a href="#spill">Spill Response</a></li>
         <li><a href="#freight">Freight</a></li>
-        <li><a href="#service-area">Service Area</a></li>
         <li><a href="#release">Vehicle Release</a></li>
+        <li><a href="#auctions">Auctions</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn btn-call head-call" href="tel:[DISPATCH PHONE]" data-track="preview_call" data-track-detail="header"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><small>24/7</small> <span class="num" data-phone>[DISPATCH PHONE]</span></a>
+    <a class="fb" href="https://facebook.com/accidentrecovery" target="_blank" rel="noopener" aria-label="Ross Towing on Facebook (opens in a new tab)"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <a class="btn btn-call head-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="header"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><small>24/7</small> <span class="num" data-phone>248-356-6011</span></a>
   </div>
 </header>
 
@@ -405,12 +518,12 @@ h3 { font-size: 1.4rem; font-weight: 700; }
     <div class="wrap">
       <div class="copy">
         <p class="eyebrow">Southfield, Michigan · 24/7 dispatch</p>
-        <h1 id="hero-h">24/7 towing and recovery in Southfield and Metro Detroit since <span class="ph ph-stamp">[YEAR]</span></h1>
-        <p class="sub">Family owned. Towing and roadside help around the clock, and a licensed freight carrier for Michigan and Ohio.</p>
+        <h1 id="hero-h">24/7 towing and recovery in Southfield and Metro Detroit since <span class="yr">1962</span></h1>
+        <p class="sub">Family owned. Towing, heavy recovery and spill response around the clock, plus a licensed freight carrier for Michigan and Ohio.</p>
         <div class="paths">
-          <a class="path path-tow" href="tel:[DISPATCH PHONE]" data-track="preview_call" data-track-detail="hero">
+          <a class="path path-tow" href="tel:+12483566011" data-track="preview_call" data-track-detail="hero">
             <small>Need a tow</small>
-            <strong>Call <span data-phone>[DISPATCH PHONE]</span></strong>
+            <strong>Call <span data-phone>248-356-6011</span></strong>
             <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
           </a>
           <a class="path path-freight" href="#freight-quote" data-track="preview_book" data-track-detail="hero freight quote">
@@ -419,9 +532,10 @@ h3 { font-size: 1.4rem; font-weight: 700; }
             <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
-        <ul class="proof">
-          <li><svg class="star" aria-hidden="true"><use href="#i-star"/></svg>4.7 on Google</li>
-          <li>Family owned</li>
+        <ul class="strip" aria-label="Credentials">
+          <li>Since 1962</li>
+          <li>Farmington Hills PD and Michigan State Police towing</li>
+          <li>MDOT certified spill response</li>
           <li>USDOT 1196761</li>
         </ul>
       </div>
@@ -436,20 +550,22 @@ h3 { font-size: 1.4rem; font-weight: 700; }
         <section id="towing" aria-labelledby="towing-h">
           <p class="eyebrow">Towing</p>
           <h2 id="towing-h">Towing, day or night</h2>
-          <p class="lede">One call to dispatch, any hour. A Ross truck comes to you.</p>
+          <p class="lede">We're staffed 24 hours a day, 365 days a year. One call and a Ross truck comes to you.</p>
           <div class="cards">
             <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-hook"/></svg><h3>Light duty towing</h3><p>Cars, SUVs and pickups.</p></article>
             <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-flatbed"/></svg><h3>Flatbed towing</h3><p>Your whole vehicle rides on the bed.</p></article>
-            <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><h3>Police impound tows</h3><p>Towed to our yard? See <a href="#release">getting your vehicle back</a>.</p></article>
+            <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><h3>Police towing and impounds</h3><p>Contracted with the Michigan State Police and the Farmington Hills Police Department. Towed to our yard? See <a href="#release">getting your vehicle back</a>.</p></article>
+            <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg><h3>Dealership towing</h3><p>We tow for car dealerships in the area. <a href="#dealers">Dealer partnerships</a>.</p></article>
           </div>
+          <figure class="shot"><picture><source type="image/avif" srcset="img/wrecker-79-640.avif 640w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)"><source type="image/webp" srcset="img/wrecker-79-640.webp 640w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)"><img src="img/wrecker-79-640.jpg" srcset="img/wrecker-79-640.jpg 640w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)" width="640" height="446" alt="Ross Towing wrecker number 79, a black tow truck marked Police Towing." loading="lazy" decoding="async"></picture></figure>
           <div class="inline-call">
-            <a class="btn btn-call" href="tel:[DISPATCH PHONE]" data-track="preview_call" data-track-detail="towing"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call dispatch <span class="num" data-phone>[DISPATCH PHONE]</span></a>
+            <a class="btn btn-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="towing"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call <span class="num" data-phone>248-356-6011</span></a>
           </div>
         </section>
         <section id="roadside" class="sub-block" aria-labelledby="roadside-h">
           <p class="eyebrow">Roadside</p>
           <h2 id="roadside-h">Roadside help</h2>
-          <p class="lede">Not every call needs a tow. Dispatch can send a truck for:</p>
+          <p class="lede">Not every call needs a tow. We can send a truck for:</p>
           <ul class="chips">
             <li><svg class="ico" aria-hidden="true"><use href="#i-key"/></svg>Lockouts</li>
             <li><svg class="ico" aria-hidden="true"><use href="#i-bolt"/></svg>Jump starts</li>
@@ -467,32 +583,107 @@ h3 { font-size: 1.4rem; font-weight: 700; }
   <section class="stage tone-deep" id="heavy" data-road="left" data-stage="heavy" aria-labelledby="heavy-h">
     <div class="wrap">
       <div class="copy">
-        <p class="eyebrow">Heavy duty</p>
+        <p class="eyebrow">Heavy duty and recovery</p>
         <h2 id="heavy-h">Heavy duty, recovery and lifting</h2>
-        <p class="lede">Trucks and big vehicles, vehicles off the road, and jobs that need a crane.</p>
+        <p class="lede">Semi trucks, fire trucks, buses and other big vehicles, vehicles off the road, and jobs that need a crane.</p>
         <div class="cards">
+          <article class="card feature reveal"><span class="tag">50 ton rotator</span><h3 class="sr">50 ton rotator</h3><p>Our rotator handles semi trucks, fire trucks, buses and similar heavy vehicles.</p></article>
           <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg><h3>Heavy duty and truck towing</h3><p>Trucks and other large vehicles.</p></article>
           <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-winch"/></svg><h3>Winch outs</h3><p>Pulling vehicles out of ditches, mud and snow.</p></article>
           <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-crash"/></svg><h3>Accident recovery</h3><p>Getting vehicles off the road after a crash.</p></article>
           <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-crane"/></svg><h3>Crane and lifting service</h3><p>Crane work for lifting jobs.</p></article>
         </div>
+        <figure class="shot"><picture><source type="image/avif" srcset="img/recovery-rollover-night-640.avif 640w, img/recovery-rollover-night-1024.avif 1024w, img/recovery-rollover-night-1206.avif 1206w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)"><source type="image/webp" srcset="img/recovery-rollover-night-640.webp 640w, img/recovery-rollover-night-1024.webp 1024w, img/recovery-rollover-night-1206.webp 1206w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)"><img src="img/recovery-rollover-night-1024.jpg" srcset="img/recovery-rollover-night-640.jpg 640w, img/recovery-rollover-night-1024.jpg 1024w, img/recovery-rollover-night-1206.jpg 1206w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)" width="1206" height="837" alt="At night, two red rotator booms, one marked ROSS, raised over a semi tractor lying on its side, with fire trucks lit up behind." loading="lazy" decoding="async"></picture></figure>
+        <div class="gallery">
+          <figure><picture><source type="image/avif" srcset="img/rotator-88-640.avif 640w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><source type="image/webp" srcset="img/rotator-88-640.webp 640w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><img src="img/rotator-88-640.jpg" srcset="img/rotator-88-640.jpg 640w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)" width="640" height="480" alt="Ross Towing heavy wrecker number 88, a red truck marked Police Towing, with its boom stowed." loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source type="image/avif" srcset="img/freeway-recovery-640.avif 640w, img/freeway-recovery-1024.avif 1024w, img/freeway-recovery-1206.avif 1206w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><source type="image/webp" srcset="img/freeway-recovery-640.webp 640w, img/freeway-recovery-1024.webp 1024w, img/freeway-recovery-1206.webp 1206w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><img src="img/freeway-recovery-1024.jpg" srcset="img/freeway-recovery-640.jpg 640w, img/freeway-recovery-1024.jpg 1024w, img/freeway-recovery-1206.jpg 1206w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)" width="1206" height="856" alt="On a coned off freeway lane, a red heavy wrecker with its outriggers down next to a white Ross Towing truck carrying a blue semi cab." loading="lazy" decoding="async"></picture></figure>
+        </div>
+        <div class="fb-line">
+          <a class="btn btn-line btn-fb" href="https://facebook.com/accidentrecovery" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-fb"/></svg>See our recent recovery work</a>
+          <span class="muted">On Facebook, opens in a new tab</span>
+        </div>
         <div class="inline-call">
           <p>Heavy job?</p>
-          <a class="btn btn-call" href="tel:[DISPATCH PHONE]" data-track="preview_call" data-track-detail="heavy"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call <span class="num" data-phone>[DISPATCH PHONE]</span></a>
+          <a class="btn btn-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="heavy"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call <span class="num" data-phone>248-356-6011</span></a>
         </div>
       </div>
       <div class="lane" aria-hidden="true"></div>
     </div>
   </section>
 
-  <!-- 4. Freight: under the I-696 overpass the wrecker becomes a flatbed rig -->
+  <!-- 4. Environmental spill response: the truck passes a contained spill on the shoulder -->
+  <section class="stage tone-steel" id="spill" data-road="right" data-stage="spill" aria-labelledby="spill-h">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">Environmental spill response · MDOT certified</p>
+        <h2 id="spill-h">One of only two licensed towing companies permitted to respond anywhere in Michigan</h2>
+        <p class="lede">Ross Towing is a licensed and permitted hazardous spill and material cleanup company. We specialize in diesel fuel and petroleum based oil containment and cleanup.</p>
+        <p class="license"><small>License</small><strong># 98000-105807-24-122024</strong></p>
+        <ul class="facts">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-hardhat"/></svg>HAZWOPER 40 certified technicians on staff</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-radio"/></svg>An incident commander available for 24 hour response</li>
+        </ul>
+        <h3 class="sr">Spill equipment</h3>
+        <div class="cards">
+          <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-trailer"/></svg><h3>Three spill trailers</h3><p>Equipped with diesel pump off stations, pump sprayers, absorbents, booms and pools.</p></article>
+          <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-spray"/></svg><h3>Roadway degreaser</h3><p>A biohazard friendly degreaser that removes hydrocarbons from petroleum and oil spills through a chemical reaction, leaving only H2O and CO2, which is safe for storm water runoff.</p></article>
+          <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-sweep"/></svg><h3>Sweepers</h3><p>Two skid steers with power sweeper attachments, plus a self contained 10 yard street sweeper.</p></article>
+          <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-dump"/></svg><h3>Debris hauling</h3><p>A tri-axle dump trailer for hauling debris from scenes.</p></article>
+          <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-flame"/></svg><h3>Electric vehicle fires</h3><p>Two EV fire blankets to help fire departments and protect our drivers and staff if a vehicle reignites during transport or storage.</p></article>
+          <article class="card reveal"><svg class="ico" aria-hidden="true"><use href="#i-wall"/></svg><h3>EV storage area</h3><p>An enclosed space with a three sided brick wall that protects other vehicles in the yard if an EV reignites.</p></article>
+        </div>
+        <div class="inline-call">
+          <p>Spill on scene?</p>
+          <a class="btn btn-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="spill"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call <span class="num" data-phone>248-356-6011</span></a>
+        </div>
+      </div>
+      <div class="lane" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- 5. Freight: under the I-696 overpass the wrecker becomes a flatbed rig -->
   <section class="stage tone-day" id="freight" data-road="right" data-stage="freight" aria-labelledby="freight-h">
     <div class="wrap">
       <div class="copy">
         <p class="eyebrow">Freight division</p>
         <h2 id="freight-h">Also a licensed freight carrier</h2>
         <p class="lede">Ross is a for-hire trucking company too, hauling machinery, equipment and materials across Michigan and Ohio.</p>
+        <figure class="shot"><picture><source type="image/avif" srcset="img/freight-rig-sunset-640.avif 640w, img/freight-rig-sunset-1024.avif 1024w, img/freight-rig-sunset-1600.avif 1600w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)"><source type="image/webp" srcset="img/freight-rig-sunset-640.webp 640w, img/freight-rig-sunset-1024.webp 1024w, img/freight-rig-sunset-1600.webp 1600w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)"><img src="img/freight-rig-sunset-1024.jpg" srcset="img/freight-rig-sunset-640.jpg 640w, img/freight-rig-sunset-1024.jpg 1024w, img/freight-rig-sunset-1600.jpg 1600w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)" width="1600" height="1200" alt="A red Ross Towing semi tractor hitched to a long trailer, parked on gravel at sunset." loading="lazy" decoding="async"></picture></figure>
         <p class="lanes" aria-label="Lanes: Michigan and Ohio"><span>Michigan</span><span class="route" aria-hidden="true"></span><span>Ohio</span></p>
+        <h3 class="sr">Trailer types</h3>
+        <ul class="chips trailers">
+          <li>Flatbed</li><li>Conestoga</li><li>Step deck</li><li>Landoll</li><li>Lowboy</li>
+        </ul>
+        <div class="machinery">
+          <h3>Machinery hauling</h3>
+          <p>We work with companies like MacAllister CAT.</p>
+        </div>
+        <div class="gallery">
+          <figure><picture><source type="image/avif" srcset="img/rollback-excavator-640.avif 640w, img/rollback-excavator-1024.avif 1024w, img/rollback-excavator-1206.avif 1206w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><source type="image/webp" srcset="img/rollback-excavator-640.webp 640w, img/rollback-excavator-1024.webp 1024w, img/rollback-excavator-1206.webp 1206w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><img src="img/rollback-excavator-1024.jpg" srcset="img/rollback-excavator-640.jpg 640w, img/rollback-excavator-1024.jpg 1024w, img/rollback-excavator-1206.jpg 1206w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)" width="1206" height="793" alt="A white Ross Towing rollback with its bed tilted, loading a yellow compact excavator at a dirt job site." loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source type="image/avif" srcset="img/rollback-crane-640.avif 640w, img/rollback-crane-1024.avif 1024w, img/rollback-crane-1600.avif 1600w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><source type="image/webp" srcset="img/rollback-crane-640.webp 640w, img/rollback-crane-1024.webp 1024w, img/rollback-crane-1600.webp 1600w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><img src="img/rollback-crane-1024.jpg" srcset="img/rollback-crane-640.jpg 640w, img/rollback-crane-1024.jpg 1024w, img/rollback-crane-1600.jpg 1600w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)" width="1600" height="1200" alt="A white Ross Towing rollback carrying a yellow mobile crane, chained down, outside an industrial building." loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source type="image/avif" srcset="img/landoll-forklifts-640.avif 640w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><source type="image/webp" srcset="img/landoll-forklifts-640.webp 640w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><img src="img/landoll-forklifts-640.jpg" srcset="img/landoll-forklifts-640.jpg 640w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)" width="640" height="480" alt="Two yellow forklifts strapped down on a black Landoll trailer in a gravel lot." loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source type="image/avif" srcset="img/lowboy-640.avif 640w, img/lowboy-1024.avif 1024w, img/lowboy-1600.avif 1600w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><source type="image/webp" srcset="img/lowboy-640.webp 640w, img/lowboy-1024.webp 1024w, img/lowboy-1600.webp 1600w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)"><img src="img/lowboy-1024.jpg" srcset="img/lowboy-640.jpg 640w, img/lowboy-1024.jpg 1024w, img/lowboy-1600.jpg 1600w" sizes="(min-width: 900px) 300px, calc(50vw - 40px)" width="1600" height="1200" alt="An empty red lowboy trailer in a gravel yard." loading="lazy" decoding="async"></picture></figure>
+        </div>
+        <div class="equip">
+          <h3>Equipment list</h3>
+          <table>
+            <caption>Trailers</caption>
+            <thead><tr><th scope="col">Trailer</th><th scope="col">Length</th><th scope="col" class="num-col">Scale</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Flatbed</th><td>48 ft</td><td class="num-col">48,000 lbs</td></tr>
+              <tr><th scope="row">Flatbed</th><td>53 ft</td><td class="num-col">48,000 lbs</td></tr>
+              <tr><th scope="row">Conestoga</th><td>48 ft</td><td class="num-col">46,500 lbs</td></tr>
+              <tr><th scope="row">Conestoga</th><td>53 ft</td><td class="num-col">46,500 lbs</td></tr>
+              <tr><th scope="row">Step deck</th><td>53 ft</td><td class="num-col">48,000 lbs</td></tr>
+              <tr><th scope="row">Landoll</th><td>53 ft</td><td class="num-col">40,000 lbs</td></tr>
+              <tr><th scope="row">Quad axle lowboy</th><td>53 ft</td><td class="num-col">100,000 lbs</td></tr>
+            </tbody>
+          </table>
+          <p class="note" style="margin-top:14px"><b>Tow trucks:</b></p>
+          <ul class="tow-fleet">
+            <li><b>50 ton</b> rotator</li><li>Flatbed tow truck</li><li>Wrecker</li>
+          </ul>
+        </div>
         <h3 class="sr">What we haul</h3>
         <ul class="hauls">
           <li class="reveal"><svg class="ico" aria-hidden="true"><use href="#i-gear"/></svg>Large machinery and equipment</li>
@@ -502,7 +693,6 @@ h3 { font-size: 1.4rem; font-weight: 700; }
           <li class="reveal"><svg class="ico" aria-hidden="true"><use href="#i-box"/></svg>General freight</li>
         </ul>
         <div class="stats">
-          <div class="fleet"><small>Fleet</small><strong>A fleet of <span class="ph ph-stamp">[FLEET SIZE]</span> trucks</strong></div>
           <div class="creds">
             <dl class="row">
               <div class="cell"><dt>USDOT</dt><dd>1196761</dd></div>
@@ -511,7 +701,6 @@ h3 { font-size: 1.4rem; font-weight: 700; }
             <p class="foot">Authorized for hire · Interstate · Active</p>
           </div>
         </div>
-        <p class="note">Insurance: <span class="ph">[INSURANCE]</span>. Quotes handled by <span class="ph">[QUOTE CONTACT]</span>.</p>
 
         <!-- TODO: form endpoint and recipient. Ask Jennifer who handles freight quotes. Posts nowhere for now. -->
         <form class="form" id="freight-quote" data-endpoint="TODO" aria-labelledby="fq-h" novalidate>
@@ -525,6 +714,9 @@ h3 { font-size: 1.4rem; font-weight: 700; }
             <div class="field"><label for="fq-pickup">Pickup *</label><input id="fq-pickup" name="pickup" placeholder="City or address" required></div>
             <div class="field"><label for="fq-delivery">Delivery *</label><input id="fq-delivery" name="delivery" placeholder="City or address" required></div>
             <div class="field full"><label for="fq-load">What's being hauled *</label><textarea id="fq-load" name="load" placeholder="Machine, materials, vehicle..." required></textarea></div>
+            <div class="field"><label for="fq-trailer">Trailer type</label>
+              <select id="fq-trailer" name="trailer"><option value="">Not sure</option><option>Flatbed</option><option>Conestoga</option><option>Step deck</option><option>Landoll</option><option>Lowboy</option></select>
+            </div>
             <div class="field"><label for="fq-size">Dimensions or weight</label><input id="fq-size" name="size" placeholder="L × W × H, or pounds"></div>
             <div class="field"><label for="fq-date">Date needed</label><input id="fq-date" name="date" type="date"></div>
           </div>
@@ -536,19 +728,28 @@ h3 { font-size: 1.4rem; font-weight: 700; }
     </div>
   </section>
 
-  <!-- 5. Trust -->
+  <!-- 6. Trust: family owned, police and dealer work -->
   <section class="stage tone-day" id="trust" data-road="left" data-stage="trust" aria-labelledby="trust-h">
     <div class="wrap">
       <div class="copy">
-        <p class="eyebrow">Family owned</p>
-        <h2 id="trust-h">Family owned since <span class="ph ph-stamp">[YEAR]</span></h2>
-        <p class="lede">A family business on Telegraph Rd in Southfield.</p>
+        <p class="eyebrow">Since 1962</p>
+        <h2 id="trust-h">Family owned since 1962</h2>
+        <p class="lede">A fixture in the City of Southfield since 1962, providing towing, recovery and storage to the surrounding areas.</p>
+        <div class="police">
+          <strong>Trusted by the Farmington Hills Police and the Michigan State Police.</strong>
+          <p>We previously served the City of Southfield Police Department for over 50 years, and we've worked with multiple municipalities, serving police, fire departments and residents alike.</p>
+        </div>
+        <div class="gallery three">
+          <figure><picture><source type="image/avif" srcset="img/rotator-night-640.avif 640w, img/rotator-night-1024.avif 1024w, img/rotator-night-1206.avif 1206w" sizes="(min-width: 900px) 200px, calc(33vw - 28px)"><source type="image/webp" srcset="img/rotator-night-640.webp 640w, img/rotator-night-1024.webp 1024w, img/rotator-night-1206.webp 1206w" sizes="(min-width: 900px) 200px, calc(33vw - 28px)"><img src="img/rotator-night-1024.jpg" srcset="img/rotator-night-640.jpg 640w, img/rotator-night-1024.jpg 1024w, img/rotator-night-1206.jpg 1206w" sizes="(min-width: 900px) 200px, calc(33vw - 28px)" width="1206" height="701" alt="A red Ross Towing rotator marked Police Towing, lit up at night in a lot with other trucks lined up behind it." loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source type="image/avif" srcset="img/tractor-landoll-640.avif 640w, img/tractor-landoll-1024.avif 1024w, img/tractor-landoll-1205.avif 1205w" sizes="(min-width: 900px) 200px, calc(33vw - 28px)"><source type="image/webp" srcset="img/tractor-landoll-640.webp 640w, img/tractor-landoll-1024.webp 1024w, img/tractor-landoll-1205.webp 1205w" sizes="(min-width: 900px) 200px, calc(33vw - 28px)"><img src="img/tractor-landoll-1024.jpg" srcset="img/tractor-landoll-640.jpg 640w, img/tractor-landoll-1024.jpg 1024w, img/tractor-landoll-1205.jpg 1205w" sizes="(min-width: 900px) 200px, calc(33vw - 28px)" width="1205" height="845" alt="A red Ross Towing semi tractor hooked to a black Landoll trailer in a gravel yard." loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source type="image/avif" srcset="img/salt-flats-640.avif 640w, img/salt-flats-1024.avif 1024w, img/salt-flats-1206.avif 1206w" sizes="(min-width: 900px) 200px, calc(33vw - 28px)"><source type="image/webp" srcset="img/salt-flats-640.webp 640w, img/salt-flats-1024.webp 1024w, img/salt-flats-1206.webp 1206w" sizes="(min-width: 900px) 200px, calc(33vw - 28px)"><img src="img/salt-flats-1024.jpg" srcset="img/salt-flats-640.jpg 640w, img/salt-flats-1024.jpg 1024w, img/salt-flats-1206.jpg 1206w" sizes="(min-width: 900px) 200px, calc(33vw - 28px)" width="1206" height="747" alt="A brown semi tractor with an empty flatbed trailer on a wide open salt flat under a blue sky." loading="lazy" decoding="async"></picture></figure>
+        </div>
         <div class="rating">
           <!-- TODO: wire the live Google rating instead of this fixed value -->
           <span class="big" data-count="4.7">4.7</span>
           <div>
             <div class="stars" aria-hidden="true">
-              <svg style="fill:var(--amber)"><use href="#i-star"/></svg><svg style="fill:var(--amber)"><use href="#i-star"/></svg><svg style="fill:var(--amber)"><use href="#i-star"/></svg><svg style="fill:var(--amber)"><use href="#i-star"/></svg><svg style="fill:var(--amber);opacity:.45"><use href="#i-star"/></svg>
+              <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg style="opacity:.45"><use href="#i-star"/></svg>
             </div>
             <p><b>on Google</b></p>
           </div>
@@ -563,23 +764,24 @@ h3 { font-size: 1.4rem; font-weight: 700; }
           <figure class="review reveal"><blockquote><span class="ph ph-wrap">[REAL GOOGLE REVIEW QUOTE]</span></blockquote><figcaption><span class="ph">[NAME]</span>, Google review</figcaption></figure>
           <figure class="review reveal"><blockquote><span class="ph ph-wrap">[REAL GOOGLE REVIEW QUOTE]</span></blockquote><figcaption><span class="ph">[NAME]</span>, Google review</figcaption></figure>
         </div>
-        <div class="photos">
-          <div class="photo"><span class="ph ph-wrap">[TRUCK PHOTO]</span></div>
-          <div class="photo"><span class="ph ph-wrap">[YARD PHOTO]</span></div>
-          <div class="photo"><span class="ph ph-wrap">[TEAM PHOTO]</span></div>
-        </div>
+        <section class="dealer" id="dealers" aria-labelledby="dealers-h">
+          <p class="eyebrow">Dealer partnerships</p>
+          <h3 id="dealers-h">Towing for dealerships</h3>
+          <p>We tow for car dealerships in the area, and we're looking to partner with more. Call to set up an account.</p>
+          <a class="btn btn-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="dealer"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Talk to us about dealer towing</a>
+        </section>
       </div>
       <div class="lane" aria-hidden="true"></div>
     </div>
   </section>
 
-  <!-- 6. Service area -->
+  <!-- 7. Service area -->
   <section class="stage tone-day2" id="service-area" data-road="left" data-stage="area" aria-labelledby="area-h">
     <div class="wrap">
       <div class="copy">
         <p class="eyebrow">Service area</p>
         <h2 id="area-h">Where we tow</h2>
-        <p class="lede">Southfield and Metro Detroit, along the freeways that run through it.</p>
+        <p class="lede">Southfield and Metro Detroit, along the freeways that run through it. Spill response anywhere in Michigan.</p>
         <ul class="chips">
           <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Southfield</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Detroit</li>
@@ -595,7 +797,7 @@ h3 { font-size: 1.4rem; font-weight: 700; }
         <figure class="map">
           <svg viewBox="0 0 400 300" role="img" aria-labelledby="map-t">
             <title id="map-t">Schematic map: Ross Towing on Telegraph Rd in Southfield, with Farmington Hills to the west, Lathrup Village, Oak Park and Royal Oak to the east, Detroit to the southeast and Dearborn to the south. I-696, M-10, I-75 and Telegraph Rd connect them. Not to scale.</title>
-            <rect width="400" height="300" rx="10" fill="#F7F4EE"/>
+            <rect width="400" height="300" rx="10" fill="#F6F7F8"/>
             <path d="M120 10V292" stroke="#9EA3A9" stroke-width="5" fill="none"/>
             <path d="M28 104C70 98 100 96 140 97S240 95 300 96 360 96 392 96" stroke="#33373D" stroke-width="7" fill="none"/>
             <path d="M262 8C262 50 262 80 262 96S280 180 300 226 296 262 270 292" stroke="#33373D" stroke-width="7" fill="none"/>
@@ -604,7 +806,7 @@ h3 { font-size: 1.4rem; font-weight: 700; }
               <rect x="52" y="82" width="34" height="16" rx="3" fill="#1D4F91"/><text x="69" y="94" text-anchor="middle" fill="#fff" style="fill:#fff">I-696</text>
               <rect x="268" y="40" width="30" height="16" rx="3" fill="#1D4F91"/><text x="283" y="52" text-anchor="middle" style="fill:#fff">I-75</text>
               <rect x="206" y="140" width="32" height="16" rx="3" fill="#fff" stroke="#15171A"/><text x="222" y="152" text-anchor="middle">M-10</text>
-              <text x="114" y="24" text-anchor="end" font-size="10.5" style="fill:#50565E">Telegraph Rd</text>
+              <text x="114" y="24" text-anchor="end" font-size="10.5" style="fill:#4F575E">Telegraph Rd</text>
             </g>
             <g font-size="12.5">
               <circle cx="150" cy="112" r="5" fill="#15171A"/><text x="158" y="125">Southfield</text>
@@ -616,48 +818,91 @@ h3 { font-size: 1.4rem; font-weight: 700; }
               <circle cx="198" cy="262" r="4" fill="#15171A"/><text x="152" y="282">Dearborn</text>
             </g>
             <g>
-              <circle cx="120" cy="140" r="9" fill="#F5A300" stroke="#15171A" stroke-width="2.5"/>
+              <circle cx="120" cy="140" r="9" fill="#C70606" stroke="#15171A" stroke-width="2.5"/>
               <text x="112" y="166" text-anchor="end" font-size="11.5">Ross yard</text>
             </g>
-            <g font-size="11"><text x="300" y="290" text-anchor="end" style="fill:#50565E">I-75 to Ohio ↓</text></g>
+            <g font-size="11"><text x="300" y="290" text-anchor="end" style="fill:#4F575E">I-75 to Ohio ↓</text></g>
           </svg>
-          <figcaption>Schematic, not to scale. Not sure you're in range? Call <a href="tel:[DISPATCH PHONE]" data-track="preview_call" data-track-detail="service area"><span data-phone>[DISPATCH PHONE]</span></a>.</figcaption>
+          <figcaption>Schematic, not to scale. Not sure you're in range? Call <a href="tel:+12483566011" data-track="preview_call" data-track-detail="service area"><span data-phone>248-356-6011</span></a>.</figcaption>
         </figure>
       </div>
       <div class="lane" aria-hidden="true"></div>
     </div>
   </section>
 
-  <!-- 7. Vehicle release: second overpass, back to the empty wrecker -->
-  <section class="stage tone-night" id="release" data-road="right" data-stage="release" aria-labelledby="release-h">
+  <!-- 8. Vehicle release and auctions: second overpass, back to the empty wrecker -->
+  <div class="stage tone-night" data-road="right" data-stage="release">
     <div class="wrap">
       <div class="copy">
-        <p class="eyebrow">Impound and vehicle release</p>
-        <h2 id="release-h">Getting your vehicle back</h2>
-        <p class="lede">If your vehicle was towed to our yard, here's what to know before you come.</p>
-        <ul class="release">
-          <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><b>Yard</b><span><span class="ph">[ADDRESS]</span>, Southfield, MI · <a href="https://www.google.com/maps/search/?api=1&amp;query=Ross+Towing+Telegraph+Rd+Southfield+MI" target="_blank" rel="noopener" data-track="preview_directions">Directions</a></span></li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><b>Release hours</b><span><span class="ph">[RELEASE HOURS]</span></span></li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg><b>What to bring</b><span><span class="ph">[WHAT TO BRING]</span></span></li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg><b>Payment</b><span>Visa, Mastercard, American Express, Discover <span class="ph">UNCONFIRMED</span></span></li>
-        </ul>
-        <div class="inline-call">
-          <p>Call ahead to check your vehicle is ready:</p>
-          <a class="btn btn-call" href="tel:[DISPATCH PHONE]" data-track="preview_call" data-track-detail="release"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span class="num" data-phone>[DISPATCH PHONE]</span></a>
+        <section id="release" aria-labelledby="release-h">
+          <p class="eyebrow">Impound and vehicle release</p>
+          <h2 id="release-h">Getting your vehicle back</h2>
+          <p class="lede">If your vehicle was towed to our yard, here's what you need.</p>
+          <p class="cash"><svg class="ico" aria-hidden="true"><use href="#i-cash"/></svg><strong>Cash only</strong><span>Payment at release must be in cash.</span></p>
+          <ul class="release">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg><b>What to bring</b><span>The registered owner must present ID plus proof of ownership: registration, insurance, or title.</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><b>Where</b><span>21360 Telegraph Rd, Southfield, MI 48033 · <a href="https://www.google.com/maps/search/?api=1&amp;query=21360+Telegraph+Rd+Southfield+MI+48033" target="_blank" rel="noopener" data-track="preview_directions" data-track-detail="release">Directions</a></span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><b>Release hours</b><span><span class="ph">[RELEASE HOURS]</span> Office hours are Monday to Friday 9am to 5pm and Saturday 9am to 1pm.</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-cash"/></svg><b>Payment</b><span>Cash only.</span></li>
+          </ul>
+          <div class="inline-call">
+            <p>Call ahead to check your vehicle is ready:</p>
+            <a class="btn btn-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="release"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span class="num" data-phone>248-356-6011</span></a>
+          </div>
+        </section>
+        <section id="auctions" class="sub-block" aria-labelledby="auctions-h">
+          <p class="eyebrow">Public auctions</p>
+          <h2 id="auctions-h">Public auctions about every two months</h2>
+          <p class="lede">Open to the public. Parking for over 100 customers across from our lobby, with ADA spots right by the front door.</p>
+          <!-- The date comes from data/auction.json. See data/README.md. -->
+          <div class="auction-next" id="auction-next">
+            <small>Next public auction</small>
+            <strong class="an-date">Call for the next auction date</strong>
+            <a class="btn btn-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="auction"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span class="num" data-phone>248-356-6011</span></a>
+          </div>
+        </section>
+      </div>
+      <div class="lane" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- 9. Facility: the seven acre yard on Telegraph Rd -->
+  <section class="stage tone-day2" id="facility" data-road="left" data-stage="facility" aria-labelledby="facility-h">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">Our facility</p>
+        <h2 id="facility-h">Seven acres on Telegraph Rd</h2>
+        <p class="lede">Our seven acre facility in the City of Southfield has been here for over 60 years.</p>
+        <div class="figs">
+          <div class="fig"><strong>24/365</strong><span>Staffed 24 hours a day, 365 days a year for towing and impound services</span></div>
+          <div class="fig"><strong>6+ <small>acres</small></strong><span>Vehicle storage, graded with crushed asphalt and lit by stadium style LED lights on 30 ft poles</span></div>
+          <div class="fig"><strong><span data-count="36" data-dec="0">36</span> <small>cameras</small></strong><span>Motion activated color cameras with infrared night vision, inside and out, on two digital surveillance systems</span></div>
+          <div class="fig"><strong><span data-count="2800" data-dec="0">2,800</span> <small>sq ft</small></strong><span>Heated shop with two vehicle hoists, 15 ft ceilings and two 13 ft overhead doors, big enough for semi trucks</span></div>
+          <div class="fig"><strong>8 <small>vehicles</small></strong><span>Indoor storage for impounded or evidence vehicles in the shop</span></div>
+          <div class="fig"><strong>40 <small>ft</small></strong><span>Locking storage container that fits two vehicles, for long term storage and preservation of evidence</span></div>
         </div>
+        <h3 class="sr">Security</h3>
+        <ul class="secure">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-gate"/></svg><span>A 7 ft decorative block wall and an electronic security gate at the main entrance, with a second locked gate for semi trucks</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-wall"/></svg><span>A 7 ft concrete wall on the east property line and 6 ft fences topped with barbed wire on the north and south</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-camera"/></svg><span>Recorded surveillance video can be downloaded to a USB or flash drive whenever it's needed</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg><span>A paved customer lot right in front of the entrance, close to the front door and lobby</span></li>
+        </ul>
+        <p class="training">Police and fire departments in Oakland, Wayne and Macomb counties train here on new equipment and procedures for vehicle extractions and other life saving techniques. Several departments have trained here with their K-9 units too.</p>
       </div>
       <div class="lane" aria-hidden="true"></div>
     </div>
   </section>
 
-  <!-- 8. Contact -->
+  <!-- 10. Contact -->
   <section class="stage tone-night" id="contact" data-road="right" data-stage="contact" aria-labelledby="contact-h">
     <div class="wrap">
       <div class="copy">
         <p class="eyebrow">Contact</p>
         <h2 id="contact-h">Need a tow right now? Call.</h2>
-        <p class="lede">Dispatch answers 24 hours a day, 7 days a week.</p>
-        <a class="big-call" href="tel:[DISPATCH PHONE]" data-track="preview_call" data-track-detail="contact"><small>24/7 dispatch</small><strong data-phone>[DISPATCH PHONE]</strong></a>
+        <p class="lede">We're staffed 24 hours a day, 365 days a year.</p>
+        <a class="big-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="contact"><small>24/7 towing</small><strong data-phone>248-356-6011</strong></a>
+        <p class="visit">21360 Telegraph Rd, Southfield, MI 48033 · <a href="https://www.google.com/maps/search/?api=1&amp;query=21360+Telegraph+Rd+Southfield+MI+48033" target="_blank" rel="noopener" data-track="preview_directions" data-track-detail="contact">Directions</a></p>
         <!-- TODO: form endpoint and recipient. Ask Jennifer who should get tow requests. Posts nowhere for now. -->
         <form class="form" id="tow-request" data-endpoint="TODO" aria-labelledby="tr-h" novalidate>
           <h3 id="tr-h">Request a tow or roadside help</h3>
@@ -670,7 +915,7 @@ h3 { font-size: 1.4rem; font-weight: 700; }
             <div class="field"><label for="tr-issue">What's wrong? *</label>
               <select id="tr-issue" name="issue" required>
                 <option value="">Choose one</option>
-                <option>Needs a tow</option><option>Accident</option><option>Won't start / battery</option><option>Flat tire</option><option>Locked out</option><option>Out of fuel</option><option>Stuck (ditch, mud, snow)</option><option>Heavy duty or truck</option><option>Something else</option>
+                <option>Needs a tow</option><option>Accident</option><option>Won't start / battery</option><option>Flat tire</option><option>Locked out</option><option>Out of fuel</option><option>Stuck (ditch, mud, snow)</option><option>Heavy duty or truck</option><option>Spill cleanup</option><option>Something else</option>
               </select>
             </div>
           </div>
@@ -683,21 +928,24 @@ h3 { font-size: 1.4rem; font-weight: 700; }
   </section>
 </main>
 
-<!-- 9. Footer: back at the yard -->
+<!-- 11. Footer: back at the yard -->
 <footer class="stage tone-end site-footer" data-road="right" data-stage="end">
   <div class="wrap">
     <div class="copy">
-      <a class="wordmark" href="#top" aria-label="Ross Towing, back to top"><i aria-hidden="true"></i>ROSS <span>TOWING</span></a>
+      <a class="f-logo" href="#top" aria-label="Ross Towing, back to top"><picture><source type="image/avif" srcset="img/logo-120.avif 120w, img/logo-240.avif 240w, img/logo-360.avif 360w" sizes="181px"><source type="image/webp" srcset="img/logo-120.webp 120w, img/logo-240.webp 240w, img/logo-360.webp 360w" sizes="181px"><img src="img/logo-240.png" srcset="img/logo-120.png 120w, img/logo-240.png 240w, img/logo-360.png 360w" sizes="181px" width="411" height="272" alt="" loading="lazy" decoding="async"></picture></a>
       <div class="grid" style="margin-top:22px">
         <dl>
-          <div><dt>24/7 dispatch</dt><dd><a class="phone" href="tel:[DISPATCH PHONE]" data-track="preview_call" data-track-detail="footer"><span data-phone>[DISPATCH PHONE]</span></a></dd></div>
-          <div><dt>Yard and office</dt><dd><span class="ph">[ADDRESS]</span>, Southfield, MI</dd></div>
-          <div><dt>Hours</dt><dd>Dispatch 24/7 · Office <span class="ph">[OFFICE HOURS]</span></dd></div>
+          <div><dt>24/7 towing</dt><dd><a class="phone" href="tel:+12483566011" data-track="preview_call" data-track-detail="footer"><span data-phone>248-356-6011</span></a></dd></div>
+          <div><dt>Address</dt><dd>21360 Telegraph Rd, Southfield, MI 48033 · <a href="https://www.google.com/maps/search/?api=1&amp;query=21360+Telegraph+Rd+Southfield+MI+48033" target="_blank" rel="noopener" data-track="preview_directions" data-track-detail="footer">Directions</a></dd></div>
+          <div><dt>Hours</dt><dd>Staffed 24 hours a day, 365 days a year. Office Monday to Friday 9am to 5pm, Saturday 9am to 1pm.</dd></div>
+          <div><dt>Follow</dt><dd><a href="https://facebook.com/accidentrecovery" target="_blank" rel="noopener">Facebook</a></dd></div>
         </dl>
         <dl>
+          <div><dt>Since</dt><dd>Family owned since 1962</dd></div>
           <div><dt>Freight credentials</dt><dd>USDOT 1196761 · MC 621070</dd></div>
-          <div><dt>Company</dt><dd>Larry Ross Garage Inc, dba Ross Towing</dd></div>
-          <div><dt>Payment</dt><dd>Visa, Mastercard, American Express, Discover <span class="ph">UNCONFIRMED</span></dd></div>
+          <div><dt>Spill response</dt><dd>MDOT certified · License # 98000-105807-24-122024</dd></div>
+          <div><dt>Vehicle release</dt><dd>Cash only</dd></div>
+          <div><dt>Company</dt><dd>Larry Ross Garage, Inc. dba Ross Towing</dd></div>
         </dl>
       </div>
       <p class="credit">Concept preview by Journeyman Web Co., Sterling Heights, MI · travis@journeymanwebco.com</p>
@@ -707,8 +955,8 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 </footer>
 </div>
 
-<nav class="callbar" aria-label="Call dispatch">
-  <a class="cb-call" href="tel:[DISPATCH PHONE]" data-track="preview_call" data-track-detail="call bar"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span><small>Call 24/7 dispatch</small><strong data-phone>[DISPATCH PHONE]</strong></span></a>
+<nav class="callbar" aria-label="Call Ross Towing">
+  <a class="cb-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="call bar"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span><small>Call 24/7</small><strong data-phone>248-356-6011</strong></span></a>
   <a class="cb-quote" href="#freight-quote" data-track="preview_book" data-track-detail="call bar freight quote">Freight quote</a>
 </nav>
 </body>
