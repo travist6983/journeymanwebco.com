@@ -1,5 +1,5 @@
 {
-  "_note": "Copy on the page, Nov 3 2026 update. Sources: Jennifer Gatt's email (email) and her three Word docs (docx: facility, spill, equipment). Where the two differ, the docx wording is used; see private/ross-towing/UPDATE_NOTES.md. Values in [BRACKETS] are still unconfirmed.",
+  "_note": "Copy on the page, Nov 3 2026 update, plus the Nov 4 2026 call with Jennifer (Indiana freight lanes, freight quote fields, Towbook prep, auction date). Sources: Jennifer Gatt's email (email) and her three Word docs (docx: facility, spill, equipment). Where the two differ, the docx wording is used; see private/ross-towing/UPDATE_NOTES.md. Values in [BRACKETS] are still unconfirmed.",
   "business": {
     "name": "Ross Towing",
     "legalName": "Larry Ross Garage, Inc. dba Ross Towing",
@@ -18,7 +18,7 @@
   "nav": ["Towing", "Heavy Duty", "Spill Response", "Freight", "Vehicle Release", "Auctions", "Contact"],
   "hero": {
     "heading": "24/7 towing and recovery in Southfield and Metro Detroit since 1962",
-    "sub": "Family owned. Towing, heavy recovery and spill response around the clock, plus a licensed freight carrier for Michigan and Ohio.",
+    "sub": "Family owned. Towing, heavy recovery and spill response around the clock, plus a licensed freight carrier for Michigan, Ohio and Indiana.",
     "paths": ["Need a tow: Call 248-356-6011", "Freight and heavy hauling: Request a freight quote"],
     "strip": ["Since 1962", "Farmington Hills PD and Michigan State Police towing", "MDOT certified spill response", "USDOT 1196761"]
   },
@@ -51,7 +51,8 @@
   },
   "freight": {
     "heading": "Also a licensed freight carrier",
-    "lanes": ["Michigan", "Ohio"],
+    "lanes": ["Michigan", "Ohio", "Indiana"],
+    "quoteForm": "Fieldsets: Contact, Route, Load, Dimensions (L/W/H, ft or in), Weight (lbs or tons, estimate box), Additional equipment (Chains, Binders, Tarps, Edge protectors, Other, Not sure), Trailer preference, Notes. Posts to FORM_ENDPOINT_FREIGHT in src/config.js (empty: call-us fallback).",
     "trailerTypes": ["Flatbed", "Conestoga", "Step deck", "Landoll", "Lowboy"],
     "machinery": "We work with companies like MacAllister CAT.",
     "equipment": [
@@ -81,7 +82,12 @@
   "auctions": {
     "heading": "Public auctions about every two months",
     "lede": "Open to the public. Parking for over 100 customers across from our lobby, with ADA spots right by the front door.",
-    "nextDate": "From data/auction.json; shows 'Call for the next auction date' when null"
+    "nextDate": "Google Sheet CSV (AUCTION_SHEET_CSV_URL in src/config.js, empty for now) or data/auction.json. Shown from 30 days before through the auction day; otherwise 'Public auctions about every two months. Call 248-356-6011 for the next date.'"
+  },
+  "contact": {
+    "call": "Call dispatch 24/7: 248-356-6011",
+    "towForm": "Not urgent? Send us the details. For emergencies, call. We answer 24/7.",
+    "towbook": "TOWBOOK_MODE in src/config.js: none (now), link or embed. TOWBOOK_URL empty."
   },
   "facility": {
     "heading": "Seven acres on Telegraph Rd",
@@ -90,6 +96,8 @@
   },
   "placeholders": {
     "[RELEASE HOURS]": "When impounded vehicles can be picked up, if different from office hours",
-    "[REAL GOOGLE REVIEW QUOTE] x3, [NAME] x3": "Real Google reviews, with the reviewer's permission"
+    "[REAL GOOGLE REVIEW QUOTE] x3, [NAME] x3": "Real Google reviews, with the reviewer's permission",
+    "[OFFICE EMAIL]": "In the form fallback message until CONTACT_EMAIL is set in src/config.js",
+    "[QR CAPTION: confirm what this QR does]": "Under the Towbook QR, which stays hidden until the file is added"
   }
 }

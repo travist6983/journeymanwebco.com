@@ -160,8 +160,8 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 .facts .ico { color: var(--red-on-dark); flex: none; }
 
 /* Freight */
-.lanes { display: flex; align-items: center; gap: 14px; margin: 26px 0 8px; font: 800 clamp(1.8rem, 3.4vw, 2.6rem)/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
-.lanes .route { flex: 1; max-width: 160px; height: 4px; background: repeating-linear-gradient(90deg, var(--ink) 0 14px, transparent 14px 22px); border-radius: 2px; position: relative; }
+.lanes { display: flex; align-items: center; gap: 12px; margin: 26px 0 8px; font: 800 clamp(1.45rem, 3vw, 2.3rem)/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.lanes .route { flex: 1 1 24px; min-width: 24px; max-width: 110px; height: 4px; background: repeating-linear-gradient(90deg, var(--ink) 0 14px, transparent 14px 22px); border-radius: 2px; position: relative; }
 .lanes .route::before, .lanes .route::after { content: ''; position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 50%; background: var(--red); border: 3px solid var(--ink); transform: translateY(-50%); }
 .lanes .route::before { left: -6px; } .lanes .route::after { right: -6px; }
 .hauls { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 8px; }
@@ -210,6 +210,70 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 .tone-night .form .hint, .tone-end .form .hint { color: var(--muted-d); }
 .tone-night .field input, .tone-night .field select, .tone-night .field textarea { background: #121417; color: var(--paint); border-color: #3A3F46; }
 .tone-night .field input:focus, .tone-night .field select:focus, .tone-night .field textarea:focus { border-color: var(--paint); }
+.opt { font-weight: 400; color: var(--muted-l); }
+.tone-night .opt { color: var(--muted-d); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form { position: relative; }
+.form .err { margin: 6px 0 0; font-weight: 600; font-size: .94rem; color: var(--red-text); }
+.tone-night .form .err { color: #FF8A8A; }
+.field [aria-invalid="true"] { border-color: var(--red-text); background: #FFF7F7; }
+.tone-night .field [aria-invalid="true"] { border-color: #FF8A8A; background: #1F1416; }
+.form-status.info { background: #FFF6CC; color: #4A3D00; }
+.form-status.bad { background: #FDECEC; color: #7A0606; border: 1px solid #F2B8B8; }
+.form-status.ok { background: #E8F4ED; color: #0B3D27; border: 1px solid #A9D3BB; }
+.form-status p + p, .form-status p + dl, .form-status dl + p { margin-top: 10px; }
+.form-status a { color: inherit; font-weight: 700; }
+.form-status .ph { white-space: normal; }
+.done-h:focus { outline: none; }
+.done-list { margin: 10px 0 0; display: grid; gap: 6px; }
+.done-list div { display: grid; grid-template-columns: 7.5em 1fr; gap: 10px; }
+.done-list dt { font-weight: 700; }
+.done-list dd { margin: 0; overflow-wrap: anywhere; }
+.form .btn-again { width: auto; margin-top: 12px; min-height: 44px; font-size: .98rem; }
+fieldset:disabled .field input, fieldset:disabled .field select, fieldset:disabled .field textarea { opacity: .7; }
+/* Freight quote */
+.fq { container-type: inline-size; }
+.fs { border: 0; margin: 0; padding: 0; min-width: 0; }
+.fs + .fs { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line-l); }
+.fs legend { float: left; width: 100%; padding: 0; margin: 0 0 12px; font: 700 .9rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--red-text); }
+.fs legend + * { clear: both; }
+.fs-plain + .btn, .fs + .btn { margin-top: 22px; }
+.grid2, .dims { display: grid; gap: 14px; }
+.unit-row { display: grid; grid-template-columns: minmax(0, 1fr) 82px; gap: 8px; }
+.unit-row select { padding-right: 6px; }
+.checks { display: grid; gap: 4px 14px; grid-template-columns: 1fr; }
+.check { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 4px 0; font-weight: 600; cursor: pointer; flex-wrap: wrap; }
+.check input { flex: none; width: 22px; height: 22px; margin: 0; accent-color: var(--red); }
+.check .err { flex-basis: 100%; }
+.check-solo { align-self: end; }
+.other { margin-top: 10px; }
+@media (min-width: 640px) {
+  @container (min-width: 400px) {
+    .grid2 { grid-template-columns: 1fr 1fr; }
+    .grid2 .full { grid-column: 1 / -1; }
+    .checks { grid-template-columns: 1fr 1fr; }
+  }
+  @container (min-width: 540px) { .dims { grid-template-columns: repeat(3, minmax(0, 1fr)); } .unit-row { grid-template-columns: minmax(0, 1fr) 70px; } }
+}
+/* Tow request and Towbook */
+.loc-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.loc-row input { flex: 1 1 220px; }
+.form .btn-geo { width: auto; margin-top: 0; min-height: 48px; padding: 8px 14px; font-size: .98rem; }
+.btn-geo .ico { width: 20px; height: 20px; }
+.geo-note { margin-top: 6px; font-size: .94rem; color: var(--muted-d); }
+.geo-note:empty { display: none; }
+.tow-alt { margin-top: 30px; padding: 22px 18px; border-radius: 16px; background: var(--raised); border: 1px solid var(--edge); }
+.tow-alt h3 { font-size: 1.7rem; font-weight: 800; margin-bottom: 4px; }
+.tow-alt .hint { color: var(--muted-d); margin-bottom: 16px; }
+.tow-alt .tow-link { width: auto; min-height: 52px; }
+.tb-box { position: relative; height: 760px; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid var(--edge); }
+.tb-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tb-help { margin-top: 12px; color: var(--muted-d); }
+.tb-help a { color: var(--paint); font-weight: 600; }
+.qr { display: flex; align-items: center; gap: 16px; margin: 22px 0 0; padding: 14px; border-radius: 14px; background: var(--raised); border: 1px solid var(--edge); max-width: 420px; }
+.qr[hidden] { display: none; }
+.qr img { flex: none; width: 120px; height: 120px; border-radius: 8px; background: #fff; padding: 6px; }
+.qr figcaption { font-size: .95rem; }
 
 /* Trust */
 .police { margin-top: 24px; padding: 18px 20px; border-radius: 14px; background: var(--ink); color: #fff; }
@@ -249,12 +313,25 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 .release b { font-family: var(--display); font-weight: 700; font-size: 1.25rem; }
 .release span { color: var(--muted-d); }
 .release a { color: var(--paint); }
-.auction-next { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 6px 16px; margin-top: 20px; padding: 16px 18px; border-radius: 14px; border: 2px dashed #4A5058; background: var(--raised); }
-.auction-next small { font: 700 .82rem/1.2 var(--display); text-transform: uppercase; letter-spacing: .14em; color: var(--muted-d); }
-.auction-next strong { grid-column: 1; font: 800 1.6rem/1.1 var(--display); }
-.auction-next .btn { grid-column: 2; grid-row: 1 / span 2; min-height: 48px; }
-.auction-next.is-set { border: 2px solid var(--red-on-dark); background: linear-gradient(90deg, rgba(199,6,6,.28), rgba(199,6,6,.08)); }
-.auction-next.is-set small { color: #FFB3B3; }
+/* Next auction: the slot keeps one height whether it shows the static line or the date banner (no layout shift) */
+.auction-slot { display: grid; min-height: var(--ab-h, 168px); margin-bottom: 26px; }
+.auction-static, .auction-banner { grid-area: 1 / 1; margin: 0; border-radius: 14px; padding: 16px 18px; }
+.auction-static { display: flex; align-items: center; gap: 14px; border: 2px dashed #4A5058; background: var(--raised); font-weight: 600; font-size: 1.08rem; }
+.auction-static .ico, .auction-banner .ab-ico { flex: none; width: 30px; height: 30px; color: var(--red-on-dark); }
+.auction-static a { color: var(--paint); font: 800 1.2rem/1 var(--display); letter-spacing: .02em; white-space: nowrap; }
+.auction-static:focus-visible { outline-offset: 2px; }
+.auction-banner { position: relative; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 10px 14px; border: 2px solid var(--red-on-dark); background: linear-gradient(90deg, rgba(199,6,6,.3), rgba(199,6,6,.1)), var(--raised); animation: ab-in .45s ease-out; }
+.auction-banner[hidden], .auction-static[hidden] { display: none; }
+@keyframes ab-in { from { opacity: 0; } }
+.ab-text { min-width: 0; padding-right: 34px; }
+.ab-h { font: 800 clamp(1.35rem, 2.4vw, 1.7rem)/1.1 var(--display); }
+.ab-meta { margin-top: 4px; font-weight: 600; color: #E3E6E8; }
+.ab-note { margin-top: 4px; color: var(--muted-d); font-size: .96rem; }
+.ab-cal { grid-column: 2; justify-self: start; min-height: 46px; padding: 8px 16px; background: var(--paint); color: var(--ink); font-size: 1rem; }
+.ab-cal:hover { background: #fff; }
+.ab-x { position: absolute; top: 6px; right: 6px; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 10px; background: transparent; color: var(--paint); cursor: pointer; }
+.ab-x:hover { background: rgba(255,255,255,.1); }
+.ab-x .ico { width: 22px; height: 22px; }
 
 /* Facility */
 .figs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 26px; }
@@ -377,9 +454,11 @@ h3 { font-size: 1.4rem; font-weight: 700; }
   .hero .paths { grid-template-columns: 1fr; max-width: 460px; }
   .path { min-height: 64px; padding: 10px 16px; }
   .figs { grid-template-columns: 1fr 1fr; }
+  .auction-slot { --ab-h: 204px; }
 }
 @media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
   .nav a { padding: 8px 11px; }
+  .auction-slot { --ab-h: 152px; }
 }
 @media (max-width: 899px), (hover: none), (pointer: coarse) {
   .callbar { display: grid; }
@@ -392,8 +471,10 @@ h3 { font-size: 1.4rem; font-weight: 700; }
   .figs { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 559px) {
-  .auction-next { grid-template-columns: 1fr; }
-  .auction-next .btn { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 8px; }
+  .auction-slot { --ab-h: 196px; }
+  .auction-static .ico, .auction-banner .ab-ico { display: none; }
+  .auction-banner { grid-template-columns: 1fr; }
+  .ab-cal { grid-column: 1; }
 }
 @media (max-width: 420px) {
   .equip th, .equip td { padding: 8px 8px; }
@@ -430,7 +511,16 @@ h3 { font-size: 1.4rem; font-weight: 700; }
     { "@type": "City", "name": "Royal Oak, MI" }, { "@type": "AdministrativeArea", "name": "Oakland County, MI" }, { "@type": "AdministrativeArea", "name": "Wayne County, MI" },
     { "@type": "AdministrativeArea", "name": "Macomb County, MI" }, { "@type": "State", "name": "Michigan" }
   ],
-  "knowsAbout": ["Light duty towing","Flatbed towing","Police towing and impounds","Heavy duty towing","50 ton rotator recovery","Winch outs","Accident recovery","Crane and lifting service","Hazardous spill cleanup","Diesel and oil spill containment","Electric vehicle fire storage","Roadside assistance","Vehicle storage","Public vehicle auctions","Freight hauling","Machinery hauling"]
+  "knowsAbout": ["Light duty towing","Flatbed towing","Police towing and impounds","Heavy duty towing","50 ton rotator recovery","Winch outs","Accident recovery","Crane and lifting service","Hazardous spill cleanup","Diesel and oil spill containment","Electric vehicle fire storage","Roadside assistance","Vehicle storage","Public vehicle auctions","Freight hauling","Machinery hauling"],
+  "makesOffer": [{
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "Freight hauling",
+      "serviceType": "For-hire freight carrier: machinery, equipment and materials on flatbed, Conestoga, step deck, Landoll and lowboy trailers",
+      "areaServed": [{ "@type": "State", "name": "Michigan" }, { "@type": "State", "name": "Ohio" }, { "@type": "State", "name": "Indiana" }]
+    }
+  }]
 }
 </script>
 <script src="/config.js" defer></script>
@@ -438,6 +528,7 @@ h3 { font-size: 1.4rem; font-weight: 700; }
 <script src="vendor/gsap.min.js" defer></script>
 <script src="vendor/ScrollTrigger.min.js" defer></script>
 <script type="module" src="journey.js"></script>
+<script type="module" src="src/main.js"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -483,6 +574,7 @@ h3 { font-size: 1.4rem; font-weight: 700; }
     <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 8l12-4 2 5-12 4z"/><path d="M8 12l1 4H4"/><path d="M17 7l4 1"/></symbol>
     <symbol id="i-gate" viewBox="0 0 24 24"><path d="M3 21V4M21 21V4"/><path d="M3 8h18M3 16h18"/><path d="M7 8v8M11 8v8M15 8v8M19 8v8"/></symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 22v-8.1h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.5 1.6-1.5h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4v3.2h2.8V22z"/></symbol>
   </defs>
 </svg>
@@ -519,7 +611,7 @@ h3 { font-size: 1.4rem; font-weight: 700; }
       <div class="copy">
         <p class="eyebrow">Southfield, Michigan · 24/7 dispatch</p>
         <h1 id="hero-h">24/7 towing and recovery in Southfield and Metro Detroit since <span class="yr">1962</span></h1>
-        <p class="sub">Family owned. Towing, heavy recovery and spill response around the clock, plus a licensed freight carrier for Michigan and Ohio.</p>
+        <p class="sub">Family owned. Towing, heavy recovery and spill response around the clock, plus a licensed freight carrier for Michigan, Ohio and Indiana.</p>
         <div class="paths">
           <a class="path path-tow" href="tel:+12483566011" data-track="preview_call" data-track-detail="hero">
             <small>Need a tow</small>
@@ -647,9 +739,9 @@ h3 { font-size: 1.4rem; font-weight: 700; }
       <div class="copy">
         <p class="eyebrow">Freight division</p>
         <h2 id="freight-h">Also a licensed freight carrier</h2>
-        <p class="lede">Ross is a for-hire trucking company too, hauling machinery, equipment and materials across Michigan and Ohio.</p>
+        <p class="lede">Ross is a for-hire trucking company too, hauling machinery, equipment and materials across Michigan, Ohio and Indiana.</p>
         <figure class="shot"><picture><source type="image/avif" srcset="img/freight-rig-sunset-640.avif 640w, img/freight-rig-sunset-1024.avif 1024w, img/freight-rig-sunset-1600.avif 1600w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)"><source type="image/webp" srcset="img/freight-rig-sunset-640.webp 640w, img/freight-rig-sunset-1024.webp 1024w, img/freight-rig-sunset-1600.webp 1600w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)"><img src="img/freight-rig-sunset-1024.jpg" srcset="img/freight-rig-sunset-640.jpg 640w, img/freight-rig-sunset-1024.jpg 1024w, img/freight-rig-sunset-1600.jpg 1600w" sizes="(min-width: 900px) 610px, calc(100vw - 68px)" width="1600" height="1200" alt="A red Ross Towing semi tractor hitched to a long trailer, parked on gravel at sunset." loading="lazy" decoding="async"></picture></figure>
-        <p class="lanes" aria-label="Lanes: Michigan and Ohio"><span>Michigan</span><span class="route" aria-hidden="true"></span><span>Ohio</span></p>
+        <p class="lanes" aria-label="Freight lanes: Michigan, Ohio and Indiana"><span>Michigan</span><span class="route" aria-hidden="true"></span><span>Ohio</span><span class="route" aria-hidden="true"></span><span>Indiana</span></p>
         <h3 class="sr">Trailer types</h3>
         <ul class="chips trailers">
           <li>Flatbed</li><li>Conestoga</li><li>Step deck</li><li>Landoll</li><li>Lowboy</li>
@@ -702,26 +794,82 @@ h3 { font-size: 1.4rem; font-weight: 700; }
           </div>
         </div>
 
-        <!-- TODO: form endpoint and recipient. Ask Jennifer who handles freight quotes. Posts nowhere for now. -->
-        <form class="form" id="freight-quote" data-endpoint="TODO" aria-labelledby="fq-h" novalidate>
+        <!-- Freight quote. Posts to CONFIG.FORM_ENDPOINT_FREIGHT in src/config.js (empty for now: shows a call-us note and sends nothing). -->
+        <form class="form fq" id="freight-quote" method="post" aria-labelledby="fq-h" novalidate>
           <h3 id="fq-h">Request a freight quote</h3>
-          <p class="hint">Tell us what's moving and where. Fields marked * are required.</p>
-          <div class="fields two">
-            <div class="field"><label for="fq-company">Company *</label><input id="fq-company" name="company" autocomplete="organization" required></div>
-            <div class="field"><label for="fq-contact">Contact name *</label><input id="fq-contact" name="contact" autocomplete="name" required></div>
-            <div class="field"><label for="fq-phone">Phone *</label><input id="fq-phone" name="phone" type="tel" autocomplete="tel" required></div>
-            <div class="field"><label for="fq-email">Email *</label><input id="fq-email" name="email" type="email" autocomplete="email" required></div>
-            <div class="field"><label for="fq-pickup">Pickup *</label><input id="fq-pickup" name="pickup" placeholder="City or address" required></div>
-            <div class="field"><label for="fq-delivery">Delivery *</label><input id="fq-delivery" name="delivery" placeholder="City or address" required></div>
-            <div class="field full"><label for="fq-load">What's being hauled *</label><textarea id="fq-load" name="load" placeholder="Machine, materials, vehicle..." required></textarea></div>
-            <div class="field"><label for="fq-trailer">Trailer type</label>
-              <select id="fq-trailer" name="trailer"><option value="">Not sure</option><option>Flatbed</option><option>Conestoga</option><option>Step deck</option><option>Landoll</option><option>Lowboy</option></select>
+          <p class="hint">Tell us what's moving, where, and how big it is. Fields marked * are required.</p>
+          <div class="hp" aria-hidden="true"><label for="fq-website">Leave this empty</label><input id="fq-website" name="website" tabindex="-1" autocomplete="off"></div>
+
+          <fieldset class="fs">
+            <legend>Contact</legend>
+            <div class="grid2">
+              <div class="field"><label for="fq-company">Company</label><input id="fq-company" name="company" autocomplete="organization"></div>
+              <div class="field"><label for="fq-contact">Contact name *</label><input id="fq-contact" name="contact" autocomplete="name" required data-msg="Enter your name."></div>
+              <div class="field"><label for="fq-phone">Phone *</label><input id="fq-phone" name="phone" type="tel" autocomplete="tel" required data-msg="Enter a phone number."></div>
+              <div class="field"><label for="fq-email">Email *</label><input id="fq-email" name="email" type="email" autocomplete="email" required data-msg="Enter your email address."></div>
             </div>
-            <div class="field"><label for="fq-size">Dimensions or weight</label><input id="fq-size" name="size" placeholder="L × W × H, or pounds"></div>
-            <div class="field"><label for="fq-date">Date needed</label><input id="fq-date" name="date" type="date"></div>
-          </div>
+          </fieldset>
+
+          <fieldset class="fs">
+            <legend>Route</legend>
+            <div class="grid2">
+              <div class="field"><label for="fq-pickup">Pickup city and state *</label><input id="fq-pickup" name="pickup" placeholder="City, state" required data-msg="Enter the pickup city and state."></div>
+              <div class="field"><label for="fq-delivery">Delivery city and state *</label><input id="fq-delivery" name="delivery" placeholder="City, state" required data-msg="Enter the delivery city and state."></div>
+              <div class="field"><label for="fq-ready">Ready date</label><input id="fq-ready" name="ready_date" type="date"></div>
+              <div class="field"><label for="fq-by">Delivery needed by <span class="opt">(optional)</span></label><input id="fq-by" name="deliver_by" type="date" data-msg-number="Pick a date on or after the ready date."></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fs">
+            <legend>Load</legend>
+            <div class="grid2">
+              <div class="field full"><label for="fq-load">What is being hauled *</label><textarea id="fq-load" name="load" placeholder="Machine, materials, vehicle..." required data-msg="Tell us what's being hauled."></textarea></div>
+              <div class="field"><label for="fq-pieces">Number of pieces <span class="opt">(optional)</span></label><input id="fq-pieces" name="pieces" type="number" inputmode="numeric" min="1" step="1" data-msg-number="Enter a whole number, 1 or more."></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fs">
+            <legend>Dimensions</legend>
+            <div class="dims">
+              <div class="field"><label for="fq-length">Length</label><div class="unit-row"><input id="fq-length" name="length" type="number" inputmode="decimal" min="0" step="any" aria-describedby="fq-length-u"><select name="length_unit" aria-label="Length unit" data-unit-for="fq-length-u"><option value="ft" selected>ft</option><option value="in">in</option></select></div><span class="sr" id="fq-length-u">feet</span></div>
+              <div class="field"><label for="fq-width">Width</label><div class="unit-row"><input id="fq-width" name="width" type="number" inputmode="decimal" min="0" step="any" aria-describedby="fq-width-u"><select name="width_unit" aria-label="Width unit" data-unit-for="fq-width-u"><option value="ft" selected>ft</option><option value="in">in</option></select></div><span class="sr" id="fq-width-u">feet</span></div>
+              <div class="field"><label for="fq-height">Height</label><div class="unit-row"><input id="fq-height" name="height" type="number" inputmode="decimal" min="0" step="any" aria-describedby="fq-height-u"><select name="height_unit" aria-label="Height unit" data-unit-for="fq-height-u"><option value="ft" selected>ft</option><option value="in">in</option></select></div><span class="sr" id="fq-height-u">feet</span></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fs">
+            <legend>Weight</legend>
+            <div class="grid2">
+              <div class="field"><label for="fq-weight">Weight</label><div class="unit-row"><input id="fq-weight" name="weight" type="number" inputmode="decimal" min="0" step="any" aria-describedby="fq-weight-u"><select name="weight_unit" aria-label="Weight unit" data-unit-for="fq-weight-u"><option value="lbs" selected>lbs</option><option value="tons">tons</option></select></div><span class="sr" id="fq-weight-u">pounds</span></div>
+              <label class="check check-solo"><input type="checkbox" name="weight_estimate" value="yes"> Weight is an estimate</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="fs">
+            <legend>Additional equipment needed</legend>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="equipment" value="Chains"> Chains</label>
+              <label class="check"><input type="checkbox" name="equipment" value="Binders"> Binders</label>
+              <label class="check"><input type="checkbox" name="equipment" value="Tarps"> Tarps</label>
+              <label class="check"><input type="checkbox" name="equipment" value="Edge protectors"> Edge protectors</label>
+              <label class="check"><input type="checkbox" name="equipment" value="Other"> Other</label>
+              <label class="check"><input type="checkbox" name="equipment" value="Not sure, please advise"> Not sure, please advise</label>
+            </div>
+            <div class="field other" id="fq-other-field" hidden><label for="fq-other">Other equipment *</label><input id="fq-other" name="equipment_other" maxlength="120" data-msg="Tell us what other equipment the load needs."></div>
+          </fieldset>
+
+          <fieldset class="fs">
+            <legend>Trailer and notes</legend>
+            <div class="grid2">
+              <div class="field"><label for="fq-trailer">Trailer preference <span class="opt">(optional)</span></label>
+                <select id="fq-trailer" name="trailer"><option value="">No preference</option><option>Flatbed</option><option>Conestoga</option><option>Step deck</option><option>Landoll</option><option>Lowboy</option></select>
+              </div>
+              <div class="field full"><label for="fq-notes">Notes <span class="opt">(optional)</span></label><textarea id="fq-notes" name="notes" placeholder="Loading dock hours, site access, anything else we should know"></textarea></div>
+            </div>
+          </fieldset>
+
           <button class="btn btn-call" type="submit">Request a freight quote</button>
-          <p class="form-status" role="status" hidden></p>
+          <div class="form-status" role="status" aria-live="polite" hidden></div>
         </form>
       </div>
       <div class="lane" aria-hidden="true"></div>
@@ -851,15 +999,15 @@ h3 { font-size: 1.4rem; font-weight: 700; }
           </div>
         </section>
         <section id="auctions" class="sub-block" aria-labelledby="auctions-h">
+          <!-- Next auction date: src/main.js reads the published Google Sheet (CONFIG.AUCTION_SHEET_CSV_URL)
+               or data/auction.json, and shows it from 30 days before through the auction day. See README.md, "Auction date". -->
+          <div class="auction-slot" id="auction-slot">
+            <p class="auction-static" tabindex="-1"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg><span>Public auctions about every two months. Call <a href="tel:+12483566011" data-track="preview_call" data-track-detail="auction"><span data-phone>248-356-6011</span></a> for the next date.</span></p>
+            <div class="auction-banner" hidden></div>
+          </div>
           <p class="eyebrow">Public auctions</p>
           <h2 id="auctions-h">Public auctions about every two months</h2>
           <p class="lede">Open to the public. Parking for over 100 customers across from our lobby, with ADA spots right by the front door.</p>
-          <!-- The date comes from data/auction.json. See data/README.md. -->
-          <div class="auction-next" id="auction-next">
-            <small>Next public auction</small>
-            <strong class="an-date">Call for the next auction date</strong>
-            <a class="btn btn-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="auction"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span class="num" data-phone>248-356-6011</span></a>
-          </div>
         </section>
       </div>
       <div class="lane" aria-hidden="true"></div>
@@ -901,27 +1049,42 @@ h3 { font-size: 1.4rem; font-weight: 700; }
         <p class="eyebrow">Contact</p>
         <h2 id="contact-h">Need a tow right now? Call.</h2>
         <p class="lede">We're staffed 24 hours a day, 365 days a year.</p>
-        <a class="big-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="contact"><small>24/7 towing</small><strong data-phone>248-356-6011</strong></a>
+        <a class="big-call" href="tel:+12483566011" data-track="preview_call" data-track-detail="contact"><small>Call dispatch 24/7</small><strong data-phone>248-356-6011</strong></a>
         <p class="visit">21360 Telegraph Rd, Southfield, MI 48033 · <a href="https://www.google.com/maps/search/?api=1&amp;query=21360+Telegraph+Rd+Southfield+MI+48033" target="_blank" rel="noopener" data-track="preview_directions" data-track-detail="contact">Directions</a></p>
-        <!-- TODO: form endpoint and recipient. Ask Jennifer who should get tow requests. Posts nowhere for now. -->
-        <form class="form" id="tow-request" data-endpoint="TODO" aria-labelledby="tr-h" novalidate>
-          <h3 id="tr-h">Request a tow or roadside help</h3>
-          <p class="hint">For anything that can wait. If you're stuck right now, calling is faster.</p>
-          <div class="fields two">
-            <div class="field"><label for="tr-name">Name *</label><input id="tr-name" name="name" autocomplete="name" required></div>
-            <div class="field"><label for="tr-phone">Phone *</label><input id="tr-phone" name="phone" type="tel" autocomplete="tel" required></div>
-            <div class="field full"><label for="tr-loc">Where's the vehicle? *</label><input id="tr-loc" name="location" placeholder="Address, cross streets or freeway exit" required></div>
-            <div class="field"><label for="tr-veh">Vehicle *</label><input id="tr-veh" name="vehicle" placeholder="Year, make, model" required></div>
-            <div class="field"><label for="tr-issue">What's wrong? *</label>
-              <select id="tr-issue" name="issue" required>
-                <option value="">Choose one</option>
-                <option>Needs a tow</option><option>Accident</option><option>Won't start / battery</option><option>Flat tire</option><option>Locked out</option><option>Out of fuel</option><option>Stuck (ditch, mud, snow)</option><option>Heavy duty or truck</option><option>Spill cleanup</option><option>Something else</option>
-              </select>
-            </div>
-          </div>
-          <button class="btn btn-call" type="submit">Send request</button>
-          <p class="form-status" role="status" hidden></p>
-        </form>
+        <!-- Towbook: CONFIG.TOWBOOK_MODE in src/config.js. "none" (now) keeps this form, posting to CONFIG.FORM_ENDPOINT_TOW
+             (empty for now: shows a call-us note and sends nothing). "link" and "embed" swap it for TOWBOOK_URL. See README.md, "Towbook". -->
+        <div class="tow-online" id="tow-online">
+          <form class="form" id="tow-request" method="post" aria-labelledby="tr-h" novalidate>
+            <h3 id="tr-h">Not urgent? Send us the details</h3>
+            <p class="hint">For emergencies, call. We answer 24/7.</p>
+            <div class="hp" aria-hidden="true"><label for="tr-website">Leave this empty</label><input id="tr-website" name="website" tabindex="-1" autocomplete="off"></div>
+            <fieldset class="fs fs-plain">
+              <legend class="sr">Your details</legend>
+              <div class="fields two">
+                <div class="field"><label for="tr-name">Name *</label><input id="tr-name" name="name" autocomplete="name" required data-msg="Enter your name."></div>
+                <div class="field"><label for="tr-phone">Phone *</label><input id="tr-phone" name="phone" type="tel" autocomplete="tel" required data-msg="Enter a phone number."></div>
+                <div class="field full"><label for="tr-loc">Pickup location *</label>
+                  <div class="loc-row"><input id="tr-loc" name="location" placeholder="Address, cross streets or freeway exit" required data-msg="Tell us where the vehicle is."><button class="btn btn-line btn-geo" id="tr-geo" type="button" hidden><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Use my location</button></div>
+                  <p class="geo-note" id="tr-geo-note" aria-live="polite"></p>
+                </div>
+                <div class="field"><label for="tr-veh">Vehicle year, make and model *</label><input id="tr-veh" name="vehicle" placeholder="Year, make, model" required data-msg="Enter the vehicle's year, make and model."></div>
+                <div class="field"><label for="tr-issue">What happened? *</label>
+                  <select id="tr-issue" name="issue" required data-msg="Choose what happened.">
+                    <option value="">Choose one</option>
+                    <option>Needs a tow</option><option>Accident</option><option>Won't start / battery</option><option>Flat tire</option><option>Locked out</option><option>Out of fuel</option><option>Stuck (ditch, mud, snow)</option><option>Heavy duty or truck</option><option>Spill cleanup</option><option>Something else</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+            <button class="btn btn-call" type="submit">Send details</button>
+            <div class="form-status" role="status" aria-live="polite" hidden></div>
+          </form>
+        </div>
+        <!-- Towbook QR: hidden until CONFIG.TOWBOOK_QR_SRC points at the file Jennifer sends. Don't describe what it does until she confirms. -->
+        <figure class="qr" id="towbook-qr" hidden>
+          <img alt="Towbook QR code" width="160" height="160" decoding="async">
+          <figcaption><span class="ph ph-wrap">[QR CAPTION: confirm what this QR does]</span></figcaption>
+        </figure>
       </div>
       <div class="lane" aria-hidden="true"></div>
     </div>

@@ -41,41 +41,7 @@ const f1 = (n) => Math.round(n * 10) / 10;
   });
 })();
 
-(function forms() {
-  // TODO: set each form's endpoint and recipient once Jennifer says who gets them. Nothing is sent now.
-  D.querySelectorAll('form[data-endpoint]').forEach((f) => {
-    f.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!f.checkValidity()) { f.reportValidity(); return; }
-      const st = f.querySelector('.form-status');
-      st.hidden = false;
-      st.textContent = 'Thanks. This is a concept preview, so this form isn’t connected yet and nothing was sent. For a tow right now, call 248-356-6011.';
-    });
-  });
-})();
-
-// Next public auction: one editable file, data/auction.json ({ "date": "YYYY-MM-DD" or null, "showFromDaysBefore": 30 }).
-// The date shows from showFromDaysBefore days ahead through the auction day; otherwise the block says to call.
-// ?auction=YYYY-MM-DD previews a date without editing the file.
-(function auction() {
-  const box = D.getElementById('auction-next');
-  if (!box) return;
-  const show = (a) => {
-    const m = a && typeof a.date === 'string' && /^(\d{4})-(\d{2})-(\d{2})$/.exec(a.date);
-    if (!m) return;
-    const day = new Date(+m[1], +m[2] - 1, +m[3]), today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const lead = Number.isFinite(+a.showFromDaysBefore) ? +a.showFromDaysBefore : 30;
-    const diff = Math.round((day - today) / 864e5);
-    if (diff < 0 || diff > lead) return;
-    const when = day.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-    box.classList.add('is-set');
-    box.querySelector('.an-date').textContent = diff === 0 ? 'Today, ' + when : when;
-  };
-  const q = new URLSearchParams(location.search).get('auction');
-  if (q) return show({ date: q, showFromDaysBefore: 3650 });
-  fetch('data/auction.json', { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).then(show).catch(() => {});
-})();
+// Forms, Towbook and the next auction banner live in src/main.js (works with or without this file).
 
 // Mode changes (window dragged across the breakpoint, motion setting flipped): rebuild cleanly.
 [mqDesk, mqReduce].forEach((mq) => mq.addEventListener('change', () => location.reload()));
@@ -477,10 +443,10 @@ function desktop(gsap, ST) {
     const icons = ['i-key', 'i-bolt', 'i-tire', 'i-fuel', 'i-battery'];
     const rTop = M.roadside.top + 20, rBot = Math.max(rTop + 200, M.roadside.bot - 10);
     icons.forEach((ic, i) => { svg += iconSign(T.cx + 70, lerp(rTop, rBot, i / (icons.length - 1)), ic); });
-    // freeway shields and the Ohio sign
+    // freeway shields and the freight lanes sign
     const outF = F.cx + 98;
     svg += shieldI(outF, R.p1 + 150, '696') + shieldM(outF, R.p1 + 215, '10') + shieldI(outF, R.p1 + 280, '75');
-    svg += greenSign(F.cx + 120, R.p1 + 420, 96, 64, ['OHIO', '↓'], 22);
+    svg += greenSign(F.cx + 116, R.p1 + 420, 132, 64, ['MI / OH / IN', '↓'], 22, 'LANES');
     // exit signs for each city in the service area
     const cities = ['Southfield', 'Detroit', 'Farmington Hills', 'Dearborn', 'Oak Park', 'Lathrup Village', 'Royal Oak'];
     const aTop = Sa.cTop + 30, aBot = Sa.cBot - 40;

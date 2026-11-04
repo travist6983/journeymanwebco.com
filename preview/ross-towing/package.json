@@ -1,0 +1,9 @@
+{
+  "name": "ross-towing-preview",
+  "private": true,
+  "type": "module",
+  "description": "Static preview site. No build step; package.json only exists to run the unit tests.",
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\""
+  }
+}
