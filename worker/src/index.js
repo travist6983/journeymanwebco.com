@@ -15,7 +15,9 @@ const FROM = "Journeyman Web Co. <form@send.journeymanwebco.com>";
 const FALLBACK = "Call 248-505-9421 or email travis@journeymanwebco.com.";
 
 // Lead tracking
-const TRACK_ORIGIN = "https://journeymanwebco.com";
+// Pages that may send tracking events: the Journeyman site and its previews, plus client concept
+// sites on GitHub Pages (travist6983.github.io/<repo>/) while they're in review.
+const TRACK_ORIGINS = ["https://journeymanwebco.com", "https://travist6983.github.io"];
 const LEAD_ID = /^[a-z0-9]{6,8}$/;
 const EVENT_TYPES = new Set([
   "visit", "engaged", "click_call", "click_text", "click_email", "click_review_cta",
@@ -257,7 +259,7 @@ async function track(request, env, ctx) {
   if (request.method !== "POST") return new Response(null, { status: 405 });
   const origin = request.headers.get("Origin") || "";
   // TRACK_ORIGIN is only set for local testing.
-  if (origin !== (env.TRACK_ORIGIN || TRACK_ORIGIN)) return new Response(null, { status: 403 });
+  if (!(env.TRACK_ORIGIN ? [env.TRACK_ORIGIN] : TRACK_ORIGINS).includes(origin)) return new Response(null, { status: 403 });
 
   const done = new Response(null, { status: 204 });
   const ua = request.headers.get("User-Agent") || "";
